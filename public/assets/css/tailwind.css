@@ -920,6 +920,10 @@ body{
   margin-right: 1rem;
 }
 
+.mb-8{
+  margin-bottom: 2rem;
+}
+
 .block{
   display: block;
 }
@@ -1056,6 +1060,10 @@ body{
   width: 72px;
 }
 
+.w-screen{
+  width: 100vw;
+}
+
 .max-w-\[712px\]{
   max-width: 712px;
 }
@@ -1114,6 +1122,10 @@ body{
 
 .resize{
   resize: both;
+}
+
+.list-disc{
+  list-style-type: disc;
 }
 
 .grid-cols-2{
@@ -1518,6 +1530,11 @@ body{
   line-height: 1rem;
 }
 
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .font-medium{
   font-weight: 500;
 }
@@ -1607,6 +1624,11 @@ body{
   color: rgb(219 1 93 / var(--tw-text-opacity));
 }
 
+.text-pink-20{
+  --tw-text-opacity: 1;
+  color: rgb(234 18 114 / var(--tw-text-opacity));
+}
+
 .placeholder-gray-10::-moz-placeholder{
   --tw-placeholder-opacity: 1;
   color: rgb(132 132 132 / var(--tw-placeholder-opacity));
@@ -1673,6 +1695,10 @@ body{
 
 .duration-100{
   transition-duration: 100ms;
+}
+
+.duration-300{
+  transition-duration: 300ms;
 }
 
 .ease-in-out{
@@ -2111,9 +2137,27 @@ select:focus > option:checked {
   background-color: rgb(238 238 238 / var(--tw-bg-opacity));
 }
 
+.hover\:font-semibold:hover{
+  font-weight: 600;
+}
+
 .hover\:text-dark-1:hover{
   --tw-text-opacity: 1;
   color: rgb(48 48 48 / var(--tw-text-opacity));
+}
+
+.hover\:text-pink-10:hover{
+  --tw-text-opacity: 1;
+  color: rgb(255 6 66 / var(--tw-text-opacity));
+}
+
+.hover\:underline:hover{
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
+.hover\:underline-offset-2:hover{
+  text-underline-offset: 2px;
 }
 
 .hover\:opacity-80:hover{
@@ -2122,6 +2166,17 @@ select:focus > option:checked {
 
 .hover\:opacity-75:hover{
   opacity: 0.75;
+}
+
+.hover\:shadow-2xl:hover{
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.hover\:shadow-pink-10\/50:hover{
+  --tw-shadow-color: rgb(255 6 66 / 0.5);
+  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .focus\:ring-0:focus{
@@ -2606,6 +2661,10 @@ select:focus > option:checked {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .lg\:flex-row{
+    flex-direction: row;
+  }
+
   .lg\:flex-nowrap{
     flex-wrap: nowrap;
   }
@@ -2626,6 +2685,12 @@ select:focus > option:checked {
     --tw-space-x-reverse: 0;
     margin-right: calc(2.5rem * var(--tw-space-x-reverse));
     margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .lg\:space-x-4 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1rem * var(--tw-space-x-reverse));
+    margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
   .lg\:py-\[18px\]{
