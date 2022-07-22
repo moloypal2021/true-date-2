@@ -28,36 +28,38 @@
         $el.classList.remove('show-scrollbar');
     }, 3000);">
         <!-- Header Section Start -->
-        <header class="container bg-white/50 backdrop-blur-lg fixed top-0 inset-x-0 z-50">
-            <nav class="flex items-center justify-between py-4 sm:py-6 md:py-8 3k:py-10">
-                <a href="#" class="">
-                    <img src="./assets/images/logo-dark.svg" alt=""
-                        class="w-32 sm:w-48 md:w-64 3k:w-[320px] inline-block">
-                </a>
+        <header class="bg-white/50 backdrop-blur-lg fixed top-0 inset-x-0 z-50">
+            <div class="container">
+                <nav class="flex items-center justify-between py-4 sm:py-6 md:py-8 3k:py-10">
+                    <a href="#" class="">
+                        <img src="./assets/images/logo-dark.svg" alt=""
+                            class="w-32 sm:w-48 md:w-64 3k:w-[320px] inline-block">
+                    </a>
 
-                <div class="flex items-center space-x-2 sm:space-x-3 md:space-x-6 xl:space-x-12">
-                    <div class=" hidden sm:flex items-center space-x-0.5 sm:space-x-1.5 md:space-x-2">
-                        <div class="flex h-3 w-3 3k:w-3.5 3k:h-3.5 relative items-center justify-center">
-                            <span
-                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-10 opacity-75"></span>
-                            <span
-                                class="relative inline-flex rounded-full w-2 h-2 3k:w-2.5 3k:h-2.5 bg-green-10"></span>
+                    <div class="flex items-center space-x-2 sm:space-x-3 md:space-x-6 xl:space-x-12">
+                        <div class=" hidden sm:flex items-center space-x-0.5 sm:space-x-1.5 md:space-x-2">
+                            <div class="flex h-3 w-3 3k:w-3.5 3k:h-3.5 relative items-center justify-center">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-10 opacity-75"></span>
+                                <span
+                                    class="relative inline-flex rounded-full w-2 h-2 3k:w-2.5 3k:h-2.5 bg-green-10"></span>
+                            </div>
+                            <h4 class="text-sm sm:text-base lg:text-lg 2xl:text-xl 3k:text-2xl font-medium text-dark-1">
+                                3,999
+                            </h4>
                         </div>
-                        <h4 class="text-sm sm:text-base lg:text-lg 2xl:text-xl 3k:text-2xl font-medium text-dark-1">
-                            3,999
-                        </h4>
-                    </div>
 
-                    <div class="flex items-center space-x-3 sm:space-x-3 md:space-x-5">
-                        <button @click="loginModal = true"
-                            class="text-base lg:text-lg 2xl:text-xl 3k:text-2xl font-medium text-transparent text-pink-10 bg-gradient-to-r from-pink-10 to-pink-20 bg-clip-text hover:text-dark-1">Login</button>
+                        <div class="flex items-center space-x-3 sm:space-x-3 md:space-x-5">
+                            <button @click="loginModal = true"
+                                class="text-base lg:text-lg 2xl:text-xl 3k:text-2xl font-medium text-transparent text-pink-10 bg-gradient-to-r from-pink-10 to-pink-20 bg-clip-text hover:text-dark-1">Login</button>
 
-                        <button @click="registerModal = true"
-                            class="text-sm sm:text-lg lg:text-xl 3k:text-2xl font-medium text-white bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 px-3 sm:px-6 4k:px-12 py-2 sm:py-2.5 4k:py-3 rounded-full hover:opacity-80">Join
-                            Free</button>
+                            <button @click="registerModal = true"
+                                class="text-sm sm:text-lg lg:text-xl 3k:text-2xl font-medium text-white bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 px-3 sm:px-6 4k:px-12 py-2 sm:py-2.5 4k:py-3 rounded-full hover:opacity-80">Join
+                                Free</button>
+                        </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </header>
         <!-- Header Section End -->
 
@@ -469,14 +471,13 @@
 
                     <!-- Steps Number -->
                     <div class="flex items-center mb-5 sm:mb-10 md:mb-12 lg:mb-[60px]">
-
                         <!-- 1 -->
                         <div class="relative w-1/5">
                             <div class="w-1/2 h-1 absolute top-1/2 right-0 -translate-y-1/2 z-0 "
                                 x-bind:class="step === 1 ? 'bg-pink-1' : 'bg-pink-1'">
                             </div>
                             <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 1 ? 'bg-gray-3' : ''">
+                                x-bind:class="step === 1 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 drop-shadow-20' : ''">
                                 <div
                                     class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg text-white font-bold bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 drop-shadow-20">
                                     <span x-show="step === 1">1</span>
@@ -496,9 +497,9 @@
                                 x-bind:class="step === 2 ? 'bg-pink-1' : 'bg-pink-1'">
                             </div>
                             <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 2 ? 'bg-gray-3' : ''">
+                                x-bind:class="step === 2 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 drop-shadow-20' : ''">
                                 <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
-                                    x-bind:class="step >= 2 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-dark-70 text-gray-15'">
+                                    x-bind:class="step >= 2 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-pink-10 text-white'">
                                     <span x-show="step <= 2">2</span>
                                     <svg x-show="step > 2" width="28" height="28" viewBox="0 0 28 28" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -517,9 +518,9 @@
                                 x-bind:class="step === 3 ? 'bg-pink-1' : 'bg-pink-1'">
                             </div>
                             <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 3 ? 'bg-gray-3' : ''">
+                                x-bind:class="step === 3 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 drop-shadow-20' : ''">
                                 <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
-                                    x-bind:class="step >= 3 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-dark-70 text-gray-15'">
+                                    x-bind:class="step >= 3 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-pink-10 text-white'">
                                     <span x-show="step <= 3">3</span>
                                     <svg x-show="step > 3" width="28" height="28" viewBox="0 0 28 28" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -538,9 +539,9 @@
                                 x-bind:class="step === 4 ? 'bg-pink-1' : 'bg-pink-1'">
                             </div>
                             <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 4 ? 'bg-gray-3' : ''">
+                                x-bind:class="step === 4 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 drop-shadow-20' : ''">
                                 <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
-                                    x-bind:class="step >= 4 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-dark-70 text-gray-15'">
+                                    x-bind:class="step >= 4 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-pink-10 text-white'">
                                     <span x-show="step <= 4">4</span>
                                     <svg x-show="step > 4" width="28" height="28" viewBox="0 0 28 28" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -559,9 +560,9 @@
                                 x-bind:class="step === 5 ? 'bg-pink-1' : 'bg-pink-1'">
                             </div>
                             <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 5 ? 'bg-gray-3' : ''">
+                                x-bind:class="step === 5 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 drop-shadow-20' : ''">
                                 <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
-                                    x-bind:class="step >= 5 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-dark-70 text-gray-15'">
+                                    x-bind:class="step >= 5 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-pink-10 text-white'">
                                     <span x-show="step <= 5">5</span>
                                     <svg x-show="step > 5" width="28" height="28" viewBox="0 0 28 28" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -572,7 +573,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <!-- Step-1 -->
@@ -581,10 +581,10 @@
                         <div class="grid grid-cols-2 gap-2 sm:gap-8 md:gap-[60px] mb-5 sm:mb-12 md:mb-[70px]">
                             <div>
                                 <label for=""
-                                    class="text-sm sm:text-base md:text-lg text-gray-70 block mb-1.5 sm:mb-2.5 md:mb-4">I
+                                    class="text-sm sm:text-base md:text-lg text-gray-1 block mb-1.5 sm:mb-2.5 md:mb-4">I
                                     am</label>
                                 <select
-                                    class="border border-gray-50 rounded-md text-base sm:text-lg md:text-xl text-white px-3 py-[14px] focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full bg-dark-20">
+                                    class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full bg-white">
                                     <option value="">Man</option>
                                     <option value="">Woman</option>
                                 </select>
@@ -592,10 +592,10 @@
 
                             <div>
                                 <label for=""
-                                    class="text-sm sm:text-base md:text-lg text-gray-70 block mb-1.5 sm:mb-2.5 md:mb-4">Looking
+                                    class="text-sm sm:text-base md:text-lg text-gray-1 block mb-1.5 sm:mb-2.5 md:mb-4">Looking
                                     for</label>
                                 <select
-                                    class="border border-gray-50 rounded-md text-base sm:text-lg md:text-xl text-white px-3 py-[14px] focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full bg-dark-20">
+                                    class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full bg-white">
                                     <option value="">Woman</option>
                                     <option value="">Man</option>
                                 </select>
@@ -604,7 +604,7 @@
 
                         <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
                             <button @click="step = 2"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2 col-start-2">
+                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2 col-start-2">
                                 <span>Next</span>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -621,16 +621,16 @@
 
                         <div class="mb-5 sm:mb-12 md:mb-[70px]">
                             <label for=""
-                                class="text-sm sm:text-base md:text-lg text-gray-70 block mb-1.5 sm:mb-2.5 md:mb-4">Location</label>
+                                class="text-sm sm:text-base md:text-lg text-gray-1 block mb-1.5 sm:mb-2.5 md:mb-4">Location</label>
                             <div class="flex items-center space-x-2 sm:space-x-3 md:space-x-5">
                                 <select
-                                    class="border border-gray-50 rounded-md text-base sm:text-lg md:text-xl text-white px-3 py-[14px] bg-dark-20 focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-5/12">
+                                    class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] bg-white focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-5/12">
                                     <option value="">UK</option>
                                     <option value="">US</option>
                                     <option value="">FR</option>
                                 </select>
                                 <select
-                                    class="border border-gray-50 rounded-md text-base sm:text-lg md:text-xl text-white px-3 py-[14px] bg-dark-20 focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-7/12">
+                                    class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] bg-white focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-7/12">
                                     <option value="">London</option>
                                     <option value="">London1</option>
                                     <option value="">London2</option>
@@ -640,7 +640,7 @@
 
                         <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
                             <button @click="step = 1"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gray-50 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gray-2 hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -650,7 +650,7 @@
                                 <span>back</span>
                             </button>
                             <button @click="step = 3"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 <span>Next</span>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -681,7 +681,7 @@
 
                         <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
                             <button @click="step = 2"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gray-50 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gray-2 hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -691,7 +691,7 @@
                                 <span>back</span>
                             </button>
                             <button @click="step = 4"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 <span>Next</span>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -716,7 +716,7 @@
 
                         <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
                             <button @click="step = 3"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gray-50 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gray-2 hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -726,7 +726,7 @@
                                 <span>back</span>
                             </button>
                             <button @click="step = 5"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 <span>Next</span>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -751,7 +751,7 @@
 
                         <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
                             <button @click="step = 4"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gray-50 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gray-2 hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -761,7 +761,7 @@
                                 <span>back</span>
                             </button>
                             <button @click="registerModal = false; activeModal = true"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 done
                             </button>
                         </div>
