@@ -20,15 +20,10 @@
 </head>
 
 <body>
-    <div class="bg-white relative h-screen overflow-y-auto show-scrollbar flex flex-col" x-data="modal()" x-on:scroll=" $el.classList.add('show-scrollbar');
-    $el.classList.remove('hide-scrollbar');
-
-    setTimeout(() => {
-        $el.classList.add('hide-scrollbar');
-        $el.classList.remove('show-scrollbar');
-    }, 3000);">
+    <div class="bg-white relative h-screen overflow-y-auto show-scrollbar flex flex-col" x-data="modal()"
+        x-on:scroll="showHideScroll(); reactOnScroll();" x-init="reactOnScroll()">
         <!-- Header Section Start -->
-        <header class="bg-white/50 backdrop-blur-lg fixed top-0 inset-x-0 z-50">
+        <header class="bg-white/50 backdrop-blur-lg fixed top-0 inset-x-0 z-50" :class="hasScrolled ? 'shadow-1' : ''">
             <div class="container">
                 <nav class="flex items-center justify-between py-4 sm:py-6 md:py-8 3k:py-10">
                     <a href="#" class="">
@@ -452,7 +447,7 @@
         <!-- Registration Modal Start -->
         <div x-cloak x-show="registerModal" x-on:scroll="scrollbar()"
             class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full h-screen flex overflow-y-auto show-scrollbar py-24">
-            <div class="max-w-[712px] w-full m-auto bg-white rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative"
+            <div class="max-w-[712px] w-full m-auto bg-white shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative"
                 x-data="{step : 1}">
                 <button @click="registerModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
                     <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -668,15 +663,9 @@
 
                         <div class="mb-5 sm:mb-12 md:mb-[70px]">
                             <label for=""
-                                class="text-sm sm:text-base md:text-lg text-gray-70 block mb-1.5 sm:mb-2.5 md:mb-4">Age</label>
-                            <!-- <select
-                             class="border border-gray-50 rounded-md text-base sm:text-lg md:text-xl text-white px-3 py-[14px] bg-dark-20 focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full">
-                             <option value="">18</option>
-                             <option value="">19</option>
-                             <option value="">20</option>
-                         </select> -->
+                                class="text-sm sm:text-base md:text-lg text-gray-1 block mb-1.5 sm:mb-2.5 md:mb-4">Age</label>
                             <input type="number" placeholder="Age"
-                                class="border border-gray-50 rounded-md text-base sm:text-lg md:text-xl text-white px-3 py-[14px] bg-dark-20 focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full">
+                                class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] bg-white focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full">
                         </div>
 
                         <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
@@ -708,9 +697,9 @@
 
                         <div class="mb-5 sm:mb-12 md:mb-[70px]">
                             <label for=""
-                                class="text-sm sm:text-base md:text-lg text-gray-70 block mb-1.5 sm:mb-2.5 md:mb-4">Nickname</label>
+                                class="text-sm sm:text-base md:text-lg text-gray-1 block mb-1.5 sm:mb-2.5 md:mb-4">Nickname</label>
                             <input type="text" placeholder="Nickname"
-                                class="border border-gray-50 rounded-md text-base sm:text-lg md:text-xl text-white px-3 py-[14px] bg-dark-20 focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full">
+                                class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] bg-white focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full">
 
                         </div>
 
@@ -745,7 +734,7 @@
                             <label for=""
                                 class="text-sm sm:text-base md:text-lg text-gray-70 block mb-1.5 sm:mb-2.5 md:mb-4">Email</label>
                             <input type="text" placeholder="It will not be shared. 100% Privacy."
-                                class="border border-gray-50 rounded-md text-base sm:text-lg md:text-xl text-white px-3 py-[14px] bg-dark-20 focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full">
+                                class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] bg-white focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full">
 
                         </div>
 
@@ -776,18 +765,18 @@
         <div x-cloak x-show="activeModal" x-on:scroll="scrollbar()"
             class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full flex overflow-y-auto show-scrollbar py-24">
             <div
-                class="max-w-[712px] w-full m-auto bg-dark-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+                class="max-w-[712px] w-full m-auto bg-white shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
                 <button @click="activeModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
                     <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
-                            fill="#414141" />
+                            fill="#979797" />
                     </svg>
                 </button>
 
                 <!-- Active input -->
                 <div class="px-4 sm:px-8 md:px-10 pb-5 sm:pb-6 md:pb-[30px] border-b border-gray-50">
-                    <h1 class="text-xl sm:text-3xl md:text-4xl text-white font-bold text-center mb-2 sm:mb-4 md:mb-5">
+                    <h1 class="text-xl sm:text-3xl md:text-4xl text-dark-1 font-bold text-center mb-2 sm:mb-4 md:mb-5">
                         Active your account now</h1>
                     <p
                         class="text-sm sm:text-base md:text-lg max-w-[400px] mx-auto sm:text-center text-gray-40 mb-4 sm:mb-6 md:mb-[30px]">
@@ -802,12 +791,12 @@
                                 fill="#117C15" />
                         </svg>
                         <input type="text" placeholder="bill.sanders@example.com" disabled
-                            class="w-full bg-dark-80 py-2.5 md:py-4 px-9 md:px-12 rounded-md border-0 focus-within:ring-pink-20 text-white placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                            class="w-full bg-gray-3/60 py-2.5 md:py-4 px-9 md:px-12 rounded-md border-0 focus-within:ring-pink-20 text-dark-1 placeholder-gray-10 text-sm sm:text-base md:text-lg">
                     </div>
 
                     <div class="text-center">
                         <button
-                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">Activate</button>
+                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">Activate</button>
                     </div>
                 </div>
 
@@ -819,20 +808,20 @@
                         on the button below.</p>
                     <div class="max-w-[430px] mx-auto mb-5 sm:mb-8 md:mb-11">
                         <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-gray-80 mb-2 sm:mb-3 md:mb-4">
+                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-gray-1 mb-2 sm:mb-3 md:mb-4">
                             <span>Email</span>
                             <svg class="w-3 sm:w-3.5 md:w-4" viewBox="0 0 16 16" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M8.00065 1.3335C4.32454 1.3335 1.33398 4.32405 1.33398 8.00016C1.33398 11.6763 4.32454 14.6668 8.00065 14.6668C11.6768 14.6668 14.6673 11.6763 14.6673 8.00016C14.6673 4.32405 11.6768 1.3335 8.00065 1.3335ZM8.00065 11.8891C7.69398 11.8891 7.4451 11.6402 7.4451 11.3335C7.4451 11.0268 7.69398 10.7779 8.00065 10.7779C8.30732 10.7779 8.55621 11.0268 8.55621 11.3335C8.55621 11.6402 8.30732 11.8891 8.00065 11.8891ZM8.8801 8.35683C8.68343 8.44739 8.55621 8.64572 8.55621 8.86183V9.11127C8.55621 9.41794 8.30787 9.66683 8.00065 9.66683C7.69343 9.66683 7.4451 9.41794 7.4451 9.11127V8.86183C7.4451 8.2135 7.82621 7.61905 8.41454 7.34738C8.98065 7.08683 9.38954 6.39516 9.38954 6.05572C9.38954 5.29016 8.76676 4.66683 8.00065 4.66683C7.23454 4.66683 6.61176 5.29016 6.61176 6.05572C6.61176 6.36239 6.36343 6.61127 6.05621 6.61127C5.74898 6.61127 5.50065 6.36239 5.50065 6.05572C5.50065 4.67739 6.62232 3.55572 8.00065 3.55572C9.37898 3.55572 10.5007 4.67739 10.5007 6.05572C10.5007 6.80627 9.84954 7.90961 8.8801 8.35683Z"
-                                    fill="#797979" />
+                                    fill="#5C5C5C" />
                             </svg>
                         </label>
                         <input type="text" placeholder="jackson.graham@example.com"
-                            class="border border-gray-50 rounded-md text-base sm:text-lg md:text-xl text-white px-3 py-[14px] bg-dark-20 focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full mb-5 sm:mb-7 md:mb-9">
+                            class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] bg-white focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full mb-5 sm:mb-7 md:mb-9">
                         <div class="text-center">
                             <button
-                                class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-gray-50 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">resend</button>
+                                class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-dark-1 px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-white border border-pink-1 hover:opacity-80 uppercase transition-all duration-100 ease-in-out">resend</button>
                         </div>
                     </div>
 
@@ -892,7 +881,7 @@
                             Email
                         </label>
                         <input type="text" placeholder="jackson.graham@example.com"
-                            class="w-full bg-transparent py-2.5 md:py-3.5 px-3 md:px-4 rounded-md border border-gray-50  focus-within:border-pink-20 focus-within:ring-0 text-dark-1 placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                            class="w-full bg-transparent py-2.5 md:py-3.5 px-3 md:px-4 rounded-md border border-gray-4  focus-within:border-pink-20 focus-within:ring-0 text-dark-1 placeholder-gray-10 text-sm sm:text-base md:text-lg">
                     </div>
 
                     <div class="mb-5">
@@ -903,7 +892,7 @@
 
                         <div class="flex items-center relative" x-data="{show : false}">
                             <input :type="show? 'text' : 'password'" placeholder="Password"
-                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-gray-50  focus-within:border-pink-20 focus-within:ring-0 text-dark-1 placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-gray-4  focus-within:border-pink-20 focus-within:ring-0 text-dark-1 placeholder-gray-10 text-sm sm:text-base md:text-lg">
 
                             <div class="absolute right-0 mr-4 cursor-pointer" @click="show = !show">
                                 <svg class="w-6 md:w-7" x-show="!show" viewBox="0 0 20 21" fill="none"
@@ -941,7 +930,7 @@
 
                     <div class="text-right mb-5 sm:mb-12 md:mb-20">
                         <button @click="forgetModal = true; loginModal= false"
-                            class="text-sm sm:text-base font-semibold text-pink-5 0 uppercase">Forgot
+                            class="text-sm sm:text-base font-semibold text-pink-50 uppercase">Forgot
                             password?</button>
                     </div>
 
@@ -986,26 +975,26 @@
         <div x-cloak x-show="forgetModal" x-on:scroll="scrollbar()"
             class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
             <div
-                class="max-w-[712px] w-full m-auto bg-dark-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+                class="max-w-[712px] w-full m-auto bg-white shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
                 <button @click="forgetModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
                     <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
-                            fill="#414141" />
+                            fill="#979797" />
                     </svg>
                 </button>
                 <h1
-                    class="text-2xl sm:text-3xl md:text-4xl text-white font-bold sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
+                    class="text-2xl sm:text-3xl md:text-4xl text-dark-1 font-bold sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
                     Password reminder</h1>
 
                 <div class="max-w-[448px] mx-auto relative mb-5 sm:mb-8 md:mb-10">
                     <div class="mb-5 sm:mb-12 md:mb-20">
                         <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-gray-80 mb-2 sm:mb-3 md:mb-4">
+                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-gray-1 mb-2 sm:mb-3 md:mb-4">
                             Email
                         </label>
                         <input type="text" placeholder="Your email address"
-                            class="w-full bg-transparent py-2.5 md:py-3.5 px-3 md:px-4 rounded-md border border-gray-50  focus-within:border-pink-20 focus-within:ring-0 text-white placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                            class="w-full bg-transparent py-2.5 md:py-3.5 px-3 md:px-4 rounded-md border border-gray-4  focus-within:border-pink-20 focus-within:ring-0 text-dark-1 placeholder-gray-10 text-sm sm:text-base md:text-lg">
                     </div>
 
                     <div class="text-center">
@@ -1022,18 +1011,19 @@
         <!-- CheckMail Modal Start -->
         <div x-cloak x-show="checkMailModal" x-on:scroll="scrollbar()"
             class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
-            <div class="max-w-[712px] w-full m-auto bg-dark-20 rounded-[20px] py-[30px] sm:py-10 md:py-14 relative">
+            <div
+                class="max-w-[712px] w-full m-auto bg-white shadow-20 rounded-[20px] py-[30px] sm:py-10 md:py-14 relative">
                 <button @click="checkMailModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
                     <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
-                            fill="#414141" />
+                            fill="#979797" />
                     </svg>
                 </button>
 
                 <!-- Active input -->
-                <div class="px-4 sm:px-8 md:px-10 pb-5 sm:pb-6 md:pb-[30px] border-b border-gray-50">
-                    <h1 class="text-2xl sm:text-3xl md:text-4xl text-white font-bold sm:text-center mb-4 md:mb-5">
+                <div class="px-4 sm:px-8 md:px-10 pb-5 sm:pb-6 md:pb-[30px] border-b border-gray-4">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl text-dark-1 font-bold sm:text-center mb-4 md:mb-5">
                         Check your email</h1>
                     <p
                         class="text-sm sm:text-base md:text-lg max-w-[400px] mx-auto sm:text-center text-gray-40 mb-4 sm:mb-6 md:mb-[30px]">
@@ -1056,9 +1046,9 @@
                     </div>
 
                     <div class="flex items-center space-x-3.5 mb-5 sm:mb-8 md:mb-10">
-                        <div class="w-full h-[1px] bg-gray-50"></div>
+                        <div class="w-full h-[1px] bg-gray-4"></div>
                         <h6 class="text-sm sm:text-base text-gray-40 uppercase">or</h6>
-                        <div class="w-full h-[1px] bg-gray-50"></div>
+                        <div class="w-full h-[1px] bg-gray-4"></div>
                     </div>
 
                     <div class="text-center">
@@ -1092,42 +1082,56 @@
         <div x-cloak x-show="resetPassModal" x-on:scroll="scrollbar()"
             class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
             <div
-                class="max-w-[712px] w-full m-auto bg-dark-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+                class="max-w-[712px] w-full m-auto bg-white shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
                 <button @click="resetPassModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
                     <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
-                            fill="#414141" />
+                            fill="#979797" />
                     </svg>
                 </button>
                 <h1
-                    class="text-2xl sm:text-3xl md:text-4xl text-white font-bold sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
+                    class="text-2xl sm:text-3xl md:text-4xl text-dark-1 font-bold sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
                     Reset password</h1>
 
                 <div class="max-w-[448px] mx-auto relative mb-5 sm:mb-8 md:mb-10">
                     <div class="mb-4 sm:mb-8 md:mb-10">
                         <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-gray-80 mb-2 sm:mb-3 md:mb-4">
+                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-gray-1 mb-2 sm:mb-3 md:mb-4">
                             Password
                         </label>
 
                         <div class="flex items-center relative" x-data="{show : false}">
                             <input :type="show? 'text' : 'password'" placeholder="Password"
-                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-gray-50  focus-within:border-pink-20 focus-within:ring-0 text-white placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-gray-4  focus-within:border-pink-20 focus-within:ring-0 text-dark-1 placeholder-gray-10 text-sm sm:text-base md:text-lg">
 
                             <div class="absolute right-0 mr-4 cursor-pointer" @click="show = !show">
                                 <svg class="w-5 md:w-6" x-show="!show" viewBox="0 0 23 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
-                                        d="M19.337.227a.818.818 0 0 1 1.13 0c.32.302.32.802 0 1.105l-1.94 1.897c1.546 1.376 2.857 3.231 3.838 5.462a.771.771 0 0 1 0 .615c-2.281 5.192-6.344 8.298-10.866 8.298h-.01c-2.058 0-4.031-.657-5.77-1.856l-2.068 2.023a.8.8 0 0 1-.565.229.783.783 0 0 1-.565-.23.761.761 0 0 1-.096-.98l.032-.04L18.228 1.331c.021-.021.043-.042.053-.063a.277.277 0 0 0 .054-.062l1.002-.98Zm-7.835.181c1.525 0 3.007.354 4.372 1.022L12.313 4.91a5.087 5.087 0 0 0-.81-.073c-2.357 0-4.266 1.866-4.266 4.17 0 .271.032.542.075.792l-3.946 3.857C2.3 12.448 1.372 10.99.636 9.31a.77.77 0 0 1 0-.615C2.918 3.504 6.981.408 11.492.408h.01Zm3.516 6.25-1.162 1.137c.192.354.299.771.299 1.209 0 1.428-1.195 2.596-2.656 2.596a2.7 2.7 0 0 1-1.237-.292L9.1 12.444a4.38 4.38 0 0 0 2.4.72c2.345 0 4.254-1.867 4.254-4.16 0-.865-.277-1.678-.736-2.346Z"
-                                        fill="#747373" />
+                                        d="M19.337.227a.818.818 0 0 1 1.13 0c.32.302.32.802 0 1.105l-1.94 1.897c1.546 1.376 2.857 3.231 3.838 5.462a.771.771 0 0 1 0 .615c-2.281 5.192-6.344 8.298-10.866 8.298h-.01c-2.058 0-4.031-.657-5.77-1.856l-2.068 2.023a.8.8 0 0 1-.565.229.783.783 0 0 1-.565-.23.761.761 0 0 1-.096-.98l.032-.04L18.228 1.331c.021-.021.043-.042.053-.063a.277.277 0 0 0 .054-.062l1.002-.98Zm-7.835.181c1.525 0 3.007.354 4.372 1.022l-3.561 3.48a5.087 5.087 0 0 0-.81-.073c-2.357 0-4.266 1.866-4.266 4.17 0 .271.032.542.075.792l-3.946 3.857C2.3 12.448 1.372 10.99.636 9.31a.77.77 0 0 1 0-.615C2.918 3.504 6.981.408 11.492.408h.01Zm3.516 6.25-1.162 1.137c.192.354.299.771.299 1.209 0 1.428-1.195 2.596-2.656 2.596a2.7 2.7 0 0 1-1.237-.292L9.1 12.444a4.38 4.38 0 0 0 2.4.72c2.345 0 4.254-1.867 4.254-4.16 0-.865-.277-1.678-.736-2.346Z"
+                                        fill="url(#a)" />
+                                    <defs>
+                                        <linearGradient id="a" x1="2.113" y1="4.799" x2="18.65" y2="5.227"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#FF0642" />
+                                            <stop offset="1" stop-color="#EA1272" />
+                                        </linearGradient>
+                                    </defs>
                                 </svg>
                                 <svg class="w-5 md:w-6" x-show="show" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" fill="#747373" />
+                                    <path d="M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" fill="url(#a)" />
                                     <path
                                         d="M0 12s4.5-8.25 12-8.25S24 12 24 12s-4.5 8.25-12 8.25S0 12 0 12Zm12 5.25a5.25 5.25 0 1 0 0-10.5 5.25 5.25 0 0 0 0 10.5Z"
-                                        fill="#747373" />
+                                        fill="url(#a)" />
+                                    <defs>
+                                        <linearGradient id="a" x1="2.113" y1="4.799" x2="18.65" y2="5.227"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#FF0642" />
+                                            <stop offset="1" stop-color="#EA1272" />
+                                        </linearGradient>
+                                    </defs>
                                 </svg>
                             </div>
 
@@ -1136,27 +1140,41 @@
 
                     <div class="mb-5 sm:mb-12 md:mb-[60px]">
                         <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-gray-80 mb-2 sm:mb-3 md:mb-4">
+                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-gray-1 mb-2 sm:mb-3 md:mb-4">
                             Confirm Password
                         </label>
 
                         <div class="flex items-center relative" x-data="{show : false}">
                             <input :type="show? 'text' : 'password'" placeholder="Confirm Password"
-                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-gray-50  focus-within:border-pink-20 focus-within:ring-0 text-white placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-gray-4  focus-within:border-pink-20 focus-within:ring-0 text-dark-1 placeholder-gray-10 text-sm sm:text-base md:text-lg">
 
                             <div class="absolute right-0 mr-4 cursor-pointer" @click="show = !show">
                                 <svg class="w-5 md:w-6" x-show="!show" viewBox="0 0 23 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
-                                        d="M19.337.227a.818.818 0 0 1 1.13 0c.32.302.32.802 0 1.105l-1.94 1.897c1.546 1.376 2.857 3.231 3.838 5.462a.771.771 0 0 1 0 .615c-2.281 5.192-6.344 8.298-10.866 8.298h-.01c-2.058 0-4.031-.657-5.77-1.856l-2.068 2.023a.8.8 0 0 1-.565.229.783.783 0 0 1-.565-.23.761.761 0 0 1-.096-.98l.032-.04L18.228 1.331c.021-.021.043-.042.053-.063a.277.277 0 0 0 .054-.062l1.002-.98Zm-7.835.181c1.525 0 3.007.354 4.372 1.022L12.313 4.91a5.087 5.087 0 0 0-.81-.073c-2.357 0-4.266 1.866-4.266 4.17 0 .271.032.542.075.792l-3.946 3.857C2.3 12.448 1.372 10.99.636 9.31a.77.77 0 0 1 0-.615C2.918 3.504 6.981.408 11.492.408h.01Zm3.516 6.25-1.162 1.137c.192.354.299.771.299 1.209 0 1.428-1.195 2.596-2.656 2.596a2.7 2.7 0 0 1-1.237-.292L9.1 12.444a4.38 4.38 0 0 0 2.4.72c2.345 0 4.254-1.867 4.254-4.16 0-.865-.277-1.678-.736-2.346Z"
-                                        fill="#747373" />
+                                        d="M19.337.227a.818.818 0 0 1 1.13 0c.32.302.32.802 0 1.105l-1.94 1.897c1.546 1.376 2.857 3.231 3.838 5.462a.771.771 0 0 1 0 .615c-2.281 5.192-6.344 8.298-10.866 8.298h-.01c-2.058 0-4.031-.657-5.77-1.856l-2.068 2.023a.8.8 0 0 1-.565.229.783.783 0 0 1-.565-.23.761.761 0 0 1-.096-.98l.032-.04L18.228 1.331c.021-.021.043-.042.053-.063a.277.277 0 0 0 .054-.062l1.002-.98Zm-7.835.181c1.525 0 3.007.354 4.372 1.022l-3.561 3.48a5.087 5.087 0 0 0-.81-.073c-2.357 0-4.266 1.866-4.266 4.17 0 .271.032.542.075.792l-3.946 3.857C2.3 12.448 1.372 10.99.636 9.31a.77.77 0 0 1 0-.615C2.918 3.504 6.981.408 11.492.408h.01Zm3.516 6.25-1.162 1.137c.192.354.299.771.299 1.209 0 1.428-1.195 2.596-2.656 2.596a2.7 2.7 0 0 1-1.237-.292L9.1 12.444a4.38 4.38 0 0 0 2.4.72c2.345 0 4.254-1.867 4.254-4.16 0-.865-.277-1.678-.736-2.346Z"
+                                        fill="url(#a)" />
+                                    <defs>
+                                        <linearGradient id="a" x1="2.113" y1="4.799" x2="18.65" y2="5.227"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#FF0642" />
+                                            <stop offset="1" stop-color="#EA1272" />
+                                        </linearGradient>
+                                    </defs>
                                 </svg>
                                 <svg class="w-5 md:w-6" x-show="show" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" fill="#747373" />
+                                    <path d="M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" fill="url(#a)" />
                                     <path
                                         d="M0 12s4.5-8.25 12-8.25S24 12 24 12s-4.5 8.25-12 8.25S0 12 0 12Zm12 5.25a5.25 5.25 0 1 0 0-10.5 5.25 5.25 0 0 0 0 10.5Z"
-                                        fill="#747373" />
+                                        fill="url(#a)" />
+                                    <defs>
+                                        <linearGradient id="a" x1="2.113" y1="4.799" x2="18.65" y2="5.227"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#FF0642" />
+                                            <stop offset="1" stop-color="#EA1272" />
+                                        </linearGradient>
+                                    </defs>
                                 </svg>
                             </div>
 
@@ -1179,12 +1197,12 @@
         <div x-cloak x-show="thankyouModal" x-on:scroll="scrollbar()"
             class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
             <div
-                class="max-w-[712px] w-full m-auto bg-dark-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+                class="max-w-[712px] w-full m-auto bg-white shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
                 <button @click="thankyouModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
                     <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
-                            fill="#414141" />
+                            fill="#979797" />
                     </svg>
                 </button>
 
@@ -1210,7 +1228,7 @@
                         fill="#E90039" />
                 </svg>
 
-                <h1 class="text-2xl sm:text-3xl md:text-4xl text-white font-bold text-center capitalize mb-5">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl text-dark-1 font-bold text-center capitalize mb-5">
                     thank you!</h1>
                 <p class="text-sm sm:text-base md:text-lg text-center text-gray-40 mb-6 sm:mb-12 md:mb-20">Your password
                     has been changed!</p>
@@ -1229,7 +1247,7 @@
         function modal() {
             return {
                 activeModal: false,
-                registerModal: true,
+                registerModal: false,
                 loginModal: false,
                 forgetModal: false,
                 checkMailModal: false,
@@ -1276,6 +1294,24 @@
                     setTimeout(() => {
                         document.body.classList.add('hide-scrollbar');
                         document.body.classList.remove('show-scrollbar');
+                        this.$el.classList.add('hide-scrollbar');
+                        this.$el.classList.remove('show-scrollbar');
+                    }, 3000);
+                },
+                hasScrolled: false,
+                languageBarOpen: true,
+                reactOnScroll() {
+                    if (this.$el.getBoundingClientRect().top < 220 && this.$el.scrollTop > 220) {
+                        this.hasScrolled = true;
+                    } else {
+                        this.hasScrolled = false;
+                    }
+                },
+                showHideScroll() {
+                    this.$el.classList.add('show-scrollbar');
+                    this.$el.classList.remove('hide-scrollbar');
+
+                    setTimeout(() => {
                         this.$el.classList.add('hide-scrollbar');
                         this.$el.classList.remove('show-scrollbar');
                     }, 3000);

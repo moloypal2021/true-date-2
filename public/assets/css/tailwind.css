@@ -1276,6 +1276,11 @@ body{
   border-color: rgb(199 199 199 / var(--tw-border-opacity));
 }
 
+.border-pink-1{
+  --tw-border-opacity: 1;
+  border-color: rgb(220 10 94 / var(--tw-border-opacity));
+}
+
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1335,6 +1340,15 @@ body{
 
 .bg-dark-1\/50{
   background-color: rgb(48 48 48 / 0.5);
+}
+
+.bg-gray-3\/60{
+  background-color: rgb(238 238 238 / 0.6);
+}
+
+.bg-gray-4{
+  --tw-bg-opacity: 1;
+  background-color: rgb(199 199 199 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-r{
@@ -1597,6 +1611,11 @@ body{
 .text-pink-1{
   --tw-text-opacity: 1;
   color: rgb(220 10 94 / var(--tw-text-opacity));
+}
+
+.text-pink-50{
+  --tw-text-opacity: 1;
+  color: rgb(219 1 93 / var(--tw-text-opacity));
 }
 
 .placeholder-gray-10::-moz-placeholder{
