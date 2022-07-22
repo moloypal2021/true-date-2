@@ -450,18 +450,18 @@
         <!-- Registration Modal Start -->
         <div x-cloak x-show="registerModal" x-on:scroll="scrollbar()"
             class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full h-screen flex overflow-y-auto show-scrollbar py-24">
-            <div class="max-w-[712px] w-full m-auto bg-dark-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative"
+            <div class="max-w-[712px] w-full m-auto bg-white rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative"
                 x-data="{step : 1}">
                 <button @click="registerModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
                     <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
-                            fill="#414141" />
+                            fill="#979797" />
                     </svg>
                 </button>
 
                 <h1
-                    class="text-2xl sm:text-3xl md:text-4xl text-white font-bold text-center mb-5 sm:mb-8 md:mb-14 lg:mb-[60px]">
+                    class="text-2xl sm:text-3xl md:text-4xl text-dark-20 font-bold text-center mb-5 sm:mb-8 md:mb-14 lg:mb-[60px]">
                     Start looking for
                     now</h1>
 
@@ -469,12 +469,14 @@
 
                     <!-- Steps Number -->
                     <div class="flex items-center mb-5 sm:mb-10 md:mb-12 lg:mb-[60px]">
+
+                        <!-- 1 -->
                         <div class="relative w-1/5">
                             <div class="w-1/2 h-1 absolute top-1/2 right-0 -translate-y-1/2 z-0 "
-                                x-bind:class="step === 1 ? 'bg-gradient-to-l from-dark-70 via-brown-10/50 to-brown-10' : 'bg-dark-70'">
+                                x-bind:class="step === 1 ? 'bg-pink-1' : 'bg-pink-1'">
                             </div>
                             <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 1 ? 'bg-brown-10' : ''">
+                                x-bind:class="step === 1 ? 'bg-gray-3' : ''">
                                 <div
                                     class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg text-white font-bold bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 drop-shadow-20">
                                     <span x-show="step === 1">1</span>
@@ -484,17 +486,17 @@
                                             d="M20.066 7.808a1.026 1.026 0 0 1 1.468 0 1.06 1.06 0 0 1 .014 1.473l-8.29 9.8a1.028 1.028 0 0 1-1.494.028L6.72 13.997a1.061 1.061 0 0 1 .335-1.714 1.029 1.029 0 0 1 1.133.228l4.279 4.336 7.57-9.008a.337.337 0 0 1 .029-.03Z"
                                             fill="#fff" />
                                     </svg>
-
                                 </div>
                             </div>
                         </div>
 
+                        <!-- 2 -->
                         <div class="relative w-1/5">
                             <div class="w-full h-1 absolute top-1/2 -translate-y-1/2 z-0"
-                                x-bind:class="step === 2 ? 'bg-gradient-to-l from-dark-70 via-brown-10 to-dark-70' : 'bg-dark-70'">
+                                x-bind:class="step === 2 ? 'bg-pink-1' : 'bg-pink-1'">
                             </div>
                             <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 2 ? 'bg-brown-10' : ''">
+                                x-bind:class="step === 2 ? 'bg-gray-3' : ''">
                                 <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
                                     x-bind:class="step >= 2 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-dark-70 text-gray-15'">
                                     <span x-show="step <= 2">2</span>
@@ -509,12 +511,13 @@
                             </div>
                         </div>
 
+                        <!-- 3 -->
                         <div class="relative w-1/5">
                             <div class="w-full h-1 absolute top-1/2 -translate-y-1/2 z-0"
-                                x-bind:class="step === 3 ? 'bg-gradient-to-l from-dark-70 via-brown-10 to-dark-70' : 'bg-dark-70'">
+                                x-bind:class="step === 3 ? 'bg-pink-1' : 'bg-pink-1'">
                             </div>
                             <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 3 ? 'bg-brown-10' : ''">
+                                x-bind:class="step === 3 ? 'bg-gray-3' : ''">
                                 <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
                                     x-bind:class="step >= 3 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-dark-70 text-gray-15'">
                                     <span x-show="step <= 3">3</span>
@@ -529,12 +532,13 @@
                             </div>
                         </div>
 
+                        <!-- 4 -->
                         <div class="relative w-1/5">
                             <div class="w-full h-1 absolute top-1/2 -translate-y-1/2 z-0"
-                                x-bind:class="step === 4 ? 'bg-gradient-to-l from-dark-70 via-brown-10 to-dark-70' : 'bg-dark-70'">
+                                x-bind:class="step === 4 ? 'bg-pink-1' : 'bg-pink-1'">
                             </div>
                             <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 4 ? 'bg-brown-10' : ''">
+                                x-bind:class="step === 4 ? 'bg-gray-3' : ''">
                                 <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
                                     x-bind:class="step >= 4 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-dark-70 text-gray-15'">
                                     <span x-show="step <= 4">4</span>
@@ -549,12 +553,13 @@
                             </div>
                         </div>
 
+                        <!-- 5 -->
                         <div class="relative w-1/5">
                             <div class="w-1/2 h-1 absolute top-1/2 -translate-y-1/2 z-0 "
-                                x-bind:class="step === 5 ? 'bg-gradient-to-r from-dark-70 via-brown-10/50 to-brown-10' : 'bg-dark-70'">
+                                x-bind:class="step === 5 ? 'bg-pink-1' : 'bg-pink-1'">
                             </div>
                             <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 5 ? 'bg-brown-10' : ''">
+                                x-bind:class="step === 5 ? 'bg-gray-3' : ''">
                                 <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
                                     x-bind:class="step >= 5 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-dark-70 text-gray-15'">
                                     <span x-show="step <= 5">5</span>
@@ -1224,7 +1229,7 @@
         function modal() {
             return {
                 activeModal: false,
-                registerModal: false,
+                registerModal: true,
                 loginModal: false,
                 forgetModal: false,
                 checkMailModal: false,
