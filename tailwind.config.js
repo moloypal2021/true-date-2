@@ -59,8 +59,12 @@ module.exports = {
           40: "#EA9412",
         },
         blue: {
+          1: "#006DBC",
           10: "#0872FB",
           20: "#0A7BF8",
+        },
+        purple: {
+          1: "#692989",
         },
       },
       backgroundPosition: {
