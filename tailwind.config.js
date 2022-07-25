@@ -3,6 +3,25 @@ module.exports = {
   content: ["./public/**/*.{html,js}"],
   theme: {
     extend: {
+      backgroundColor: {
+        primary: "rgb(var(--color-bg-primary) / <alpha-value>)",
+        "online-green": "rgb(var(--color-bg-online-green) / <alpha-value>)",
+        light: "rgb(var(--color-bg-light) / <alpha-value>)",
+        "popup-overlay": "rgb(var(--color-bg-popup-overlay) / <alpha-value>)",
+        info: "rgb(var(--color-bg-info) / <alpha-value>)",
+        muted: "rgb(var(--color-bg-muted) / <alpha-value>)",
+      },
+      textColor: {
+        primary: "rgb(var(--color-text-primary) / <alpha-value>)",
+        "primary-alt": "rgb(var( --color-text-primary-alt) / <alpha-value>)",
+        secondary: "rgb(var(--color-text-secondary) / <alpha-value>)",
+        muted: "rgb(var(--color-text-muted) / <alpha-value>)",
+        invert: "rgb(var(--color-text-invert) / <alpha-value>)",
+      },
+      borderColor: {
+        primary: "rgb(var(--color-border-primary) / <alpha-value>)",
+        info: "rgb(var(--color-border-info) / <alpha-value>)",
+      },
       colors: {
         green: {
           10: "#0E8F14",
@@ -69,6 +88,10 @@ module.exports = {
       },
       backgroundPosition: {
         "top_20%": "center top 30%",
+      },
+      backgroundImage: {
+        1: "var(--gradient-bg-1)",
+        2: "var(--gradient-bg-2)",
       },
       boxShadow: {
         1: "5px 2px 15px rgba(104, 25, 35, 0.1)",

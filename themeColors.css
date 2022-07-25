@@ -1,0 +1,31 @@
+@layer base {
+  :root {
+    /* Text Color */
+    --color-text-primary: 48 48 48; /* #303030 */
+    --color-text-secondary: 92 92 92; /* #5c5c5c */
+    --color-text-muted: 151 151 151; /* #979797 */
+    --color-text-primary-alt: 35 3535; /* #232323 */
+    --color-text-invert: 255 255 255; /* #ffffff */
+
+    /* Background Color */
+    --color-bg-online-green: 14 143 20; /* #0e8f14 */
+    --color-bg-primary: 255 255 255; /* #ffffff */
+    --color-bg-light: 238 238 238; /* #EEEEEE */
+    --color-bg-popup-overlay: 30 33 34; /* #1E2122 */
+    --color-bg-info: 220 10 94; /* #DC0A5E */
+    --color-bg-muted: 151 151 151; /* #979797 */
+
+    /* Border Color */
+    --color-border-primary: 199 199 199; /* #C7C7C7 */
+    --color-border-info: 255 6 66; /* #FF0642 */
+
+    /* Gradient Color */
+    --gradient-bg-1: linear-gradient(
+      91.25deg,
+      #ff0642 0.19%,
+      #ea0038 0.2%,
+      #da0161 100%
+    );
+    --gradient-bg-2: linear-gradient(91.26deg, #ff0642 2.85%, #ea1272 100%);
+  }
+}
