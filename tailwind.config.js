@@ -20,12 +20,14 @@ module.exports = {
         muted: "rgb(var(--color-text-muted) / <alpha-value>)",
         invert: "rgb(var(--color-text-invert) / <alpha-value>)",
         accent: "rgb(var(--color-text-accent) / <alpha-value>)",
+        warning: "rgb(var(--color-text-warning) / <alpha-value>)",
       },
       placeholderColor: {
         primary: "rgb(var(--color-placeholder-primary) / <alpha-value>)",
       },
       borderColor: {
         primary: "rgb(var(--color-border-primary) / <alpha-value>)",
+        "primary-alt": "rgb(var(--color-border-primary-alt) / <alpha-value>)",
         info: "rgb(var(--color-border-info) / <alpha-value>)",
       },
       ringColor: {
@@ -101,6 +103,8 @@ module.exports = {
       backgroundImage: {
         1: "var(--gradient-bg-1)",
         2: "var(--gradient-bg-2)",
+        3: "var(--gradient-bg-3)",
+        4: "var(--gradient-bg-4)",
       },
       boxShadow: {
         1: "5px 2px 15px rgba(104, 25, 35, 0.1)",

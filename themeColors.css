@@ -7,6 +7,7 @@
     --color-text-primary-alt: 35 35 35; /* #232323 */
     --color-text-invert: 255 255 255; /* #ffffff */
     --color-text-accent: 219 1 93; /* #DB015D */
+    --color-text-warning: 238 156 15; /* #EE9C0F */
 
     /* Background Color */
     --color-bg-online-green: 14 143 20; /* #0e8f14 */
@@ -21,6 +22,7 @@
     /* Border Color */
     --color-border-primary: 199 199 199; /* #C7C7C7 */
     --color-border-info: 255 6 66; /* #FF0642 */
+    --color-border-primary-alt: 48 48 48; /* #303030 */
 
     /* Ring Color */
     --color-ring-primary: 234 18 114; /* #EA1272 */
@@ -36,5 +38,18 @@
       #da0161 100%
     );
     --gradient-bg-2: linear-gradient(91.26deg, #ff0642 2.85%, #ea1272 100%);
+
+    --gradient-bg-3: linear-gradient(
+      90deg,
+      #dc0a5e 0%,
+      rgba(220, 10, 94, 0.5379) 75.3%,
+      rgba(238, 238, 238, 0) 100%
+    );
+    --gradient-bg-4: linear-gradient(
+      90deg,
+      rgba(238, 238, 238, 0) 0%,
+      rgba(220, 10, 94, 0.5379) 14.37%,
+      #dc0a5e 100%
+    );
   }
 }

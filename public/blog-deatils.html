@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <div class="bg-white relative h-screen overflow-y-auto show-scrollbar flex flex-col" x-data="modal()"
+    <div class="bg-primary relative h-screen overflow-y-auto show-scrollbar flex flex-col" x-data="modal()"
         x-on:scroll="showHideScroll(); reactOnScroll();" x-init="reactOnScroll()">
         <!-- Header Section Start -->
         <header class="bg-primary/50 backdrop-blur-lg fixed top-0 inset-x-0 z-50"
@@ -342,6 +342,47 @@
         </section>
         <!-- Contact Section End -->
 
+        <!-- Footer Section Start -->
+        <footer class="bg-light mt-auto">
+            <div class="container pb-4 pt-10 lg:pt-[50px]">
+                <div
+                    class="flex flex-wrap lg:flex-nowrap items-center justify-between space-y-6 lg:space-y-0 mb-6 md:mb-10 2xl:mb-[58px]">
+                    <div class="text-center lg:text-left lg:max-w-[240px] w-full">
+                        <a href="#" class="lg:hidden inline-block"><img src="./assets/images/logo-dark.svg" alt=""
+                                class="w-40 sm:w-48 md:w-54"></a>
+                        <p class="text-sm sm:text-base md:text-lg text-primary">Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit.
+                        </p>
+                    </div>
+
+                    <ul
+                        class="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0 w-full lg:w-auto">
+                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
+                                class="text-sm lg:text-base 2xl:text-lg text-primary uppercase">Press</a></li>
+                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
+                                class="text-sm lg:text-base 2xl:text-lg text-primary uppercase">Affiliates</a></li>
+                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
+                                class="text-sm lg:text-base 2xl:text-lg text-primary uppercase">Blog</a></li>
+                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
+                                class="text-sm lg:text-base 2xl:text-lg text-primary uppercase">FAQ</a></li>
+                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
+                                class="text-sm lg:text-base 2xl:text-lg text-primary uppercase">HELP</a></li>
+                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
+                                class="text-sm lg:text-base 2xl:text-lg text-primary uppercase">Terms</a></li>
+                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
+                                class="text-sm lg:text-base 2xl:text-lg text-primary uppercase">Cookies</a></li>
+                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
+                                class="text-sm lg:text-base 2xl:text-lg text-primary uppercase">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="w-full h-0.5 bg-1 opacity-20"></div>
+
+                <p class="text-xs text-primary text-center lg:text-right mt-4 md:mt-5">Copyright © 2021 Truedates All
+                    rights
+                    Reserved</p>
+            </div>
+        </footer>
+        <!-- Footer Section End -->
 
         <!-- Registration Modal Start -->
         <div x-cloak x-show="registerModal" x-on:scroll="scrollbar()"
