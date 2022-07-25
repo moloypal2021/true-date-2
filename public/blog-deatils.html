@@ -23,33 +23,33 @@
     <div class="bg-white relative h-screen overflow-y-auto show-scrollbar flex flex-col" x-data="modal()"
         x-on:scroll="showHideScroll(); reactOnScroll();" x-init="reactOnScroll()">
         <!-- Header Section Start -->
-        <header class="bg-white/50 backdrop-blur-lg fixed top-0 inset-x-0 z-50" :class="hasScrolled ? 'shadow-1' : ''">
+        <header class="bg-primary/50 backdrop-blur-lg fixed top-0 inset-x-0 z-50"
+            :class="hasScrolled ? 'shadow-1' : ''">
             <div class="container">
                 <nav class="flex items-center justify-between py-4 sm:py-6 md:py-8 3k:py-10">
                     <a href="#" class="">
                         <img src="./assets/images/logo-dark.svg" alt=""
                             class="w-32 sm:w-48 md:w-64 3k:w-[320px] inline-block">
                     </a>
-
                     <div class="flex items-center space-x-2 sm:space-x-3 md:space-x-6 xl:space-x-12">
                         <div class=" hidden sm:flex items-center space-x-0.5 sm:space-x-1.5 md:space-x-2">
                             <div class="flex h-3 w-3 3k:w-3.5 3k:h-3.5 relative items-center justify-center">
                                 <span
-                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-10 opacity-75"></span>
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-online-green opacity-75"></span>
                                 <span
-                                    class="relative inline-flex rounded-full w-2 h-2 3k:w-2.5 3k:h-2.5 bg-green-10"></span>
+                                    class="relative inline-flex rounded-full w-2 h-2 3k:w-2.5 3k:h-2.5 bg-online-green"></span>
                             </div>
-                            <h4 class="text-sm sm:text-base lg:text-lg 2xl:text-xl 3k:text-2xl font-medium text-dark-1">
+                            <h4 class="text-sm sm:text-base lg:text-lg 2xl:text-xl 3k:text-2xl font-medium text-online">
                                 3,999
                             </h4>
                         </div>
 
                         <div class="flex items-center space-x-3 sm:space-x-3 md:space-x-5">
                             <button @click="loginModal = true"
-                                class="text-base lg:text-lg 2xl:text-xl 3k:text-2xl font-medium text-transparent text-pink-10 bg-gradient-to-r from-pink-10 to-pink-20 bg-clip-text hover:text-dark-1">Login</button>
+                                class="text-base lg:text-lg 2xl:text-xl 3k:text-2xl font-medium text-transparent text-accent bg-2 bg-clip-text hover:text-primary">Login</button>
 
                             <button @click="registerModal = true"
-                                class="text-sm sm:text-lg lg:text-xl 3k:text-2xl font-medium text-white bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 px-3 sm:px-6 4k:px-12 py-2 sm:py-2.5 4k:py-3 rounded-full hover:opacity-80">Join
+                                class="text-sm sm:text-lg lg:text-xl 3k:text-2xl font-medium text-invert bg-1 px-3 sm:px-6 4k:px-12 py-2 sm:py-2.5 4k:py-3 rounded-full hover:opacity-80">Join
                                 Free</button>
                         </div>
                     </div>
@@ -67,25 +67,26 @@
                     </div>
 
                     <div
-                        class="absolute bottom-0 left-0 text-sm md:text-base text-white py-1 px-2.5 rounded-full bg-gradient-to-r from-pink-10 to-pink-20 m-4 md:m-5">
+                        class="absolute bottom-0 left-0 text-sm md:text-base text-invert py-1 px-2.5 rounded-full bg-2 m-4 md:m-5">
                         Relationship
                     </div>
                 </div>
                 <h4
-                    class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold font-gilroy text-dark-1 mb-2 md:mb-3">
+                    class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold font-gilroy text-primary mb-2 md:mb-3">
                     Can you
                     marry a bargirl and live happily ever after</h4>
                 <div class="flex items-center space-x-1.5 sm:space-x-2.5 mb-5 sm:mb-7 md:mb-10">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="text-muted fill-current" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M7.99967 1.3335C11.6863 1.3335 14.6663 4.32016 14.6663 8.00016C14.6663 11.6868 11.6863 14.6668 7.99967 14.6668C4.31967 14.6668 1.33301 11.6868 1.33301 8.00016C1.33301 4.32016 4.31967 1.3335 7.99967 1.3335ZM7.76634 4.62016C7.49301 4.62016 7.26634 4.84016 7.26634 5.12016V8.48683C7.26634 8.66016 7.35967 8.82016 7.51301 8.9135L10.1263 10.4735C10.2063 10.5202 10.293 10.5468 10.3863 10.5468C10.553 10.5468 10.7197 10.4602 10.813 10.3002C10.953 10.0668 10.8797 9.76016 10.6397 9.6135L8.26634 8.20016V5.12016C8.26634 4.84016 8.03967 4.62016 7.76634 4.62016Z"
-                            fill="#979797" />
+                            fill="current" />
                     </svg>
-                    <p class="text-xs sm:text-sm text-gray-2">24 Jan, 2022</p>
+                    <p class="text-xs sm:text-sm text-muted">24 Jan, 2022</p>
                 </div>
 
-                <h4 class="text-lg sm:text-xl md:text-2xl font-semibold text-dark-1 mb-3.5">1. Lorem Ipsum</h4>
-                <p class="text-base md:text-lg text-gray-1 mb-5">Pharetra, dolor ultricies diam, varius arcu. Posuere
+                <h4 class="text-lg sm:text-xl md:text-2xl font-semibold text-primary mb-3.5">1. Lorem Ipsum</h4>
+                <p class="text-base md:text-lg text-secondary mb-5">Pharetra, dolor ultricies diam, varius arcu. Posuere
                     feugiat
                     amet, sed fusce non in odio at. Magna massa purus risus elementum orci pellentesque. Hac feugiat
                     mollis urna sagittis, sit felis nulla. Pellentesque nec quis faucibus dui mauris ac hac mi mattis.
@@ -94,17 +95,19 @@
                     tincidunt molestie cursus. Ultrices mattis lobortis ultrices ultrices sit ut sit scelerisque libero.
                     Erat sed mi, hac nulla malesuada. In in platea fames turpis euismod pulvinar ipsum interdum
                     porttitor.</p>
-                <h4 class="text-lg sm:text-xl md:text-2xl font-semibold text-dark-1 mb-3.5">2. Erat sed mi, hac nulla
+                <h4 class="text-lg sm:text-xl md:text-2xl font-semibold text-primary mb-3.5">2. Erat sed mi, hac nulla
                     malesuada.</h4>
-                <p class="text-base md:text-lg text-gray-1 mb-5">Convallis arcu lacinia a placerat sit. Mi aenean luctus
+                <p class="text-base md:text-lg text-secondary mb-5">Convallis arcu lacinia a placerat sit. Mi aenean
+                    luctus
                     et dui nisl, placerat ipsum. Diam arcu ac vulputate ac felis pharetra amet. Nisl nunc at vitae
                     congue sed ut. Pulvinar ac orci duis aliquam tincidunt molestie cursus. Ultrices mattis lobortis
                     ultrices ultrices sit ut sit scelerisque libero. <br> <br>
                     Erat sed mi, hac nulla malesuada. In in platea fames turpis euismod pulvinar ipsum interdum
                     porttitor.</p>
-                <h4 class="text-lg sm:text-xl md:text-2xl font-semibold text-dark-1 mb-3.5">3. Duis vitae placerat quis
+                <h4 class="text-lg sm:text-xl md:text-2xl font-semibold text-primary mb-3.5">3. Duis vitae placerat quis
                 </h4>
-                <p class="text-base md:text-lg text-gray-1 mb-5">Ultricies tortor ac arcu et, sapien, at cursus augue.
+                <p class="text-base md:text-lg text-secondary mb-5">Ultricies tortor ac arcu et, sapien, at cursus
+                    augue.
                     Imperdiet lacus, pellentesque et vitae hendrerit placerat risus. Porttitor sit et elementum vehicula
                     est ac, placerat. Duis vitae placerat quis felis eget tellus magna ultrices. Elit felis sit at ut.
                     Pretium dolor sed duis vel at ut. Lacus tristique eros, quis vestibulum, tellus ornare pellentesque
@@ -112,9 +115,11 @@
                     Quam sed eget varius elit pretium vitae elementum. Tincidunt adipiscing lorem dolor mauris sed cras
                     at urna eget. Dignissim sit diam volutpat eu. Mauris tortor sit amet cras at scelerisque sem viverra
                     faucibus. Fermentum, erat neque, arcu commodo ut integer. Quis dictum fermentum bibendum </p>
-                <h4 class="text-lg sm:text-xl md:text-2xl font-semibold text-dark-1 mb-3.5">4. Nisl nunc at vitae congue
+                <h4 class="text-lg sm:text-xl md:text-2xl font-semibold text-primary mb-3.5">4. Nisl nunc at vitae
+                    congue
                     sed</h4>
-                <p class="text-base md:text-lg text-gray-1 mb-5">Convallis arcu lacinia a placerat sit. Mi aenean luctus
+                <p class="text-base md:text-lg text-secondary mb-5">Convallis arcu lacinia a placerat sit. Mi aenean
+                    luctus
                     et dui nisl, placerat ipsum. Diam arcu ac vulputate ac felis pharetra amet. Nisl nunc at vitae
                     congue sed ut. Pulvinar ac orci duis aliquam tincidunt molestie cursus. Ultrices mattis lobortis
                     ultrices ultrices sit ut sit scelerisque libero.
@@ -122,9 +127,11 @@
                     Erat sed mi, hac nulla malesuada. In in platea fames turpis euismod pulvinar ipsum interdum
                     porttitor.
                 </p>
-                <h4 class="text-lg sm:text-xl md:text-2xl font-semibold text-dark-1 mb-3.5">5. Nisl nunc at vitae congue
+                <h4 class="text-lg sm:text-xl md:text-2xl font-semibold text-primary mb-3.5">5. Nisl nunc at vitae
+                    congue
                     sed</h4>
-                <p class="text-base md:text-lg text-gray-1 mb-5">Convallis arcu lacinia a placerat sit. Mi aenean luctus
+                <p class="text-base md:text-lg text-secondary mb-5">Convallis arcu lacinia a placerat sit. Mi aenean
+                    luctus
                     et dui nisl, placerat ipsum. Diam arcu ac vulputate ac felis pharetra amet. Nisl nunc at vitae
                     congue sed ut. Pulvinar ac orci duis aliquam tincidunt molestie cursus. Ultrices mattis lobortis
                     ultrices ultrices sit ut sit scelerisque libero.
@@ -134,39 +141,40 @@
                 </p>
             </div>
 
-            <h1 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-center text-dark-1 mb-5 sm:mb-8 lg:mb-10">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-center text-primary mb-5 sm:mb-8 lg:mb-10">
                 Read more
                 Articles</h1>
             <div class="" x-data="carousel()" x-init="init()">
                 <div class="w-full" x-ref="carousel">
-                    <div class="bg-gray-3/60 rounded-[10px] overflow-hidden w-full sm:w-6/12 lg:w-4/12 mx-2.5">
+                    <div class="bg-light/60 rounded-[10px] overflow-hidden w-full sm:w-6/12 lg:w-4/12 mx-2.5">
                         <div class="relative mb-4 sm:mb-5 md:mb-6 lg:mb-[30px]">
                             <div class="aspect-w-10 aspect-h-5">
                                 <img src="./assets/images/img-9.jpg" alt="" class="w-full h-full object-cover">
                             </div>
 
                             <div
-                                class="absolute bottom-0 left-0 text-sm md:text-base text-white py-1 px-2.5 rounded-full bg-gradient-to-r from-pink-10 to-pink-20 m-4 md:m-5">
+                                class="absolute bottom-0 left-0 text-sm md:text-base text-invert py-1 px-2.5 rounded-full bg-2 m-4 md:m-5">
                                 Relationship
                             </div>
                         </div>
                         <div class="px-4 pb-4">
                             <a href="#"
-                                class="text-xl md:text-[22px] text-dark-1 font-semibold mb-2 sm:mb-2.5 block">Can
+                                class="text-xl md:text-[22px] text-primary font-semibold mb-2 sm:mb-2.5 block">Can
                                 you
                                 marry
                                 a
                                 bargirl and live happily ever after</a>
                             <div class="flex items-center space-x-1.5 sm:space-x-2.5 mb-3 sm:mb-4 md:mb-5">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
+                                <svg class="text-muted fill-current" width="16" height="16" viewBox="0 0 16 16"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M7.99967 1.3335C11.6863 1.3335 14.6663 4.32016 14.6663 8.00016C14.6663 11.6868 11.6863 14.6668 7.99967 14.6668C4.31967 14.6668 1.33301 11.6868 1.33301 8.00016C1.33301 4.32016 4.31967 1.3335 7.99967 1.3335ZM7.76634 4.62016C7.49301 4.62016 7.26634 4.84016 7.26634 5.12016V8.48683C7.26634 8.66016 7.35967 8.82016 7.51301 8.9135L10.1263 10.4735C10.2063 10.5202 10.293 10.5468 10.3863 10.5468C10.553 10.5468 10.7197 10.4602 10.813 10.3002C10.953 10.0668 10.8797 9.76016 10.6397 9.6135L8.26634 8.20016V5.12016C8.26634 4.84016 8.03967 4.62016 7.76634 4.62016Z"
-                                        fill="#979797" />
+                                        fill="current" />
                                 </svg>
-                                <p class="text-xs sm:text-sm text-gray-2">24 Jan, 2022</p>
+                                <p class="text-xs sm:text-sm text-muted">24 Jan, 2022</p>
                             </div>
-                            <p class="text-xs sm:text-sm md:text-base text-gray-1 mb-3 sm:mb-4 md:mb-5 lg:mb-6">Magnis
+                            <p class="text-xs sm:text-sm md:text-base text-secondary mb-3 sm:mb-4 md:mb-5 lg:mb-6">
+                                Magnis
                                 sed
                                 purus, congue tristique nibh. Nulla gravida malesuada elit velit sagittis, leo velit
                                 fermentum. Porta sed tellus, id tincidunt. Porta sed tellus, id tincidunt. Porta sed
@@ -175,7 +183,7 @@
 
                             <a href="#" class="flex items-center space-x-1.5 sm:space-x-2.5">
                                 <p
-                                    class="text-sm md:text-base bg-gradient-to-r from-pink-10 to-pink-20 bg-clip-text text-transparent uppercase font-semibold">
+                                    class="text-sm md:text-base bg-2 bg-clip-text text-transparent uppercase font-semibold">
                                     Read more</p>
 
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -194,34 +202,35 @@
                             </a>
                         </div>
                     </div>
-                    <div class="bg-gray-3/60 rounded-[10px] overflow-hidden w-full sm:w-6/12 lg:w-4/12 mx-2.5">
+                    <div class="bg-light/60 rounded-[10px] overflow-hidden w-full sm:w-6/12 lg:w-4/12 mx-2.5">
                         <div class="relative mb-4 sm:mb-5 md:mb-6 lg:mb-[30px]">
                             <div class="aspect-w-10 aspect-h-5">
                                 <img src="./assets/images/img-12.jpg" alt="" class="w-full h-full object-cover">
                             </div>
 
                             <div
-                                class="absolute bottom-0 left-0 text-sm md:text-base text-white py-1 px-2.5 rounded-full bg-gradient-to-r from-pink-10 to-pink-20 m-4 md:m-5">
+                                class="absolute bottom-0 left-0 text-sm md:text-base text-invert py-1 px-2.5 rounded-full bg-2 m-4 md:m-5">
                                 Relationship
                             </div>
                         </div>
                         <div class="px-4 pb-4">
                             <a href="#"
-                                class="text-xl md:text-[22px] text-dark-1 font-semibold mb-2 sm:mb-2.5 block">Can
+                                class="text-xl md:text-[22px] text-primary font-semibold mb-2 sm:mb-2.5 block">Can
                                 you
                                 marry
                                 a
                                 bargirl and live happily ever after</a>
                             <div class="flex items-center space-x-1.5 sm:space-x-2.5 mb-3 sm:mb-4 md:mb-5">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
+                                <svg class="text-muted fill-current" width="16" height="16" viewBox="0 0 16 16"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M7.99967 1.3335C11.6863 1.3335 14.6663 4.32016 14.6663 8.00016C14.6663 11.6868 11.6863 14.6668 7.99967 14.6668C4.31967 14.6668 1.33301 11.6868 1.33301 8.00016C1.33301 4.32016 4.31967 1.3335 7.99967 1.3335ZM7.76634 4.62016C7.49301 4.62016 7.26634 4.84016 7.26634 5.12016V8.48683C7.26634 8.66016 7.35967 8.82016 7.51301 8.9135L10.1263 10.4735C10.2063 10.5202 10.293 10.5468 10.3863 10.5468C10.553 10.5468 10.7197 10.4602 10.813 10.3002C10.953 10.0668 10.8797 9.76016 10.6397 9.6135L8.26634 8.20016V5.12016C8.26634 4.84016 8.03967 4.62016 7.76634 4.62016Z"
-                                        fill="#979797" />
+                                        fill="current" />
                                 </svg>
-                                <p class="text-xs sm:text-sm text-gray-2">24 Jan, 2022</p>
+                                <p class="text-xs sm:text-sm text-muted">24 Jan, 2022</p>
                             </div>
-                            <p class="text-xs sm:text-sm md:text-base text-gray-1 mb-3 sm:mb-4 md:mb-5 lg:mb-6">Magnis
+                            <p class="text-xs sm:text-sm md:text-base text-secondary mb-3 sm:mb-4 md:mb-5 lg:mb-6">
+                                Magnis
                                 sed
                                 purus, congue tristique nibh. Nulla gravida malesuada elit velit sagittis, leo velit
                                 fermentum. Porta sed tellus, id tincidunt. Porta sed tellus, id tincidunt. Porta sed
@@ -230,7 +239,7 @@
 
                             <a href="#" class="flex items-center space-x-1.5 sm:space-x-2.5">
                                 <p
-                                    class="text-sm md:text-base bg-gradient-to-r from-pink-10 to-pink-20 bg-clip-text text-transparent uppercase font-semibold">
+                                    class="text-sm md:text-base bg-2 bg-clip-text text-transparent uppercase font-semibold">
                                     Read more</p>
 
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -249,34 +258,35 @@
                             </a>
                         </div>
                     </div>
-                    <div class="bg-gray-3/60 rounded-[10px] overflow-hidden w-full sm:w-6/12 lg:w-4/12 mx-2.5">
+                    <div class="bg-light/60 rounded-[10px] overflow-hidden w-full sm:w-6/12 lg:w-4/12 mx-2.5">
                         <div class="relative mb-4 sm:mb-5 md:mb-6 lg:mb-[30px]">
                             <div class="aspect-w-10 aspect-h-5">
                                 <img src="./assets/images/img-11.jpg" alt="" class="w-full h-full object-cover">
                             </div>
 
                             <div
-                                class="absolute bottom-0 left-0 text-sm md:text-base text-white py-1 px-2.5 rounded-full bg-gradient-to-r from-pink-10 to-pink-20 m-4 md:m-5">
+                                class="absolute bottom-0 left-0 text-sm md:text-base text-invert py-1 px-2.5 rounded-full bg-2 m-4 md:m-5">
                                 Relationship
                             </div>
                         </div>
                         <div class="px-4 pb-4">
                             <a href="#"
-                                class="text-xl md:text-[22px] text-dark-1 font-semibold mb-2 sm:mb-2.5 block">Can
+                                class="text-xl md:text-[22px] text-primary font-semibold mb-2 sm:mb-2.5 block">Can
                                 you
                                 marry
                                 a
                                 bargirl and live happily ever after</a>
                             <div class="flex items-center space-x-1.5 sm:space-x-2.5 mb-3 sm:mb-4 md:mb-5">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
+                                <svg class="text-muted fill-current" width="16" height="16" viewBox="0 0 16 16"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M7.99967 1.3335C11.6863 1.3335 14.6663 4.32016 14.6663 8.00016C14.6663 11.6868 11.6863 14.6668 7.99967 14.6668C4.31967 14.6668 1.33301 11.6868 1.33301 8.00016C1.33301 4.32016 4.31967 1.3335 7.99967 1.3335ZM7.76634 4.62016C7.49301 4.62016 7.26634 4.84016 7.26634 5.12016V8.48683C7.26634 8.66016 7.35967 8.82016 7.51301 8.9135L10.1263 10.4735C10.2063 10.5202 10.293 10.5468 10.3863 10.5468C10.553 10.5468 10.7197 10.4602 10.813 10.3002C10.953 10.0668 10.8797 9.76016 10.6397 9.6135L8.26634 8.20016V5.12016C8.26634 4.84016 8.03967 4.62016 7.76634 4.62016Z"
-                                        fill="#979797" />
+                                        fill="current" />
                                 </svg>
-                                <p class="text-xs sm:text-sm text-gray-2">24 Jan, 2022</p>
+                                <p class="text-xs sm:text-sm text-muted">24 Jan, 2022</p>
                             </div>
-                            <p class="text-xs sm:text-sm md:text-base text-gray-1 mb-3 sm:mb-4 md:mb-5 lg:mb-6">Magnis
+                            <p class="text-xs sm:text-sm md:text-base text-secondary mb-3 sm:mb-4 md:mb-5 lg:mb-6">
+                                Magnis
                                 sed
                                 purus, congue tristique nibh. Nulla gravida malesuada elit velit sagittis, leo velit
                                 fermentum. Porta sed tellus, id tincidunt. Porta sed tellus, id tincidunt. Porta sed
@@ -285,7 +295,7 @@
 
                             <a href="#" class="flex items-center space-x-1.5 sm:space-x-2.5">
                                 <p
-                                    class="text-sm md:text-base bg-gradient-to-r from-pink-10 to-pink-20 bg-clip-text text-transparent uppercase font-semibold">
+                                    class="text-sm md:text-base bg-2 bg-clip-text text-transparent uppercase font-semibold">
                                     Read more</p>
 
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -308,7 +318,7 @@
 
                 <!-- Next Prev Button -->
                 <div class="flex items-center justify-center space-x-8 mt-16">
-                    <div class="w-8 h-8 bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 rounded-full flex items-center justify-center cursor-pointer"
+                    <div class="w-8 h-8 bg-1 rounded-full flex items-center justify-center cursor-pointer"
                         @click="prev()">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -316,7 +326,7 @@
                                 fill="white" />
                         </svg>
                     </div>
-                    <div class="w-8 h-8 bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 rounded-full flex items-center justify-center cursor-pointer"
+                    <div class="w-8 h-8 bg-1 rounded-full flex items-center justify-center cursor-pointer"
                         @click="next()">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -332,52 +342,11 @@
         </section>
         <!-- Contact Section End -->
 
-        <!-- Footer Section Start -->
-        <footer class="bg-gray-3  mt-auto">
-            <div class="container pb-4 pt-10 lg:pt-[50px]">
-                <div
-                    class="flex flex-wrap lg:flex-nowrap items-center justify-between space-y-6 lg:space-y-0 mb-6 md:mb-10 2xl:mb-[58px]">
-                    <div class="text-center lg:text-left lg:max-w-[240px] w-full">
-                        <a href="#" class="lg:hidden inline-block"><img src="./assets/images/logo-dark.svg" alt=""
-                                class="w-40 sm:w-48 md:w-54"></a>
-                        <p class="text-sm sm:text-base md:text-lg text-dark-1">Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit.
-                        </p>
-                    </div>
-
-                    <ul
-                        class="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0 w-full lg:w-auto">
-                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
-                                class="text-sm lg:text-base 2xl:text-lg text-dark-1 uppercase">Press</a></li>
-                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
-                                class="text-sm lg:text-base 2xl:text-lg text-dark-1 uppercase">Affiliates</a></li>
-                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
-                                class="text-sm lg:text-base 2xl:text-lg text-dark-1 uppercase">Blog</a></li>
-                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
-                                class="text-sm lg:text-base 2xl:text-lg text-dark-1 uppercase">FAQ</a></li>
-                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
-                                class="text-sm lg:text-base 2xl:text-lg text-dark-1 uppercase">HELP</a></li>
-                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
-                                class="text-sm lg:text-base 2xl:text-lg text-dark-1 uppercase">Terms</a></li>
-                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
-                                class="text-sm lg:text-base 2xl:text-lg text-dark-1 uppercase">Cookies</a></li>
-                        <li class="lg:mr-8 xl:mr-14 3k:mr-20"><a href="#"
-                                class="text-sm lg:text-base 2xl:text-lg text-dark-1 uppercase">Privacy</a></li>
-                    </ul>
-                </div>
-                <div class="w-full h-0.5 bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 opacity-20"></div>
-
-                <p class="text-xs text-dark-1 text-center lg:text-right mt-4 md:mt-5">Copyright © 2021 Truedates All
-                    rights
-                    Reserved</p>
-            </div>
-        </footer>
-        <!-- Footer Section End -->
 
         <!-- Registration Modal Start -->
         <div x-cloak x-show="registerModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full h-screen flex overflow-y-auto show-scrollbar py-24">
-            <div class="max-w-[712px] w-full m-auto bg-white shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative"
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-y-auto show-scrollbar py-24">
+            <div class="max-w-[712px] w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative"
                 x-data="{step : 1}">
                 <button @click="registerModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
                     <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -388,7 +357,7 @@
                 </button>
 
                 <h1
-                    class="text-2xl sm:text-3xl md:text-4xl text-dark-20 font-bold text-center mb-5 sm:mb-8 md:mb-14 lg:mb-[60px]">
+                    class="text-2xl sm:text-3xl md:text-4xl text-primary-alt font-bold text-center mb-5 sm:mb-8 md:mb-14 lg:mb-[60px]">
                     Start looking for
                     now</h1>
 
@@ -399,12 +368,12 @@
                         <!-- 1 -->
                         <div class="relative w-1/5">
                             <div class="w-1/2 h-1 absolute top-1/2 right-0 -translate-y-1/2 z-0 "
-                                x-bind:class="step === 1 ? 'bg-pink-1' : 'bg-pink-1'">
+                                x-bind:class="step === 1 ? 'bg-info' : 'bg-info'">
                             </div>
                             <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 1 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 drop-shadow-20' : ''">
+                                x-bind:class="step === 1 ? 'bg-1 drop-shadow-20' : ''">
                                 <div
-                                    class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg text-white font-bold bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 drop-shadow-20">
+                                    class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg text-invert font-bold bg-1 drop-shadow-20">
                                     <span x-show="step === 1">1</span>
                                     <svg x-show="step != 1" width="28" height="28" viewBox="0 0 28 28" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -419,12 +388,12 @@
                         <!-- 2 -->
                         <div class="relative w-1/5">
                             <div class="w-full h-1 absolute top-1/2 -translate-y-1/2 z-0"
-                                x-bind:class="step === 2 ? 'bg-pink-1' : 'bg-pink-1'">
+                                x-bind:class="step === 2 ? 'bg-info' : 'bg-info'">
                             </div>
                             <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 2 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 drop-shadow-20' : ''">
+                                x-bind:class="step === 2 ? 'bg-1 drop-shadow-20' : ''">
                                 <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
-                                    x-bind:class="step >= 2 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-pink-10 text-white'">
+                                    x-bind:class="step >= 2 ? 'bg-1 text-invert' : 'bg-info text-invert'">
                                     <span x-show="step <= 2">2</span>
                                     <svg x-show="step > 2" width="28" height="28" viewBox="0 0 28 28" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -440,12 +409,12 @@
                         <!-- 3 -->
                         <div class="relative w-1/5">
                             <div class="w-full h-1 absolute top-1/2 -translate-y-1/2 z-0"
-                                x-bind:class="step === 3 ? 'bg-pink-1' : 'bg-pink-1'">
+                                x-bind:class="step === 3 ? 'bg-info' : 'bg-info'">
                             </div>
                             <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 3 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 drop-shadow-20' : ''">
+                                x-bind:class="step === 3 ? 'bg-1 drop-shadow-20' : ''">
                                 <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
-                                    x-bind:class="step >= 3 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-pink-10 text-white'">
+                                    x-bind:class="step >= 3 ? 'bg-1 text-invert' : 'bg-info text-invert'">
                                     <span x-show="step <= 3">3</span>
                                     <svg x-show="step > 3" width="28" height="28" viewBox="0 0 28 28" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -461,12 +430,12 @@
                         <!-- 4 -->
                         <div class="relative w-1/5">
                             <div class="w-full h-1 absolute top-1/2 -translate-y-1/2 z-0"
-                                x-bind:class="step === 4 ? 'bg-pink-1' : 'bg-pink-1'">
+                                x-bind:class="step === 4 ? 'bg-info' : 'bg-info'">
                             </div>
                             <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 4 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 drop-shadow-20' : ''">
+                                x-bind:class="step === 4 ? 'bg-1 drop-shadow-20' : ''">
                                 <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
-                                    x-bind:class="step >= 4 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-pink-10 text-white'">
+                                    x-bind:class="step >= 4 ? 'bg-1 text-invert' : 'bg-info text-invert'">
                                     <span x-show="step <= 4">4</span>
                                     <svg x-show="step > 4" width="28" height="28" viewBox="0 0 28 28" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -482,12 +451,12 @@
                         <!-- 5 -->
                         <div class="relative w-1/5">
                             <div class="w-1/2 h-1 absolute top-1/2 -translate-y-1/2 z-0 "
-                                x-bind:class="step === 5 ? 'bg-pink-1' : 'bg-pink-1'">
+                                x-bind:class="step === 5 ? 'bg-info' : 'bg-info'">
                             </div>
                             <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 5 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 drop-shadow-20' : ''">
+                                x-bind:class="step === 5 ? 'bg-1 drop-shadow-20' : ''">
                                 <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
-                                    x-bind:class="step >= 5 ? 'bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 text-white' : 'bg-pink-10 text-white'">
+                                    x-bind:class="step >= 5 ? 'bg-1 text-invert' : 'bg-info text-invert'">
                                     <span x-show="step <= 5">5</span>
                                     <svg x-show="step > 5" width="28" height="28" viewBox="0 0 28 28" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -506,10 +475,10 @@
                         <div class="grid grid-cols-2 gap-2 sm:gap-8 md:gap-[60px] mb-5 sm:mb-12 md:mb-[70px]">
                             <div>
                                 <label for=""
-                                    class="text-sm sm:text-base md:text-lg text-gray-1 block mb-1.5 sm:mb-2.5 md:mb-4">I
+                                    class="text-sm sm:text-base md:text-lg text-secondary block mb-1.5 sm:mb-2.5 md:mb-4">I
                                     am</label>
                                 <select
-                                    class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full bg-white">
+                                    class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] focus:ring-0 focus-within:border-info active:border-info w-full bg-primary">
                                     <option value="">Man</option>
                                     <option value="">Woman</option>
                                 </select>
@@ -517,10 +486,10 @@
 
                             <div>
                                 <label for=""
-                                    class="text-sm sm:text-base md:text-lg text-gray-1 block mb-1.5 sm:mb-2.5 md:mb-4">Looking
+                                    class="text-sm sm:text-base md:text-lg text-secondary block mb-1.5 sm:mb-2.5 md:mb-4">Looking
                                     for</label>
                                 <select
-                                    class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full bg-white">
+                                    class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] focus:ring-0 focus-within:border-info active:border-info w-full bg-primary">
                                     <option value="">Woman</option>
                                     <option value="">Man</option>
                                 </select>
@@ -529,7 +498,7 @@
 
                         <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
                             <button @click="step = 2"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2 col-start-2">
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2 col-start-2">
                                 <span>Next</span>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -546,16 +515,16 @@
 
                         <div class="mb-5 sm:mb-12 md:mb-[70px]">
                             <label for=""
-                                class="text-sm sm:text-base md:text-lg text-gray-1 block mb-1.5 sm:mb-2.5 md:mb-4">Location</label>
+                                class="text-sm sm:text-base md:text-lg text-secondary block mb-1.5 sm:mb-2.5 md:mb-4">Location</label>
                             <div class="flex items-center space-x-2 sm:space-x-3 md:space-x-5">
                                 <select
-                                    class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] bg-white focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-5/12">
+                                    class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] bg-primary focus:ring-0 focus-within:border-info active:border-info w-5/12">
                                     <option value="">UK</option>
                                     <option value="">US</option>
                                     <option value="">FR</option>
                                 </select>
                                 <select
-                                    class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] bg-white focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-7/12">
+                                    class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] bg-primary focus:ring-0 focus-within:border-info active:border-info w-7/12">
                                     <option value="">London</option>
                                     <option value="">London1</option>
                                     <option value="">London2</option>
@@ -565,7 +534,7 @@
 
                         <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
                             <button @click="step = 1"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gray-2 hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-muted hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -575,7 +544,7 @@
                                 <span>back</span>
                             </button>
                             <button @click="step = 3"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 <span>Next</span>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -593,14 +562,14 @@
 
                         <div class="mb-5 sm:mb-12 md:mb-[70px]">
                             <label for=""
-                                class="text-sm sm:text-base md:text-lg text-gray-1 block mb-1.5 sm:mb-2.5 md:mb-4">Age</label>
+                                class="text-sm sm:text-base md:text-lg text-secondary block mb-1.5 sm:mb-2.5 md:mb-4">Age</label>
                             <input type="number" placeholder="Age"
-                                class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] bg-white focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full">
+                                class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] bg-primary focus:ring-0 focus-within:border-info active:border-info w-full">
                         </div>
 
                         <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
                             <button @click="step = 2"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gray-2 hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-muted hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -610,7 +579,7 @@
                                 <span>back</span>
                             </button>
                             <button @click="step = 4"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 <span>Next</span>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -627,15 +596,15 @@
 
                         <div class="mb-5 sm:mb-12 md:mb-[70px]">
                             <label for=""
-                                class="text-sm sm:text-base md:text-lg text-gray-1 block mb-1.5 sm:mb-2.5 md:mb-4">Nickname</label>
+                                class="text-sm sm:text-base md:text-lg text-secondary block mb-1.5 sm:mb-2.5 md:mb-4">Nickname</label>
                             <input type="text" placeholder="Nickname"
-                                class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] bg-white focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full">
+                                class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] bg-primary focus:ring-0 focus-within:border-info active:border-info w-full">
 
                         </div>
 
                         <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
                             <button @click="step = 3"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gray-2 hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-muted hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -645,7 +614,7 @@
                                 <span>back</span>
                             </button>
                             <button @click="step = 5"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 <span>Next</span>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -662,7 +631,7 @@
 
                         <div class="space-y-2.5 md:space-y-3.5 mb-5 sm:mb-8 md:mb-11">
                             <a href="#"
-                                class="border border-gray-4 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-gray-50 uppercase">
+                                class="border border-primary w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-secondary uppercase">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -681,7 +650,7 @@
                                 <span>Sign Up with google</span>
                             </a>
                             <a href="#"
-                                class="bg-purple-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-white uppercase">
+                                class="bg-yahoo w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -691,7 +660,7 @@
                                 <span>Sign up with yahoo</span>
                             </a>
                             <a href="#"
-                                class="bg-blue-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-white uppercase">
+                                class="bg-outlook w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0_1128_332)">
@@ -716,22 +685,22 @@
                         </div>
 
                         <div class="flex items-center justify-center space-x-3.5 mb-5 sm:mb-8 md:mb-11">
-                            <div class="w-full h-px bg-gray-3"></div>
-                            <p class="text-sm md:text-base text-gray-1 uppercase">or</p>
-                            <div class="w-full h-px bg-gray-3"></div>
+                            <div class="w-full h-px bg-light"></div>
+                            <p class="text-sm md:text-base text-secondary uppercase">or</p>
+                            <div class="w-full h-px bg-light"></div>
                         </div>
 
                         <div class="mb-5 sm:mb-12 md:mb-[70px]">
                             <label for=""
-                                class="text-sm sm:text-base md:text-lg text-gray-70 block mb-1.5 sm:mb-2.5 md:mb-4">Email</label>
+                                class="text-sm sm:text-base md:text-lg text-secondary block mb-1.5 sm:mb-2.5 md:mb-4">Email</label>
                             <input type="text" placeholder="It will not be shared. 100% Privacy."
-                                class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] bg-white focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full">
+                                class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] bg-primary focus:ring-0 focus-within:border-info active:border-info w-full">
 
                         </div>
 
                         <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
                             <button @click="step = 4"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gray-2 hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-muted hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -741,7 +710,7 @@
                                 <span>back</span>
                             </button>
                             <button @click="registerModal = false; activeModal = true"
-                                class="text-sm sm:text-base font-semibold text-white px-4 py-3 md:py-4 rounded-full text-center bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
                                 done
                             </button>
                         </div>
@@ -754,9 +723,9 @@
 
         <!-- Activation Modal Start -->
         <div x-cloak x-show="activeModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full flex overflow-y-auto show-scrollbar py-24">
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full flex overflow-y-auto show-scrollbar py-24">
             <div
-                class="max-w-[712px] w-full m-auto bg-white shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+                class="max-w-[712px] w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
                 <button @click="activeModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
                     <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -766,11 +735,11 @@
                 </button>
 
                 <!-- Active input -->
-                <div class="px-4 sm:px-8 md:px-10 pb-5 sm:pb-6 md:pb-[30px] border-b border-gray-50">
-                    <h1 class="text-xl sm:text-3xl md:text-4xl text-dark-1 font-bold text-center mb-2 sm:mb-4 md:mb-5">
+                <div class="px-4 sm:px-8 md:px-10 pb-5 sm:pb-6 md:pb-[30px] border-b border-primary">
+                    <h1 class="text-xl sm:text-3xl md:text-4xl text-primary font-bold text-center mb-2 sm:mb-4 md:mb-5">
                         Active your account now</h1>
                     <p
-                        class="text-sm sm:text-base md:text-lg max-w-[400px] mx-auto sm:text-center text-gray-40 mb-4 sm:mb-6 md:mb-[30px]">
+                        class="text-sm sm:text-base md:text-lg max-w-[400px] mx-auto sm:text-center text-secondary mb-4 sm:mb-6 md:mb-[30px]">
                         We sent you an
                         email with link to activate your account valid for nest 12 hours to:</p>
 
@@ -782,23 +751,23 @@
                                 fill="#117C15" />
                         </svg>
                         <input type="text" placeholder="bill.sanders@example.com" disabled
-                            class="w-full bg-gray-3/60 py-2.5 md:py-4 px-9 md:px-12 rounded-md border-0 focus-within:ring-pink-20 text-dark-1 placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                            class="w-full bg-light/60 py-2.5 md:py-4 px-9 md:px-12 rounded-md border-0 focus-within:ring-primary text-primary placeholder-primary text-sm sm:text-base md:text-lg">
                     </div>
 
                     <div class="text-center">
                         <button
-                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">Activate</button>
+                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">Activate</button>
                     </div>
                 </div>
 
                 <!-- Resend Email -->
                 <div class="max-w-[495px] mx-auto px-4 pt-5 sm:pt-6 md:pt-[30px]">
-                    <p class="text-sm sm:text-base md:text-lg sm:text-center text-gray-40 mb-4 sm:mb-6 md:mb-10">
+                    <p class="text-sm sm:text-base md:text-lg sm:text-center text-secondary mb-4 sm:mb-6 md:mb-10">
                         If you have not received it in your inbox or spam or you want to modify the email address, click
                         on the button below.</p>
                     <div class="max-w-[430px] mx-auto mb-5 sm:mb-8 md:mb-11">
                         <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-gray-1 mb-2 sm:mb-3 md:mb-4">
+                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-secondary mb-2 sm:mb-3 md:mb-4">
                             <span>Email</span>
                             <svg class="w-3 sm:w-3.5 md:w-4" viewBox="0 0 16 16" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -808,22 +777,22 @@
                             </svg>
                         </label>
                         <input type="text" placeholder="jackson.graham@example.com"
-                            class="border border-gray-4 rounded-md text-base sm:text-lg md:text-xl text-dark-1 px-3 py-[14px] bg-white focus:ring-0 focus-within:border-pink-10 active:border-pink-10 w-full mb-5 sm:mb-7 md:mb-9">
+                            class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] bg-primary focus:ring-0 focus-within:border-info active:border-info w-full mb-5 sm:mb-7 md:mb-9">
                         <div class="text-center">
                             <button
-                                class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-dark-1 px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-white border border-pink-1 hover:opacity-80 uppercase transition-all duration-100 ease-in-out">resend</button>
+                                class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-primary px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-primary border border-info hover:opacity-80 uppercase transition-all duration-100 ease-in-out">resend</button>
                         </div>
                     </div>
 
                     <div class="flex items-center justify-center space-x-3.5 mb-5 sm:mb-8 md:mb-11">
-                        <div class="w-full h-px bg-gray-3"></div>
-                        <p class="text-sm md:text-base text-gray-1 uppercase">or</p>
-                        <div class="w-full h-px bg-gray-3"></div>
+                        <div class="w-full h-px bg-light"></div>
+                        <p class="text-sm md:text-base text-secondary uppercase">or</p>
+                        <div class="w-full h-px bg-light"></div>
                     </div>
 
                     <div class="space-y-2.5 md:space-y-3.5">
                         <a href="#"
-                            class="border border-gray-4 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-gray-50 uppercase">
+                            class="border border-primary w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-secondary uppercase">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -842,7 +811,7 @@
                             <span>Sign Up with google</span>
                         </a>
                         <a href="#"
-                            class="bg-purple-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-white uppercase">
+                            class="bg-yahoo w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -852,7 +821,7 @@
                             <span>Sign up with yahoo</span>
                         </a>
                         <a href="#"
-                            class="bg-blue-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-white uppercase">
+                            class="bg-outlook w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_1128_332)">
@@ -885,9 +854,9 @@
 
         <!-- Login Modal Start -->
         <div x-cloak x-show="loginModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
             <div
-                class="max-w-[712px] w-full m-auto bg-white shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+                class="max-w-[712px] w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
                 <button @click="loginModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
                     <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -896,13 +865,13 @@
                     </svg>
                 </button>
                 <h1
-                    class="text-2xl sm:text-3xl md:text-4xl text-dark-1 font-bold sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
+                    class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
                     Welcome back</h1>
 
                 <div class="max-w-[448px] mx-auto relative">
                     <div class="space-y-2.5 md:space-y-3.5 mb-5 sm:mb-8 md:mb-11">
                         <a href="#"
-                            class="border border-gray-4 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-gray-50 uppercase">
+                            class="border border-primary w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-secondary uppercase">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -921,7 +890,7 @@
                             <span>Sign Up with google</span>
                         </a>
                         <a href="#"
-                            class="bg-purple-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-white uppercase">
+                            class="bg-yahoo w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -931,7 +900,7 @@
                             <span>Sign up with yahoo</span>
                         </a>
                         <a href="#"
-                            class="bg-blue-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-white uppercase">
+                            class="bg-outlook w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_1128_332)">
@@ -956,28 +925,28 @@
                     </div>
 
                     <div class="flex items-center justify-center space-x-3.5 mb-5 sm:mb-8 md:mb-11">
-                        <div class="w-full h-px bg-gray-3"></div>
-                        <p class="text-sm md:text-base text-gray-1 uppercase">or</p>
-                        <div class="w-full h-px bg-gray-3"></div>
+                        <div class="w-full h-px bg-light"></div>
+                        <p class="text-sm md:text-base text-secondary uppercase">or</p>
+                        <div class="w-full h-px bg-light"></div>
                     </div>
                     <div class="mb-5 sm:mb-7 md:mb-10">
                         <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-gray-1 mb-2 sm:mb-3 md:mb-4">
+                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-secondary mb-2 sm:mb-3 md:mb-4">
                             Email
                         </label>
                         <input type="text" placeholder="jackson.graham@example.com"
-                            class="w-full bg-transparent py-2.5 md:py-3.5 px-3 md:px-4 rounded-md border border-gray-4  focus-within:border-pink-20 focus-within:ring-0 text-dark-1 placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                            class="w-full bg-transparent py-2.5 md:py-3.5 px-3 md:px-4 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base md:text-lg">
                     </div>
 
                     <div class="mb-5">
                         <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-gray-1 mb-2 sm:mb-3 md:mb-4">
+                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-secondary mb-2 sm:mb-3 md:mb-4">
                             Password
                         </label>
 
                         <div class="flex items-center relative" x-data="{show : false}">
                             <input :type="show? 'text' : 'password'" placeholder="Password"
-                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-gray-4  focus-within:border-pink-20 focus-within:ring-0 text-dark-1 placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base md:text-lg">
 
                             <div class="absolute right-0 mr-4 cursor-pointer" @click="show = !show">
                                 <svg class="w-6 md:w-7" x-show="!show" viewBox="0 0 20 21" fill="none"
@@ -1015,13 +984,13 @@
 
                     <div class="text-right mb-5 sm:mb-12 md:mb-20">
                         <button @click="forgetModal = true; loginModal= false"
-                            class="text-sm sm:text-base font-semibold text-pink-50 uppercase">Forgot
+                            class="text-sm sm:text-base font-semibold text-accent uppercase">Forgot
                             password?</button>
                     </div>
 
                     <div class="text-center">
                         <button
-                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-gradient-to-r from-pink-10 via-pink-30 to-pink-40 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">login</button>
+                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">login</button>
                     </div>
                 </div>
 
@@ -1032,9 +1001,9 @@
 
         <!-- Forget Modal Start -->
         <div x-cloak x-show="forgetModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
             <div
-                class="max-w-[712px] w-full m-auto bg-white shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+                class="max-w-[712px] w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
                 <button @click="forgetModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
                     <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -1043,22 +1012,22 @@
                     </svg>
                 </button>
                 <h1
-                    class="text-2xl sm:text-3xl md:text-4xl text-dark-1 font-bold sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
+                    class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
                     Password reminder</h1>
 
                 <div class="max-w-[448px] mx-auto relative mb-5 sm:mb-8 md:mb-10">
                     <div class="mb-5 sm:mb-12 md:mb-20">
                         <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-gray-1 mb-2 sm:mb-3 md:mb-4">
+                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-secondary mb-2 sm:mb-3 md:mb-4">
                             Email
                         </label>
                         <input type="text" placeholder="Your email address"
-                            class="w-full bg-transparent py-2.5 md:py-3.5 px-3 md:px-4 rounded-md border border-gray-4  focus-within:border-pink-20 focus-within:ring-0 text-dark-1 placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                            class="w-full bg-transparent py-2.5 md:py-3.5 px-3 md:px-4 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base md:text-lg">
                     </div>
 
                     <div class="text-center">
                         <button @click="checkMailModal = true; forgetModal = false"
-                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">confirm</button>
+                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">confirm</button>
                     </div>
                 </div>
 
@@ -1069,9 +1038,9 @@
 
         <!-- CheckMail Modal Start -->
         <div x-cloak x-show="checkMailModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
             <div
-                class="max-w-[712px] w-full m-auto bg-white shadow-20 rounded-[20px] py-[30px] sm:py-10 md:py-14 relative">
+                class="max-w-[712px] w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] sm:py-10 md:py-14 relative">
                 <button @click="checkMailModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
                     <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -1081,11 +1050,11 @@
                 </button>
 
                 <!-- Active input -->
-                <div class="px-4 sm:px-8 md:px-10 pb-5 sm:pb-6 md:pb-[30px] border-b border-gray-4">
-                    <h1 class="text-2xl sm:text-3xl md:text-4xl text-dark-1 font-bold sm:text-center mb-4 md:mb-5">
+                <div class="px-4 sm:px-8 md:px-10 pb-5 sm:pb-6 md:pb-[30px] border-b border-primary">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold sm:text-center mb-4 md:mb-5">
                         Check your email</h1>
                     <p
-                        class="text-sm sm:text-base md:text-lg max-w-[400px] mx-auto sm:text-center text-gray-40 mb-4 sm:mb-6 md:mb-[30px]">
+                        class="text-sm sm:text-base md:text-lg max-w-[400px] mx-auto sm:text-center text-secondary mb-4 sm:mb-6 md:mb-[30px]">
                         A password reset link has been successfully sent! Please, check your email for furthur
                         instructions. </p>
                 </div>
@@ -1094,24 +1063,24 @@
                 <div class="max-w-[448px] mx-auto px-4 sm:px-8 md:px-10 pt-5 sm:pt-6 md:pt-[30px]">
                     <div class="sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
                         <a href="#"
-                            class="text-sm sm:text-base md:text-lg max-w-[495px] mx-auto sm:text-center text-gray-40 mb-4 sm:mb-6 md:mb-10">Didn’t
+                            class="text-sm sm:text-base md:text-lg max-w-[495px] mx-auto sm:text-center text-secondary mb-4 sm:mb-6 md:mb-10">Didn’t
                             receive a link?</a>
                     </div>
 
                     <div class="text-center mb-5 sm:mb-7 md:mb-10">
                         <button @click="forgetModal = true; checkMailModal= false"
-                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">use
+                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">use
                             a different email</button>
                     </div>
                     <div class="flex items-center justify-center space-x-3.5 mb-5 sm:mb-8 md:mb-11">
-                        <div class="w-full h-px bg-gray-3"></div>
-                        <p class="text-sm md:text-base text-gray-1 uppercase">or</p>
-                        <div class="w-full h-px bg-gray-3"></div>
+                        <div class="w-full h-px bg-light"></div>
+                        <p class="text-sm md:text-base text-secondary uppercase">or</p>
+                        <div class="w-full h-px bg-light"></div>
                     </div>
 
                     <div class="space-y-2.5 md:space-y-3.5">
                         <a href="#"
-                            class="border border-gray-4 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-gray-50 uppercase">
+                            class="border border-primary w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-secondary uppercase">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -1130,7 +1099,7 @@
                             <span>Sign Up with google</span>
                         </a>
                         <a href="#"
-                            class="bg-purple-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-white uppercase">
+                            class="bg-yahoo w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -1140,7 +1109,7 @@
                             <span>Sign up with yahoo</span>
                         </a>
                         <a href="#"
-                            class="bg-blue-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-white uppercase">
+                            class="bg-outlook w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_1128_332)">
@@ -1173,9 +1142,9 @@
 
         <!-- Reset Password Modal Start -->
         <div x-cloak x-show="resetPassModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
             <div
-                class="max-w-[712px] w-full m-auto bg-white shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+                class="max-w-[712px] w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
                 <button @click="resetPassModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
                     <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -1184,19 +1153,19 @@
                     </svg>
                 </button>
                 <h1
-                    class="text-2xl sm:text-3xl md:text-4xl text-dark-1 font-bold sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
+                    class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
                     Reset password</h1>
 
                 <div class="max-w-[448px] mx-auto relative mb-5 sm:mb-8 md:mb-10">
                     <div class="mb-4 sm:mb-8 md:mb-10">
                         <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-gray-1 mb-2 sm:mb-3 md:mb-4">
+                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-secondary mb-2 sm:mb-3 md:mb-4">
                             Password
                         </label>
 
                         <div class="flex items-center relative" x-data="{show : false}">
                             <input :type="show? 'text' : 'password'" placeholder="Password"
-                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-gray-4  focus-within:border-pink-20 focus-within:ring-0 text-dark-1 placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base md:text-lg">
 
                             <div class="absolute right-0 mr-4 cursor-pointer" @click="show = !show">
                                 <svg class="w-5 md:w-6" x-show="!show" viewBox="0 0 23 18" fill="none"
@@ -1233,13 +1202,13 @@
 
                     <div class="mb-5 sm:mb-12 md:mb-[60px]">
                         <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-gray-1 mb-2 sm:mb-3 md:mb-4">
+                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-secondary mb-2 sm:mb-3 md:mb-4">
                             Confirm Password
                         </label>
 
                         <div class="flex items-center relative" x-data="{show : false}">
                             <input :type="show? 'text' : 'password'" placeholder="Confirm Password"
-                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-gray-4  focus-within:border-pink-20 focus-within:ring-0 text-dark-1 placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base md:text-lg">
 
                             <div class="absolute right-0 mr-4 cursor-pointer" @click="show = !show">
                                 <svg class="w-5 md:w-6" x-show="!show" viewBox="0 0 23 18" fill="none"
@@ -1276,7 +1245,7 @@
 
                     <div class="text-center">
                         <button @click="thankyouModal = true; resetPassModal = false"
-                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">Reset
+                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">Reset
                             Password</button>
                     </div>
                 </div>
@@ -1288,9 +1257,9 @@
 
         <!-- Thankyou Modal Start -->
         <div x-cloak x-show="thankyouModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
             <div
-                class="max-w-[712px] w-full m-auto bg-white shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+                class="max-w-[712px] w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
                 <button @click="thankyouModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
                     <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -1321,14 +1290,15 @@
                         fill="#E90039" />
                 </svg>
 
-                <h1 class="text-2xl sm:text-3xl md:text-4xl text-dark-1 font-bold text-center capitalize mb-5">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold text-center capitalize mb-5">
                     thank you!</h1>
-                <p class="text-sm sm:text-base md:text-lg text-center text-gray-40 mb-6 sm:mb-12 md:mb-20">Your password
+                <p class="text-sm sm:text-base md:text-lg text-center text-secondary mb-6 sm:mb-12 md:mb-20">Your
+                    password
                     has been changed!</p>
 
                 <div class="text-center">
                     <button @click="thankyouModal = false"
-                        class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">ok</button>
+                        class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">ok</button>
                 </div>
             </div>
         </div>

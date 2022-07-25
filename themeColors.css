@@ -4,8 +4,9 @@
     --color-text-primary: 48 48 48; /* #303030 */
     --color-text-secondary: 92 92 92; /* #5c5c5c */
     --color-text-muted: 151 151 151; /* #979797 */
-    --color-text-primary-alt: 35 3535; /* #232323 */
+    --color-text-primary-alt: 35 35 35; /* #232323 */
     --color-text-invert: 255 255 255; /* #ffffff */
+    --color-text-accent: 219 1 93; /* #DB015D */
 
     /* Background Color */
     --color-bg-online-green: 14 143 20; /* #0e8f14 */
@@ -14,10 +15,18 @@
     --color-bg-popup-overlay: 30 33 34; /* #1E2122 */
     --color-bg-info: 220 10 94; /* #DC0A5E */
     --color-bg-muted: 151 151 151; /* #979797 */
+    --color-bg-yahoo: 105 41 137; /* #692989 */
+    --color-bg-outlook: 0 109 188; /* #006DBC */
 
     /* Border Color */
     --color-border-primary: 199 199 199; /* #C7C7C7 */
     --color-border-info: 255 6 66; /* #FF0642 */
+
+    /* Ring Color */
+    --color-ring-primary: 234 18 114; /* #EA1272 */
+
+    /* Placeholder Color */
+    --color-placeholder-primary: 132 132 132; /* #848484 */
 
     /* Gradient Color */
     --gradient-bg-1: linear-gradient(

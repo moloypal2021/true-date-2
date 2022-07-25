@@ -10,6 +10,8 @@ module.exports = {
         "popup-overlay": "rgb(var(--color-bg-popup-overlay) / <alpha-value>)",
         info: "rgb(var(--color-bg-info) / <alpha-value>)",
         muted: "rgb(var(--color-bg-muted) / <alpha-value>)",
+        yahoo: "rgb(var(--color-bg-yahoo) / <alpha-value>)",
+        outlook: "rgb(var(--color-bg-outlook) / <alpha-value>)",
       },
       textColor: {
         primary: "rgb(var(--color-text-primary) / <alpha-value>)",
@@ -17,10 +19,17 @@ module.exports = {
         secondary: "rgb(var(--color-text-secondary) / <alpha-value>)",
         muted: "rgb(var(--color-text-muted) / <alpha-value>)",
         invert: "rgb(var(--color-text-invert) / <alpha-value>)",
+        accent: "rgb(var(--color-text-accent) / <alpha-value>)",
+      },
+      placeholderColor: {
+        primary: "rgb(var(--color-placeholder-primary) / <alpha-value>)",
       },
       borderColor: {
         primary: "rgb(var(--color-border-primary) / <alpha-value>)",
         info: "rgb(var(--color-border-info) / <alpha-value>)",
+      },
+      ringColor: {
+        primary: "rgb(var(--color-ring-primary) / <alpha-value>)",
       },
       colors: {
         green: {

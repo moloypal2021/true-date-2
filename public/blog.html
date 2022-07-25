@@ -47,7 +47,7 @@
 
                         <div class="flex items-center space-x-3 sm:space-x-3 md:space-x-5">
                             <button @click="loginModal = true"
-                                class="text-base lg:text-lg 2xl:text-xl 3k:text-2xl font-medium text-transparent text-pink-10 bg-2 bg-clip-text hover:text-primary">Login</button>
+                                class="text-base lg:text-lg 2xl:text-xl 3k:text-2xl font-medium text-transparent text-accent bg-2 bg-clip-text hover:text-primary">Login</button>
 
                             <button @click="registerModal = true"
                                 class="text-sm sm:text-lg lg:text-xl 3k:text-2xl font-medium text-invert bg-1 px-3 sm:px-6 4k:px-12 py-2 sm:py-2.5 4k:py-3 rounded-full hover:opacity-80">Join
@@ -752,7 +752,7 @@
                                 <span>Sign Up with google</span>
                             </a>
                             <a href="#"
-                                class="bg-purple-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
+                                class="bg-yahoo w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -762,7 +762,7 @@
                                 <span>Sign up with yahoo</span>
                             </a>
                             <a href="#"
-                                class="bg-blue-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
+                                class="bg-outlook w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0_1128_332)">
@@ -794,7 +794,7 @@
 
                         <div class="mb-5 sm:mb-12 md:mb-[70px]">
                             <label for=""
-                                class="text-sm sm:text-base md:text-lg text-gray-70 block mb-1.5 sm:mb-2.5 md:mb-4">Email</label>
+                                class="text-sm sm:text-base md:text-lg text-secondary block mb-1.5 sm:mb-2.5 md:mb-4">Email</label>
                             <input type="text" placeholder="It will not be shared. 100% Privacy."
                                 class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] bg-primary focus:ring-0 focus-within:border-info active:border-info w-full">
 
@@ -837,11 +837,11 @@
                 </button>
 
                 <!-- Active input -->
-                <div class="px-4 sm:px-8 md:px-10 pb-5 sm:pb-6 md:pb-[30px] border-b border-gray-50">
+                <div class="px-4 sm:px-8 md:px-10 pb-5 sm:pb-6 md:pb-[30px] border-b border-primary">
                     <h1 class="text-xl sm:text-3xl md:text-4xl text-primary font-bold text-center mb-2 sm:mb-4 md:mb-5">
                         Active your account now</h1>
                     <p
-                        class="text-sm sm:text-base md:text-lg max-w-[400px] mx-auto sm:text-center text-gray-40 mb-4 sm:mb-6 md:mb-[30px]">
+                        class="text-sm sm:text-base md:text-lg max-w-[400px] mx-auto sm:text-center text-secondary mb-4 sm:mb-6 md:mb-[30px]">
                         We sent you an
                         email with link to activate your account valid for nest 12 hours to:</p>
 
@@ -853,7 +853,7 @@
                                 fill="#117C15" />
                         </svg>
                         <input type="text" placeholder="bill.sanders@example.com" disabled
-                            class="w-full bg-light/60 py-2.5 md:py-4 px-9 md:px-12 rounded-md border-0 focus-within:ring-pink-20 text-primary placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                            class="w-full bg-light/60 py-2.5 md:py-4 px-9 md:px-12 rounded-md border-0 focus-within:ring-primary text-primary placeholder-primary text-sm sm:text-base md:text-lg">
                     </div>
 
                     <div class="text-center">
@@ -864,7 +864,7 @@
 
                 <!-- Resend Email -->
                 <div class="max-w-[495px] mx-auto px-4 pt-5 sm:pt-6 md:pt-[30px]">
-                    <p class="text-sm sm:text-base md:text-lg sm:text-center text-gray-40 mb-4 sm:mb-6 md:mb-10">
+                    <p class="text-sm sm:text-base md:text-lg sm:text-center text-secondary mb-4 sm:mb-6 md:mb-10">
                         If you have not received it in your inbox or spam or you want to modify the email address, click
                         on the button below.</p>
                     <div class="max-w-[430px] mx-auto mb-5 sm:mb-8 md:mb-11">
@@ -882,7 +882,7 @@
                             class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] bg-primary focus:ring-0 focus-within:border-info active:border-info w-full mb-5 sm:mb-7 md:mb-9">
                         <div class="text-center">
                             <button
-                                class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-primary px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-primary border border-pink-1 hover:opacity-80 uppercase transition-all duration-100 ease-in-out">resend</button>
+                                class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-primary px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-primary border border-info hover:opacity-80 uppercase transition-all duration-100 ease-in-out">resend</button>
                         </div>
                     </div>
 
@@ -913,7 +913,7 @@
                             <span>Sign Up with google</span>
                         </a>
                         <a href="#"
-                            class="bg-purple-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
+                            class="bg-yahoo w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -923,7 +923,7 @@
                             <span>Sign up with yahoo</span>
                         </a>
                         <a href="#"
-                            class="bg-blue-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
+                            class="bg-outlook w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_1128_332)">
@@ -992,7 +992,7 @@
                             <span>Sign Up with google</span>
                         </a>
                         <a href="#"
-                            class="bg-purple-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
+                            class="bg-yahoo w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -1002,7 +1002,7 @@
                             <span>Sign up with yahoo</span>
                         </a>
                         <a href="#"
-                            class="bg-blue-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
+                            class="bg-outlook w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_1128_332)">
@@ -1037,7 +1037,7 @@
                             Email
                         </label>
                         <input type="text" placeholder="jackson.graham@example.com"
-                            class="w-full bg-transparent py-2.5 md:py-3.5 px-3 md:px-4 rounded-md border border-primary  focus-within:border-pink-20 focus-within:ring-0 text-primary placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                            class="w-full bg-transparent py-2.5 md:py-3.5 px-3 md:px-4 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base md:text-lg">
                     </div>
 
                     <div class="mb-5">
@@ -1048,7 +1048,7 @@
 
                         <div class="flex items-center relative" x-data="{show : false}">
                             <input :type="show? 'text' : 'password'" placeholder="Password"
-                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-primary  focus-within:border-pink-20 focus-within:ring-0 text-primary placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base md:text-lg">
 
                             <div class="absolute right-0 mr-4 cursor-pointer" @click="show = !show">
                                 <svg class="w-6 md:w-7" x-show="!show" viewBox="0 0 20 21" fill="none"
@@ -1086,7 +1086,7 @@
 
                     <div class="text-right mb-5 sm:mb-12 md:mb-20">
                         <button @click="forgetModal = true; loginModal= false"
-                            class="text-sm sm:text-base font-semibold text-pink-50 uppercase">Forgot
+                            class="text-sm sm:text-base font-semibold text-accent uppercase">Forgot
                             password?</button>
                     </div>
 
@@ -1124,7 +1124,7 @@
                             Email
                         </label>
                         <input type="text" placeholder="Your email address"
-                            class="w-full bg-transparent py-2.5 md:py-3.5 px-3 md:px-4 rounded-md border border-primary  focus-within:border-pink-20 focus-within:ring-0 text-primary placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                            class="w-full bg-transparent py-2.5 md:py-3.5 px-3 md:px-4 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base md:text-lg">
                     </div>
 
                     <div class="text-center">
@@ -1156,7 +1156,7 @@
                     <h1 class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold sm:text-center mb-4 md:mb-5">
                         Check your email</h1>
                     <p
-                        class="text-sm sm:text-base md:text-lg max-w-[400px] mx-auto sm:text-center text-gray-40 mb-4 sm:mb-6 md:mb-[30px]">
+                        class="text-sm sm:text-base md:text-lg max-w-[400px] mx-auto sm:text-center text-secondary mb-4 sm:mb-6 md:mb-[30px]">
                         A password reset link has been successfully sent! Please, check your email for furthur
                         instructions. </p>
                 </div>
@@ -1165,7 +1165,7 @@
                 <div class="max-w-[448px] mx-auto px-4 sm:px-8 md:px-10 pt-5 sm:pt-6 md:pt-[30px]">
                     <div class="sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
                         <a href="#"
-                            class="text-sm sm:text-base md:text-lg max-w-[495px] mx-auto sm:text-center text-gray-40 mb-4 sm:mb-6 md:mb-10">Didn’t
+                            class="text-sm sm:text-base md:text-lg max-w-[495px] mx-auto sm:text-center text-secondary mb-4 sm:mb-6 md:mb-10">Didn’t
                             receive a link?</a>
                     </div>
 
@@ -1201,7 +1201,7 @@
                             <span>Sign Up with google</span>
                         </a>
                         <a href="#"
-                            class="bg-purple-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
+                            class="bg-yahoo w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -1211,7 +1211,7 @@
                             <span>Sign up with yahoo</span>
                         </a>
                         <a href="#"
-                            class="bg-blue-1 w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
+                            class="bg-outlook w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_1128_332)">
@@ -1267,7 +1267,7 @@
 
                         <div class="flex items-center relative" x-data="{show : false}">
                             <input :type="show? 'text' : 'password'" placeholder="Password"
-                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-primary  focus-within:border-pink-20 focus-within:ring-0 text-primary placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base md:text-lg">
 
                             <div class="absolute right-0 mr-4 cursor-pointer" @click="show = !show">
                                 <svg class="w-5 md:w-6" x-show="!show" viewBox="0 0 23 18" fill="none"
@@ -1310,7 +1310,7 @@
 
                         <div class="flex items-center relative" x-data="{show : false}">
                             <input :type="show? 'text' : 'password'" placeholder="Confirm Password"
-                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-primary  focus-within:border-pink-20 focus-within:ring-0 text-primary placeholder-gray-10 text-sm sm:text-base md:text-lg">
+                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base md:text-lg">
 
                             <div class="absolute right-0 mr-4 cursor-pointer" @click="show = !show">
                                 <svg class="w-5 md:w-6" x-show="!show" viewBox="0 0 23 18" fill="none"
@@ -1394,7 +1394,8 @@
 
                 <h1 class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold text-center capitalize mb-5">
                     thank you!</h1>
-                <p class="text-sm sm:text-base md:text-lg text-center text-gray-40 mb-6 sm:mb-12 md:mb-20">Your password
+                <p class="text-sm sm:text-base md:text-lg text-center text-secondary mb-6 sm:mb-12 md:mb-20">Your
+                    password
                     has been changed!</p>
 
                 <div class="text-center">
