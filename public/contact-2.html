@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Flickity CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="./assets/css/tailwind.css">
+
+    <!--  Flickity JavaScript -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.9.3/dist/cdn.min.js"></script>
+</head>
+
+<body>
+
+    <div class="bg-primary h-screen overflow-y-auto show-scrollbar flex flex-col" x-data="settings()"
+        x-on:scroll="scrollbar()">
+        <!-- Header Start -->
+        <div class="border-b border-primary/30 lg:border-b-0 pt-5 sm:pt-8 md:pt-12 3k:pt-16">
+            <div class="container flex items-center justify-between">
+                <button><svg class="w-6 sm:w-8 md:w-11" viewBox="0 0 44 44" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M14.6663 21.9999C14.6655 21.5716 14.8147 21.1564 15.088 20.8266L24.2547 9.8266C24.5658 9.45221 25.013 9.21676 25.4978 9.17206C25.9826 9.12737 26.4653 9.27708 26.8397 9.58827C27.2141 9.89946 27.4495 10.3466 27.4942 10.8314C27.5389 11.3162 27.3892 11.7989 27.078 12.1733L18.8647 21.9999L26.7847 31.8266C26.9369 32.0141 27.0507 32.2299 27.1193 32.4615C27.1879 32.6931 27.2101 32.936 27.1845 33.1763C27.159 33.4165 27.0862 33.6493 26.9704 33.8613C26.8546 34.0733 26.698 34.2603 26.5097 34.4116C26.3212 34.5795 26.1 34.7067 25.8601 34.7851C25.6201 34.8636 25.3666 34.8916 25.1153 34.8675C24.864 34.8434 24.6204 34.7677 24.3998 34.6451C24.1791 34.5225 23.9862 34.3556 23.833 34.1549L14.978 23.1549C14.7479 22.8156 14.6381 22.409 14.6663 21.9999V21.9999Z"
+                            fill="black" />
+                    </svg>
+                </button>
+
+                <h1 class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold mx-auto capitalize">Contact us </h1>
+            </div>
+        </div>
+        <!-- Header End -->
+
+
+        <!-- Content Start -->
+        <div class="mt-[30px] sm:mt-10 md:mt-16 3k:mt-24 container px-0 sm:px-5 lg:max-w-[1035px]">
+            <div class="max-w-[480px] mx-auto">
+                <h5 class="text-sm sm:text-base md:text-xl font-medium text-secondary mb-5 sm:mb-8 md:mb-12">We’re
+                    here to help. Tell us
+                    what’s on your mind</h5>
+
+                <div class="pb-[30px] sm:pb-23 md:pb-[60px]">
+                    <div class="flex items-center justify-between mb-1 sm:mb-2.5">
+                        <label for="" class="text-sm md:text-base text-secondary block">Message</label>
+                        <label for="" class="text-sm md:text-base text-secondary block">0/150</label>
+                    </div>
+
+                    <textarea placeholder="Type message" rows="5"
+                        class="text-base md:text-lg text-primary border border-primary placeholder-primary rounded-md bg-primary px-3 py-2.5 lg:py-4 w-full focus:border-info focus-visible:ring-0"></textarea>
+                </div>
+                <div class="text-center lg:text-right">
+                    <button
+                        class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-invert px-4 rounded-full sm:max-w-[336px] md:max-w-[168px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">submit</button>
+                </div>
+            </div>
+        </div>
+        <!-- Content End -->
+
+
+        <!-- Footer Section Start -->
+        <section class="container mt-auto">
+            <ul class="flex items-center justify-center py-[30px] mt-8 space-x-3.5 md:space-x-[18px]">
+                <li><a href="#" class="text-xs sm:text-base md:text-lg text-accent">Terms</a></li>
+                <li class="w-[1px] h-5 bg-muted"></li>
+                <li><a href="#" class="text-xs sm:text-base md:text-lg text-accent">Privacy</a></li>
+                <li class="w-[1px] h-5 bg-muted"></li>
+                <li><a href="#" class="text-xs sm:text-base md:text-lg text-accent">Accessibility</a></li>
+                <li class="w-[1px] h-5 bg-muted"></li>
+                <li><a href="#" class="text-xs sm:text-base md:text-lg text-accent">Cookies</a></li>
+            </ul>
+        </section>
+        <!-- Footer Section End -->
+    </div>
+    <script>
+        function settings() {
+            return {
+
+                scrollbar() {
+                    document.body.classList.add('show-scrollbar');
+                    document.body.classList.remove('hide-scrollbar');
+                    this.$el.classList.add('show-scrollbar');
+                    this.$el.classList.remove('hide-scrollbar');
+                    setTimeout(() => {
+                        document.body.classList.add('hide-scrollbar');
+                        document.body.classList.remove('show-scrollbar');
+                        this.$el.classList.add('hide-scrollbar');
+                        this.$el.classList.remove('show-scrollbar');
+                    }, 3000);
+                }
+            }
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>
