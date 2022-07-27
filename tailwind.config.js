@@ -6,6 +6,7 @@ module.exports = {
       backgroundColor: {
         primary: "rgb(var(--color-bg-primary) / <alpha-value>)",
         "online-green": "rgb(var(--color-bg-online-green) / <alpha-value>)",
+        "ofline-red": "rgb(var(--color-bg-ofline-red) / <alpha-value>)",
         light: "rgb(var(--color-bg-light) / <alpha-value>)",
         "popup-overlay": "rgb(var(--color-bg-popup-overlay) / <alpha-value>)",
         info: "rgb(var(--color-bg-info) / <alpha-value>)",
@@ -17,7 +18,9 @@ module.exports = {
         primary: "rgb(var(--color-text-primary) / <alpha-value>)",
         "primary-alt": "rgb(var( --color-text-primary-alt) / <alpha-value>)",
         secondary: "rgb(var(--color-text-secondary) / <alpha-value>)",
+        "secondary-alt": "rgb(var(--color-text-secondary-alt) / <alpha-value>)",
         muted: "rgb(var(--color-text-muted) / <alpha-value>)",
+        "muted-alt": "rgb(var(--color-text-muted-alt) / <alpha-value>)",
         invert: "rgb(var(--color-text-invert) / <alpha-value>)",
         accent: "rgb(var(--color-text-accent) / <alpha-value>)",
         warning: "rgb(var(--color-text-warning) / <alpha-value>)",
@@ -108,6 +111,7 @@ module.exports = {
       },
       boxShadow: {
         1: "5px 2px 15px rgba(104, 25, 35, 0.1)",
+        2: " 0px 4px 20px rgba(0, 0, 0, 0.05), 0px 2px 50px rgba(27, 41, 68, 0.12)",
         10: "3px 10px 30px rgba(159, 2, 45, 0.15)",
         20: "0px 4px 4px rgba(0, 0, 0, 0.01), 10px 4px 30px rgba(104, 25, 35, 0.15)",
         30: "2px 10px 30px rgba(7, 7, 7, 0.25)",

@@ -3,7 +3,9 @@
     /* Text Color */
     --color-text-primary: 48 48 48; /* #303030 */
     --color-text-secondary: 92 92 92; /* #5c5c5c */
+    --color-text-secondary-alt: 199 199 199; /* #C7C7C7 */
     --color-text-muted: 151 151 151; /* #979797 */
+    --color-text-muted-alt: 121 121 121; /*#797979 */
     --color-text-primary-alt: 35 35 35; /* #232323 */
     --color-text-invert: 255 255 255; /* #ffffff */
     --color-text-accent: 219 1 93; /* #DB015D */
@@ -11,6 +13,7 @@
 
     /* Background Color */
     --color-bg-online-green: 14 143 20; /* #0e8f14 */
+    --color-bg-ofline-red: 228 44 39; /* #E42C27 */
     --color-bg-primary: 255 255 255; /* #ffffff */
     --color-bg-light: 238 238 238; /* #EEEEEE */
     --color-bg-popup-overlay: 30 33 34; /* #1E2122 */
