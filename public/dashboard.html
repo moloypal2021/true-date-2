@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <div class="bg-primary" x-data="{modal : true, hasScrolled: false, 
+    <div class="bg-primary" x-data="{modal : false, hasScrolled: false, 
         reactOnScroll() {
         if (this.$el.getBoundingClientRect().top < 80 && window.scrollY > 80) {
             this.hasScrolled = true;
@@ -3482,7 +3482,7 @@
                     <!-- Quick Search End -->
 
                     <!-- Advanced Search Start -->
-                    <div x-data="{open : true}">
+                    <div x-data="{open : false}">
                         <!-- Title Collapse -->
                         <div @click="open = !open"
                             class="bg-light flex items-center justify-between sm:justify-center px-4 py-2.5 md:py-4 w-full space-x-4 cursor-pointer">
@@ -3629,85 +3629,88 @@
                                 </div>
 
                                 <!-- Content -->
-                                <div class="grid grid-cols-2 gap-x-3 sm:gap-x-6 pt-5 md:pt-10 pb-1 xl:pb-6 border-b border-brown-10"
+                                <div class="grid grid-cols-2 gap-x-3 sm:gap-x-6 pt-5 md:pt-10 pb-1 xl:pb-6 border-b border-primary"
                                     x-show="open">
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Affair"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Affair"
-                                            class="text-sm sm:text-base md:text-lg text-white">Affair</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Affair</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="relationship"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="relationship"
-                                            class="text-sm sm:text-base md:text-lg text-white">Open
+                                            class="text-sm sm:text-base md:text-lg text-primary">Open
                                             relationship</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Hanging"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
-                                        <label for="Hanging" class="text-sm sm:text-base md:text-lg text-white">Hanging
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
+                                        <label for="Hanging"
+                                            class="text-sm sm:text-base md:text-lg text-primary">Hanging
                                             out</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="night"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
-                                        <label for="night" class="text-sm sm:text-base md:text-lg text-white">One night
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
+                                        <label for="night" class="text-sm sm:text-base md:text-lg text-primary">One
+                                            night
                                             stands</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Friendship"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Friendship"
-                                            class="text-sm sm:text-base md:text-lg text-white">Friendship</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Friendship</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Sports"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Sports"
-                                            class="text-sm sm:text-base md:text-lg text-white">Gym/Sports</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Gym/Sports</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Online"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
-                                        <label for="Online" class="text-sm sm:text-base md:text-lg text-white">Online
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
+                                        <label for="Online" class="text-sm sm:text-base md:text-lg text-primary">Online
                                             relationships</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Dinner"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
-                                        <label for="Dinner" class="text-sm sm:text-base md:text-lg text-white">Dinner
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
+                                        <label for="Dinner" class="text-sm sm:text-base md:text-lg text-primary">Dinner
                                             date</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="benefits"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
-                                        <label for="benefits" class="text-sm sm:text-base md:text-lg text-white">Friends
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
+                                        <label for="benefits"
+                                            class="text-sm sm:text-base md:text-lg text-primary">Friends
                                             with benefits</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Travel"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Travel"
-                                            class="text-sm sm:text-base md:text-lg text-white">Travel</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Travel</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Other activities"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Other activities"
-                                            class="text-sm sm:text-base md:text-lg text-white">Other
+                                            class="text-sm sm:text-base md:text-lg text-primary">Other
                                             activities</label>
                                     </div>
                                 </div>
@@ -3718,114 +3721,117 @@
                             <div class="mb-5 md:mb-6" x-data="{open : true}">
                                 <!-- Title -->
                                 <div class="flex items-center justify-between cursor-pointer" @click="open = !open">
-                                    <h5 class="text-xl text-white font-medium">Preferences</h5>
+                                    <h5 class="text-xl text-primary font-medium">Preferences</h5>
 
-                                    <svg x-show="!open" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 19v-7m0 0V5m0 7h7m-7 0H5" stroke="#fff" stroke-width="2"
+                                    <svg class="stroke-current text-primary" x-show="!open" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 19v-7m0 0V5m0 7h7m-7 0H5" stroke="current" stroke-width="2"
                                             stroke-linecap="round" />
                                     </svg>
-                                    <svg x-show="open" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M19 12H12H5" stroke="white" stroke-width="2" stroke-linecap="round" />
+                                    <svg class="stroke-current text-primary" x-show="open" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19 12H12H5" stroke="current" stroke-width="2"
+                                            stroke-linecap="round" />
                                     </svg>
 
                                 </div>
 
                                 <!-- Content -->
-                                <div class="grid grid-cols-2 gap-x-3 sm:gap-x-6 pt-5 md:pt-10 pb-1 xl:pb-6 border-b border-brown-10"
+                                <div class="grid grid-cols-2 gap-x-3 sm:gap-x-6 pt-5 md:pt-10 pb-1 xl:pb-6 border-b border-primary"
                                     x-show="open">
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Unconventional"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Unconventional"
-                                            class="text-sm sm:text-base md:text-lg text-white">Unconventional</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Unconventional</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Besexual"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Besexual"
-                                            class="text-sm sm:text-base md:text-lg text-white">Besexual</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Besexual</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Chatting"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Chatting"
-                                            class="text-sm sm:text-base md:text-lg text-white">Chatting</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Chatting</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Live dating"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
-                                        <label for="Live dating" class="text-sm sm:text-base md:text-lg text-white">Live
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
+                                        <label for="Live dating"
+                                            class="text-sm sm:text-base md:text-lg text-primary">Live
                                             dating</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Accesories"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Accesories"
-                                            class="text-sm sm:text-base md:text-lg text-white">Accesories</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Accesories</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Heterosexual"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Heterosexual"
-                                            class="text-sm sm:text-base md:text-lg text-white">Heterosexual</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Heterosexual</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Senxuality"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Senxuality"
-                                            class="text-sm sm:text-base md:text-lg text-white">Senxuality</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Senxuality</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Senxuality"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Senxuality"
-                                            class="text-sm sm:text-base md:text-lg text-white">Senxuality</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Senxuality</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Role Playing"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Role Playing"
-                                            class="text-sm sm:text-base md:text-lg text-white">Role
+                                            class="text-sm sm:text-base md:text-lg text-primary">Role
                                             Playing</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Messages"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Messages"
-                                            class="text-sm sm:text-base md:text-lg text-white">Messages</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Messages</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Body parts"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
-                                        <label for="Body parts" class="text-sm sm:text-base md:text-lg text-white">Body
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
+                                        <label for="Body parts"
+                                            class="text-sm sm:text-base md:text-lg text-primary">Body
                                             parts</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Clothing"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Clothing"
-                                            class="text-sm sm:text-base md:text-lg text-white">Clothing</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Clothing</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Others2"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Others2"
-                                            class="text-sm sm:text-base md:text-lg text-white">Others</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Others</label>
                                     </div>
                                 </div>
                             </div>
@@ -3835,128 +3841,131 @@
                             <div class="mb-5 md:mb-6" x-data="{open : true}">
                                 <!-- Title -->
                                 <div class="flex items-center justify-between cursor-pointer" @click="open = !open">
-                                    <h5 class="text-xl text-white font-medium">Character</h5>
+                                    <h5 class="text-xl text-primary font-medium">Character</h5>
 
-                                    <svg x-show="!open" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 19v-7m0 0V5m0 7h7m-7 0H5" stroke="#fff" stroke-width="2"
+                                    <svg class="stroke-current text-primary" x-show="!open" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 19v-7m0 0V5m0 7h7m-7 0H5" stroke="current" stroke-width="2"
                                             stroke-linecap="round" />
                                     </svg>
-                                    <svg x-show="open" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M19 12H12H5" stroke="white" stroke-width="2" stroke-linecap="round" />
+                                    <svg class="stroke-current text-primary" x-show="open" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19 12H12H5" stroke="current" stroke-width="2"
+                                            stroke-linecap="round" />
                                     </svg>
 
                                 </div>
 
                                 <!-- Content -->
-                                <div class="grid grid-cols-2 gap-x-3 sm:gap-x-6 pt-5 md:pt-10 pb-1 xl:pb-6 border-b border-brown-10"
+                                <div class="grid grid-cols-2 gap-x-3 sm:gap-x-6 pt-5 md:pt-10 pb-1 xl:pb-6 border-b border-primary"
                                     x-show="open">
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Open2"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Open2"
-                                            class="text-sm sm:text-base md:text-lg text-white">Open</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Open</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Active"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
-                                        <label for="Active" class="text-sm sm:text-base md:text-lg text-white">Active /
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
+                                        <label for="Active" class="text-sm sm:text-base md:text-lg text-primary">Active
+                                            /
                                             Enterpreneur</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Flexible"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Flexible"
-                                            class="text-sm sm:text-base md:text-lg text-white">Flexible</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Flexible</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Jealous"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Jealous"
-                                            class="text-sm sm:text-base md:text-lg text-white">Jealous</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Jealous</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Strong Natured"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Strong Natured"
-                                            class="text-sm sm:text-base md:text-lg text-white">Strong
+                                            class="text-sm sm:text-base md:text-lg text-primary">Strong
                                             Natured</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="SCurious"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="SCurious"
-                                            class="text-sm sm:text-base md:text-lg text-white">Curious</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Curious</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Dominant"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Dominant"
-                                            class="text-sm sm:text-base md:text-lg text-white">Dominant</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Dominant</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Loyal"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Loyal"
-                                            class="text-sm sm:text-base md:text-lg text-white">Loyal</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Loyal</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Vigorous"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Vigorous"
-                                            class="text-sm sm:text-base md:text-lg text-white">Vigorous</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Vigorous</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Romantic"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Romantic"
-                                            class="text-sm sm:text-base md:text-lg text-white">Romantic</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Romantic</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Self Confident"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Self Confident"
-                                            class="text-sm sm:text-base md:text-lg text-white">Self
+                                            class="text-sm sm:text-base md:text-lg text-primary">Self
                                             Confident</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Sensible"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Sensible"
-                                            class="text-sm sm:text-base md:text-lg text-white">Sensible</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Sensible</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Funny"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Funny"
-                                            class="text-sm sm:text-base md:text-lg text-white">Funny</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Funny</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Compliant"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
                                         <label for="Compliant"
-                                            class="text-sm sm:text-base md:text-lg text-white">Compliant</label>
+                                            class="text-sm sm:text-base md:text-lg text-primary">Compliant</label>
                                     </div>
 
                                     <div class="flex items-center space-x-3 md:space-x-6 mb-4 xl:mb-6">
                                         <input type="checkbox" name="" id="Shy"
-                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-gray-50 checked:text-transparent checkmark">
-                                        <label for="Shy" class="text-sm sm:text-base md:text-lg text-white">Shy</label>
+                                            class="w-6 h-6 p-0 rounded-md bg-transparent appearance-none border-[3px] border-primary checked:text-transparent checkmark">
+                                        <label for="Shy"
+                                            class="text-sm sm:text-base md:text-lg text-primary">Shy</label>
                                     </div>
                                 </div>
                             </div>
@@ -3967,12 +3976,12 @@
 
                     <div class="flex items-center justify-center space-x-4 mt-[30px] md:mt-[34px]">
                         <input type="submit" value="Search"
-                            class="w-[162px] sm:w-[300px] block py-3 sm:py-4 text-center rounded-full text-sm sm:text-base text-white bg-gradient-to-r from-pink-10 to-pink-20 shadow-40 uppercase font-semibold cursor-pointer hover:opacity-80">
+                            class="w-[162px] sm:w-[300px] block py-3 sm:py-4 text-center rounded-full text-sm sm:text-base text-invert bg-2 shadow-40 uppercase font-semibold cursor-pointer hover:opacity-80">
                     </div>
 
                     <div class="flex justify-center mb-16 sm:mb-0 mt-10">
                         <input type="reset" value="reset" @click="reset()"
-                            class="text-center text-sm sm:text-base text-white  uppercase font-semibold cursor-pointer hover:opacity-80 hover:border-b border-white">
+                            class="text-center text-sm sm:text-base text-primary  uppercase font-semibold cursor-pointer hover:opacity-80 hover:border-b border-primary">
                     </div>
                 </form>
             </div>
