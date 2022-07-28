@@ -25,6 +25,7 @@ module.exports = {
         "invert-alt": "rgb(var(--color-text-invert-alt) / <alpha-value>)",
         accent: "rgb(var(--color-text-accent) / <alpha-value>)",
         warning: "rgb(var(--color-text-warning) / <alpha-value>)",
+        success: "rgb(var(--color-text-success) / <alpha-value>)",
       },
       placeholderColor: {
         primary: "rgb(var(--color-placeholder-primary) / <alpha-value>)",
