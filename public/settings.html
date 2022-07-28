@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Flickity CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="./assets/css/tailwind.css">
+
+    <!--  Flickity JavaScript -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.9.3/dist/cdn.min.js"></script>
+
+    <!-- Custom js -->
+    <script src="./assets/js/custom.js"></script>
+</head>
+
+<body>
+
+    <div class="bg-dark-40 h-screen overflow-y-auto show-scrollbar flex flex-col relative" x-data="settings()"
+        x-on:scroll="scrollbar()">
+        <!-- Header Start -->
+        <div class="border-b border-gray-50/30 lg:border-b-0 pt-5 sm:pt-8 md:pt-10 3k:pt-16 pb-5">
+            <div class="container flex items-center justify-between">
+                <button @click="back()"><svg class="w-6 sm:w-8 md:w-11" viewBox="0 0 44 44" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M14.6663 21.9999C14.6655 21.5716 14.8147 21.1564 15.088 20.8266L24.2547 9.8266C24.5658 9.45221 25.013 9.21676 25.4978 9.17206C25.9826 9.12737 26.4653 9.27708 26.8397 9.58827C27.2141 9.89946 27.4495 10.3466 27.4942 10.8314C27.5389 11.3162 27.3892 11.7989 27.078 12.1733L18.8647 21.9999L26.7847 31.8266C26.9369 32.0141 27.0507 32.2299 27.1193 32.4615C27.1879 32.6931 27.2101 32.936 27.1845 33.1763C27.159 33.4165 27.0862 33.6493 26.9704 33.8613C26.8546 34.0733 26.698 34.2603 26.5097 34.4116C26.3212 34.5795 26.1 34.7067 25.8601 34.7851C25.6201 34.8636 25.3666 34.8916 25.1153 34.8675C24.864 34.8434 24.6204 34.7677 24.3998 34.6451C24.1791 34.5225 23.9862 34.3556 23.833 34.1549L14.978 23.1549C14.7479 22.8156 14.6381 22.409 14.6663 21.9999V21.9999Z"
+                            fill="white" />
+                    </svg>
+                </button>
+
+                <h1 class="text-2xl sm:text-3xl md:text-4xl text-white font-bold mx-auto capitalize" x-text="title">
+                </h1>
+            </div>
+        </div>
+        <!-- Header End -->
+
+
+        <!-- Content Start -->
+        <div class="mt-[30px] sm:mt-10 md:mt-16 3k:mt-24 container px-0 sm:px-5 lg:max-w-[1035px]">
+            <div class="lg:flex lg:space-x-[70px]">
+                <div class="lg:w-1/2 space-y-5" :class="{'hidden lg:block' : !openSettMobile}">
+                    <div class="bg-dark-20  sm:rounded-[10px] px-6 py-3 sm:px-8 sm:py-4 flex space-x-5 cursor-pointer"
+                        @click="openSettMobile = false; openSetPage = 1; selectAccOption = 0; title = 'Account'">
+                        <svg class="min-w-[24px] mt-1" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 15.1739C16.3386 15.1739 20 15.8789 20 18.599C20 21.32 16.3146 22 12 22C7.66237 22 4 21.295 4 18.575C4 15.8539 7.68538 15.1739 12 15.1739ZM12 2C14.9391 2 17.294 4.35402 17.294 7.29105C17.294 10.2281 14.9391 12.5831 12 12.5831C9.0619 12.5831 6.70601 10.2281 6.70601 7.29105C6.70601 4.35402 9.0619 2 12 2Z"
+                                :fill="openSetPage === 1 ? 'url(#paint0_linear_527_3003)' : 
+                                '#FFFFFF'" />
+                            <defs>
+                                <linearGradient id="paint0_linear_527_3003" x1="4.42857" y1="4.11538" x2="20.31"
+                                    y2="4.39499" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#FF0642" />
+                                    <stop offset="1" stop-color="#EA1272" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="w-full">
+                            <div class="flex items-center justify-between mb-1.5 sm:mb-2.5">
+                                <h5 class="text-base sm:text-lg md:text-xl font-bold"
+                                    :class="openSetPage === 1 ? 'text-pink-60' : 'text-white'">Account</h5>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M15.9993 12C15.9998 11.7664 15.9184 11.5399 15.7693 11.36L10.7693 5.36003C10.5996 5.15581 10.3556 5.02739 10.0912 5.00301C9.8268 4.97863 9.56352 5.06029 9.3593 5.23003C9.15508 5.39977 9.02666 5.64368 9.00228 5.90811C8.9779 6.17253 9.05956 6.43581 9.2293 6.64003L13.7093 12L9.3893 17.36C9.30623 17.4623 9.2442 17.58 9.20677 17.7064C9.16934 17.8327 9.15724 17.9652 9.17118 18.0962C9.18512 18.2272 9.22482 18.3542 9.28799 18.4699C9.35117 18.5855 9.43657 18.6875 9.5393 18.77C9.64212 18.8616 9.76275 18.931 9.89362 18.9738C10.0245 19.0166 10.1628 19.0319 10.2999 19.0187C10.4369 19.0056 10.5698 18.9643 10.6902 18.8974C10.8105 18.8305 10.9158 18.7395 10.9993 18.63L15.8293 12.63C15.9548 12.4449 16.0147 12.2231 15.9993 12V12Z"
+                                        :fill="openSetPage === 1 ? '#FC0768' : '#FFFFFF'" />
+                                </svg>
+                            </div>
+                            <p class="text-sm text-gray-80 pr-8">Edit your email address and password</p>
+                        </div>
+                    </div>
+
+
+                    <div class="bg-dark-20  sm:rounded-[10px] px-6 py-3 sm:px-8 sm:py-4 flex space-x-5 cursor-pointer"
+                        @click="openSettMobile = false; openSetPage = 2; title = 'Notifications'">
+                        <svg class="min-w-[24px] mt-1" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12.0002 1C10.0111 1 8.1034 1.79018 6.69688 3.1967C5.29036 4.60322 4.50018 6.51088 4.50018 8.50001V14.35L2.84018 16.85C2.64122 17.1568 2.52836 17.5114 2.51342 17.8767C2.49849 18.2421 2.58202 18.6047 2.75528 18.9267C2.92855 19.2487 3.18517 19.5182 3.4983 19.7071C3.81142 19.8959 4.16954 19.997 4.53518 20H19.4652C19.8332 19.9988 20.194 19.8981 20.5094 19.7085C20.8248 19.5189 21.083 19.2475 21.2568 18.9231C21.4305 18.5987 21.5133 18.2334 21.4962 17.8658C21.4792 17.4981 21.3631 17.142 21.1602 16.835L19.5002 14.35V8.50001C19.5002 6.51088 18.71 4.60322 17.3035 3.1967C15.897 1.79018 13.9893 1 12.0002 1V1Z"
+                                :fill="openSetPage === 2 ? 'url(#paint0_linear_527_3003)' : 
+                            '#FFFFFF'" />
+                            <path
+                                d="M12.0008 23C12.6206 22.9993 13.2249 22.8066 13.7308 22.4485C14.2367 22.0904 14.6192 21.5843 14.8258 21H9.17578C9.38238 21.5843 9.7649 22.0904 10.2708 22.4485C10.7766 22.8066 11.381 22.9993 12.0008 23V23Z"
+                                :fill="openSetPage === 2 ? 'url(#paint0_linear_527_3003)' : 
+                            '#FFFFFF'" />
+
+                            <defs>
+                                <linearGradient id="paint0_linear_527_3003" x1="4.42857" y1="4.11538" x2="20.31"
+                                    y2="4.39499" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#FF0642" />
+                                    <stop offset="1" stop-color="#EA1272" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+
+                        <div class="w-full">
+                            <div class="flex items-center justify-between mb-1.5 sm:mb-2.5">
+                                <h5 class="text-base sm:text-lg md:text-xl font-bold"
+                                    :class="openSetPage === 2 ? 'text-pink-60' : 'text-white'">Notifications</h5>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M15.9993 12C15.9998 11.7664 15.9184 11.5399 15.7693 11.36L10.7693 5.36003C10.5996 5.15581 10.3556 5.02739 10.0912 5.00301C9.8268 4.97863 9.56352 5.06029 9.3593 5.23003C9.15508 5.39977 9.02666 5.64368 9.00228 5.90811C8.9779 6.17253 9.05956 6.43581 9.2293 6.64003L13.7093 12L9.3893 17.36C9.30623 17.4623 9.2442 17.58 9.20677 17.7064C9.16934 17.8327 9.15724 17.9652 9.17118 18.0962C9.18512 18.2272 9.22482 18.3542 9.28799 18.4699C9.35117 18.5855 9.43657 18.6875 9.5393 18.77C9.64212 18.8616 9.76275 18.931 9.89362 18.9738C10.0245 19.0166 10.1628 19.0319 10.2999 19.0187C10.4369 19.0056 10.5698 18.9643 10.6902 18.8974C10.8105 18.8305 10.9158 18.7395 10.9993 18.63L15.8293 12.63C15.9548 12.4449 16.0147 12.2231 15.9993 12V12Z"
+                                        :fill="openSetPage === 2 ? '#FC0768' : '#FFFFFF'" />
+                                </svg>
+                            </div>
+                            <p class="text-sm text-gray-80 pr-8">Opt-in and Opt-out of email notifications and updates
+                                you want to receive
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="bg-dark-20  sm:rounded-[10px] px-6 py-3 sm:px-8 sm:py-4 flex space-x-5 cursor-pointer"
+                        @click="openSettMobile = false; openSetPage = 3; title = 'Contact Us'">
+                        <svg class="min-w-[24px] mt-1" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.1432 1.37321C5.6149 2.1267 1.99416 5.83054 1.33649 10.3738C0.827207 13.8917 2.00527 17.1459 4.19048 19.4368C4.50414 19.7656 4.54829 20.2688 4.26191 20.6217C3.81657 21.1704 3.23524 21.6445 2.51317 21.9899C2.18242 22.1482 2.22711 22.6382 2.58829 22.7016C4.12018 22.9702 5.74774 22.7561 7.19026 22.0183C7.41861 21.9014 7.67915 21.886 7.91654 21.9833C9.59361 22.6702 11.4766 22.9415 13.4422 22.6876C18.0461 22.0928 21.8377 18.4683 22.619 13.8924C23.8844 6.48239 17.5601 0.13911 10.1432 1.37321V1.37321ZM11.9955 19.3097C11.3013 19.3097 10.7396 18.7536 10.7396 18.06V18.0471C10.7396 17.3536 11.3013 16.7913 11.9955 16.7913C12.6897 16.7913 13.2514 17.3536 13.2514 18.0471C13.2514 18.7407 12.6897 19.3097 11.9955 19.3097ZM13.7383 12.825C13.6242 12.8765 13.2514 13.0733 13.2514 13.4413V14.3838C13.2514 15.0773 12.6897 15.6396 11.9955 15.6396C11.3013 15.6396 10.7396 15.0773 10.7396 14.3838V13.4413C10.7396 12.1958 11.4927 11.0822 12.7056 10.5352C13.3127 10.2617 13.856 9.57247 13.7039 8.64773C13.5936 7.97197 13.0208 7.38818 12.3438 7.26125C11.8115 7.16068 11.2989 7.28946 10.8954 7.62366C10.498 7.95296 10.2699 8.4374 10.2699 8.9525C10.2699 9.64605 9.70821 10.2084 9.01404 10.2084C8.31988 10.2084 7.75818 9.64605 7.75818 8.9525C7.75818 7.68743 8.31743 6.49779 9.29245 5.69018C10.2662 4.88258 11.5491 4.55573 12.8086 4.79305C14.5146 5.11315 15.9017 6.53152 16.1826 8.24117C16.4965 10.1507 15.4909 12.0351 13.7383 12.825V12.825Z"
+                                :fill="openSetPage === 3 ? 'url(#paint0_linear_527_3003)' : 
+                        '#FFFFFF'" />
+
+                            <defs>
+                                <linearGradient id="paint0_linear_527_3003" x1="4.42857" y1="4.11538" x2="20.31"
+                                    y2="4.39499" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#FF0642" />
+                                    <stop offset="1" stop-color="#EA1272" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+
+                        <div class="w-full">
+                            <div class="flex items-center justify-between mb-1.5 sm:mb-2.5">
+                                <h5 class="text-base sm:text-lg md:text-xl font-bold"
+                                    :class="openSetPage === 3 ? 'text-pink-60' : 'text-white'">Contact Us</h5>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M15.9993 12C15.9998 11.7664 15.9184 11.5399 15.7693 11.36L10.7693 5.36003C10.5996 5.15581 10.3556 5.02739 10.0912 5.00301C9.8268 4.97863 9.56352 5.06029 9.3593 5.23003C9.15508 5.39977 9.02666 5.64368 9.00228 5.90811C8.9779 6.17253 9.05956 6.43581 9.2293 6.64003L13.7093 12L9.3893 17.36C9.30623 17.4623 9.2442 17.58 9.20677 17.7064C9.16934 17.8327 9.15724 17.9652 9.17118 18.0962C9.18512 18.2272 9.22482 18.3542 9.28799 18.4699C9.35117 18.5855 9.43657 18.6875 9.5393 18.77C9.64212 18.8616 9.76275 18.931 9.89362 18.9738C10.0245 19.0166 10.1628 19.0319 10.2999 19.0187C10.4369 19.0056 10.5698 18.9643 10.6902 18.8974C10.8105 18.8305 10.9158 18.7395 10.9993 18.63L15.8293 12.63C15.9548 12.4449 16.0147 12.2231 15.9993 12V12Z"
+                                        :fill="openSetPage === 3 ? '#FC0768' : '#FFFFFF'" />
+                                </svg>
+                            </div>
+                            <!-- <p class="text-sm text-gray-80 pr-8">Nunc eu adipiscing amet at nam vehicula vulputate nulla
+                                lorem</p> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 space-y-5" :class="{'hidden lg:block' : openSettMobile}">
+
+                    <!-- Account Start -->
+                    <div x-show="openSetPage === 1">
+                        <!-- Buttons Of Options Start -->
+                        <div class="space-y-5 lg:space-y-[30px]" x-show="selectAccOption === 0">
+                            <div
+                                class="bg-dark-20 border border-gray-50 sm:rounded-lg px-5 sm:px-[30px] py-2.5 sm:py-4">
+                                <div class="flex items-center justify-between">
+                                    <h5 class="text-base sm:text-lg md:text-xl text-white font-bold">Username</h5>
+                                    <div class="flex items-center space-x-2">
+                                        <p
+                                            class="text-base md:text-lg text-gray-30 whitespace-nowrap text-right w-32 sm:w-40 lg:w-48 overflow-hidden">
+                                            Nickir</p>
+                                        <svg class="min-w-[24px] opacity-0" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M15.9993 12C15.9998 11.7664 15.9184 11.5399 15.7693 11.36L10.7693 5.36003C10.5996 5.15581 10.3556 5.02739 10.0912 5.00301C9.8268 4.97863 9.56352 5.06029 9.3593 5.23003C9.15508 5.39977 9.02666 5.64368 9.00228 5.90811C8.9779 6.17253 9.05956 6.43581 9.2293 6.64003L13.7093 12L9.3893 17.36C9.30623 17.4623 9.2442 17.58 9.20677 17.7064C9.16934 17.8327 9.15724 17.9652 9.17118 18.0962C9.18512 18.2272 9.22482 18.3542 9.28799 18.4699C9.35117 18.5855 9.43657 18.6875 9.5393 18.77C9.64212 18.8616 9.76275 18.931 9.89362 18.9738C10.0245 19.0166 10.1628 19.0319 10.2999 19.0187C10.4369 19.0056 10.5698 18.9643 10.6902 18.8974C10.8105 18.8305 10.9158 18.7395 10.9993 18.63L15.8293 12.63C15.9548 12.4449 16.0147 12.2231 15.9993 12V12Z"
+                                                fill="white" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div @click="selectAccOption = 2; title = 'Email Address' "
+                                    class="bg-dark-20 border border-gray-50 sm:rounded-lg px-5 sm:px-[30px] py-2.5 sm:py-4">
+                                    <div class="flex items-center justify-between">
+                                        <h5 class="text-base sm:text-lg md:text-xl text-white font-bold">Email Address
+                                        </h5>
+                                        <div class="flex items-center space-x-2">
+                                            <p
+                                                class="text-base md:text-lg text-gray-30 whitespace-nowrap text-right w-32 sm:w-40 lg:w-48 overflow-hidden">
+                                                jxxxxxxxxxxxx@gmail.com</p>
+                                            <svg class="min-w-[24px]" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M15.9993 12C15.9998 11.7664 15.9184 11.5399 15.7693 11.36L10.7693 5.36003C10.5996 5.15581 10.3556 5.02739 10.0912 5.00301C9.8268 4.97863 9.56352 5.06029 9.3593 5.23003C9.15508 5.39977 9.02666 5.64368 9.00228 5.90811C8.9779 6.17253 9.05956 6.43581 9.2293 6.64003L13.7093 12L9.3893 17.36C9.30623 17.4623 9.2442 17.58 9.20677 17.7064C9.16934 17.8327 9.15724 17.9652 9.17118 18.0962C9.18512 18.2272 9.22482 18.3542 9.28799 18.4699C9.35117 18.5855 9.43657 18.6875 9.5393 18.77C9.64212 18.8616 9.76275 18.931 9.89362 18.9738C10.0245 19.0166 10.1628 19.0319 10.2999 19.0187C10.4369 19.0056 10.5698 18.9643 10.6902 18.8974C10.8105 18.8305 10.9158 18.7395 10.9993 18.63L15.8293 12.63C15.9548 12.4449 16.0147 12.2231 15.9993 12V12Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p
+                                    class="text-xs sm:text-sm md:text-base font-poppins text-green-10 mt-1.5 sm:mt-[18px] px-5 sm:px-0">
+                                    Your email address is verified!</p>
+                            </div>
+
+
+                            <div @click="selectAccOption = 3"
+                                class="bg-dark-20 border border-gray-50 sm:rounded-lg px-5 sm:px-[30px] py-2.5 sm:py-4">
+                                <div class="flex items-center justify-between">
+                                    <h5 class="text-base sm:text-lg md:text-xl text-white font-bold"> Delete Account
+                                    </h5>
+                                    <div class="flex items-center space-x-2">
+                                        <svg class="min-w-[24px]" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M15.9993 12C15.9998 11.7664 15.9184 11.5399 15.7693 11.36L10.7693 5.36003C10.5996 5.15581 10.3556 5.02739 10.0912 5.00301C9.8268 4.97863 9.56352 5.06029 9.3593 5.23003C9.15508 5.39977 9.02666 5.64368 9.00228 5.90811C8.9779 6.17253 9.05956 6.43581 9.2293 6.64003L13.7093 12L9.3893 17.36C9.30623 17.4623 9.2442 17.58 9.20677 17.7064C9.16934 17.8327 9.15724 17.9652 9.17118 18.0962C9.18512 18.2272 9.22482 18.3542 9.28799 18.4699C9.35117 18.5855 9.43657 18.6875 9.5393 18.77C9.64212 18.8616 9.76275 18.931 9.89362 18.9738C10.0245 19.0166 10.1628 19.0319 10.2999 19.0187C10.4369 19.0056 10.5698 18.9643 10.6902 18.8974C10.8105 18.8305 10.9158 18.7395 10.9993 18.63L15.8293 12.63C15.9548 12.4449 16.0147 12.2231 15.9993 12V12Z"
+                                                fill="white" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div @click="selectAccOption = 4; title = 'Change password' "
+                                class="bg-dark-20 border border-gray-50 sm:rounded-lg px-5 sm:px-[30px] py-2.5 sm:py-4">
+                                <div class="flex items-center justify-between">
+                                    <h5 class="text-base sm:text-lg md:text-xl text-white font-bold">Password</h5>
+                                    <div class="flex items-center space-x-2">
+                                        <svg class="min-w-[24px]" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M15.9993 12C15.9998 11.7664 15.9184 11.5399 15.7693 11.36L10.7693 5.36003C10.5996 5.15581 10.3556 5.02739 10.0912 5.00301C9.8268 4.97863 9.56352 5.06029 9.3593 5.23003C9.15508 5.39977 9.02666 5.64368 9.00228 5.90811C8.9779 6.17253 9.05956 6.43581 9.2293 6.64003L13.7093 12L9.3893 17.36C9.30623 17.4623 9.2442 17.58 9.20677 17.7064C9.16934 17.8327 9.15724 17.9652 9.17118 18.0962C9.18512 18.2272 9.22482 18.3542 9.28799 18.4699C9.35117 18.5855 9.43657 18.6875 9.5393 18.77C9.64212 18.8616 9.76275 18.931 9.89362 18.9738C10.0245 19.0166 10.1628 19.0319 10.2999 19.0187C10.4369 19.0056 10.5698 18.9643 10.6902 18.8974C10.8105 18.8305 10.9158 18.7395 10.9993 18.63L15.8293 12.63C15.9548 12.4449 16.0147 12.2231 15.9993 12V12Z"
+                                                fill="white" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Buttons Of Options End -->
+
+
+                        <!-- Options Details Start -->
+                        <div class="px-6 sm:px-0" x-show="selectAccOption != 0">
+                            <!-- Email Address Start -->
+                            <div x-show="selectAccOption === 2">
+                                <p class="text-sm sm:text-base text-gray-80 font-medium mb-[30px] lg:mb-[38px]">Enter
+                                    the email
+                                    address where you wish to
+                                    receive notices and login information. Please ensure this email address is
+                                    confidential and only accessed by you.
+                                    <br>
+                                    <br>
+                                    If you find that the emails are being sent to your junk/spam folder, please mark the
+                                    email as “Not spam” or “Report not spam”
+                                </p>
+
+                                <form action="">
+                                    <div class="mb-5 md:mb-6 lg:mb-[26px]">
+                                        <label for=""
+                                            class="text-sm md:text-base text-gray-80 block mb-1 sm:mb-2.5">Email</label>
+
+                                        <input type="email"
+                                            class="text-base md:text-lg text-white border border-gray-50 placeholder-gray-80 rounded-md bg-transparent px-3 py-2.5 lg:px-4 lg:py-3.5 w-full focus:border-pink-20 focus-visible:ring-0"
+                                            placeholder="Email" value="jackson.graham@example.com">
+
+                                        <p
+                                            class="text-xs sm:text-sm md:text-base font-poppins text-green-10 mt-1.5 sm:mt-[18px] px-5 sm:px-0">
+                                            Your email address is verified!</p>
+                                    </div>
+
+                                    <div class="mb-5 md:mb-6 lg:mb-[60px]">
+                                        <label for=""
+                                            class="text-sm md:text-base text-gray-80 block mb-1 sm:mb-2.5">Password</label>
+
+                                        <div class="flex items-center relative" x-data="{show : false}">
+                                            <input :type="show? 'text' : 'password'" placeholder="Password"
+                                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-gray-50  focus-within:border-pink-20 focus-within:ring-0 text-white placeholder-gray-10 text-sm sm:text-base md:text-lg">
+
+                                            <div class="absolute right-0 mr-4 cursor-pointer" @click="show = !show">
+                                                <svg class="w-5 md:w-6" x-show="!show" viewBox="0 0 23 18" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M19.337.227a.818.818 0 0 1 1.13 0c.32.302.32.802 0 1.105l-1.94 1.897c1.546 1.376 2.857 3.231 3.838 5.462a.771.771 0 0 1 0 .615c-2.281 5.192-6.344 8.298-10.866 8.298h-.01c-2.058 0-4.031-.657-5.77-1.856l-2.068 2.023a.8.8 0 0 1-.565.229.783.783 0 0 1-.565-.23.761.761 0 0 1-.096-.98l.032-.04L18.228 1.331c.021-.021.043-.042.053-.063a.277.277 0 0 0 .054-.062l1.002-.98Zm-7.835.181c1.525 0 3.007.354 4.372 1.022L12.313 4.91a5.087 5.087 0 0 0-.81-.073c-2.357 0-4.266 1.866-4.266 4.17 0 .271.032.542.075.792l-3.946 3.857C2.3 12.448 1.372 10.99.636 9.31a.77.77 0 0 1 0-.615C2.918 3.504 6.981.408 11.492.408h.01Zm3.516 6.25-1.162 1.137c.192.354.299.771.299 1.209 0 1.428-1.195 2.596-2.656 2.596a2.7 2.7 0 0 1-1.237-.292L9.1 12.444a4.38 4.38 0 0 0 2.4.72c2.345 0 4.254-1.867 4.254-4.16 0-.865-.277-1.678-.736-2.346Z"
+                                                        fill="#747373" />
+                                                </svg>
+                                                <svg class="w-5 md:w-6" x-show="show" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                                                        fill="#747373" />
+                                                    <path
+                                                        d="M0 12s4.5-8.25 12-8.25S24 12 24 12s-4.5 8.25-12 8.25S0 12 0 12Zm12 5.25a5.25 5.25 0 1 0 0-10.5 5.25 5.25 0 0 0 0 10.5Z"
+                                                        fill="#747373" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center lg:text-right">
+                                        <button
+                                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full sm:max-w-[336px] md:max-w-[168px] w-full inline-block text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">save</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Email Address End -->
+
+
+
+                            <!-- Change Password Start -->
+                            <div x-show="selectAccOption === 4">
+
+                                <form action="">
+                                    <div class="mb-5 md:mb-6 lg:mb-[26px]">
+                                        <label for=""
+                                            class="text-sm md:text-base text-gray-80 block mb-1 sm:mb-2.5">Email
+                                            existing password*</label>
+
+                                        <input type="password"
+                                            class="text-base md:text-lg text-white border border-gray-50 placeholder-gray-80 rounded-md bg-transparent px-3 py-2.5 lg:px-4 lg:py-3.5 w-full focus:border-pink-20 focus-visible:ring-0"
+                                            placeholder="Existing password">
+                                    </div>
+
+                                    <div class="mb-5 md:mb-6 lg:mb-[26px]">
+                                        <label for=""
+                                            class="text-sm md:text-base text-gray-80 block mb-1 sm:mb-2.5">Enter your
+                                            password*</label>
+
+                                        <input type="password" @input="checkStrength()" x-model="password"
+                                            class="text-base md:text-lg text-white border border-gray-50 placeholder-gray-80 rounded-md bg-transparent px-3 py-2.5 lg:px-4 lg:py-3.5 w-full focus:border-pink-20 focus-visible:ring-0"
+                                            placeholder="New Password">
+
+                                        <div class="flex items-center justify-between mt-2 sm:mt-5">
+                                            <div class="flex space-x-2 sm:space-x-2.5 -mx-3">
+                                                <template x-for="(v,i) in 5">
+                                                    <div class="w-11 sm:w-16 h-1 rounded-full px-1">
+                                                        <div class="h-2 rounded-xl transition-colors"
+                                                            :class="i<passwordScore?(passwordScore<=2?'bg-red-10':(passwordScore<=4?'bg-yellow-10':'bg-green-10')):'bg-gray-50'">
+                                                        </div>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                            <p class="text-xs sm:text-sm md:text-base font-poppins"
+                                                :class="passwordScore<=2 ? 'text-red-10':(passwordScore<=4? 'text-yellow-10': 'text-green-10')"
+                                                x-text="passwordScore<=2 ? 'Bad':(passwordScore<=4? 'Good': 'Strong')">
+                                                Good
+                                            </p>
+                                        </div>
+
+                                        <p class="text-sm text-gray-80 mt-2.5 sm:mt-4 md:mt-5">Tip: Create a strong,
+                                            unique password that nobody else would know.</p>
+                                    </div>
+
+                                    <div class="mb-5 sm:mb-8 md:mb-12 lg:mb-[60px]">
+                                        <label for=""
+                                            class="text-sm md:text-base text-gray-80 block mb-1 sm:mb-2.5">Confirm
+                                            password</label>
+
+                                        <input type="password"
+                                            class="text-base md:text-lg text-white border border-gray-50 placeholder-gray-80 rounded-md bg-transparent px-3 py-2.5 lg:px-4 lg:py-3.5 w-full focus:border-pink-20 focus-visible:ring-0"
+                                            placeholder="Confirm new password">
+                                    </div>
+
+                                    <div class="text-center lg:text-right">
+                                        <button
+                                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full sm:max-w-[336px] md:max-w-[168px] w-full inline-block text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">save</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Change Password End -->
+
+
+                            <!-- Delete Account Start -->
+
+                            <div class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24"
+                                x-show="selectAccOption === 3" x-cloak>
+                                <div
+                                    class="max-w-[712px] w-full m-auto bg-dark-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+                                    <button @click="selectAccOption = 0"
+                                        class="absolute right-0 top-0 m-2 sm:m-4 hover:opacity-75">
+                                        <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
+                                                fill="#fff" />
+                                        </svg>
+                                    </button>
+
+                                    <h1
+                                        class="text-2xl sm:text-3xl md:text-4xl text-white font-bold text-center capitalize mb-5 lg:mb-10">
+                                        Are you sure?</h1>
+                                    <p
+                                        class="text-sm sm:text-base md:text-lg text-center text-gray-40 mb-6 sm:mb-8 md:mb-10">
+                                        Check our special offer before deleting your account!</p>
+
+
+                                    <div class="max-w-[400px] mx-auto relative mb-12 flex items-center">
+                                        <div class="flex relative w-full">
+
+                                            <div
+                                                class="w-6 sm:w-7 h-6 sm:h-7 rounded-full bg-dark-20 absolute right-[52px] sm:right-[85px] -translate-y-1/2">
+                                            </div>
+                                            <div
+                                                class="w-6 sm:w-7 h-6 sm:h-7 rounded-full bg-dark-20 absolute bottom-0 right-[52px] sm:right-[85px] translate-y-1/2">
+                                            </div>
+
+                                            <div class="w-10/12 sm:w-9/12 bg-dark-40 rounded-l-2xl py-4 px-4 sm:px-7">
+                                                <h5 class="text-sm md:text-base font-semibold text-white">150 Credits
+                                                </h5>
+                                                <h5 class="text-base md:text-lg text-gray-40 line-through">$49.95</h5>
+                                                <h1
+                                                    class="text-2xl sm:text-3xl md:text-4xl font-semibold text-pink-30 mb-1 sm:mb-2.5">
+                                                    $29.95</h1>
+                                                <p class="text-xs md:text-bsae text-gray-40">Add 1 months premium
+                                                    <span class="text-xs md:text-sm text-green-10">(FREE)</span>
+                                                </p>
+                                            </div>
+
+                                            <div
+                                                class="min-w-[64px] w-16 sm:w-[100px] sm:px-7 bg-gradient-to-r from-pink-10 to-pink-20 rounded-r-2xl border-l-2 border-dashed border-dark-40 flex items-center justify-center">
+                                                <h1
+                                                    class="text-3xl sm:text-4xl md:text-[40px] text-white font-semibold write-mode-vrl rotate-180">
+                                                    -40%</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="text-center space-y-5">
+                                        <button @click="selectAccOption = 0"
+                                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">buy
+                                            now</button>
+
+                                        <button @click="confirmDelete = true"
+                                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-gray-50 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">no
+                                            thank you</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div x-cloak x-show="confirmDelete" x-on:scroll="scrollbar()"
+                                class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
+                                <div
+                                    class="max-w-[712px] w-full m-auto bg-dark-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+                                    <button @click="selectAccOption = 0; confirmDelete = false"
+                                        class="absolute right-0 top-0 m-2 sm:m-4 hover:opacity-75">
+                                        <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
+                                                fill="#fff" />
+                                        </svg>
+                                    </button>
+
+                                    <h1 class="text-2xl sm:text-3xl md:text-4xl text-white font-bold text-center mb-5">
+                                        We`re Sorry To See You Go</h1>
+                                    <p
+                                        class="text-sm sm:text-base md:text-lg text-center text-gray-40 mb-6 sm:mb-12 md:mb-20">
+                                        Your information will be permanently erased</p>
+
+                                    <div class="text-center">
+                                        <button @click="selectAccOption = 0; confirmDelete = false"
+                                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">confirm</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Delete Account End -->
+                        </div>
+                        <!-- Options Details End -->
+                    </div>
+                    <!-- Account End -->
+
+
+                    <!-- Notification Start -->
+                    <div class="px-6 sm:px-0" x-show="openSetPage === 2">
+
+                        <div class=" space-y-5 md:space-y-[30px] border-b border-gray-50 pb-5 md:pb-[30px]">
+                            <label
+                                class="cursor-pointer flex justify-between items-center whitespace-nowrap select-none space-x-3 md:space-x-5">
+                                <span
+                                    class="text-sm sm:text-base md:text-lg xl:text-xl font-medium text-white select-none top-[1px] relative capitalize">I
+                                    have New Mailbox activity</span>
+                                <input class="hidden peer" type="checkbox" checked>
+                                <div class="custom-switch"></div>
+                            </label>
+
+                            <label
+                                class="cursor-pointer flex justify-between items-center whitespace-nowrap select-none space-x-3 md:space-x-5">
+                                <span
+                                    class="text-sm sm:text-base md:text-lg xl:text-xl font-medium text-white select-none top-[1px] relative capitalize">A
+                                    favorite member logs in</span>
+                                <input class="hidden peer" type="checkbox" checked>
+                                <div class="custom-switch"></div>
+                            </label>
+
+                            <label
+                                class="cursor-pointer flex justify-between items-center whitespace-nowrap select-none space-x-3 md:space-x-5">
+                                <span
+                                    class="text-sm sm:text-base md:text-lg xl:text-xl font-medium text-white select-none top-[1px] relative capitalize">Someone
+                                    viewed my profile</span>
+                                <input class="hidden peer" type="checkbox" checked>
+                                <div class="custom-switch"></div>
+                            </label>
+
+                            <label
+                                class="cursor-pointer flex justify-between items-center whitespace-nowrap select-none space-x-3 md:space-x-5">
+                                <span
+                                    class="text-sm sm:text-base md:text-lg xl:text-xl font-medium text-white select-none top-[1px] relative capitalize">New
+                                    Members sign up in my area</span>
+                                <input class="hidden peer" type="checkbox" checked>
+                                <div class="custom-switch"></div>
+                            </label>
+
+                            <label
+                                class="cursor-pointer flex justify-between items-center whitespace-nowrap select-none space-x-3 md:space-x-5">
+                                <span
+                                    class="text-sm sm:text-base md:text-lg xl:text-xl font-medium text-white select-none top-[1px] relative capitalize">marketing
+                                    and Special offers</span>
+                                <input class="hidden peer" type="checkbox" checked>
+                                <div class="custom-switch"></div>
+                            </label>
+                        </div>
+
+
+                        <div class="border-b border-gray-50 py-5 md:py-[30px]">
+
+                            <h5 class="text-base sm:text-lg md:text-xl text-white font-bold mb-5">I also want to
+                                receive...</h5>
+                            <p class="text-sm sm:text-base text-gray-40 mr-20 mb-5 sm:mb-6 md:mb-8">Lets you know about
+                                potential matches you
+                                might
+                                be interested in</p>
+
+                            <label
+                                class="cursor-pointer flex justify-between items-center whitespace-nowrap select-none space-x-3 md:space-x-5">
+                                <span
+                                    class="text-sm sm:text-base md:text-lg xl:text-xl font-medium text-white select-none top-[1px] relative capitalize">Quick
+                                    Reply messages</span>
+                                <input class="hidden peer" type="checkbox" checked>
+                                <div class="custom-switch"></div>
+                            </label>
+
+                            <p class="text-sm sm:text-base text-gray-40 mr-20">Automatic messages
+                                sent in response to Winks</p>
+                        </div>
+
+                        <div class="border-b border-gray-50 py-5 md:py-[30px]">
+                            <label
+                                class="cursor-pointer flex justify-between items-center whitespace-nowrap select-none space-x-3 md:space-x-5">
+                                <span
+                                    class="text-sm sm:text-base md:text-lg xl:text-xl font-medium text-white select-none top-[1px] relative capitalize">SHOW
+                                    IN-APP NOTIFICATIONS</span>
+                                <input class="hidden peer" type="checkbox" checked>
+                                <div class="custom-switch"></div>
+                            </label>
+                        </div>
+
+                        <p
+                            class="text-sm sm:text-base text-gray-80 pt-3 sm:pt-5 md:pt-[30px] pb-[30px] sm:pb-23 md:pb-[60px]">
+                            NOTE: You may opt in or out of
+                            Email Notifications at any time. Depending on your level of activity, the number of emails
+                            you receive may vary from one per week to several.</p>
+
+                        <div class="text-center lg:text-right">
+                            <button
+                                class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full sm:max-w-[336px] md:max-w-[168px] w-full inline-block text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">save</button>
+                        </div>
+                    </div>
+                    <!-- Notification End -->
+
+
+                    <!-- Contact US Start -->
+                    <div class="px-6 sm:px-0" x-show="openSetPage === 3">
+                        <h5 class="text-sm sm:text-base md:text-xl font-medium text-gray-80 mb-5 sm:mb-8 md:mb-12">We’re
+                            here to help. Tell us
+                            what’s on your mind</h5>
+
+                        <div class="pb-[30px] sm:pb-23 md:pb-[60px]">
+                            <div class="flex items-center justify-between mb-1 sm:mb-2.5">
+                                <label for="" class="text-sm md:text-base text-gray-80 block">Message</label>
+                                <label for="" class="text-sm md:text-base text-gray-80 block">0/150</label>
+                            </div>
+
+                            <textarea placeholder="Type message" rows="5"
+                                class="text-base md:text-lg text-white border border-gray-50 placeholder-gray-80 rounded-md bg-dark-40 px-3 py-2.5 lg:py-4 w-full focus:border-pink-20 focus-visible:ring-0"></textarea>
+                        </div>
+                        <div class="text-center lg:text-right">
+                            <button
+                                class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-white px-4 rounded-full sm:max-w-[336px] md:max-w-[168px] w-full inline-block text-center bg-gradient-to-r from-pink-10 to-pink-20 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">submit</button>
+                        </div>
+                    </div>
+                    <!-- Contact US End -->
+                </div>
+            </div>
+        </div>
+        <!-- Content End -->
+
+
+        <!-- Footer Section Start -->
+        <section class="container mt-auto">
+            <ul class="flex items-center justify-center py-[30px] mt-8 space-x-3.5 md:space-x-[18px]">
+                <li><a href="#" class="text-xs sm:text-base md:text-lg text-pink-50">Terms</a></li>
+                <li class="w-[1px] h-5 bg-gray-50"></li>
+                <li><a href="#" class="text-xs sm:text-base md:text-lg text-pink-50">Privacy</a></li>
+                <li class="w-[1px] h-5 bg-gray-50"></li>
+                <li><a href="#" class="text-xs sm:text-base md:text-lg text-pink-50">Accessibility</a></li>
+                <li class="w-[1px] h-5 bg-gray-50"></li>
+                <li><a href="#" class="text-xs sm:text-base md:text-lg text-pink-50">Cookies</a></li>
+            </ul>
+        </section>
+        <!-- Footer Section End -->
+
+
+
+        <!-- Notification Snackbar Start -->
+        <div class="fixed bottom-0 right-0 pb-16 pr-5 4k:p-24 flex flex-col items-end space-y-5">
+            <div class="bg-dark-20 rounded-[18px] max-w-[296px] px-3 py-2.5 inline-flex items-center space-x-2.5"
+                x-data="{notification : true}" x-show="notification"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-x-full" x-transition:enter-end="opacity-100 translate-x-0"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 translate-x-0"
+                x-transition:leave-end="opacity-0 translate-x-full">
+                <p class="text-lg md:text-xl text-gray-80 leading-5 md:leading-6">You liked <span
+                        class="text-white font-bold">Babydoll</span></p>
+
+                <button @click="notification = false"><svg class="min-w-[24px]" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M13.4099 12.0002L17.7099 7.71019C17.8982 7.52188 18.004 7.26649 18.004 7.00019C18.004 6.73388 17.8982 6.47849 17.7099 6.29019C17.5216 6.10188 17.2662 5.99609 16.9999 5.99609C16.7336 5.99609 16.4782 6.10188 16.2899 6.29019L11.9999 10.5902L7.70994 6.29019C7.52164 6.10188 7.26624 5.99609 6.99994 5.99609C6.73364 5.99609 6.47824 6.10188 6.28994 6.29019C6.10164 6.47849 5.99585 6.73388 5.99585 7.00019C5.99585 7.26649 6.10164 7.52188 6.28994 7.71019L10.5899 12.0002L6.28994 16.2902C6.19621 16.3831 6.12182 16.4937 6.07105 16.6156C6.02028 16.7375 5.99414 16.8682 5.99414 17.0002C5.99414 17.1322 6.02028 17.2629 6.07105 17.3848C6.12182 17.5066 6.19621 17.6172 6.28994 17.7102C6.3829 17.8039 6.4935 17.8783 6.61536 17.9291C6.73722 17.9798 6.86793 18.006 6.99994 18.006C7.13195 18.006 7.26266 17.9798 7.38452 17.9291C7.50638 17.8783 7.61698 17.8039 7.70994 17.7102L11.9999 13.4102L16.2899 17.7102C16.3829 17.8039 16.4935 17.8783 16.6154 17.9291C16.7372 17.9798 16.8679 18.006 16.9999 18.006C17.132 18.006 17.2627 17.9798 17.3845 17.9291C17.5064 17.8783 17.617 17.8039 17.7099 17.7102C17.8037 17.6172 17.8781 17.5066 17.9288 17.3848C17.9796 17.2629 18.0057 17.1322 18.0057 17.0002C18.0057 16.8682 17.9796 16.7375 17.9288 16.6156C17.8781 16.4937 17.8037 16.3831 17.7099 16.2902L13.4099 12.0002Z"
+                            fill="white" />
+                    </svg>
+                </button>
+            </div>
+            <div class="bg-dark-20 rounded-[18px] max-w-[296px] px-3 py-2.5 inline-flex items-center space-x-2.5"
+                x-data="{notification : true}" x-show="notification"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-x-full" x-transition:enter-end="opacity-100 translate-x-0"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 translate-x-0"
+                x-transition:leave-end="opacity-0 translate-x-full">
+                <img src="./assets/images/img-3.jpg" alt=""
+                    class="w-[46px] h-[46px] md:h-[50px] md:w-[50px] min-w-[46px] md:min-w-[50px] rounded-full object-cover">
+
+                <p class="text-lg md:text-xl text-gray-80 leading-5 md:leading-6"><span
+                        class="text-white font-bold">Babydoll</span> added you
+                    to her favorites</p>
+
+                <button @click="notification = false"><svg class="min-w-[24px]" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M13.4099 12.0002L17.7099 7.71019C17.8982 7.52188 18.004 7.26649 18.004 7.00019C18.004 6.73388 17.8982 6.47849 17.7099 6.29019C17.5216 6.10188 17.2662 5.99609 16.9999 5.99609C16.7336 5.99609 16.4782 6.10188 16.2899 6.29019L11.9999 10.5902L7.70994 6.29019C7.52164 6.10188 7.26624 5.99609 6.99994 5.99609C6.73364 5.99609 6.47824 6.10188 6.28994 6.29019C6.10164 6.47849 5.99585 6.73388 5.99585 7.00019C5.99585 7.26649 6.10164 7.52188 6.28994 7.71019L10.5899 12.0002L6.28994 16.2902C6.19621 16.3831 6.12182 16.4937 6.07105 16.6156C6.02028 16.7375 5.99414 16.8682 5.99414 17.0002C5.99414 17.1322 6.02028 17.2629 6.07105 17.3848C6.12182 17.5066 6.19621 17.6172 6.28994 17.7102C6.3829 17.8039 6.4935 17.8783 6.61536 17.9291C6.73722 17.9798 6.86793 18.006 6.99994 18.006C7.13195 18.006 7.26266 17.9798 7.38452 17.9291C7.50638 17.8783 7.61698 17.8039 7.70994 17.7102L11.9999 13.4102L16.2899 17.7102C16.3829 17.8039 16.4935 17.8783 16.6154 17.9291C16.7372 17.9798 16.8679 18.006 16.9999 18.006C17.132 18.006 17.2627 17.9798 17.3845 17.9291C17.5064 17.8783 17.617 17.8039 17.7099 17.7102C17.8037 17.6172 17.8781 17.5066 17.9288 17.3848C17.9796 17.2629 18.0057 17.1322 18.0057 17.0002C18.0057 16.8682 17.9796 16.7375 17.9288 16.6156C17.8781 16.4937 17.8037 16.3831 17.7099 16.2902L13.4099 12.0002Z"
+                            fill="white" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Notification Snackbar End -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+    <script>
+        function settings() {
+            return {
+                openSettMobile: true,
+                openSetPage: 1,
+                title: 'settings',
+                selectAccOption: 0,
+                confirmDelete: false,
+                deleteModal: false,
+                back() {
+                    if (this.selectAccOption != 0) {
+                        this.accountOption = false;
+                        this.selectAccOption = 0;
+                        this.title = 'account';
+                    } else {
+                        this.openSettMobile = true;
+                        this.title = 'Settings';
+                    }
+                },
+                scrollbar() {
+                    document.body.classList.add('show-scrollbar');
+                    document.body.classList.remove('hide-scrollbar');
+                    this.$el.classList.add('show-scrollbar');
+                    this.$el.classList.remove('hide-scrollbar');
+                    setTimeout(() => {
+                        document.body.classList.add('hide-scrollbar');
+                        document.body.classList.remove('show-scrollbar');
+                        this.$el.classList.add('hide-scrollbar');
+                        this.$el.classList.remove('show-scrollbar');
+                    }, 3000);
+                },
+                passwordScore: 0,
+                password: '',
+                checkStrength: function () {
+                    if (!this.password) return this.passwordScore = 0;
+                    this.passwordScore = zxcvbn(this.password).score + 1;
+                },
+            }
+        }
+    </script>
+
+</body>
+
+</html>
