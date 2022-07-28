@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Flickity CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="./assets/css/tailwind.css" />
+
+    <!--  Flickity JavaScript -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.9.3/dist/cdn.min.js"></script>
+
+    <!-- Custom js -->
+    <script src="./assets/js/custom.js"></script>
+</head>
+
+<body>
+
+    <div class="bg-primary" x-data="messagePanel()">
+        <div class="relative flex">
+            <!-- Left Sidebar Start-->
+            <div class="h-screen w-screen lg:w-[400px] lg:min-w-[400px] bg-primary lg:bg-primary lg:border-r lg:border-primary relative"
+                x-bind:class="showMessageList ? 'inline' : 'hidden lg:inline'">
+                <!-- Top Part -->
+                <div class="px-5 pt-5 pb-3">
+                    <!-- Header -->
+                    <div class="flex items-center justify-between mb-5 2xl:mb-8">
+                        <a href="#" class="">
+                            <img src="./assets/images/logo-dark.svg" alt=""
+                                class="inline-block w-[176px] sm:w-48 lg:w-56 3k:w-64" />
+                        </a>
+
+                        <!-- Notification -->
+                        <div class="relative inline-block" x-data="{open : false}" @click.away="open = false">
+                            <button class="relative" @click="open = !open">
+                                <div
+                                    class="absolute top-0.5 left-0.5 z-10 w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] bg-2 flex items-center justify-center rounded-full text-[9px] sm:text-xs font-bold text-invert animate__animated animate__tada animate__infinite	infinite">
+                                    2
+                                </div>
+
+                                <svg class="w-6 sm:w-8 text-muted-alt fill-current" viewBox="0 0 448 512" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#a)">
+                                        <path
+                                            d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64Zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71Z"
+                                            fill="current" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="a">
+                                            <path fill="#fff" d="M0 0h448v512H0z" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </button>
+
+                            <div class="fixed inset-0 z-50 w-full h-screen bg-popup-overlay/30 backdrop-blur-xl sm:hidden"
+                                x-show="open" @click="open = false" x-cloak></div>
+                            <div class="origin-top-right fixed sm:absolute right-0 top-0 bottom-0 sm:top-auto sm:bottom-auto z-50 inline sm:mt-16 w-80 md:w-80  rounded-l-3xl rounded-r-none sm:rounded-[20px] sm:shadow-50 bg-primary focus:outline-none sm:max-h-[80vh] h-screen sm:h-auto overflow-y-auto show-scrollbar duration-300 transition ease-in-out"
+                                x-cloak
+                                :class="open ? 'translate-x-0 sm:opacity-100 sm:scale-100' : 'translate-x-full sm:translate-x-0 sm:opacity-0 sm:scale-90 sm:hidden'">
+                                <div class="pt-8 sm:pt-4 pb-3" role="none">
+
+                                    <!-- Mobile Header with logo Start -->
+                                    <div class="flex items-center justify-between px-4 mb-6">
+                                        <a href="#" class="sm:hidden">
+                                            <img src="./assets/images/logo.svg" alt=""
+                                                class="w-[176px] sm:w-48 md:w-64 lg:w-[320px] inline-block" />
+                                        </a>
+                                        <h3 class="text-2xl font-bold text-primary hidden sm:block">Notifications</h3>
+                                        <div class="flex items-center space-x-3">
+                                            <div class="flex items-center space-x-1">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M19.5492 10.9966C19.0942 9.97256 18.4328 9.05339 17.6063 8.29665L16.9242 7.67086C16.9011 7.6502 16.8732 7.63553 16.843 7.62816C16.8129 7.62078 16.7814 7.62091 16.7513 7.62855C16.7212 7.63619 16.6935 7.65109 16.6705 7.67195C16.6475 7.69282 16.63 7.719 16.6195 7.74821L16.3148 8.62243C16.125 9.17086 15.7758 9.73102 15.2812 10.2818C15.2484 10.317 15.2109 10.3263 15.1852 10.3287C15.1594 10.331 15.1195 10.3263 15.0844 10.2935C15.0516 10.2654 15.0352 10.2232 15.0375 10.181C15.1242 8.77008 14.7023 7.17868 13.7789 5.44665C13.0148 4.00759 11.9531 2.88493 10.6266 2.10212L9.65859 1.53259C9.53203 1.45759 9.37031 1.55603 9.37734 1.70368L9.42891 2.82868C9.46406 3.59743 9.375 4.27712 9.16406 4.84196C8.90625 5.53337 8.53594 6.17555 8.0625 6.75212C7.73302 7.15281 7.35959 7.51524 6.94922 7.83258C5.96087 8.59235 5.15722 9.56586 4.59844 10.6802C4.04103 11.8043 3.75068 13.0419 3.75 14.2966C3.75 15.4029 3.96797 16.474 4.39922 17.4841C4.81562 18.4567 5.41654 19.3394 6.16875 20.0834C6.92813 20.8334 7.80938 21.424 8.79141 21.8341C9.80859 22.2607 10.8867 22.4763 12 22.4763C13.1133 22.4763 14.1914 22.2607 15.2086 21.8365C16.1882 21.4287 17.079 20.8341 17.8312 20.0857C18.5906 19.3357 19.1859 18.4591 19.6008 17.4865C20.0314 16.4791 20.2523 15.3945 20.25 14.299C20.25 13.1552 20.0156 12.0443 19.5492 10.9966V10.9966Z"
+                                                        fill="url(#paint0_linear_464_685)" />
+
+                                                    <defs>
+                                                        <linearGradient id="paint0_linear_464_685" x1="2.03571"
+                                                            y1="8.03846" x2="77.4591" y2="9.69834"
+                                                            gradientUnits="userSpaceOnUse">
+                                                            <stop stop-color="#FF0642" />
+                                                            <stop offset="1" stop-color="#EA1272" />
+                                                        </linearGradient>
+                                                    </defs>
+                                                </svg>
+
+                                                <span class="text-base font-medium text-primary">0</span>
+                                            </div>
+
+                                            <button>
+                                                <svg class="w-6" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M12 1C5.925 1 1 5.925 1 12C1 18.075 5.925 23 12 23C18.075 23 23 18.075 23 12C23 5.925 18.075 1 12 1ZM13 16C13 16.2652 12.8946 16.5196 12.7071 16.7071C12.5196 16.8946 12.2652 17 12 17C11.7348 17 11.4804 16.8946 11.2929 16.7071C11.1054 16.5196 11 16.2652 11 16V13H8C7.73478 13 7.48043 12.8946 7.29289 12.7071C7.10536 12.5196 7 12.2652 7 12C7 11.7348 7.10536 11.4804 7.29289 11.2929C7.48043 11.1054 7.73478 11 8 11H11V8C11 7.73478 11.1054 7.48043 11.2929 7.29289C11.4804 7.10536 11.7348 7 12 7C12.2652 7 12.5196 7.10536 12.7071 7.29289C12.8946 7.48043 13 7.73478 13 8V11H16C16.2652 11 16.5196 11.1054 16.7071 11.2929C16.8946 11.4804 17 11.7348 17 12C17 12.2652 16.8946 12.5196 16.7071 12.7071C16.5196 12.8946 16.2652 13 16 13H13V16Z"
+                                                        fill="url(#paint0_linear_464_685)" />
+                                                    <defs>
+                                                        <linearGradient id="paint0_linear_464_685" x1="2.03571"
+                                                            y1="8.03846" x2="77.4591" y2="9.69834"
+                                                            gradientUnits="userSpaceOnUse">
+                                                            <stop stop-color="#FF0642" />
+                                                            <stop offset="1" stop-color="#EA1272" />
+                                                        </linearGradient>
+                                                    </defs>
+                                                </svg>
+
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Mobile Header with logo End -->
+
+                                    <!-- Notification Title -->
+
+                                    <h3 class="text-2xl font-bold text-primary px-4 mb-3 sm:hidden">Notifications</h3>
+
+                                    <div class="space-y-1">
+                                        <a href="#"
+                                            class="text-primary px-4 py-2 bg-light hover:bg-muted/30 flex items-center space-x-4">
+                                            <img src="./assets/images/img-5.jpg" alt=""
+                                                class="min-w-[48px] w-12 3k:w-16 h-12 3k:h-16 rounded-full object-cover">
+
+                                            <div>
+                                                <p class="text-sm 3k:text-base text-secondary"> <span
+                                                        class="font-bold uppercase">bABYDOLL</span> accept your request.
+                                                </p>
+                                                <div class="flex items-center space-x-2">
+                                                    <svg class="w-3 stroke-current text-primary" viewBox="0 0 24 24"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                                            stroke="current" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                        <path
+                                                            d="M15 16L12.586 13.586C12.2109 13.211 12.0001 12.7024 12 12.172V6"
+                                                            stroke="current" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </svg>
+
+                                                    <span class="text-sm text-secondary">1h ago</span>
+
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a href="#"
+                                            class="text-white px-4 py-2 bg-light hover:bg-muted/30 flex items-center space-x-4">
+                                            <img src="./assets/images/img-6.jpg" alt=""
+                                                class="min-w-[48px] w-12 3k:w-16 h-12 3k:h-16 rounded-full object-cover">
+
+                                            <div>
+                                                <p class="text-sm 3k:text-base text-secondary"> <span
+                                                        class="font-bold uppercase">bABYDOLL</span> added 6 new photos.
+                                                </p>
+                                                <div class="flex items-center space-x-2">
+                                                    <svg class="w-3 stroke-current text-primary" viewBox="0 0 24 24"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                                            stroke="current" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                        <path
+                                                            d="M15 16L12.586 13.586C12.2109 13.211 12.0001 12.7024 12 12.172V6"
+                                                            stroke="current" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </svg>
+
+                                                    <span class="text-sm text-secondary">2h ago</span>
+
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a href="#"
+                                            class="text-primary px-4 py-2 hover:bg-muted/30 flex items-center space-x-4">
+                                            <img src="./assets/images/img-7.jpg" alt=""
+                                                class="min-w-[48px] w-12 3k:w-16 h-12 3k:h-16 rounded-full object-cover">
+
+                                            <div>
+                                                <p class="text-sm 3k:text-base text-secondary"> <span
+                                                        class="font-bold uppercase">bABYDOLL</span> added 6 new photos.
+                                                </p>
+                                                <div class="flex items-center space-x-2">
+                                                    <svg class="w-3 stroke-current text-primary" viewBox="0 0 24 24"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                                            stroke="current" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                        <path
+                                                            d="M15 16L12.586 13.586C12.2109 13.211 12.0001 12.7024 12 12.172V6"
+                                                            stroke="current" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </svg>
+
+                                                    <span class="text-sm text-secondary">2h ago</span>
+
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Options -->
+                    <div class="flex items-center justify-between">
+                        <button class="opacity-0" disabled>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M8 12a1 1 0 0 1 .23-.64l5-6a1.001 1.001 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.15 1.41 1 1 0 0 1-1.46-.14l-4.83-6A1 1 0 0 1 8 12Z"
+                                    fill="#fff" />
+                            </svg>
+                        </button>
+
+                        <button @click="select = !select"
+                            class="text-sm uppercase text-transparent text-accent bg-2 bg-clip-text lg:hover:text-primary sm:text-base">
+                            <span x-show="select">cancel</span>
+                            <span x-show="!select">edit</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Message part Start-->
+                <div class="pl-5 h-[calc(100vh-185px)] sm:h-[calc(100vh-232px)] md:h-[calc(100vh-248px)] lg:h-[calc(100vh-270px)] overflow-y-auto hide-scrollbar overflow-x-hidden relative"
+                    x-on:scroll="scrollbar()">
+                    <form action="">
+                        <div @click="message()" class="flex items-center"
+                            x-bind:class="select ? 'space-x-4 sm:space-x-5' : ''">
+                            <input type="checkbox" name="" id="1" value="1" x-model="selectList" :disabled="!select"
+                                x-show="select"
+                                class="checkmark h-5 w-5 appearance-none rounded-md border-2 border-primary bg-transparent p-0 checked:text-transparent item-select-input" />
+
+                            <label for="1" class="flex items-center space-x-4 cursor-pointer w-full">
+                                <div
+                                    class="relative w-12 h-12 min-w-[48px] rounded-full md:h-14 md:w-14 md:min-w-[56px]">
+                                    <img src="./assets/images/img-4.jpg" alt=""
+                                        class="h-full w-full rounded-full object-cover object-top" />
+                                    <div
+                                        class="absolute inset-y-0 -right-2 my-auto flex h-4 w-4 items-center justify-center rounded-full bg-light">
+                                        <div class="h-2.5 w-2.5 rounded-full bg-online-green"></div>
+                                    </div>
+                                </div>
+
+                                <div class="w-full border-b border-primary py-6 lg:py-4">
+                                    <h5 class="mb-0.5 text-xl font-semibold text-primary">
+                                        Babydoll
+                                    </h5>
+                                    <p
+                                        class="truncate font-poppins text-sm font-medium tracking-wide text-primary pr-5 w-9/12">
+                                        Hi, sweatheart how are Ame... Lorem ipsum dolor sit amet
+                                    </p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div @click="message()" class="flex items-center"
+                            x-bind:class="select ? 'space-x-4 sm:space-x-5' : ''">
+                            <input type="checkbox" name="" id="2" value="2" x-model="selectList" :disabled="!select"
+                                x-show="select"
+                                class="checkmark h-5 w-5 appearance-none rounded-md border-2 border-primary bg-transparent p-0 checked:text-transparent item-select-input" />
+
+                            <label for="2" class="flex items-center space-x-4 cursor-pointer w-full">
+                                <div
+                                    class="relative w-12 h-12 min-w-[48px] rounded-full md:h-14 md:w-14 md:min-w-[56px]">
+                                    <img src="./assets/images/img-5.jpg" alt=""
+                                        class="h-full w-full rounded-full object-cover object-top" />
+                                    <div
+                                        class="absolute inset-y-0 -right-2 my-auto flex h-4 w-4 items-center justify-center rounded-full bg-light">
+                                        <div class="h-2.5 w-2.5 rounded-full bg-ofline-red"></div>
+                                    </div>
+                                </div>
+
+                                <div class="w-full border-b border-primary py-6 lg:py-4">
+                                    <h5 class="mb-0.5 text-xl font-semibold text-primary">
+                                        Crazy Girl
+                                    </h5>
+                                    <p class="truncate font-poppins text-sm tracking-wide text-muted pr-5 w-9/12">
+                                        Hi, sweatheart how are Ame... Lorem ipsum dolor sit amet
+                                    </p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div @click="message()" class="flex items-center"
+                            x-bind:class="select ? 'space-x-4 sm:space-x-5' : ''">
+                            <input type="checkbox" name="" id="3" value="3" x-model="selectList" :disabled="!select"
+                                x-show="select"
+                                class="checkmark h-5 w-5 appearance-none rounded-md border-2 border-primary bg-transparent p-0 checked:text-transparent item-select-input" />
+
+                            <label for="3" class="flex items-center space-x-4 cursor-pointer w-full">
+                                <div
+                                    class="relative w-12 h-12 min-w-[48px] rounded-full md:h-14 md:w-14 md:min-w-[56px]">
+                                    <img src="./assets/images/img-6.jpg" alt=""
+                                        class="h-full w-full rounded-full object-cover object-top" />
+                                    <div
+                                        class="absolute inset-y-0 -right-2 my-auto flex h-4 w-4 items-center justify-center rounded-full bg-light">
+                                        <div class="h-2.5 w-2.5 rounded-full bg-online-green"></div>
+                                    </div>
+                                </div>
+
+                                <div class="w-full border-b border-primary py-6 lg:py-4">
+                                    <h5 class="mb-0.5 text-xl font-semibold text-primary">
+                                        Spacy
+                                    </h5>
+                                    <p class="truncate font-poppins text-sm tracking-wide text-muted pr-5 w-9/12">
+                                        Hi, sweatheart how are Ame... Lorem ipsum dolor sit amet
+                                    </p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div @click="message()" class="flex items-center"
+                            x-bind:class="select ? 'space-x-4 sm:space-x-5' : ''">
+                            <input type="checkbox" name="" id="4" value="4" x-model="selectList" :disabled="!select"
+                                x-show="select"
+                                class="checkmark h-5 w-5 appearance-none rounded-md border-2 border-primary bg-transparent p-0 checked:text-transparent item-select-input" />
+
+                            <label for="4" class="flex items-center space-x-4 cursor-pointer w-full">
+                                <div
+                                    class="relative w-12 h-12 min-w-[48px] rounded-full md:h-14 md:w-14 md:min-w-[56px]">
+                                    <img src="./assets/images/img-7.jpg" alt=""
+                                        class="h-full w-full rounded-full object-cover object-top" />
+                                    <div
+                                        class="absolute inset-y-0 -right-2 my-auto flex h-4 w-4 items-center justify-center rounded-full bg-light">
+                                        <div class="h-2.5 w-2.5 rounded-full bg-online-green"></div>
+                                    </div>
+                                </div>
+
+                                <div class="w-full border-b border-primary py-6 lg:py-4">
+                                    <h5 class="mb-0.5 text-xl font-semibold text-primary">
+                                        Kitty
+                                    </h5>
+                                    <p class="truncate font-poppins text-sm tracking-wide text-muted pr-5 w-9/12">
+                                        Hi, sweatheart how are Ame... Lorem ipsum dolor sit amet
+                                    </p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="grid items-center gap-2 sm:gap-5 sticky inset-x-0 bottom-3 mt-24" x-show="select">
+                            <div @click="selectAllCheckboxes()"
+                                class="text-invert bg-muted w-[155px] sm:w-44 text-center px-3 py-2.5 sm:py-3 rounded-full font-semibold text-sm 2xl:text-base shadow-40 cursor-pointer col-start-1 select-none">
+                                <span class="" x-show="selectList.length != 0">UNSELECT
+                                    ALL</span>
+                                <span class="" x-show="selectList.length === 0">SELECT
+                                    ALL</span>
+                            </div>
+                            <div @click="confirmDelete = true" x-show="selectList.length != 0"
+                                class="text-invert bg-2 w-[155px] sm:w-44 text-center px-3 py-2.5 sm:py-3 rounded-full font-semibold text-sm 2xl:text-base shadow-40 cursor-pointer col-start-2 select-none">
+                                DELETE</div>
+                        </div>
+                    </form>
+
+                    <!-- Delete Modal Start -->
+                    <div x-cloak
+                        class="fixed inset-0 z-50 bg-popup-overlay/70 backdrop-blur-[10px] flex items-center justify-center px-4"
+                        x-show="confirmDelete">
+                        <div
+                            class="sm:max-w-sm md:max-w-lg 2xl:max-w-2xl w-full bg-primary shadow-1 rounded-[20px] px-4 py-[30px] md:py-10 relative">
+                            <button @click="confirmDelete = false" class="absolute top-4 right-4 hover:opacity-80">
+                                <svg class="w-6 md:w-8 fill-current text-muted" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M22.3499 20L29.5166 12.85C29.8304 12.5361 30.0067 12.1105 30.0067 11.6667C30.0067 11.2228 29.8304 10.7972 29.5166 10.4833C29.2027 10.1695 28.7771 9.99316 28.3332 9.99316C27.8894 9.99316 27.4637 10.1695 27.1499 10.4833L19.9999 17.65L12.8499 10.4833C12.5361 10.1695 12.1104 9.99316 11.6666 9.99316C11.2227 9.99316 10.7971 10.1695 10.4832 10.4833C10.1694 10.7972 9.99308 11.2228 9.99308 11.6667C9.99308 12.1105 10.1694 12.5361 10.4832 12.85L17.6499 20L10.4832 27.15C10.327 27.3049 10.203 27.4893 10.1184 27.6924C10.0338 27.8955 9.99023 28.1133 9.99023 28.3333C9.99023 28.5533 10.0338 28.7712 10.1184 28.9743C10.203 29.1774 10.327 29.3617 10.4832 29.5166C10.6382 29.6729 10.8225 29.7969 11.0256 29.8815C11.2287 29.9661 11.4465 30.0096 11.6666 30.0096C11.8866 30.0096 12.1044 29.9661 12.3075 29.8815C12.5106 29.7969 12.695 29.6729 12.8499 29.5166L19.9999 22.35L27.1499 29.5166C27.3048 29.6729 27.4892 29.7969 27.6923 29.8815C27.8954 29.9661 28.1132 30.0096 28.3332 30.0096C28.5532 30.0096 28.7711 29.9661 28.9742 29.8815C29.1773 29.7969 29.3616 29.6729 29.5166 29.5166C29.6728 29.3617 29.7968 29.1774 29.8814 28.9743C29.966 28.7712 30.0096 28.5533 30.0096 28.3333C30.0096 28.1133 29.966 27.8955 29.8814 27.6924C29.7968 27.4893 29.6728 27.3049 29.5166 27.15L22.3499 20Z"
+                                        fill="current" />
+                                </svg>
+                            </button>
+
+                            <div class="max-w-[336px] mx-auto text-center">
+                                <h1 class="text-2xl sm:text-[28px] lg:text-3xl text-primary font-bold mb-4 md:mb-6">
+                                    Delete?</h1>
+                                <p class="text-sm sm:text-base md:text-lg text-secondary mb-6 sm:mb-7 md:mb-8 lg:mb-12">
+                                    Are you sure you want to delete
+                                    these conversations?</p>
+
+                                <button @click="confirmDelete = false"
+                                    class="text-invert bg-2 w-full text-center p-3 sm:py-3 xl:py-4 rounded-full font-semibold text-sm lg:text-base shadow-40 uppercase mb-2.5 md:mb-4 lg:mb-5 hover:opacity-80">delete</button>
+                                <button @click="confirmDelete = false"
+                                    class="text-invert bg-muted w-full text-center p-3 sm:py-3 xl:py-4 rounded-full font-semibold text-sm lg:text-base shadow-40 uppercase hover:opacity-80">cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Delete Modal End -->
+                </div>
+                <!-- Message part End-->
+
+
+                <!-- Footer Part Start -->
+                <div
+                    class="flex items-center justify-between py-4 sm:py-5 px-5 lg:border-t lg:border-primary rounded-t-[10px] lg:rounded-t-none bg-primary absolute bottom-0 inset-x-0">
+                    <button>
+                        <svg class="w-6 lg:w-7 fill-current stroke-current text-muted" viewBox="0 0 34 34" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M17.0003 21.9964C20.0614 21.9964 22.8237 22.2471 24.805 22.9488C25.7922 23.2984 26.5506 23.7482 27.0585 24.3025C27.5561 24.8456 27.8337 25.51 27.8337 26.3485C27.8337 27.1865 27.5547 27.8482 27.0553 28.3881C26.5453 28.9395 25.7841 29.3854 24.7943 29.7311C22.8082 30.4247 20.0453 30.6667 17.0003 30.6667C13.94 30.6667 11.1776 30.416 9.1962 29.7143C8.20883 29.3646 7.45036 28.9149 6.9423 28.3605C6.44457 27.8174 6.16699 27.1531 6.16699 26.3145C6.16699 25.4766 6.44591 24.8149 6.94532 24.275C7.45538 23.7236 8.21658 23.2777 9.20637 22.932C11.1925 22.2383 13.9554 21.9964 17.0003 21.9964ZM17.0003 3.33334C20.8881 3.33334 24.0001 6.44459 24.0001 10.329C24.0001 14.2135 20.888 17.3261 17.0003 17.3261C13.114 17.3261 10.0005 14.2135 10.0005 10.329C10.0005 6.44465 13.1139 3.33334 17.0003 3.33334Z"
+                                fill="current" stroke="current" />
+                        </svg>
+                    </button>
+
+                    <button>
+                        <svg class="w-6 lg:w-7 fill-current stroke-current text-muted" viewBox="0 0 34 34" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M23.7658 21.1313C23.812 21.1692 23.8571 21.2092 23.9015 21.2524L23.9025 21.2533L30.7208 28.0716C30.7208 28.0716 30.7208 28.0717 30.7208 28.0717C31.0719 28.4225 31.2692 28.8984 31.2694 29.3947C31.2695 29.891 31.0725 30.3671 30.7217 30.7181C30.3709 31.0692 29.895 31.2665 29.3987 31.2667C28.9023 31.2669 28.4263 31.0699 28.0752 30.7191L28.0752 30.719L21.2573 23.9011C21.2572 23.901 21.2571 23.9009 21.257 23.9008C21.2134 23.8577 21.1719 23.8125 21.1327 23.7654C19.0433 25.271 16.5117 26.0398 13.9361 25.9492C11.3273 25.8574 8.8256 24.8892 6.83468 23.2009C4.84376 21.5126 3.47979 19.2027 2.96292 16.644C2.44605 14.0853 2.80643 11.4271 3.98589 9.09838C5.16536 6.76966 7.0951 4.90629 9.46366 3.80903C11.8322 2.71176 14.5014 2.44461 17.0405 3.05069C19.5795 3.65677 21.8403 5.10073 23.4579 7.1495C25.0754 9.19824 25.9555 11.7323 25.956 14.3426L23.7658 21.1313ZM23.7658 21.1313C25.1927 19.1566 25.9598 16.7807 25.956 14.3427L23.7658 21.1313ZM14.2736 10.8394L14.3445 10.9107L14.4154 10.8394C15.8363 9.41086 18.3364 9.94252 19.2296 11.6479C19.6725 12.4936 19.7237 13.6391 19.0222 14.9923C18.3244 16.3386 16.8818 17.8884 14.3445 19.5366C11.8073 17.8884 10.3647 16.3387 9.66679 14.9925C8.96537 13.6394 9.01654 12.4942 9.45947 11.6485C10.3526 9.9434 12.8528 9.41173 14.2736 10.8394Z"
+                                fill="current" stroke="current" stroke-width="0.2" />
+                        </svg>
+                    </button>
+
+                    <button
+                        class="text-sm sm:text-base font-semibold text-invert px-2.5 sm:px-6 py-1 sm:py-3 rounded-full text-center bg-2 uppercase shadow-10 hover:opacity-80 transition duration-100 flex items-center space-x-2 sm:space-x-2.5">
+                        <div class="relative bell">
+                            <div
+                                class="absolute -top-0.5 -right-0.5 w-[18px] h-[18px] bg-dark-50 flex items-center justify-center rounded-full text-xs font-bold text-white animate__animated animate__tada animate__infinite	infinite">
+                                4
+                            </div>
+                            <svg class="w-6 lg:w-7" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M25.728 1.711c.185-.354-.06-.805-.459-.805H9.524C4.267.906 0 5.156 0 10.396v13.302c0 5.24 4.267 9.49 9.524 9.49h2.857c.514 0 1.2.343 1.524.763l2.857 3.792c1.257 1.677 3.314 1.677 4.571 0l2.858-3.792a1.93 1.93 0 0 1 1.523-.763h2.857c5.258 0 9.524-4.25 9.524-9.49v-9.96c0-.4-.45-.643-.805-.458a8.53 8.53 0 0 1-3.957.966c-4.733 0-8.571-3.84-8.571-8.576 0-1.428.349-2.774.966-3.959ZM9.524 18.057c0 1.048.838 1.906 1.905 1.906a1.899 1.899 0 0 0 1.904-1.906 1.91 1.91 0 0 0-1.904-1.905 1.91 1.91 0 0 0-1.905 1.905Zm7.619 0c0 1.048.838 1.906 1.905 1.906a1.899 1.899 0 0 0 1.904-1.906 1.91 1.91 0 0 0-1.904-1.905 1.91 1.91 0 0 0-1.905 1.905Zm7.619 0c0 1.048.838 1.906 1.905 1.906a1.899 1.899 0 0 0 1.904-1.906 1.91 1.91 0 0 0-1.904-1.905 1.91 1.91 0 0 0-1.905 1.905Z"
+                                    fill="#fff" />
+                            </svg>
+                        </div>
+                        <span>Messages</span>
+                    </button>
+
+                    <button>
+                        <svg class="w-6 lg:w-7 fill-current stroke-current text-muted" viewBox="0 0 32 27" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M31.2258 5.50852C30.7293 4.43057 30.0134 3.45374 29.1181 2.63271C28.2222 1.80924 27.1659 1.15483 26.0067 0.705084C24.8046 0.236873 23.5153 -0.00278476 22.2137 2.44127e-05C20.3875 2.44127e-05 18.6058 0.468907 17.0575 1.35457C16.6871 1.56644 16.3352 1.79914 16.0018 2.05269C15.6685 1.79914 15.3166 1.56644 14.9462 1.35457C13.3978 0.468907 11.6161 2.44127e-05 9.79001 2.44127e-05C8.47504 2.44127e-05 7.20082 0.236202 5.99698 0.705084C4.83389 1.1566 3.78562 1.80609 2.88552 2.63271C1.9891 3.45281 1.27303 4.42987 0.777867 5.50852C0.262993 6.63037 0 7.82167 0 9.04771C0 10.2043 0.251881 11.4095 0.751938 12.6355C1.1705 13.6601 1.77057 14.7229 2.53733 15.7961C3.75228 17.4945 5.42284 19.2659 7.49715 21.0615C10.9346 24.0381 14.3387 26.0942 14.4831 26.1775L15.361 26.7055C15.75 26.9382 16.25 26.9382 16.6389 26.7055L17.5168 26.1775C17.6613 26.0907 21.0617 24.0381 24.5028 21.0615C26.5771 19.2659 28.2477 17.4945 29.4626 15.7961C30.2294 14.7229 30.8332 13.6601 31.248 12.6355C31.7481 11.4095 32 10.2043 32 9.04771C32.0037 7.82167 31.7407 6.63037 31.2258 5.50852V5.50852Z"
+                                fill="current" />
+                        </svg>
+
+                    </button>
+                </div>
+                <!-- Footer Part End -->
+            </div>
+            <!-- Left Sidebar End-->
+
+            <!-- Right Message panel Start-->
+            <div class="w-full" x-bind:class="showMessageList ? 'hidden lg:inline' : 'inline'">
+                <div class=" relative h-screen flex flex-col">
+                    <!-- Header Start -->
+                    <div
+                        class="fixed lg:absolute inset-x-0 top-0 flex justify-between items-center lg:bg-primary shadow-1 px-5 md:px-12 py-2 md:py-2.5 z-20">
+                        <div class="flex items-center">
+                            <button @click="showMessageList = true" class="lg:hidden mr-6"><svg
+                                    class="fill-current stroke-current text-muted" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7.99972 12C7.99927 11.7664 8.08064 11.5399 8.22972 11.36L13.2297 5.36003C13.3995 5.15581 13.6434 5.02739 13.9078 5.00301C14.1722 4.97863 14.4355 5.06029 14.6397 5.23003C14.8439 5.39977 14.9724 5.64368 14.9967 5.90811C15.0211 6.17253 14.9395 6.43581 14.7697 6.64003L10.2897 12L14.6097 17.36C14.6928 17.4623 14.7548 17.58 14.7923 17.7064C14.8297 17.8327 14.8418 17.9652 14.8278 18.0962C14.8139 18.2272 14.7742 18.3542 14.711 18.4699C14.6479 18.5855 14.5625 18.6875 14.4597 18.77C14.3569 18.8616 14.2363 18.931 14.1054 18.9738C13.9745 19.0166 13.8362 19.0319 13.6992 19.0187C13.5621 19.0056 13.4292 18.9643 13.3089 18.8974C13.1885 18.8305 13.0833 18.7395 12.9997 18.63L8.16972 12.63C8.04421 12.4449 7.98435 12.2231 7.99972 12V12Z"
+                                        fill="current" />
+                                </svg>
+                            </button>
+
+                            <div class="flex items-center space-x-3 sm:space-x-5">
+                                <img src="./assets/images/img-4.jpg" alt=""
+                                    class="w-12 h-12 rounded-full object-cover object-top">
+                                <div>
+                                    <div class="flex space-x-1 sm:space-x-2 md:space-x-2.5">
+                                        <h2 class="text-base sm:text-lg text-primary">Babiedoll, <span
+                                                class="font-medium font-poppins">31</span></h2>
+
+                                        <div class="flex h-3 w-3 relative items-center justify-center">
+                                            <span
+                                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-online-green opacity-75"></span>
+                                            <span
+                                                class="relative inline-flex rounded-full w-2 h-2 bg-online-green"></span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-2 sm:space-x-2">
+                                        <svg class="fill-current stroke-current text-muted" width="11" height="14"
+                                            viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M5.5 1.04306C3.01867 1.04306 1 3.16882 1 5.78065C1 9.10385 4.74933 12.3415 5.5 12.514C6.25067 12.3408 10 9.10316 10 5.78065C10 3.16882 7.98133 1.04306 5.5 1.04306ZM7.66733 5.73754C7.66733 4.49073 6.69533 3.47688 5.50067 3.47688C4.306 3.47688 3.334 4.49073 3.334 5.73754C3.334 6.98365 4.306 7.99681 5.50067 7.99681C6.69533 7.99681 7.66733 6.98365 7.66733 5.73754Z"
+                                                fill="current" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M11 5.78065C11 2.59305 8.53267 0 5.5 0C2.46733 0 0 2.59305 0 5.78065C0 9.69909 4.304 13.5598 5.5 13.5598C6.696 13.5598 11 9.69909 11 5.78065ZM1 5.78065C1 3.16882 3.01867 1.04306 5.5 1.04306C7.98133 1.04306 10 3.16882 10 5.78065C10 9.10316 6.25067 12.3408 5.5 12.514C4.74933 12.3415 1 9.10385 1 5.78065Z"
+                                                fill="current" />
+                                        </svg>
+
+                                        <p
+                                            class="text-xs sm:text-sm md:text-base font-lato font-medium text-muted tracking-wide">
+                                            New york
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <button class="" @click="menu = true">
+                                <svg class="w-6 fill-current stroke-current text-muted" viewBox="0 0 34 34" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M17 10.018a2.732 2.732 0 1 1 0-5.464 2.732 2.732 0 0 1 0 5.464Zm0 9.714a2.733 2.733 0 1 1 0-5.465 2.733 2.733 0 0 1 0 5.465Zm-2.732 6.982a2.732 2.732 0 1 0 5.463 0 2.732 2.732 0 0 0-5.463 0Z"
+                                        fill="current" />
+                                </svg>
+                            </button>
+
+                            <!-- Menu Modal Start -->
+                            <div x-cloak
+                                class="fixed inset-0 z-[70] bg-popup-overlayy/70 backdrop-blur-[10px] flex items-end lg:items-center justify-center p-5"
+                                x-show="menu">
+                                <div
+                                    class="md:max-w-xl w-full bg-primary shadow-1 rounded-[20px] py-[30px] md:py-8 relative">
+                                    <!-- Close Button -->
+                                    <button @click="menu = false" class="absolute top-4 right-4"><svg
+                                            class="w-6 md:w-8 fill-current stroke-current text-muted"
+                                            viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M22.3499 20L29.5166 12.85C29.8304 12.5361 30.0067 12.1105 30.0067 11.6667C30.0067 11.2228 29.8304 10.7972 29.5166 10.4833C29.2027 10.1695 28.7771 9.99316 28.3332 9.99316C27.8894 9.99316 27.4637 10.1695 27.1499 10.4833L19.9999 17.65L12.8499 10.4833C12.5361 10.1695 12.1104 9.99316 11.6666 9.99316C11.2227 9.99316 10.7971 10.1695 10.4832 10.4833C10.1694 10.7972 9.99308 11.2228 9.99308 11.6667C9.99308 12.1105 10.1694 12.5361 10.4832 12.85L17.6499 20L10.4832 27.15C10.327 27.3049 10.203 27.4893 10.1184 27.6924C10.0338 27.8955 9.99023 28.1133 9.99023 28.3333C9.99023 28.5533 10.0338 28.7712 10.1184 28.9743C10.203 29.1774 10.327 29.3617 10.4832 29.5166C10.6382 29.6729 10.8225 29.7969 11.0256 29.8815C11.2287 29.9661 11.4465 30.0096 11.6666 30.0096C11.8866 30.0096 12.1044 29.9661 12.3075 29.8815C12.5106 29.7969 12.695 29.6729 12.8499 29.5166L19.9999 22.35L27.1499 29.5166C27.3048 29.6729 27.4892 29.7969 27.6923 29.8815C27.8954 29.9661 28.1132 30.0096 28.3332 30.0096C28.5532 30.0096 28.7711 29.9661 28.9742 29.8815C29.1773 29.7969 29.3616 29.6729 29.5166 29.5166C29.6728 29.3617 29.7968 29.1774 29.8814 28.9743C29.966 28.7712 30.0096 28.5533 30.0096 28.3333C30.0096 28.1133 29.966 27.8955 29.8814 27.6924C29.7968 27.4893 29.6728 27.3049 29.5166 27.15L22.3499 20Z"
+                                                fill="current" />
+                                        </svg>
+                                    </button>
+
+                                    <ul class="divide-y divide-primary">
+                                        <li class="py-3 sm:py-4 text-center">
+                                            <a href="#"
+                                                class="text-lg lg:text-xl text-primary capitalize hover:opacity-80">view
+                                                profile</a>
+                                        </li>
+                                        <li class="py-3 sm:py-4 text-center">
+                                            <a href="#"
+                                                class="text-lg lg:text-xl text-primary capitalize hover:opacity-80">Add
+                                                to
+                                                Likes</a>
+                                        </li>
+                                        <li class="py-3 sm:py-4 text-center">
+                                            <a href="#"
+                                                class="text-lg lg:text-xl text-primary capitalize hover:opacity-80">Delete
+                                                Conversetion</a>
+                                        </li>
+                                        <li class="py-3 sm:py-4 text-center">
+                                            <button @click="report = true; menu = false"
+                                                class="text-lg lg:text-xl text-primary capitalize hover:opacity-80">Report</button>
+                                        </li>
+                                        <li class="py-3 sm:py-4 text-center">
+                                            <button @click="block = true; menu = false"
+                                                class="text-lg lg:text-xl text-primary capitalize hover:opacity-80">block</button>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                            <!-- Menu Modal End -->
+
+
+                            <!-- Block Modal Start -->
+                            <div x-cloak
+                                class="fixed inset-0 z-50 bg-popup-overlay/70 backdrop-blur-[10px] flex items-center justify-center px-4"
+                                x-show="block">
+                                <div
+                                    class="sm:max-w-sm md:max-w-lg 2xl:max-w-2xl w-full bg-primary shadow rounded-[20px] px-4 py-[30px] md:py-10 relative">
+                                    <button @click="block = false, menu = true"
+                                        class="absolute top-4 right-4 hover:opacity-80">
+                                        <svg class="w-6 md:w-8 fill-current text-muted" viewBox="0 0 40 40" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M22.3499 20L29.5166 12.85C29.8304 12.5361 30.0067 12.1105 30.0067 11.6667C30.0067 11.2228 29.8304 10.7972 29.5166 10.4833C29.2027 10.1695 28.7771 9.99316 28.3332 9.99316C27.8894 9.99316 27.4637 10.1695 27.1499 10.4833L19.9999 17.65L12.8499 10.4833C12.5361 10.1695 12.1104 9.99316 11.6666 9.99316C11.2227 9.99316 10.7971 10.1695 10.4832 10.4833C10.1694 10.7972 9.99308 11.2228 9.99308 11.6667C9.99308 12.1105 10.1694 12.5361 10.4832 12.85L17.6499 20L10.4832 27.15C10.327 27.3049 10.203 27.4893 10.1184 27.6924C10.0338 27.8955 9.99023 28.1133 9.99023 28.3333C9.99023 28.5533 10.0338 28.7712 10.1184 28.9743C10.203 29.1774 10.327 29.3617 10.4832 29.5166C10.6382 29.6729 10.8225 29.7969 11.0256 29.8815C11.2287 29.9661 11.4465 30.0096 11.6666 30.0096C11.8866 30.0096 12.1044 29.9661 12.3075 29.8815C12.5106 29.7969 12.695 29.6729 12.8499 29.5166L19.9999 22.35L27.1499 29.5166C27.3048 29.6729 27.4892 29.7969 27.6923 29.8815C27.8954 29.9661 28.1132 30.0096 28.3332 30.0096C28.5532 30.0096 28.7711 29.9661 28.9742 29.8815C29.1773 29.7969 29.3616 29.6729 29.5166 29.5166C29.6728 29.3617 29.7968 29.1774 29.8814 28.9743C29.966 28.7712 30.0096 28.5533 30.0096 28.3333C30.0096 28.1133 29.966 27.8955 29.8814 27.6924C29.7968 27.4893 29.6728 27.3049 29.5166 27.15L22.3499 20Z"
+                                                fill="current" />
+                                        </svg>
+                                    </button>
+
+                                    <div class="max-w-[336px] mx-auto text-center">
+                                        <h1
+                                            class="text-2xl sm:text-[28px] lg:text-3xl text-primary font-bold mb-4 md:mb-6">
+                                            Block User</h1>
+                                        <p
+                                            class="text-sm sm:text-base md:text-lg text-muted mb-6 sm:mb-7 md:mb-8 lg:mb-12">
+                                            Are you sure you want to block hotasiansweet?</p>
+
+                                        <button
+                                            class="text-invert bg-2 w-full text-center p-3 sm:py-3 xl:py-4 rounded-full font-semibold text-sm lg:text-base shadow-40 uppercase mb-2.5 md:mb-4 lg:mb-5 hover:opacity-80">block</button>
+                                        <button @click="block = false"
+                                            class="text-invert bg-muted w-full text-center p-3 sm:py-3 xl:py-4 rounded-full font-semibold text-sm lg:text-base shadow-40 uppercase hover:opacity-80">cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Block Modal End -->
+
+
+
+                            <!-- Report Modal Start -->
+                            <div x-cloak
+                                class="fixed inset-0 z-50 bg-popup-overlay/70 backdrop-blur-[10px] overflow-y-auto h-screen py-24 px-4"
+                                x-cloak x-show="report">
+                                <div
+                                    class="sm:max-w-sm md:max-w-lg 2xl:max-w-2xl w-full bg-primary rounded-[20px] px-4 py-[30px] md:py-10 relative m-auto">
+                                    <button @click="report = false, menu = true"
+                                        class="absolute top-4 right-4 hover:opacity-80">
+                                        <svg class="w-6 md:w-8 fill-current text-muted" viewBox="0 0 40 40" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M22.3499 20L29.5166 12.85C29.8304 12.5361 30.0067 12.1105 30.0067 11.6667C30.0067 11.2228 29.8304 10.7972 29.5166 10.4833C29.2027 10.1695 28.7771 9.99316 28.3332 9.99316C27.8894 9.99316 27.4637 10.1695 27.1499 10.4833L19.9999 17.65L12.8499 10.4833C12.5361 10.1695 12.1104 9.99316 11.6666 9.99316C11.2227 9.99316 10.7971 10.1695 10.4832 10.4833C10.1694 10.7972 9.99308 11.2228 9.99308 11.6667C9.99308 12.1105 10.1694 12.5361 10.4832 12.85L17.6499 20L10.4832 27.15C10.327 27.3049 10.203 27.4893 10.1184 27.6924C10.0338 27.8955 9.99023 28.1133 9.99023 28.3333C9.99023 28.5533 10.0338 28.7712 10.1184 28.9743C10.203 29.1774 10.327 29.3617 10.4832 29.5166C10.6382 29.6729 10.8225 29.7969 11.0256 29.8815C11.2287 29.9661 11.4465 30.0096 11.6666 30.0096C11.8866 30.0096 12.1044 29.9661 12.3075 29.8815C12.5106 29.7969 12.695 29.6729 12.8499 29.5166L19.9999 22.35L27.1499 29.5166C27.3048 29.6729 27.4892 29.7969 27.6923 29.8815C27.8954 29.9661 28.1132 30.0096 28.3332 30.0096C28.5532 30.0096 28.7711 29.9661 28.9742 29.8815C29.1773 29.7969 29.3616 29.6729 29.5166 29.5166C29.6728 29.3617 29.7968 29.1774 29.8814 28.9743C29.966 28.7712 30.0096 28.5533 30.0096 28.3333C30.0096 28.1133 29.966 27.8955 29.8814 27.6924C29.7968 27.4893 29.6728 27.3049 29.5166 27.15L22.3499 20Z"
+                                                fill="current" />
+                                        </svg>
+                                    </button>
+
+                                    <div class="max-w-[360px] mx-auto text-center">
+                                        <h1
+                                            class="text-2xl sm:text-[28px] lg:text-3xl text-primary font-bold mb-4 md:mb-6">
+                                            Report user</h1>
+                                        <p
+                                            class="text-sm sm:text-base md:text-lg text-muted mb-6 sm:mb-7 md:mb-8 lg:mb-12">
+                                            Choose the option that closest represents the reason for your report below.
+                                        </p>
+                                    </div>
+
+                                    <form action="" class="max-w-lg mx-auto">
+                                        <div class="flex items-center space-x-4 md:space-x-5 mb-6 md:mb-8">
+                                            <input type="radio" name="report" id="report-1"
+                                                class="w-6 h-6 text-transparent bg-transparent border-2 border-primary checked:border-info group-hover:border-2 group-hover:border-info radio-custom focus:ring-0 focus:outline-none">
+                                            <label for="report-1" class="text-base lg:text-lg text-primary">Fake
+                                                profile</label>
+                                        </div>
+
+                                        <div class="flex items-center space-x-4 md:space-x-5 mb-6 md:mb-8">
+                                            <input type="radio" name="report" id="report-2"
+                                                class="w-6 h-6 text-transparent bg-transparent border-2 border-primary checked:border-info group-hover:border-2 group-hover:border-info radio-custom focus:ring-0 focus:outline-none">
+                                            <label for="report-2"
+                                                class="text-base lg:text-lg text-primary">Harassment</label>
+                                        </div>
+
+                                        <div class="flex items-center space-x-4 md:space-x-5 mb-6 md:mb-8">
+                                            <input type="radio" name="report" id="report-3"
+                                                class="w-6 h-6 text-transparent bg-transparent border-2 border-primary checked:border-info group-hover:border-2 group-hover:border-info radio-custom focus:ring-0 focus:outline-none">
+                                            <label for="report-3" class="text-base lg:text-lg text-primary">Prostitution
+                                                /
+                                                Escort</label>
+                                        </div>
+
+                                        <div class="flex items-center space-x-4 md:space-x-5 mb-6 md:mb-8">
+                                            <input type="radio" name="report" id="report-4"
+                                                class="w-6 h-6 text-transparent bg-transparent border-2 border-primary checked:border-info group-hover:border-2 group-hover:border-info radio-custom focus:ring-0 focus:outline-none">
+                                            <label for="report-4" class="text-base lg:text-lg text-primary">Seeking
+                                                minors
+                                                /
+                                                Minor using the site</label>
+                                        </div>
+
+                                        <div class="flex items-center space-x-4 md:space-x-5 mb-6 md:mb-14">
+                                            <input type="radio" name="report" id="report-5"
+                                                class="w-6 h-6 text-transparent bg-transparent border-2 border-primary checked:border-info group-hover:border-2 group-hover:border-info radio-custom focus:ring-0 focus:outline-none">
+                                            <label for="report-5" class="text-base lg:text-lg text-primary">Financial
+                                                request/
+                                                Harassment</label>
+                                        </div>
+
+                                        <div class="mb-[30px] md-10 lg:mb-[70px]">
+                                            <div class="flex items-center justify-between mb-2.5">
+                                                <label for=""
+                                                    class="text-sm md:text-base text-secondary">Details</label>
+                                                <p class="text-sm md:text-base text-secondary">0/150</p>
+                                            </div>
+                                            <textarea name="" id="" rows="5"
+                                                class="bg-transparent border border-gray-50 rounded-md p-3 text-primary placeholder-primary w-full focus-visible:ring-0 focus:border-info"
+                                                placeholder="Tell us what happened"></textarea>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <button
+                                                class="text-sm sm:text-base text-invert font-semibold uppercase w-full max-w-xs text-center px-2 py-3 sm:px-[14px] sm:py-4 bg-2 rounded-full shadow-10 hover:opacity-80 transition duration-100">submit</button>
+                                        </div>
+                                    </form>
+
+
+                                </div>
+                            </div>
+                            <!-- Report Modal End -->
+
+                        </div>
+
+                    </div>
+                    <!-- Header End -->
+
+                    <!-- Messages List Start -->
+                    <div class="px-5 sm:px-12 pt-12 pb-6 max-h-[calc(100vh-150px)] sm:max-h-[calc(100vh-150px)] md:max-h-[calc(100vh-180px)] lg:max-h-[calc(100vh-200px)] overflow-y-auto hide-scrollbar relative flex flex-col-reverse space-y-8 space-y-reverse mt-16"
+                        x-on:scroll="scrollbar()">
+
+                        <div class="w-full flex flex-col items-center">
+                            <img src="./assets/images/img-9.jpg" alt=""
+                                class="w-[120px] h-[120px] md:w-[200px] md:h-[200px] object-cover rounded-full mb-5 sm:mb-7 md:mb-10">
+                            <h1 class="text-2xl md:text-[30px] text-primary font-bold text-center mb-5">Get the
+                                conversation
+                                started</h1>
+
+                            <p class="text-sm sm:text-base text-center max-w-[400px] text-secondary">Don’t just say Hi,
+                                tell
+                                them
+                                something interresting about yourself, or ask them what they’re into. </p>
+                        </div>
+                    </div>
+                    <!-- Messages List End -->
+
+
+                    <!-- Messaging Input Area Start -->
+                    <div class="mt-auto lg:mb-2 3k:mb-[30px]">
+                        <div
+                            class="lg:mx-8 2xl:mx-[76px] py-3 px-4 sm:px-6 md:px-12 bg-primary shadow-10 rounded-[14px]">
+                            <div class="flex items-end justify-center space-x-2 sm:space-x-4 md:spcae-x-8">
+                                <button class="mb-3.5">
+                                    <svg class="w-6 sm:w-8 fill-current text-secondary-alt hover:text-secondary transition-all duration-200"
+                                        viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M39.875 6.875H4.125c-.76 0-1.375.614-1.375 1.375v27.5c0 .76.614 1.375 1.375 1.375h35.75c.76 0 1.375-.614 1.375-1.375V8.25c0-.76-.614-1.375-1.375-1.375Zm-25.352 6.188a2.753 2.753 0 0 1 2.75 2.75 2.753 2.753 0 0 1-2.75 2.75 2.753 2.753 0 0 1-2.75-2.75 2.753 2.753 0 0 1 2.75-2.75Zm22.082 18.781a.349.349 0 0 1-.223.082H7.614a.345.345 0 0 1-.262-.567l7.317-8.68a.346.346 0 0 1 .486-.043c.013.013.03.026.043.043l4.271 5.07 6.793-8.056a.346.346 0 0 1 .486-.043c.013.013.03.025.043.043l9.866 11.67a.35.35 0 0 1-.052.481Z"
+                                            fill=current" />
+                                    </svg>
+                                </button>
+
+                                <div class="relative" x-data="{open : false}" @click.away="open = false">
+                                    <button class="mb-3.5" @click="open = !open">
+                                        <svg class="w-6 sm:w-8 fill-current text-secondary-alt hover:text-secondary transition-all duration-200"
+                                            viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M22 4.4a17.6 17.6 0 1 1 0 35.2 17.6 17.6 0 0 1 0-35.2Zm-6.259 22.94a1.1 1.1 0 1 0-1.562 1.55 11.025 11.025 0 0 0 15.191.427l.451-.427.126-.154a1.1 1.1 0 0 0-1.536-1.524l-.152.127-.391.374a8.824 8.824 0 0 1-12.127-.374Zm11.76-10.84a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4Zm-11 0a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4Z"
+                                                fill=current" />
+                                        </svg>
+                                    </button>
+
+                                    <div x-show="open" x-cloak
+                                        class="origin-bottom-left absolute left-0 bottom-0 z-20 mb-12 w-56 sm:w-64 rounded-md bg-primary shadow-50 focus:outline-none">
+                                        <div class="py-1 space-y-3">
+                                            <p
+                                                class="text-primary px-4 py-2 text-sm lg:text-base flex items-center space-x-3 cursor-pointer">
+                                                <img src="./assets/images/emoji/Winking Face.png" alt="" class="w-5">
+                                                <span>Tell Me More About You. Fancy a Chat?</span>
+                                            </p>
+                                            <p
+                                                class="text-primary px-4 py-2 text-sm lg:text-base flex items-center space-x-3 cursor-pointer">
+                                                <img src="./assets/images/emoji/Hi.png" alt="" class="w-5">
+                                                <span>Hi, How Are You?</span>
+                                            </p>
+                                            <p
+                                                class="text-primary px-4 py-2 text-sm lg:text-base flex items-center space-x-3 cursor-pointer">
+                                                <img src="./assets/images/emoji/Bouquet.png" alt="" class="w-5">
+                                                <span>Some Flowers For You!</span>
+                                            </p>
+                                            <p
+                                                class="text-primary px-4 py-2 text-sm lg:text-base flex items-center space-x-3 cursor-pointer">
+                                                <img src="./assets/images/emoji/Face Blowing a Kiss.png" alt=""
+                                                    class="w-5">
+                                                <span>Hey! I'm Winking At You!</span>
+                                            </p>
+                                            <p
+                                                class="text-primary px-4 py-2 text-sm lg:text-base flex items-center space-x-3 cursor-pointer">
+                                                <img src="./assets/images/emoji/surprise.png" alt="" class="w-5">
+                                                <span>Surprise, It's me!</span>
+                                            </p>
+                                            <p
+                                                class="text-primary px-4 py-2 text-sm lg:text-base flex items-center space-x-3 cursor-pointer">
+                                                <img src="./assets/images/emoji/Kiss Mark.png" alt="" class="w-5">
+                                                <span>Sending You A Kiss</span>
+                                            </p>
+                                            <p
+                                                class="text-primary px-4 py-2 text-sm lg:text-base flex items-center space-x-3 cursor-pointer">
+                                                <img src="./assets/images/emoji/Couple With Heart Man Medium Light Skin Tone Woman Medium Light Skin Tone.png"
+                                                    alt="" class="w-5">
+                                                <span>Let's Get Naughty</span>
+                                            </p>
+
+                                            <p
+                                                class="text-primary px-4 py-2 text-sm lg:text-base flex items-center space-x-3 cursor-pointer">
+                                                <img src="./assets/images/emoji/Smiling Face with Heart-Eyes.png" alt=""
+                                                    class="w-5">
+                                                <span>I Think I am In Love</span>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="relative flex items-end justify-center max-w-[600px]  w-full bg-light border border-primary focus:border-info rounded-[10px] py-2 px-3 lg:px-[30px]"
+                                    x-data="{message: '', resize() {
+                                    $refs.textarea.style.height = '5px';
+                                    $refs.textarea.style.height=($refs.textarea.scrollHeight)+'px';
+                                }}" x-init="resize()">
+
+                                    <div class="relative mb-1 group" x-data="{open : false}" @click.away="open = false">
+                                        <button @click="open = !open">
+                                            <svg class="w-6 4k:w-9 fill-current text-secondary-alt group-hover:text-secondary transition-all"
+                                                viewBox="0 0 37 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M34.1927 13.397C34.549 13.2156 35 13.4601 35 13.8599V24.6625C35 29.545 31.0275 33.5 26.1432 33.5H8.855C3.97075 33.5 0 29.545 0 24.6625V10.8375C0 5.955 3.95325 2 8.855 2H23.139C23.5388 2 23.7833 2.45095 23.602 2.80722C23.0567 3.8783 22.7493 5.09075 22.7493 6.375C22.7493 8.88368 23.9223 11.1184 25.7498 12.5605L19.25 17.75C18.235 18.5918 16.7808 18.5918 15.75 17.75L7.875 11.45C7.33075 11.0475 6.57825 11.1 6.125 11.5725C5.6525 12.045 5.6 12.7975 6.00075 13.3225L6.23 13.55L14.1925 19.7625C15.1725 20.5325 16.3608 20.9525 17.605 20.9525C18.8458 20.9525 20.055 20.5325 21.0333 19.7625L28.3414 13.914C29.064 14.1325 29.8304 14.25 30.6243 14.25C31.9088 14.25 33.1215 13.9425 34.1927 13.397Z"
+                                                    fill="current" />
+                                                <circle cx="30.5" cy="6.5" r="5.5"
+                                                    fill="url(#paint0_linear_699_11347)" />
+                                                <path
+                                                    d="M31.2812 2.89062L31.1201 7.82715H29.9482L29.7822 2.89062H31.2812ZM29.7432 9.35547C29.7432 9.14714 29.8148 8.97461 29.958 8.83789C30.1045 8.69792 30.2965 8.62793 30.5342 8.62793C30.7751 8.62793 30.9671 8.69792 31.1104 8.83789C31.2536 8.97461 31.3252 9.14714 31.3252 9.35547C31.3252 9.55729 31.2536 9.72819 31.1104 9.86816C30.9671 10.0081 30.7751 10.0781 30.5342 10.0781C30.2965 10.0781 30.1045 10.0081 29.958 9.86816C29.8148 9.72819 29.7432 9.55729 29.7432 9.35547Z"
+                                                    fill="black" />
+                                                <defs>
+                                                    <linearGradient id="paint0_linear_699_11347" x1="25.2946"
+                                                        y1="2.16346" x2="36.2112" y2="2.40371"
+                                                        gradientUnits="userSpaceOnUse">
+                                                        <stop stop-color="#FF0642" />
+                                                        <stop offset="1" stop-color="#EA1272" />
+                                                    </linearGradient>
+                                                </defs>
+                                            </svg>
+                                        </button>
+
+                                        <!-- Priority Message DropDown Start -->
+                                        <form
+                                            class="absolute bottom-0 mb-14 w-72 md:w-[420px] shadow-2xl shadow-pink-20/20 -translate-x-1/4"
+                                            x-show="open">
+                                            <label for="offer-1"
+                                                class="relative bg-primary btn-border-gradient before:rounded-md p-5 pt-0 flex flex-col cursor-pointer shadow-50 group">
+                                                <div class="text-center -translate-y-1/2">
+                                                    <div
+                                                        class="inline-flex justify-center items-center bg-gradient-to-r from-pink-10 to-pink-20 rounded-full space-x-2.5 px-2.5 py-1.5">
+                                                        <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <g clip-path="url(#a)">
+                                                                <path
+                                                                    d="M17.974 7.435a.527.527 0 0 0-.425-.36l-5.58-.81-2.496-5.056a.527.527 0 0 0-.946 0L6.031 6.265l-5.58.81a.527.527 0 0 0-.292.9l4.038 3.936-.953 5.558a.527.527 0 0 0 .765.556L9 15.4l4.99 2.624a.528.528 0 0 0 .766-.556l-.953-5.558 4.038-3.936a.527.527 0 0 0 .133-.54Z"
+                                                                    fill="#fff" />
+                                                            </g>
+                                                            <defs>
+                                                                <clipPath id="a">
+                                                                    <path fill="#fff" transform="translate(0 .5)"
+                                                                        d="M0 0h18v18H0z" />
+                                                                </clipPath>
+                                                            </defs>
+                                                        </svg>
+                                                        <p class="text-sm 2xl:text-base text-invert">Priority Message
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="flex items-center justify-between space-x-6">
+                                                    <div class="max-w-[245px]">
+                                                        <p class="text-base text-primary mb-3">Stand out! Priority
+                                                            messages appear above
+                                                            regular ones.</p>
+                                                        <p class="text-xs text-primary font-poppins">14 Credits</p>
+                                                    </div>
+
+                                                    <input type="radio" name="priority" id="offer-1"
+                                                        class="w-6 h-6 text-transparent bg-transparent border-2 border-primary checked:border-info group-hover:border-2 group-hover:border-info radio-custom focus:ring-0 focus:outline-none"
+                                                        checked>
+                                                </div>
+                                            </label>
+
+                                            <label for="offer-2"
+                                                class="bg-primary rounded-md w-full p-5 flex flex-col cursor-pointer group">
+                                                <div class="flex items-center justify-between space-x-6">
+                                                    <div class="max-w-[245px]">
+                                                        <p class="text-base text-primary mb-3">Send as Regular message
+                                                        </p>
+                                                        <p class="text-xs text-primary font-poppins">9 Credits</p>
+                                                    </div>
+
+                                                    <input type="radio" name="priority" id="offer-2"
+                                                        class="w-6 h-6 text-transparent bg-transparent border-2 border-primary checked:border-info group-hover:border-2 group-hover:border-info radio-custom focus:ring-0 focus:outline-none">
+                                                </div>
+                                            </label>
+                                        </form>
+                                        <!-- Priority Message DropDown End -->
+
+                                    </div>
+                                    <textarea x-on:input="resize()" x-ref="textarea" x-model="message"
+                                        class="text-base text-primary placeholder-primary bg-transparent w-full border-0 focus:outline-none focus:ring-0 resize-none min-h-[36px] max-h-40 scrollbar-hidden"
+                                        placeholder="Your priority message"></textarea>
+
+                                    <button class="mb-1">
+                                        <svg class="w-5 sm:w-6 fill-current" viewBox="0 0 31 34" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M4.20529 3.48578L27.9358 16.348C28.0652 16.4181 28.1741 16.5267 28.2503 16.6615C28.3265 16.7962 28.3669 16.9517 28.3669 17.1104C28.3669 17.2691 28.3265 17.4246 28.2503 17.5594C28.1741 17.6941 28.0652 17.8027 27.9358 17.8729L4.20375 30.7351C4.0708 30.8069 3.92187 30.8352 3.77471 30.8166C3.62756 30.798 3.48837 30.7332 3.37372 30.63C3.25908 30.5268 3.17381 30.3896 3.12807 30.2346C3.08233 30.0796 3.07806 29.9135 3.11575 29.7559L5.46638 19.9894C5.50449 19.8313 5.58322 19.6887 5.69314 19.5787C5.80306 19.4686 5.9395 19.3958 6.08611 19.3689L16.7204 17.419C16.7838 17.4074 16.8435 17.3787 16.8942 17.3354C16.945 17.292 16.9851 17.2355 17.0109 17.1708L17.0388 17.0688C17.0532 16.9742 17.0381 16.8771 16.9961 16.7932C16.954 16.7092 16.8873 16.6434 16.8069 16.6064L16.7204 16.5792L6.02739 14.6191C5.88106 14.5919 5.74495 14.5189 5.63532 14.4088C5.5257 14.2988 5.4472 14.1564 5.4092 13.9986L3.11575 4.46668C3.07766 4.30898 3.08165 4.14256 3.12722 3.98729C3.17279 3.83202 3.25802 3.69446 3.37274 3.59103C3.48746 3.4876 3.62682 3.42268 3.77418 3.40402C3.92153 3.38535 4.07066 3.41374 4.20375 3.48578H4.20529Z"
+                                                :fill="message ? 'url(#paint0_linear_472_801)' : '#C7C7C7'" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_472_801" x1="15.7284" y1="3.39844"
+                                                    x2="15.7284" y2="30.8222" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#FF0642" />
+                                                    <stop offset="1" stop-color="#EA1272" />
+                                                </linearGradient>
+                                            </defs>
+                                        </svg>
+
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Messaging Input Area End -->
+                </div>
+            </div>
+            <!-- Right Message panel End-->
+
+        </div>
+    </div>
+
+
+    <script>
+        function messagePanel() {
+            return {
+                select: false,
+                showMessageList: true,
+                confirmDelete: false,
+                menu: false,
+                block: false,
+                report: false,
+                selectList: [],
+                selectAll: false,
+                message() {
+                    if (!this.select) {
+                        this.showMessageList = false;
+                    } else {
+                        this.selectAll = true;
+                    }
+                },
+                selectAllCheckboxes() {
+                    this.selectAll = !this.selectAll
+
+                    let checkboxes = document.querySelectorAll('.item-select-input');
+                    let allValues = [];
+
+                    [...checkboxes].map((el) => {
+                        allValues.push(el.value)
+
+                        this.selectList = this.selectAll ? allValues : []
+                    })
+                },
+                scrollbar() {
+                    this.$el.classList.add('show-scrollbar');
+                    this.$el.classList.remove('hide-scrollbar');
+
+                    setTimeout(() => {
+                        this.$el.classList.add('hide-scrollbar');
+                        this.$el.classList.remove('show-scrollbar');
+                    }, 3000);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
