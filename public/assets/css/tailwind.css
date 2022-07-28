@@ -616,6 +616,8 @@ select{
   /* #232323 */
   --color-text-invert: 255 255 255;
   /* #ffffff */
+  --color-text-invert-alt: 231 231 231;
+  /* #E7E7E7 */
   --color-text-accent: 219 1 93;
   /* #DB015D */
   --color-text-warning: 238 156 15;
@@ -672,6 +674,7 @@ select{
       rgba(220, 10, 94, 0.5379) 14.37%,
       #dc0a5e 100%
     );
+  --gradient-bg-5: linear-gradient(90deg, #ffb906 100%, #ea9412 100%);
 }
 
 body{
@@ -1243,6 +1246,18 @@ body{
   margin-top: 2.5rem;
 }
 
+.mt-\[15vh\]{
+  margin-top: 15vh;
+}
+
+.ml-2\.5{
+  margin-left: 0.625rem;
+}
+
+.ml-2{
+  margin-left: 0.5rem;
+}
+
 .block{
   display: block;
 }
@@ -1337,10 +1352,6 @@ body{
 
 .h-\[18px\]{
   height: 18px;
-}
-
-.h-\[1px\]{
-  height: 1px;
 }
 
 .max-h-0{
@@ -1459,6 +1470,10 @@ body{
   width: 162px;
 }
 
+.w-\[30\%\]{
+  width: 30%;
+}
+
 .w-screen{
   width: 100vw;
 }
@@ -1473,6 +1488,10 @@ body{
 
 .min-w-\[16px\]{
   min-width: 16px;
+}
+
+.min-w-\[150px\]{
+  min-width: 150px;
 }
 
 .max-w-6xl{
@@ -1545,6 +1564,14 @@ body{
 
 .max-w-\[700px\]{
   max-width: 700px;
+}
+
+.max-w-sm{
+  max-width: 24rem;
+}
+
+.max-w-\[150px\]{
+  max-width: 150px;
 }
 
 .origin-top-right{
@@ -1843,6 +1870,10 @@ body{
   border-radius: 1.5rem;
 }
 
+.rounded-2xl{
+  border-radius: 1rem;
+}
+
 .rounded-l-3xl{
   border-top-left-radius: 1.5rem;
   border-bottom-left-radius: 1.5rem;
@@ -1851,6 +1882,11 @@ body{
 .rounded-r-none{
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
+}
+
+.rounded-t-3xl{
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
 }
 
 .border{
@@ -1893,11 +1929,6 @@ body{
 
 .border-primary\/30{
   border-color: rgb(var(--color-border-primary) / 0.3);
-}
-
-.border-gray-50{
-  --tw-border-opacity: 1;
-  border-color: rgb(62 62 62 / var(--tw-border-opacity));
 }
 
 .bg-primary{
@@ -1964,52 +1995,14 @@ body{
   background-color: rgb(var(--color-bg-ofline-red) / var(--tw-bg-opacity));
 }
 
-.bg-dark-40{
-  --tw-bg-opacity: 1;
-  background-color: rgb(19 17 17 / var(--tw-bg-opacity));
-}
-
-.bg-dark-40\/50{
-  background-color: rgb(19 17 17 / 0.5);
-}
-
-.bg-green-10{
-  --tw-bg-opacity: 1;
-  background-color: rgb(14 143 20 / var(--tw-bg-opacity));
-}
-
-.bg-dark-20{
-  --tw-bg-opacity: 1;
-  background-color: rgb(35 35 35 / var(--tw-bg-opacity));
-}
-
-.bg-dark-50\/40{
-  background-color: rgb(30 33 34 / 0.4);
-}
-
-.bg-dark-70{
-  --tw-bg-opacity: 1;
-  background-color: rgb(18 17 17 / var(--tw-bg-opacity));
-}
-
-.bg-brown-10{
-  --tw-bg-opacity: 1;
-  background-color: rgb(90 34 50 / var(--tw-bg-opacity));
-}
-
 .bg-gray-50{
   --tw-bg-opacity: 1;
   background-color: rgb(62 62 62 / var(--tw-bg-opacity));
 }
 
-.bg-dark-80{
+.bg-dark-20{
   --tw-bg-opacity: 1;
-  background-color: rgb(16 16 16 / var(--tw-bg-opacity));
-}
-
-.bg-white{
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  background-color: rgb(35 35 35 / var(--tw-bg-opacity));
 }
 
 .bg-2{
@@ -2036,8 +2029,8 @@ body{
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 
-.bg-gradient-to-l{
-  background-image: linear-gradient(to left, var(--tw-gradient-stops));
+.bg-5{
+  background-image: var(--gradient-bg-5);
 }
 
 .from-pink-30{
@@ -2058,27 +2051,6 @@ body{
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-dark-70{
-  --tw-gradient-from: #121111;
-  --tw-gradient-to: rgb(18 17 17 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.via-pink-30{
-  --tw-gradient-to: rgb(234 0 56 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), #EA0038, var(--tw-gradient-to);
-}
-
-.via-brown-10\/50{
-  --tw-gradient-to: rgb(90 34 50 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), rgb(90 34 50 / 0.5), var(--tw-gradient-to);
-}
-
-.via-brown-10{
-  --tw-gradient-to: rgb(90 34 50 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), #5A2232, var(--tw-gradient-to);
-}
-
 .to-pink-40{
   --tw-gradient-to: #DA0161;
 }
@@ -2091,12 +2063,8 @@ body{
   --tw-gradient-to: #EA1272;
 }
 
-.to-brown-10{
-  --tw-gradient-to: #5A2232;
-}
-
-.to-dark-70{
-  --tw-gradient-to: #121111;
+.bg-clip-border{
+  background-clip: border-box;
 }
 
 .bg-clip-text{
@@ -2136,6 +2104,10 @@ body{
 
 .p-3{
   padding: 0.75rem;
+}
+
+.p-px{
+  padding: 1px;
 }
 
 .py-4{
@@ -2297,6 +2269,14 @@ body{
 
 .pb-1{
   padding-bottom: 0.25rem;
+}
+
+.pb-2\.5{
+  padding-bottom: 0.625rem;
+}
+
+.pb-2{
+  padding-bottom: 0.5rem;
 }
 
 .text-center{
@@ -2468,6 +2448,11 @@ body{
   color: rgb(var(--color-text-secondary-alt) / var(--tw-text-opacity));
 }
 
+.text-gray-90{
+  --tw-text-opacity: 1;
+  color: rgb(206 201 201 / var(--tw-text-opacity));
+}
+
 .text-pink-20{
   --tw-text-opacity: 1;
   color: rgb(234 18 114 / var(--tw-text-opacity));
@@ -2488,34 +2473,9 @@ body{
   color: rgb(220 10 94 / var(--tw-text-opacity));
 }
 
-.text-gray-20{
+.text-invert-alt{
   --tw-text-opacity: 1;
-  color: rgb(187 187 187 / var(--tw-text-opacity));
-}
-
-.text-gray-15{
-  --tw-text-opacity: 1;
-  color: rgb(65 65 65 / var(--tw-text-opacity));
-}
-
-.text-gray-70{
-  --tw-text-opacity: 1;
-  color: rgb(145 145 145 / var(--tw-text-opacity));
-}
-
-.text-gray-40{
-  --tw-text-opacity: 1;
-  color: rgb(116 115 115 / var(--tw-text-opacity));
-}
-
-.text-gray-50{
-  --tw-text-opacity: 1;
-  color: rgb(62 62 62 / var(--tw-text-opacity));
-}
-
-.text-pink-40{
-  --tw-text-opacity: 1;
-  color: rgb(218 1 97 / var(--tw-text-opacity));
+  color: rgb(var(--color-text-invert-alt) / var(--tw-text-opacity));
 }
 
 .placeholder-primary::-moz-placeholder{
@@ -2531,21 +2491,6 @@ body{
 .placeholder-primary::placeholder{
   --tw-placeholder-opacity: 1;
   color: rgb(var(--color-placeholder-primary) / var(--tw-placeholder-opacity));
-}
-
-.placeholder-gray-10::-moz-placeholder{
-  --tw-placeholder-opacity: 1;
-  color: rgb(132 132 132 / var(--tw-placeholder-opacity));
-}
-
-.placeholder-gray-10:-ms-input-placeholder{
-  --tw-placeholder-opacity: 1;
-  color: rgb(132 132 132 / var(--tw-placeholder-opacity));
-}
-
-.placeholder-gray-10::placeholder{
-  --tw-placeholder-opacity: 1;
-  color: rgb(132 132 132 / var(--tw-placeholder-opacity));
 }
 
 .opacity-75{
@@ -2597,30 +2542,6 @@ body{
 .shadow-2{
   --tw-shadow:  0px 4px 20px rgba(0, 0, 0, 0.05), 0px 2px 50px rgba(27, 41, 68, 0.12);
   --tw-shadow-colored: 0px 4px 20px var(--tw-shadow-color), 0px 2px 50px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-30{
-  --tw-shadow: 2px 10px 30px rgba(7, 7, 7, 0.25);
-  --tw-shadow-colored: 2px 10px 30px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-60{
-  --tw-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
-  --tw-shadow-colored: 0px 10px 30px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-xl{
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-md{
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -3158,16 +3079,6 @@ select:focus > option:checked {
   border-color: rgb(var(--color-border-info) / var(--tw-border-opacity));
 }
 
-.focus-within\:border-pink-10:focus-within{
-  --tw-border-opacity: 1;
-  border-color: rgb(255 6 66 / var(--tw-border-opacity));
-}
-
-.focus-within\:border-pink-20:focus-within{
-  --tw-border-opacity: 1;
-  border-color: rgb(234 18 114 / var(--tw-border-opacity));
-}
-
 .focus-within\:ring-0:focus-within{
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
@@ -3177,11 +3088,6 @@ select:focus > option:checked {
 .focus-within\:ring-primary:focus-within{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(var(--color-ring-primary) / var(--tw-ring-opacity));
-}
-
-.focus-within\:ring-pink-20:focus-within{
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(234 18 114 / var(--tw-ring-opacity));
 }
 
 .hover\:border-b:hover{
@@ -3214,11 +3120,6 @@ select:focus > option:checked {
 .hover\:text-pink-10:hover{
   --tw-text-opacity: 1;
   color: rgb(255 6 66 / var(--tw-text-opacity));
-}
-
-.hover\:text-white:hover{
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .hover\:opacity-80:hover{
@@ -3287,11 +3188,6 @@ select:focus > option:checked {
   border-color: rgb(var(--color-border-info) / var(--tw-border-opacity));
 }
 
-.active\:border-pink-10:active{
-  --tw-border-opacity: 1;
-  border-color: rgb(255 6 66 / var(--tw-border-opacity));
-}
-
 @media (min-width: 640px){
   .sm\:absolute{
     position: absolute;
@@ -3311,6 +3207,11 @@ select:focus > option:checked {
 
   .sm\:m-3{
     margin: 0.75rem;
+  }
+
+  .sm\:mx-auto{
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .sm\:mb-5{
@@ -3385,6 +3286,10 @@ select:focus > option:checked {
     margin-bottom: 0px;
   }
 
+  .sm\:ml-5{
+    margin-left: 1.25rem;
+  }
+
   .sm\:block{
     display: block;
   }
@@ -3427,6 +3332,10 @@ select:focus > option:checked {
 
   .sm\:h-1{
     height: 0.25rem;
+  }
+
+  .sm\:h-8{
+    height: 2rem;
   }
 
   .sm\:max-h-\[80vh\]{
@@ -3497,6 +3406,14 @@ select:focus > option:checked {
     width: 300px;
   }
 
+  .sm\:w-28{
+    width: 7rem;
+  }
+
+  .sm\:w-6{
+    width: 1.5rem;
+  }
+
   .sm\:min-w-\[36px\]{
     min-width: 36px;
   }
@@ -3505,8 +3422,20 @@ select:focus > option:checked {
     min-width: 20px;
   }
 
+  .sm\:min-w-\[200px\]{
+    min-width: 200px;
+  }
+
   .sm\:max-w-\[336px\]{
     max-width: 336px;
+  }
+
+  .sm\:max-w-\[560px\]{
+    max-width: 560px;
+  }
+
+  .sm\:max-w-\[200px\]{
+    max-width: 200px;
   }
 
   .sm\:translate-x-0{
@@ -3613,6 +3542,12 @@ select:focus > option:checked {
     --tw-space-x-reverse: 0;
     margin-right: calc(0px * var(--tw-space-x-reverse));
     margin-left: calc(0px * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .sm\:space-x-10 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-x-reverse: 0;
+    margin-right: calc(2.5rem * var(--tw-space-x-reverse));
+    margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
   .sm\:rounded-\[20px\]{
@@ -3722,6 +3657,21 @@ select:focus > option:checked {
   .sm\:px-4{
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .sm\:px-0{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .sm\:py-14{
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .sm\:py-12{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   .sm\:pt-28{
@@ -3911,6 +3861,14 @@ select:focus > option:checked {
     margin-top: 34px;
   }
 
+  .md\:inline{
+    display: inline;
+  }
+
+  .md\:hidden{
+    display: none;
+  }
+
   .md\:h-11{
     height: 2.75rem;
   }
@@ -4015,6 +3973,10 @@ select:focus > option:checked {
     width: 14px;
   }
 
+  .md\:w-32{
+    width: 8rem;
+  }
+
   .md\:min-w-\[44px\]{
     min-width: 44px;
   }
@@ -4096,6 +4058,12 @@ select:focus > option:checked {
     margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
+  .md\:space-y-8 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-y-reverse: 0;
+    margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+  }
+
   .md\:p-5{
     padding: 1.25rem;
   }
@@ -4154,6 +4122,21 @@ select:focus > option:checked {
     padding-right: 2rem;
   }
 
+  .md\:py-20{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .md\:py-16{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .md\:py-5{
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
   .md\:pt-32{
     padding-top: 8rem;
   }
@@ -4198,6 +4181,10 @@ select:focus > option:checked {
     padding-top: 2.5rem;
   }
 
+  .md\:pb-0{
+    padding-bottom: 0px;
+  }
+
   .md\:text-base{
     font-size: 1rem;
     line-height: 1.5rem;
@@ -4229,6 +4216,11 @@ select:focus > option:checked {
 
   .md\:text-\[26px\]{
     font-size: 26px;
+  }
+
+  .md\:text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
 
@@ -4404,6 +4396,12 @@ select:focus > option:checked {
     margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
+  .lg\:space-y-10 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-y-reverse: 0;
+    margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
+  }
+
   .lg\:space-x-8 > :not([hidden]) ~ :not([hidden]){
     --tw-space-x-reverse: 0;
     margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -4438,6 +4436,16 @@ select:focus > option:checked {
     padding-right: 2rem;
   }
 
+  .lg\:py-\[100px\]{
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .lg\:py-20{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
   .lg\:pt-36{
     padding-top: 9rem;
   }
@@ -4470,6 +4478,10 @@ select:focus > option:checked {
     padding-bottom: 1.5rem;
   }
 
+  .lg\:pt-7{
+    padding-top: 1.75rem;
+  }
+
   .lg\:text-left{
     text-align: left;
   }
@@ -4500,6 +4512,11 @@ select:focus > option:checked {
 
   .lg\:text-\[22px\]{
     font-size: 22px;
+  }
+
+  .lg\:text-4xl{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .lg\:text-invert{
@@ -4632,6 +4649,18 @@ select:focus > option:checked {
     margin-top: 3.5rem;
   }
 
+  .\33k\:mb-\[60px\]{
+    margin-bottom: 60px;
+  }
+
+  .\33k\:mb-\[30px\]{
+    margin-bottom: 30px;
+  }
+
+  .\33k\:mb-12{
+    margin-bottom: 3rem;
+  }
+
   .\33k\:h-3\.5{
     height: 0.875rem;
   }
@@ -4692,6 +4721,10 @@ select:focus > option:checked {
     width: 3rem;
   }
 
+  .\33k\:w-\[118px\]{
+    width: 118px;
+  }
+
   .\33k\:max-w-2xl{
     max-width: 42rem;
   }
@@ -4714,6 +4747,11 @@ select:focus > option:checked {
   .\33k\:py-4{
     padding-top: 1rem;
     padding-bottom: 1rem;
+  }
+
+  .\33k\:py-\[18px\]{
+    padding-top: 18px;
+    padding-bottom: 18px;
   }
 
   .\33k\:pt-40{
@@ -4744,6 +4782,16 @@ select:focus > option:checked {
 
   .\33k\:text-\[22px\]{
     font-size: 22px;
+  }
+
+  .\33k\:text-4xl{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .\33k\:text-lg{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }
 

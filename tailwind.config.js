@@ -22,6 +22,7 @@ module.exports = {
         muted: "rgb(var(--color-text-muted) / <alpha-value>)",
         "muted-alt": "rgb(var(--color-text-muted-alt) / <alpha-value>)",
         invert: "rgb(var(--color-text-invert) / <alpha-value>)",
+        "invert-alt": "rgb(var(--color-text-invert-alt) / <alpha-value>)",
         accent: "rgb(var(--color-text-accent) / <alpha-value>)",
         warning: "rgb(var(--color-text-warning) / <alpha-value>)",
       },
@@ -108,6 +109,7 @@ module.exports = {
         2: "var(--gradient-bg-2)",
         3: "var(--gradient-bg-3)",
         4: "var(--gradient-bg-4)",
+        5: "var(--gradient-bg-5)",
       },
       boxShadow: {
         1: "5px 2px 15px rgba(104, 25, 35, 0.1)",

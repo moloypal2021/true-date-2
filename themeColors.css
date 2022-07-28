@@ -8,6 +8,7 @@
     --color-text-muted-alt: 121 121 121; /*#797979 */
     --color-text-primary-alt: 35 35 35; /* #232323 */
     --color-text-invert: 255 255 255; /* #ffffff */
+    --color-text-invert-alt: 231 231 231; /* #E7E7E7 */
     --color-text-accent: 219 1 93; /* #DB015D */
     --color-text-warning: 238 156 15; /* #EE9C0F */
 
@@ -54,5 +55,7 @@
       rgba(220, 10, 94, 0.5379) 14.37%,
       #dc0a5e 100%
     );
+
+    --gradient-bg-5: linear-gradient(90deg, #ffb906 100%, #ea9412 100%);
   }
 }
