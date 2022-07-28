@@ -1354,6 +1354,10 @@ body{
   margin-left: 1rem;
 }
 
+.mb-10{
+  margin-bottom: 2.5rem;
+}
+
 .block{
   display: block;
 }
@@ -2748,6 +2752,10 @@ body{
 
 .pt-0{
   padding-top: 0px;
+}
+
+.pb-20{
+  padding-bottom: 5rem;
 }
 
 .text-center{
