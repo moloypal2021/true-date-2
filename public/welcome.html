@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Flickity CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="./assets/css/tailwind.css">
+
+    <!--  Flickity JavaScript -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.9.3/dist/cdn.min.js"></script>
+</head>
+
+<body>
+
+    <div class="bg-primary w-full h-screen overflow-y-auto show-scrollbar flex flex-col">
+        <!-- Header Section Start -->
+        <header class="bg-primary/50 backdrop-blur-lg fixed top-0 inset-x-0 z-[70] sm:z-50 hidden lg:block">
+            <nav class="container flex items-center justify-between py-4 sm:py-6 md:py-8 3k:py-10">
+                <a href="#" class="">
+                    <img src="./assets/images/logo-dark.svg" alt=""
+                        class="w-32 sm:w-48 md:w-64 3k:w-[320px] inline-block">
+                </a>
+            </nav>
+        </header>
+        <!-- Header Section End -->
+
+        <!-- Content Section Start -->
+        <section class="lg:pt-28 3k:pt-40 flex flex-col items-center w-full h-full" x-data="pageView()">
+            <div class="border-b border-primary/30 lg:border-b-0 py-6 lg:py-0 w-full">
+                <div class="container flex items-center justify-between">
+                    <button class="text-muted" @click="viewPage > 1 ? viewPage = viewPage-1 : ''">
+                        <svg class="w-6 sm:w-8 md:w-11" viewBox="0 0 44 44" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M14.6663 21.9997C14.6655 21.5713 14.8147 21.1562 15.088 20.8264L24.2547 9.82636C24.5658 9.45196 25.013 9.21652 25.4978 9.17182C25.9826 9.12712 26.4653 9.27684 26.8397 9.58802C27.2141 9.89921 27.4495 10.3464 27.4942 10.8312C27.5389 11.3159 27.3892 11.7986 27.078 12.173L18.8647 21.9997L26.7847 31.8264C26.9369 32.0139 27.0507 32.2297 27.1193 32.4613C27.1879 32.6929 27.2101 32.9358 27.1845 33.176C27.159 33.4162 27.0862 33.649 26.9704 33.861C26.8546 34.073 26.698 34.2601 26.5097 34.4114C26.3212 34.5793 26.1 34.7064 25.8601 34.7849C25.6201 34.8633 25.3666 34.8914 25.1153 34.8673C24.864 34.8432 24.6204 34.7675 24.3998 34.6448C24.1791 34.5222 23.9862 34.3553 23.833 34.1547L14.978 23.1547C14.7479 22.8154 14.6381 22.4087 14.6663 21.9997V21.9997Z"
+                                fill="currentColor" />
+                        </svg>
+                    </button>
+
+                    <button @click="skipPage()" x-show="viewPage < 3"
+                        class="text-sm sm:text-base md:text-lg font-semibold text-accent lg:hidden uppercase">
+                        Later
+                    </button>
+                </div>
+            </div>
+
+            <div class="container flex items-center justify-center my-auto">
+                <!-- Add Photos -->
+                <div class="max-w-md text-center" x-cloak x-show="viewPage === 1">
+                    <svg class="w-20 sm:w-28 md:w-32 3k:w-[140px] mx-auto mb-6 sm:mb-8 md:mb-12 3k:mb-[70px]"
+                        viewBox="0 0 140 138" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_516_1967)">
+                            <path
+                                d="M36.8564 113.095V129.223H88.4281L91.1786 121.965L88.4281 112.961L63.0777 110.339L36.8564 113.095Z"
+                                fill="url(#paint0_linear_516_1967)" />
+                            <path d="M123.498 44.5527L115.154 103.792L88.4287 112.96V129.222H140V44.5527H123.498Z"
+                                fill="url(#paint1_linear_516_1967)" />
+                            <path
+                                d="M24.4795 97.2358V113.095H73.9884L76.7389 105.366L73.9884 97.2358L50.0591 94.5479L24.4795 97.2358Z"
+                                fill="url(#paint2_linear_516_1967)" />
+                            <path d="M123.497 32.457H107.269L73.9883 97.2361V113.095H123.497V32.457Z"
+                                fill="url(#paint3_linear_516_1967)" />
+                            <path d="M0 8.53418V97.2358H57.7603L61.8861 44.8212L57.7603 8.53418H0Z"
+                                fill="url(#paint4_linear_516_1967)" />
+                            <path d="M57.7607 8.53418V97.2358H107.27V8.53418H57.7607Z"
+                                fill="url(#paint5_linear_516_1967)" />
+                            <g clip-path="url(#clip1_516_1967)">
+                                <path
+                                    d="M69.5526 74.6064H64.9508L60.3491 79.1035H58.0482H55.7473L51.1456 74.6064H46.5438C35.1071 74.6064 25.8359 83.6667 25.8359 94.8433V97.2418H58.0482H90.2605V94.8433C90.2605 83.6667 80.9893 74.6064 69.5526 74.6064Z"
+                                    fill="#4E4A4A" />
+                                <path
+                                    d="M90.2601 94.8433C90.2601 83.6667 80.989 74.6064 69.5522 74.6064H64.9505L60.3487 79.1035H58.0479V97.2418H90.2601V94.8433Z"
+                                    fill="#2B2727" />
+                                <path
+                                    d="M58.0481 67.8613H51.1455V79.104C51.1455 82.8296 54.2359 85.8497 58.0481 85.8497C61.8604 85.8497 64.9508 82.8296 64.9508 79.104V67.8613H58.0481Z"
+                                    fill="#FFCC99" />
+                                <path
+                                    d="M64.9505 79.104V67.8613H58.0479V85.8497C61.8601 85.8497 64.9505 82.8296 64.9505 79.104Z"
+                                    fill="#FFB366" />
+                                <path
+                                    d="M58.0486 47.624H39.6416V56.6182C39.6416 66.5569 47.8786 74.6065 58.0486 74.6065C68.2186 74.6065 76.4556 66.5569 76.4556 56.6182V47.624H58.0486Z"
+                                    fill="#AC3118" />
+                                <path
+                                    d="M76.4558 56.6182V47.624H58.0488V74.6065C68.2189 74.6065 76.4558 66.5569 76.4558 56.6182Z"
+                                    fill="#93240A" />
+                                <path
+                                    d="M70.5195 34.1338H58.0486H44.4273L39.6416 38.6309V47.625C39.6416 53.1113 43.0469 58.193 48.109 60.2169C51.606 61.6559 55.1955 61.3861 58.0486 59.4975C59.7052 60.5768 61.5921 61.1164 63.5707 61.1164C70.2189 61.1164 76.4556 55.1413 76.4556 47.6252V38.631L70.5195 34.1338Z"
+                                    fill="#FFE6CC" />
+                                <path
+                                    d="M76.4549 47.625V38.6309L70.5188 34.1338H58.0479V59.4973C59.7045 60.5766 61.5914 61.1163 63.57 61.1163C70.2181 61.1163 76.4549 55.1411 76.4549 47.625Z"
+                                    fill="#FFCC99" />
+                                <path d="M48.8447 47.624H53.4465V52.1211H48.8447V47.624Z" fill="#4E4A4A" />
+                                <path d="M62.6504 47.624H67.2521V52.1211H62.6504V47.624Z" fill="#2B2727" />
+                                <path
+                                    d="M71.2877 24.3349L69.4226 20.4922L63.2682 23.9419L61.9448 20.4922H58.0486H58.0419C47.8968 20.4922 39.6416 28.7096 39.6416 38.6238V38.6304H58.0486H76.4332L79.2935 21.0916L71.2877 24.3349Z"
+                                    fill="#AC3118" />
+                                <path
+                                    d="M79.2928 21.0916L71.2869 24.3349L69.4219 20.4922L63.2675 23.9419L61.944 20.4922H58.0479V38.6304H76.4325L79.2928 21.0916Z"
+                                    fill="#93240A" />
+                            </g>
+                        </g>
+                        <defs>
+                            <linearGradient id="paint0_linear_516_1967" x1="38.3115" y1="112.336" x2="92.0324"
+                                y2="115.737" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FFB906" />
+                                <stop offset="1" stop-color="#EA9412" />
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_516_1967" x1="89.8101" y1="53.5082" x2="141.006"
+                                y2="54.1944" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FFB906" />
+                                <stop offset="1" stop-color="#EA9412" />
+                            </linearGradient>
+                            <linearGradient id="paint2_linear_516_1967" x1="25.8793" y1="96.5095" x2="77.5685"
+                                y2="99.7148" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF0642" />
+                                <stop offset="1" stop-color="#EA1272" />
+                            </linearGradient>
+                            <linearGradient id="paint3_linear_516_1967" x1="75.3144" y1="40.986" x2="124.462"
+                                y2="41.6501" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF0642" />
+                                <stop offset="1" stop-color="#EA1272" />
+                            </linearGradient>
+                            <linearGradient id="paint4_linear_516_1967" x1="1.65766" y1="17.9161" x2="63.0895"
+                                y2="18.8593" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#129CEA" />
+                                <stop offset="1" stop-color="#066AFF" />
+                            </linearGradient>
+                            <linearGradient id="paint5_linear_516_1967" x1="59.0869" y1="17.9161" x2="108.236"
+                                y2="18.5198" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#129CEA" />
+                                <stop offset="1" stop-color="#066AFF" />
+                            </linearGradient>
+                            <clipPath id="clip0_516_1967">
+                                <rect width="140" height="136.815" fill="white" transform="translate(0 0.469727)" />
+                            </clipPath>
+                            <clipPath id="clip1_516_1967">
+                                <rect width="78.5366" height="76.7502" fill="white"
+                                    transform="translate(18.7803 20.4922)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                    <h1
+                        class="text-xl sm:text-2xl md:text-3xl 3k:text-4xl text-primary font-bold mb-4 sm:mb-6 3k:mb-[30px]">
+                        Add photos to become a popular man!</h1>
+                    <p class="text-base sm:text-lg text-secondary max-w-sm mx-auto mb-6 sm:mb-8 3k:mb-14">Profiles with
+                        photos tend to receive 75% more messages and visibility. </p>
+
+                    <div class="relative">
+                        <input type="file" name="photo" id="photoUpload" class="hidden" accept="image/png, image/jpeg">
+                        <label for="photoUpload"
+                            class="text-base sm:text-lg py-4 3k:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out mb-2.5 sm:mb-5">Add
+                            photos</label>
+                    </div>
+
+
+                    <button @click="photoModal = true"
+                        class="text-base sm:text-lg py-4 3k:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full text-center bg-muted hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out mb-2.5 sm:mb-5 hidden lg:inline-block">later</button>
+
+
+                    <!-- PopUp Window Start -->
+                    <div x-cloak x-show="photoModal" x-on:scroll="scrollbar()"
+                        class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
+                        <div
+                            class="max-w-xl 3k:max-w-[712px] w-full m-auto bg-primary rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+
+                            <button @click="photoModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
+                                <svg class="w-6 sm:w-8 md:w-10 text-muted" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </button>
+
+                            <h1
+                                class="text-xl sm:text-2xl md:text-3xl 3k:text-4xl text-primary font-bold mb-4 sm:mb-6 3k:mb-[30px]">
+                                Add photos to become a popular man!</h1>
+                            <p class="text-base sm:text-lg text-secondary max-w-sm mx-auto mb-6 sm:mb-8 3k:mb-14">
+                                Profiles
+                                with photos tend to receive 75% more messages and visibility. </p>
+
+                            <div class="relative">
+                                <input type="file" name="photo" id="photoUpload" class="hidden"
+                                    accept="image/png, image/jpeg">
+                                <label for="photoUpload"
+                                    class="text-base sm:text-lg py-4 3k:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out mb-2.5 sm:mb-5">Add
+                                    photos</label>
+                            </div>
+                            <button @click="viewPage = 2"
+                                class="text-base sm:text-lg py-4 3k:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full inline-block text-center bg-muted hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out mb-2.5 sm:mb-5">later</button>
+                        </div>
+                    </div>
+                    <!-- PopUp Window End -->
+                </div>
+
+
+                <!-- Use Location -->
+                <div class="max-w-md text-center" x-cloak x-show="viewPage === 2">
+                    <svg class="w-20 sm:w-28 md:w-32 3k:w-[120px] mx-auto mb-6 sm:mb-8 md:mb-12 3k:mb-[70px]"
+                        viewBox="0 0 121 121" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M75.1051 79.2402C73.758 79.1693 72.4818 79.7365 71.7731 80.8711L60.5 98.4537L49.2269 80.8711C48.5182 79.7365 47.242 79.0986 45.8949 79.2402C22.4275 81.7219 7.32617 89.7334 7.32617 99.7299C7.32617 113.555 34.693 120.999 60.5 120.999C86.307 120.999 113.674 113.555 113.674 99.7299C113.674 89.7334 98.5725 81.7219 75.1051 79.2402Z"
+                            fill="url(#paint0_linear_516_2006)" />
+                        <path
+                            d="M113.674 99.73C113.674 113.555 86.307 121 60.5 121V98.4538L71.7731 80.8712C72.4818 79.7366 73.758 79.1692 75.1051 79.2403C98.5725 81.722 113.674 89.7335 113.674 99.73Z"
+                            fill="url(#paint1_linear_516_2006)" />
+                        <path
+                            d="M60.5 0C39.2305 0 21.5059 17.1572 21.5059 38.9941C21.5059 47.289 23.9871 54.7334 28.8086 61.6816L57.5225 106.962C58.2313 108.096 59.3659 108.593 60.5002 108.593C61.6344 108.593 62.769 108.096 63.4777 106.962L92.3334 61.5398C97.0129 54.8754 99.4941 47.0766 99.4941 38.9941C99.4941 17.5117 81.9825 0 60.5 0ZM60.5 56.7188C50.7267 56.7188 42.7754 48.7675 42.7754 38.9941C42.7754 29.2208 50.7267 21.2695 60.5 21.2695C70.2733 21.2695 78.2246 29.2208 78.2246 38.9941C78.2246 48.7675 70.2733 56.7188 60.5 56.7188Z"
+                            fill="url(#paint2_linear_516_2006)" />
+                        <path
+                            d="M60.5 0V21.2695C70.2733 21.2695 78.2246 29.2208 78.2246 38.9941C78.2246 48.7675 70.2733 56.7188 60.5 56.7188V108.593C61.6341 108.593 62.7687 108.096 63.4775 106.962L92.3334 61.5398C97.0129 54.8754 99.4941 47.0766 99.4941 38.9941C99.4941 17.5117 81.9825 0 60.5 0Z"
+                            fill="url(#paint3_linear_516_2006)" />
+                        <defs>
+                            <linearGradient id="paint0_linear_516_2006" x1="10.1748" y1="83.6396" x2="115.436"
+                                y2="89.5363" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FFB906" />
+                                <stop offset="1" stop-color="#EA9412" />
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_516_2006" x1="61.9243" y1="83.6518" x2="114.679"
+                                y2="85.13" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FFB906" />
+                                <stop offset="1" stop-color="#EA9412" />
+                            </linearGradient>
+                            <linearGradient id="paint2_linear_516_2006" x1="23.5948" y1="11.4857" x2="101.01"
+                                y2="12.7093" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF0642" />
+                                <stop offset="1" stop-color="#EA1272" />
+                            </linearGradient>
+                            <linearGradient id="paint3_linear_516_2006" x1="61.5445" y1="11.4858" x2="100.259"
+                                y2="11.7917" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF0642" />
+                                <stop offset="1" stop-color="#EA1272" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
+
+                    <h1
+                        class="text-xl sm:text-2xl md:text-3xl 3k:text-4xl text-primary font-bold mb-4 sm:mb-6 3k:mb-[30px]">
+                        Use my location</h1>
+                    <p class="text-base sm:text-lg text-secondary max-w-sm mx-auto mb-6 sm:mb-8 3k:mb-14">You’ll need to
+                        enable your location in order to use TrueDates
+                    </p>
+
+                    <button
+                        class="text-base sm:text-lg py-4 3k:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out mb-2.5 sm:mb-5">use
+                        my location</button>
+
+
+                    <button @click="viewPage = 3"
+                        class="text-base sm:text-lg py-4 3k:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full text-center bg-muted hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out mb-2.5 sm:mb-5 hidden lg:inline-block">later</button>
+
+
+                </div>
+
+
+                <!-- More about you -->
+                <div class="max-w-md text-center" x-cloak x-show="viewPage === 3">
+                    <svg class="w-20 sm:w-28 md:w-32 3k:w-[130px] mx-auto mb-6 sm:mb-8 md:mb-12 3k:mb-[70px]"
+                        viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_516_2019)">
+                            <path
+                                d="M84.043 91.6602H76.4258L68.8086 99.2773H65H61.1914L53.5742 91.6602H45.957C27.026 91.6602 11.6797 107.007 11.6797 125.938V130H65H118.32V125.938C118.32 107.007 102.974 91.6602 84.043 91.6602Z"
+                                fill="#4E4A4A" />
+                            <path
+                                d="M118.32 125.938C118.32 107.007 102.974 91.6602 84.043 91.6602H76.4258L68.8086 99.2773H65V130H118.32V125.938Z"
+                                fill="#2B2727" />
+                            <path
+                                d="M65 80.2344H53.5742V99.2773C53.5742 105.588 58.6897 110.703 65 110.703C71.3103 110.703 76.4258 105.588 76.4258 99.2773V80.2344H65Z"
+                                fill="#FFCC99" />
+                            <path
+                                d="M76.4258 99.2773V80.2344H65V110.703C71.3103 110.703 76.4258 105.588 76.4258 99.2773Z"
+                                fill="#FFB366" />
+                            <path
+                                d="M65 45.957H34.5312V61.1914C34.5312 78.0256 48.1658 91.6602 65 91.6602C81.8342 91.6602 95.4688 78.0256 95.4688 61.1914V45.957H65Z"
+                                fill="#AC3118" />
+                            <path
+                                d="M95.4688 61.1914V45.957H65V91.6602C81.8342 91.6602 95.4688 78.0256 95.4688 61.1914Z"
+                                fill="#93240A" />
+                            <path
+                                d="M85.6428 23.1055H65H42.4529L34.5312 30.7227V45.957C34.5312 55.2498 40.168 63.8572 48.5471 67.2852C54.3357 69.7227 60.2773 69.2656 65 66.0667C67.7422 67.8948 70.8655 68.8089 74.1406 68.8089C85.1452 68.8089 95.4688 58.6882 95.4688 45.9573V30.7229L85.6428 23.1055Z"
+                                fill="#FFE6CC" />
+                            <path
+                                d="M95.4688 45.957V30.7227L85.6428 23.1055H65V66.0664C67.7422 67.8945 70.8655 68.8086 74.1406 68.8086C85.1452 68.8086 95.4688 58.6879 95.4688 45.957Z"
+                                fill="#FFCC99" />
+                            <path d="M49.7656 45.957H57.3828V53.5742H49.7656V45.957Z" fill="#4E4A4A" />
+                            <path d="M72.6172 45.957H80.2344V53.5742H72.6172V45.957Z" fill="#2B2727" />
+                            <path
+                                d="M86.9144 6.50889L83.8271 0L73.6399 5.84314L71.4492 0H65H64.9888C48.196 0 34.5312 13.9186 34.5312 30.7115V30.7227H65H95.4317L100.166 1.01537L86.9144 6.50889Z"
+                                fill="#AC3118" />
+                            <path
+                                d="M100.166 1.01537L86.9144 6.50889L83.8271 0L73.6399 5.84314L71.4492 0H65V30.7227H95.4317L100.166 1.01537Z"
+                                fill="#93240A" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_516_2019">
+                                <rect width="130" height="130" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+
+
+                    <h1
+                        class="text-xl sm:text-2xl md:text-3xl 3k:text-4xl text-primary font-bold mb-4 sm:mb-6 3k:mb-[30px]">
+                        More about you</h1>
+                    <p class="text-base sm:text-lg text-secondary max-w-sm mx-auto mb-6 sm:mb-8 3k:mb-14">Tell us
+                        something interesting about you.</p>
+
+                    <div class="max-w-[480px] mx-auto text-left">
+                        <div class="mb-4 sm:mb-5 md:mb-6 3k:mb-[30px]">
+
+                            <textarea placeholder="Tell us about yourself" rows="5"
+                                class="text-base md:text-lg text-primary border border-primary placeholder-primary rounded-md bg-primary px-3 py-2.5 3k:py-4 w-full focus:border-info focus-visible:ring-0"></textarea>
+                        </div>
+                    </div>
+
+                    <button
+                        class="text-base sm:text-lg py-4 3k:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out mb-2.5 sm:mb-5">done</button>
+                </div>
+            </div>
+        </section>
+        <!-- Content Section End -->
+
+        <!-- Float Notification Button -->
+        <div
+            class="fixed right-0 bottom-32 z-10 bg-2 rounded-l-full py-1 md:py-2 px-2 md:px-3 inline-flex items-center space-x-2">
+            <svg class="w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M15.0996 20.1113C15.0996 21.2054 14.5064 22.0427 13.543 22.5901C12.5798 23.1371 11.393 23.1371 10.4317 22.5901C9.46794 22.0427 8.875 21.2054 8.875 20.1113"
+                    fill="white" />
+                <path
+                    d="M11.9864 1.0083C12.8353 1.0083 13.5191 1.52291 13.5191 2.31428C13.5191 2.81238 13.5368 3.18405 13.8551 3.27925C16.5623 4.08299 18.2982 5.96695 18.2982 8.41355V12.5257C18.2982 14.4097 19.0821 14.7911 20.0686 15.5117C21.4973 16.5536 21.1712 18.7231 19.5318 18.7217H4.44158C2.80217 18.7231 2.47602 16.5536 3.9047 15.5117C4.89003 14.7911 5.67512 14.4097 5.67512 12.5257V8.41355C5.67512 5.96695 7.41106 4.08299 10.1182 3.27925C10.4357 3.18405 10.4543 2.81238 10.4543 2.31428C10.4546 1.52291 11.1386 1.0083 11.9864 1.0083Z"
+                    fill="white" />
+            </svg>
+            <span class="text-invert-alt">99+</span>
+        </div>
+    </div>
+
+    <script>
+        function pageView() {
+            return {
+                viewPage: 1,
+                photoModal: false,
+                scrollbar() {
+                    document.body.classList.add('show-scrollbar');
+                    document.body.classList.remove('hide-scrollbar');
+                    this.$el.classList.add('show-scrollbar');
+                    this.$el.classList.remove('hide-scrollbar');
+                    setTimeout(() => {
+                        document.body.classList.add('hide-scrollbar');
+                        document.body.classList.remove('show-scrollbar');
+                        this.$el.classList.add('hide-scrollbar');
+                        this.$el.classList.remove('show-scrollbar');
+                    }, 3000);
+                },
+                skipPage() {
+                    if (this.viewPage === 1) {
+                        this.photoModal = true;
+                    }
+                    if (this.viewPage === 2) {
+                        this.viewPage = 3;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

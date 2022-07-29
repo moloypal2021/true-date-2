@@ -41,6 +41,9 @@ module.exports = {
       divideColor: {
         primary: "rgb(var(--color-border-primary) / <alpha-value>)",
       },
+      gradientColorStops: {
+        primary: "rgb(var(--color-bg-primary) / <alpha-value>)",
+      },
       colors: {
         green: {
           10: "#0E8F14",
