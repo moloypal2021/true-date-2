@@ -123,9 +123,7 @@ md:before:peer-checked:translate-x-[26px];
 }
 @media (max-width: 639px) {
   .homeapge-carousel-1 .img-card {
-    opacity: 1;
-    transform: scale(1);
-    transition: all 0s ease-in;
+    opacity: 0.9;
   }
 }
 
