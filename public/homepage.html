@@ -96,11 +96,11 @@
                             class="text-base sm:text-lg xl:text-xl py-4 lg:py-[18px] 4k:py-6 font-semibold text-invert px-4 rounded-full w-72 sm:w-[336px] xl:w-[500px] text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">Join
                             free</button>
                         <button @click="loginModal = true"
-                            class="text-base sm:text-lg xl:text-xl py-4 lg:py-[18px] 4k:py-6 font-semibold text-invert px-4 w-72 sm:w-[336px] xl:w-[500px] text-center uppercase drop-shadow-10 btn-border-gradient hover:bg-info hover:opacity-80 rounded-full transition-all duration-100 ease-in-out">login</button>
+                            class="text-base sm:text-lg xl:text-xl py-4 lg:py-[18px] 4k:py-6 font-semibold text-accent px-4 w-72 sm:w-[336px] xl:w-[500px] text-center uppercase drop-shadow-10 btn-border-gradient hover:bg-info hover:opacity-80 rounded-full transition-all duration-100 ease-in-out">login</button>
                     </div>
                 </div>
 
-                <div class="absolute inset-0 transition duration-300 ease-linear home-heros-bg-gradient"
+                <div class="absolute inset-0 transition duration-300 ease-linear bg-home"
                     :class="hasScrolled ? 'opacity-90' : 'opacity-0 '"></div>
             </main>
         </section>
@@ -284,54 +284,48 @@
 
             <!-- Privacy Overview Modal Start  -->
             <div x-cloak x-show="privacy"
-                class="fixed inset-0 z-50 bg-dark-50/40 backdrop-blur-md max-h-screen overflow-y-auto scrollbar-hidden flex justify-center items-center py-2.5 px-5">
+                class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md max-h-screen overflow-y-auto scrollbar-hidden flex justify-center items-center py-2.5 px-5">
 
-                <div class="bg-dark-20 shadow-20 max-w-[712px] w-full rounded-[10px] py-[30px] px-4 relative">
-                    <button class="absolute right-0 top-0 m-2 hover:opacity-80" @click="privacy = false"><svg width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div class="bg-primary shadow-20 max-w-[712px] w-full rounded-[10px] py-[30px] px-4 relative">
+                    <button class="absolute right-0 top-0 m-2 hover:opacity-80 text-muted" @click="privacy = false"><svg
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M13.4099 11.9999L17.7099 7.70994C17.8982 7.52164 18.004 7.26624 18.004 6.99994C18.004 6.73364 17.8982 6.47825 17.7099 6.28994C17.5216 6.10164 17.2662 5.99585 16.9999 5.99585C16.7336 5.99585 16.4782 6.10164 16.2899 6.28994L11.9999 10.5899L7.70994 6.28994C7.52164 6.10164 7.26624 5.99585 6.99994 5.99585C6.73364 5.99585 6.47824 6.10164 6.28994 6.28994C6.10164 6.47825 5.99585 6.73364 5.99585 6.99994C5.99585 7.26624 6.10164 7.52164 6.28994 7.70994L10.5899 11.9999L6.28994 16.2899C6.19621 16.3829 6.12182 16.4935 6.07105 16.6154C6.02028 16.7372 5.99414 16.8679 5.99414 16.9999C5.99414 17.132 6.02028 17.2627 6.07105 17.3845C6.12182 17.5064 6.19621 17.617 6.28994 17.7099C6.3829 17.8037 6.4935 17.8781 6.61536 17.9288C6.73722 17.9796 6.86793 18.0057 6.99994 18.0057C7.13195 18.0057 7.26266 17.9796 7.38452 17.9288C7.50638 17.8781 7.61698 17.8037 7.70994 17.7099L11.9999 13.4099L16.2899 17.7099C16.3829 17.8037 16.4935 17.8781 16.6154 17.9288C16.7372 17.9796 16.8679 18.0057 16.9999 18.0057C17.132 18.0057 17.2627 17.9796 17.3845 17.9288C17.5064 17.8781 17.617 17.8037 17.7099 17.7099C17.8037 17.617 17.8781 17.5064 17.9288 17.3845C17.9796 17.2627 18.0057 17.132 18.0057 16.9999C18.0057 16.8679 17.9796 16.7372 17.9288 16.6154C17.8781 16.4935 17.8037 16.3829 17.7099 16.2899L13.4099 11.9999Z"
-                                fill="white" />
+                                fill="currentColor" />
                         </svg>
                     </button>
-                    <h3 class="text-xl md:text-2xl text-white font-bold capitalize tracking-wider mb-4">Privacy
+                    <h3 class="text-xl md:text-2xl text-primary font-bold capitalize tracking-wider mb-4">Privacy
                         Overview
                     </h3>
-                    <p class="text-sm sm:text-base text-gray-80 mb-12">We use cookies to improve your experience while
+                    <p class="text-sm sm:text-base text-secondary mb-12">We use cookies to improve your experience while
                         you
                         navigate through the website. You can opt-in or opt-out of any of them anytime from our <a
-                            href="#" class=" text-pink-40">cookie policy</a> page.
+                            href="#" class=" text-accent">cookie policy</a> page.
                     </p>
 
 
 
 
                     <div x-data="{openTab : 0}">
-                        <div class="bg-dark-40 py-4 px-5 select-none mb-4 sm:mb-5 md:mb-6">
+                        <div class="bg-primary py-4 px-5 select-none mb-4 sm:mb-5 md:mb-6">
                             <div
                                 class="flex items-center justify-between cursor-pointer transform transition duration-150">
-                                <div class="flex items-center space-x-3" @click="openTab = 1">
+                                <div class="flex items-center space-x-3 text-muted" @click="openTab = 1">
                                     <svg :class="openTab === 1 ? 'rotate-0' : '-rotate-90'" width="24" height="25"
                                         viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M12 16.143a1 1 0 0 1-.64-.23l-6-5a1.001 1.001 0 0 1 1.28-1.54l5.36 4.48 5.36-4.32a1 1 0 0 1 1.41.15 1 1 0 0 1-.14 1.46l-6 4.83a1 1 0 0 1-.63.17Z"
-                                            fill="#fff" />
+                                            fill="currentColor" />
                                     </svg>
-                                    <h1 class="text-xl text-white font-bold">Necessary</h1>
+                                    <h1 class="text-xl text-primary font-bold">Necessary</h1>
                                 </div>
                                 <div class="ml-auto">
-                                    <p class="text-sm sm:text-base text-gray-70">Always Enabled</p>
+                                    <p class="text-sm sm:text-base text-muted">Always Enabled</p>
                                 </div>
                             </div>
 
-                            <div class="origin-top" x-show="openTab === 1"
-                                x-transition:enter="transition ease-out duration-300"
-                                x-transition:enter-start="opacity-0 scale-y-50 max-h-0"
-                                x-transition:enter-end="opacity-100 scale-y-100 max-h-screen"
-                                x-transition:leave="transition-all ease-in duration-300"
-                                x-transition:leave-start="opacity-100 scale-y-100 max-h-screen"
-                                x-transition:leave-end="opacity-0 scale-y-50 max-h-0">
-                                <p class="text-sm sm:text-base md:text-lg text-gray-80 mt-5">
+                            <div class="origin-top" x-show="openTab === 1">
+                                <p class="text-sm sm:text-base md:text-lg text-secondary mt-5">
                                     Necessary cookies cannot be switched off as they are essential for the website to
                                     function properly. They only include basic functionalities and security features of
                                     the website. You can block these cookies from your browser, but keep in mind that
@@ -343,23 +337,23 @@
                             </div>
                         </div>
 
-                        <div class="bg-dark-40 py-4 px-5 select-none mb-4 sm:mb-5 md:mb-6">
+                        <div class="bg-primary py-4 px-5 select-none mb-4 sm:mb-5 md:mb-6">
                             <div
                                 class="flex items-center justify-between cursor-pointer transform transition duration-150">
-                                <div class="flex items-center space-x-3" @click="openTab = 2">
+                                <div class="flex items-center space-x-3 text-muted" @click="openTab = 2">
                                     <svg :class="openTab === 2 ? 'rotate-0' : '-rotate-90'" width="24" height="25"
                                         viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M12 16.143a1 1 0 0 1-.64-.23l-6-5a1.001 1.001 0 0 1 1.28-1.54l5.36 4.48 5.36-4.32a1 1 0 0 1 1.41.15 1 1 0 0 1-.14 1.46l-6 4.83a1 1 0 0 1-.63.17Z"
-                                            fill="#fff" />
+                                            fill="currentColor" />
                                     </svg>
-                                    <h1 class="text-xl text-white font-bold">Performance</h1>
+                                    <h1 class="text-xl text-primary font-bold">Performance</h1>
                                 </div>
                                 <div class="ml-auto" x-data="{swOp: true}">
                                     <label
                                         class="cursor-pointer inline-block items-center whitespace-nowrap select-none space-x-3 md:space-x-5 -ml-4">
                                         <span
-                                            class="text-base sm:text-base md:text-lg xl:text-xl text-white select-none top-[1px] relative capitalize"
+                                            class="text-base sm:text-base md:text-lg xl:text-xl text-primary select-none top-[1px] relative capitalize"
                                             x-text="swOp ? 'Enabled' : 'Disabled'"></span>
                                         <input class="hidden peer" x-model="swOp" type="checkbox">
                                         <div class="custom-switch"></div>
@@ -367,14 +361,8 @@
                                 </div>
                             </div>
 
-                            <div class="origin-top" x-show="openTab === 2"
-                                x-transition:enter="transition ease-out duration-300"
-                                x-transition:enter-start="opacity-0 scale-y-50 max-h-0"
-                                x-transition:enter-end="opacity-100 scale-y-100 max-h-screen"
-                                x-transition:leave="transition-all ease-in duration-300"
-                                x-transition:leave-start="opacity-100 scale-y-100 max-h-screen"
-                                x-transition:leave-end="opacity-0 scale-y-50 max-h-0">
-                                <p class="text-sm sm:text-base md:text-lg text-gray-80 mt-5">These cookies allow us to
+                            <div class="origin-top" x-show="openTab === 2">
+                                <p class="text-sm sm:text-base md:text-lg text-secondary mt-5">These cookies allow us to
                                     measure, analyze and improve the key performance indexes of the website, which helps
                                     in delivering a better user experience for the visitors.
                                 </p>
@@ -383,23 +371,23 @@
                             </div>
                         </div>
 
-                        <div class="bg-dark-40 py-4 px-5 select-none mb-4 sm:mb-5 md:mb-6">
+                        <div class="bg-primary py-4 px-5 select-none mb-4 sm:mb-5 md:mb-6">
                             <div
                                 class="flex items-center justify-between cursor-pointer transform transition duration-150">
-                                <div class="flex items-center space-x-3" @click="openTab = 3">
+                                <div class="flex items-center space-x-3 text-muted" @click="openTab = 3">
                                     <svg :class="openTab === 3 ? 'rotate-0' : '-rotate-90'" width="24" height="25"
                                         viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M12 16.143a1 1 0 0 1-.64-.23l-6-5a1.001 1.001 0 0 1 1.28-1.54l5.36 4.48 5.36-4.32a1 1 0 0 1 1.41.15 1 1 0 0 1-.14 1.46l-6 4.83a1 1 0 0 1-.63.17Z"
-                                            fill="#fff" />
+                                            fill="currentColor" />
                                     </svg>
-                                    <h1 class="text-xl text-white font-bold">Functional</h1>
+                                    <h1 class="text-xl text-primary font-bold">Functional</h1>
                                 </div>
                                 <div class="ml-auto" x-data="{swOp: true}">
                                     <label
                                         class="cursor-pointer inline-block items-center whitespace-nowrap select-none space-x-3 md:space-x-5 -ml-4">
                                         <span
-                                            class="text-base sm:text-base md:text-lg xl:text-xl text-white select-none top-[1px] relative capitalize"
+                                            class="text-base sm:text-base md:text-lg xl:text-xl text-primary select-none top-[1px] relative capitalize"
                                             x-text="swOp ? 'Enabled' : 'Disabled'"></span>
                                         <input class="hidden peer" x-model="swOp" type="checkbox">
                                         <div class="custom-switch"></div>
@@ -407,14 +395,8 @@
                                 </div>
                             </div>
 
-                            <div class="origin-top" x-show="openTab === 3"
-                                x-transition:enter="transition ease-out duration-300"
-                                x-transition:enter-start="opacity-0 scale-y-50 max-h-0"
-                                x-transition:enter-end="opacity-100 scale-y-100 max-h-screen"
-                                x-transition:leave="transition-all ease-in duration-300"
-                                x-transition:leave-start="opacity-100 scale-y-100 max-h-screen"
-                                x-transition:leave-end="opacity-0 scale-y-50 max-h-0">
-                                <p class="text-sm sm:text-base md:text-lg text-gray-80 mt-5">Functional cookies enable
+                            <div class="origin-top" x-show="openTab === 3">
+                                <p class="text-sm sm:text-base md:text-lg text-secondary mt-5">Functional cookies enable
                                     the website to perform certain functionalities and provide personalization. They may
                                     be set by us or by other third-party providers. Disabling these cookies will cause
                                     some or all of the services to not function properly.
@@ -424,23 +406,23 @@
                             </div>
                         </div>
 
-                        <div class="bg-dark-40 py-4 px-5 select-none mb-4 sm:mb-5 md:mb-6">
+                        <div class="bg-primary py-4 px-5 select-none mb-4 sm:mb-5 md:mb-6">
                             <div
                                 class="flex items-center justify-between cursor-pointer transform transition duration-150">
-                                <div class="flex items-center space-x-3" @click="openTab = 4">
+                                <div class="flex items-center space-x-3 text-muted" @click="openTab = 4">
                                     <svg :class="openTab === 4 ? 'rotate-0' : '-rotate-90'" width="24" height="25"
                                         viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M12 16.143a1 1 0 0 1-.64-.23l-6-5a1.001 1.001 0 0 1 1.28-1.54l5.36 4.48 5.36-4.32a1 1 0 0 1 1.41.15 1 1 0 0 1-.14 1.46l-6 4.83a1 1 0 0 1-.63.17Z"
-                                            fill="#fff" />
+                                            fill="currentColor" />
                                     </svg>
-                                    <h1 class="text-xl text-white font-bold">Advertisement </h1>
+                                    <h1 class="text-xl text-primary font-bold">Advertisement </h1>
                                 </div>
                                 <div class="ml-auto" x-data="{swOp: true}">
                                     <label
                                         class="cursor-pointer inline-block items-center whitespace-nowrap select-none space-x-3 md:space-x-5 -ml-4">
                                         <span
-                                            class="text-base sm:text-base md:text-lg xl:text-xl text-white select-none top-[1px] relative capitalize"
+                                            class="text-base sm:text-base md:text-lg xl:text-xl text-primary select-none top-[1px] relative capitalize"
                                             x-text="swOp ? 'Enabled' : 'Disabled'"></span>
                                         <input class="hidden peer" x-model="swOp" type="checkbox">
                                         <div class="custom-switch"></div>
@@ -448,14 +430,8 @@
                                 </div>
                             </div>
 
-                            <div class="origin-top" x-show="openTab === 4"
-                                x-transition:enter="transition ease-out duration-300"
-                                x-transition:enter-start="opacity-0 scale-y-50 max-h-0"
-                                x-transition:enter-end="opacity-100 scale-y-100 max-h-screen"
-                                x-transition:leave="transition-all ease-in duration-300"
-                                x-transition:leave-start="opacity-100 scale-y-100 max-h-screen"
-                                x-transition:leave-end="opacity-0 scale-y-50 max-h-0">
-                                <p class="text-sm sm:text-base md:text-lg text-gray-80 mt-5">These cookies are used to
+                            <div class="origin-top" x-show="openTab === 4">
+                                <p class="text-sm sm:text-base md:text-lg text-secondary mt-5">These cookies are used to
                                     provide visitors with relevant ads and marketing campaigns. They track visitors
                                     across websites and collect information to provide customized ads.
                                 </p>
@@ -1503,8 +1479,7 @@
                         cellAlign: 'center',
                         lazyLoad: false,
                         imagesLoaded: true,
-                        selectedAttraction: 0.2,
-                        friction: 0.8,
+
                     });
                     flkty.on('change', i => this.active = i);
 
