@@ -216,10 +216,29 @@
             <div class="m-auto w-full">
 
                 <!-- Profile Pic And Details Start -->
-                <div class="max-w-[130px] lg:max-w-[150px] mx-auto relative flex items-center justify-center mb-3"
+                <div class="max-w-[130px] lg:max-w-[250px] mx-auto relative flex items-center justify-center mb-3"
                     x-data="{ circumference: 2 * 22 / 7 * 120, percent: 60 }">
-                    <svg class="w-full h-full rounded-full" width="112" height="113" viewBox="0 0 112 113" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+
+                    <svg class="transform rotate-90 w-full h-full" viewBox="0 0 288 288">
+                        <circle cx="145" cy="145" r="120" stroke="currentColor" stroke-width="10" fill="transparent"
+                            class="text-gray-25" />
+
+                        <circle cx="145" cy="145" r="120" stroke="url(#paint0_linear_527_3003)" stroke-width="10"
+                            fill="transparent" :stroke-dasharray="circumference" stroke-linecap="round"
+                            :stroke-dashoffset="circumference - percent / 100 * circumference" class="text-gray-500 " />
+
+                        <defs>
+                            <linearGradient id="paint0_linear_527_3003" x1="4.606" y1="15.145" x2="105.807" y2="17.035"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF0642" />
+                                <stop offset="1" stop-color="#EA1272" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
+
+                    <svg class="w-[73%] h-[73%] rounded-full absolute" width="112" height="113" viewBox="0 0 112 113"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="56" cy="56.5" r="56" fill="#EEEEEE" />
                         <mask id="mask0_1011_28995" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
                             width="112" height="113">
@@ -231,6 +250,10 @@
                                 fill="#C7C7C7" />
                         </g>
                     </svg>
+
+                    <div
+                        class="px-2.5 sm:px-[22px] py-1 sm:py-1.5 rounded-full bg-2 text-invert text-sm sm:text-base md:text-xl font-medium absolute bottom-0 sm:-translate-y-3">
+                        65% complete</div>
                 </div>
 
                 <div class="flex items-start justify-center space-x-4 ml-10">

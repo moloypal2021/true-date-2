@@ -28,10 +28,9 @@
 <body>
 
     <div class="bg-primary w-full h-screen overflow-y-auto show-scrollbar flex flex-col" x-data="modal()"
-        x-on:scroll="showHideScroll(); reactOnScroll();" x-init="reactOnScroll()">
+        x-on:scroll="showHideScroll();">
         <!-- Header Section Start -->
-        <header class="bg-primary/50 backdrop-blur-lg fixed top-0 inset-x-0 z-[70] sm:z-50"
-            :class="hasScrolled ? 'shadow-1' : ''">
+        <header class="bg-primary/50 backdrop-blur-lg fixed top-0 inset-x-0 z-[70] sm:z-50">
             <nav class="container flex items-center justify-between py-4 sm:py-6 md:py-8 3k:py-10">
                 <a href="#" class="">
                     <img src="./assets/images/logo-dark.svg" alt=""
@@ -211,7 +210,8 @@
 
 
         <!-- Content Section Start -->
-        <section class="container px-0 sm:px-5 lg:pt-36 3k:pt-40 pt-20 sm:pt-28 md:pt-32" x-data="{openTab : 2}">
+        <section class="container px-0 sm:px-5 lg:pt-28 3k:pt-40 pt-20 sm:pt-28 md:pt-24 flex-1 flex flex-col"
+            x-data="{openTab : 2}">
             <!-- Tab Start -->
             <div class="border-b border-primary pb-2.5 md:pb-0 bg-clip-border px-5">
                 <ul class="flex items-center justify-between max-w-xl mx-auto">
@@ -241,12 +241,12 @@
 
 
             <!-- View Me Section Start -->
-            <div class="px-5 sm:px-0 h-full" x-cloak x-show="openTab === 1" x-data="{favPage: 1}">
+            <div class="px-5 sm:px-0 flex-1" x-cloak x-show="openTab === 1" x-data="{favPage: 1}">
 
                 <!-- View None Start -->
-                <div x-cloak x-show="favPage === 1" class="flex items-center justify-center mt-[15vh]">
-                    <div class="text-center">
-                        <svg class="w-20 sm:w-28 3k:w-[118px] mx-auto mb-6 sm:mb-8 md:mb-12 3k:mb-[60px]"
+                <div x-cloak x-show="favPage === 1" class="flex items-center justify-center h-full">
+                    <div class="text-center pt-10 pb-20">
+                        <svg class="w-20 sm:w-28 3k:w-[118px] mx-auto mb-6 sm:mb-8 3k:mb-12 4k:mb-[60px]"
                             viewBox="0 0 118 118" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M14.828 45.325a1 1 0 0 1-1-1v-4.368a1 1 0 0 0-1-1H7.914a1 1 0 0 0-1 1v38.805a1 1 0 0 0 1 1h50.452a1 1 0 0 0 .905-.573l9.18-19.44a1 1 0 0 0-.084-.999l-9.069-12.997a1 1 0 0 0-.82-.428h-43.65Z"
@@ -318,14 +318,14 @@
                             </defs>
                         </svg>
                         <h1
-                            class="text-xl sm:text-2xl md:text-3xl 3k:text-4xl text-primary font-bold mb-4 sm:mb-6 3k:mb-[30px]">
+                            class="text-xl sm:text-2xl 3k:text-3xl 4k:text-4xl text-primary font-bold mb-4 sm:mb-3 3k:mb-[30px]">
                             You have not added anyone to your like list yet
                         </h1>
-                        <p class="text-base sm:text-lg text-muted max-w-sm mx-auto mb-6 sm:mb-8 md:mb-14 3k:mb-[60px]">
+                        <p class="text-base sm:text-lg text-muted max-w-sm mx-auto mb-6 sm:mb-8 3k:mb-14 4k:mb-[60px]">
                             All the profiles you have liked will be shown here.</p>
 
                         <button @click="favPage = 2"
-                            class="text-base sm:text-lg py-4 3k:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">search</button>
+                            class="text-base 3k:text-lg py-3.5 3k:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">search</button>
                     </div>
                 </div>
                 <!-- View None End -->
@@ -335,7 +335,7 @@
                 <div x-cloak x-show="favPage === 2" class="py-[30px] sm:py-14 md:py-20 lg:py-[100px]">
                     <div
                         class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-3 sm:gap-x-6 sm:gap-y-10 md:gap-x-4 md:gap-y-6 lg:gap-x-5 lg:gap-y-10 xl:gap-x-[30px] xl:gap-y-20">
-                        <div class="relative bg-primary shadow-40 rounded-[14px] overflow-hidden">
+                        <div class="relative bg-primary rounded-[14px] shadow-10 overflow-hidden">
 
                             <!-- Card Image -->
                             <div class="relative">
@@ -357,21 +357,29 @@
 
                                 <!-- Buttom Buttons -->
                                 <div
-                                    class="absolute inset-x-0 bottom-0 mb-2.5 sm:mb-3 md:mb-4 ml-2.5 sm:ml-5 flex items-center space-x-1.5 sm:space-x-3 lg:space-x-4">
+                                    class="absolute inset-x-0 bottom-0 flex items-center justify-center translate-y-1/2 space-x-2.5 sm:space-x-3 lg:space-x-4">
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-4 sm:w-5 md:w-6" viewBox="0 0 32 27" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 46 46" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="46" height="46" rx="23" fill="url(#paint0_linear_654_10019)" />
                                             <path
-                                                d="M31.2258 5.50852C30.7293 4.43057 30.0134 3.45374 29.1181 2.63271C28.2222 1.80924 27.1659 1.15483 26.0067 0.705084C24.8046 0.236873 23.5153 -0.00278476 22.2137 2.44127e-05C20.3875 2.44127e-05 18.6058 0.468907 17.0575 1.35457C16.6871 1.56644 16.3352 1.79914 16.0018 2.05269C15.6685 1.79914 15.3166 1.56644 14.9462 1.35457C13.3978 0.468907 11.6161 2.44127e-05 9.79001 2.44127e-05C8.47504 2.44127e-05 7.20082 0.236202 5.99698 0.705084C4.83389 1.1566 3.78562 1.80609 2.88552 2.63271C1.9891 3.45281 1.27303 4.42987 0.777867 5.50852C0.262993 6.63037 0 7.82167 0 9.04771C0 10.2043 0.251881 11.4095 0.751938 12.6355C1.1705 13.6601 1.77057 14.7229 2.53733 15.7961C3.75228 17.4945 5.42284 19.2659 7.49715 21.0615C10.9346 24.0381 14.3387 26.0942 14.4831 26.1775L15.361 26.7055C15.75 26.9382 16.25 26.9382 16.6389 26.7055L17.5168 26.1775C17.6613 26.0907 21.0617 24.0381 24.5028 21.0615C26.5771 19.2659 28.2477 17.4945 29.4626 15.7961C30.2294 14.7229 30.8332 13.6601 31.248 12.6355C31.7481 11.4095 32 10.2043 32 9.04771C32.0037 7.82167 31.7407 6.63037 31.2258 5.50852V5.50852Z"
+                                                d="M38.2258 15.5085C37.7293 14.4306 37.0134 13.4537 36.1181 12.6327C35.2222 11.8092 34.1659 11.1548 33.0067 10.7051C31.8046 10.2369 30.5153 9.99722 29.2137 10C27.3875 10 25.6058 10.4689 24.0575 11.3546C23.6871 11.5664 23.3352 11.7991 23.0018 12.0527C22.6685 11.7991 22.3166 11.5664 21.9462 11.3546C20.3978 10.4689 18.6161 10 16.79 10C15.475 10 14.2008 10.2362 12.997 10.7051C11.8339 11.1566 10.7856 11.8061 9.88552 12.6327C8.9891 13.4528 8.27303 14.4299 7.77787 15.5085C7.26299 16.6304 7 17.8217 7 19.0477C7 20.2043 7.25188 21.4095 7.75194 22.6355C8.1705 23.6601 8.77057 24.7229 9.53733 25.7961C10.7523 27.4945 12.4228 29.2659 14.4972 31.0615C17.9346 34.0381 21.3387 36.0942 21.4831 36.1775L22.361 36.7055C22.75 36.9382 23.25 36.9382 23.6389 36.7055L24.5168 36.1775C24.6613 36.0907 28.0617 34.0381 31.5028 31.0615C33.5771 29.2659 35.2477 27.4945 36.4626 25.7961C37.2294 24.7229 37.8332 23.6601 38.248 22.6355C38.7481 21.4095 39 20.2043 39 19.0477C39.0037 17.8217 38.7407 16.6304 38.2258 15.5085V15.5085Z"
                                                 fill="white" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_654_10019" x1="1.5" y1="2.5" x2="44.5"
+                                                    y2="50" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#FF0642" />
+                                                    <stop offset="1" stop-color="#EA1272" />
+                                                </linearGradient>
+                                            </defs>
                                         </svg>
                                     </button>
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 34 34" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
@@ -382,7 +390,7 @@
                                 </div>
                             </div>
 
-                            <div class="p-2.5 sm:p-3 md:p-4 lg:pt-7 lg:pb-6 lg:px-8">
+                            <div class="p-2.5 sm:p-3 md:p-4 pt-7 sm:pt-8 md:pt-9 3k:pt-10 lg:pb-6 lg:px-8">
                                 <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
                                     <h2 class="text-base sm:text-lg md:text-xl text-primary">Spacy, <span
                                             class="font-medium font-poppins">22</span></h2>
@@ -396,7 +404,7 @@
                                 </a>
 
                                 <a href="#" class="flex items-center space-x-2 sm:space-x-2.5">
-                                    <svg class="fill-current text-muted" width="11" height="14" viewBox="0 0 11 14"
+                                    <svg class="fill-current text-secondary" width="11" height="14" viewBox="0 0 11 14"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M5.5 1.04306C3.01867 1.04306 1 3.16882 1 5.78065C1 9.10385 4.74933 12.3415 5.5 12.514C6.25067 12.3408 10 9.10316 10 5.78065C10 3.16882 7.98133 1.04306 5.5 1.04306ZM7.66733 5.73754C7.66733 4.49073 6.69533 3.47688 5.50067 3.47688C4.306 3.47688 3.334 4.49073 3.334 5.73754C3.334 6.98365 4.306 7.99681 5.50067 7.99681C6.69533 7.99681 7.66733 6.98365 7.66733 5.73754Z"
@@ -407,14 +415,14 @@
                                     </svg>
 
                                     <p
-                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-muted tracking-wide">
+                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-secondary tracking-wide">
                                         New york
                                     </p>
                                 </a>
                             </div>
                         </div>
 
-                        <div class="relative bg-primary shadow-40 rounded-[14px] overflow-hidden">
+                        <div class="relative bg-primary rounded-[14px] shadow-10 overflow-hidden">
 
                             <!-- Card Image -->
                             <div class="relative">
@@ -436,100 +444,29 @@
 
                                 <!-- Buttom Buttons -->
                                 <div
-                                    class="absolute inset-x-0 bottom-0 mb-2.5 sm:mb-3 md:mb-4 ml-2.5 sm:ml-5 flex items-center space-x-1.5 sm:space-x-3 lg:space-x-4">
+                                    class="absolute inset-x-0 bottom-0 flex items-center justify-center translate-y-1/2 space-x-2.5 sm:space-x-3 lg:space-x-4">
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-4 sm:w-5 md:w-6" viewBox="0 0 32 27" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 46 46" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="46" height="46" rx="23" fill="url(#paint0_linear_654_10019)" />
                                             <path
-                                                d="M31.2258 5.50852C30.7293 4.43057 30.0134 3.45374 29.1181 2.63271C28.2222 1.80924 27.1659 1.15483 26.0067 0.705084C24.8046 0.236873 23.5153 -0.00278476 22.2137 2.44127e-05C20.3875 2.44127e-05 18.6058 0.468907 17.0575 1.35457C16.6871 1.56644 16.3352 1.79914 16.0018 2.05269C15.6685 1.79914 15.3166 1.56644 14.9462 1.35457C13.3978 0.468907 11.6161 2.44127e-05 9.79001 2.44127e-05C8.47504 2.44127e-05 7.20082 0.236202 5.99698 0.705084C4.83389 1.1566 3.78562 1.80609 2.88552 2.63271C1.9891 3.45281 1.27303 4.42987 0.777867 5.50852C0.262993 6.63037 0 7.82167 0 9.04771C0 10.2043 0.251881 11.4095 0.751938 12.6355C1.1705 13.6601 1.77057 14.7229 2.53733 15.7961C3.75228 17.4945 5.42284 19.2659 7.49715 21.0615C10.9346 24.0381 14.3387 26.0942 14.4831 26.1775L15.361 26.7055C15.75 26.9382 16.25 26.9382 16.6389 26.7055L17.5168 26.1775C17.6613 26.0907 21.0617 24.0381 24.5028 21.0615C26.5771 19.2659 28.2477 17.4945 29.4626 15.7961C30.2294 14.7229 30.8332 13.6601 31.248 12.6355C31.7481 11.4095 32 10.2043 32 9.04771C32.0037 7.82167 31.7407 6.63037 31.2258 5.50852V5.50852Z"
+                                                d="M38.2258 15.5085C37.7293 14.4306 37.0134 13.4537 36.1181 12.6327C35.2222 11.8092 34.1659 11.1548 33.0067 10.7051C31.8046 10.2369 30.5153 9.99722 29.2137 10C27.3875 10 25.6058 10.4689 24.0575 11.3546C23.6871 11.5664 23.3352 11.7991 23.0018 12.0527C22.6685 11.7991 22.3166 11.5664 21.9462 11.3546C20.3978 10.4689 18.6161 10 16.79 10C15.475 10 14.2008 10.2362 12.997 10.7051C11.8339 11.1566 10.7856 11.8061 9.88552 12.6327C8.9891 13.4528 8.27303 14.4299 7.77787 15.5085C7.26299 16.6304 7 17.8217 7 19.0477C7 20.2043 7.25188 21.4095 7.75194 22.6355C8.1705 23.6601 8.77057 24.7229 9.53733 25.7961C10.7523 27.4945 12.4228 29.2659 14.4972 31.0615C17.9346 34.0381 21.3387 36.0942 21.4831 36.1775L22.361 36.7055C22.75 36.9382 23.25 36.9382 23.6389 36.7055L24.5168 36.1775C24.6613 36.0907 28.0617 34.0381 31.5028 31.0615C33.5771 29.2659 35.2477 27.4945 36.4626 25.7961C37.2294 24.7229 37.8332 23.6601 38.248 22.6355C38.7481 21.4095 39 20.2043 39 19.0477C39.0037 17.8217 38.7407 16.6304 38.2258 15.5085V15.5085Z"
                                                 fill="white" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_654_10019" x1="1.5" y1="2.5" x2="44.5"
+                                                    y2="50" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#FF0642" />
+                                                    <stop offset="1" stop-color="#EA1272" />
+                                                </linearGradient>
+                                            </defs>
                                         </svg>
                                     </button>
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
-                                                fill="white" />
-                                        </svg>
-
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="p-2.5 sm:p-3 md:p-4 lg:pt-7 lg:pb-6 lg:px-8">
-                                <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
-                                    <h2 class="text-base sm:text-lg md:text-xl text-primary">Crazy Girl, <span
-                                            class="font-medium font-poppins">22</span></h2>
-
-                                    <div class="flex h-2 md:h-3 w-2 md:w-3 relative items-center justify-center">
-                                        <span
-                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-online-green opacity-75"></span>
-                                        <span
-                                            class="relative inline-flex rounded-full w-1 sm:w-1.5 md:w-2 lg:w-2.5 h-1 sm:h-1.5 md:h-2 lg:h-2.5 bg-online-green"></span>
-                                    </div>
-                                </a>
-
-                                <a href="#" class="flex items-center space-x-2 sm:space-x-2.5">
-                                    <svg class="fill-current text-muted" width="11" height="14" viewBox="0 0 11 14"
-                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M5.5 1.04306C3.01867 1.04306 1 3.16882 1 5.78065C1 9.10385 4.74933 12.3415 5.5 12.514C6.25067 12.3408 10 9.10316 10 5.78065C10 3.16882 7.98133 1.04306 5.5 1.04306ZM7.66733 5.73754C7.66733 4.49073 6.69533 3.47688 5.50067 3.47688C4.306 3.47688 3.334 4.49073 3.334 5.73754C3.334 6.98365 4.306 7.99681 5.50067 7.99681C6.69533 7.99681 7.66733 6.98365 7.66733 5.73754Z"
-                                            fill="current" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M11 5.78065C11 2.59305 8.53267 0 5.5 0C2.46733 0 0 2.59305 0 5.78065C0 9.69909 4.304 13.5598 5.5 13.5598C6.696 13.5598 11 9.69909 11 5.78065ZM1 5.78065C1 3.16882 3.01867 1.04306 5.5 1.04306C7.98133 1.04306 10 3.16882 10 5.78065C10 9.10316 6.25067 12.3408 5.5 12.514C4.74933 12.3415 1 9.10385 1 5.78065Z"
-                                            fill="current" />
-                                    </svg>
-
-                                    <p
-                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-muted tracking-wide">
-                                        New york
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="relative bg-primary shadow-40 rounded-[14px] overflow-hidden">
-
-                            <!-- Card Image -->
-                            <div class="relative">
-                                <div class="aspect-w-4 aspect-h-4">
-                                    <img src="./assets/images/img-6.jpg" alt=""
-                                        class="w-full h-full object-cover object-top rounded-[14px]">
-                                </div>
-
-                                <!-- Top Avater with Stats -->
-                                <button
-                                    class="w-7 h-7 sm:w-10 sm:h-10 md:w-9 md:h-9 lg:w-11 lg:h-11 xl:w-[50px] xl:h-[50px] rounded-full absolute top-0 right-0 m-2.5 sm:m-3 md:m-4 lg:m-5">
-                                    <img src="./assets/images/avater-4.jpg" alt=""
-                                        class="w-full h-full object-cover rounded-full">
-                                    <div
-                                        class="absolute inset-0 rounded-full flex items-center justify-center bg-black/30 text-white text-xs sm:text-sm md:text-base lg:text-lg tracking-wide">
-                                        +5
-                                    </div>
-                                </button>
-
-                                <!-- Buttom Buttons -->
-                                <div
-                                    class="absolute inset-x-0 bottom-0 mb-2.5 sm:mb-3 md:mb-4 ml-2.5 sm:ml-5 flex items-center space-x-1.5 sm:space-x-3 lg:space-x-4">
-
-                                    <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-4 sm:w-5 md:w-6" viewBox="0 0 32 27" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M31.2258 5.50852C30.7293 4.43057 30.0134 3.45374 29.1181 2.63271C28.2222 1.80924 27.1659 1.15483 26.0067 0.705084C24.8046 0.236873 23.5153 -0.00278476 22.2137 2.44127e-05C20.3875 2.44127e-05 18.6058 0.468907 17.0575 1.35457C16.6871 1.56644 16.3352 1.79914 16.0018 2.05269C15.6685 1.79914 15.3166 1.56644 14.9462 1.35457C13.3978 0.468907 11.6161 2.44127e-05 9.79001 2.44127e-05C8.47504 2.44127e-05 7.20082 0.236202 5.99698 0.705084C4.83389 1.1566 3.78562 1.80609 2.88552 2.63271C1.9891 3.45281 1.27303 4.42987 0.777867 5.50852C0.262993 6.63037 0 7.82167 0 9.04771C0 10.2043 0.251881 11.4095 0.751938 12.6355C1.1705 13.6601 1.77057 14.7229 2.53733 15.7961C3.75228 17.4945 5.42284 19.2659 7.49715 21.0615C10.9346 24.0381 14.3387 26.0942 14.4831 26.1775L15.361 26.7055C15.75 26.9382 16.25 26.9382 16.6389 26.7055L17.5168 26.1775C17.6613 26.0907 21.0617 24.0381 24.5028 21.0615C26.5771 19.2659 28.2477 17.4945 29.4626 15.7961C30.2294 14.7229 30.8332 13.6601 31.248 12.6355C31.7481 11.4095 32 10.2043 32 9.04771C32.0037 7.82167 31.7407 6.63037 31.2258 5.50852V5.50852Z"
-                                                fill="white" />
-                                        </svg>
-                                    </button>
-
-                                    <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 34 34" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
@@ -540,7 +477,7 @@
                                 </div>
                             </div>
 
-                            <div class="p-2.5 sm:p-3 md:p-4 lg:pt-7 lg:pb-6 lg:px-8">
+                            <div class="p-2.5 sm:p-3 md:p-4 pt-7 sm:pt-8 md:pt-9 3k:pt-10 lg:pb-6 lg:px-8">
                                 <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
                                     <h2 class="text-base sm:text-lg md:text-xl text-primary">Spacy, <span
                                             class="font-medium font-poppins">22</span></h2>
@@ -554,7 +491,7 @@
                                 </a>
 
                                 <a href="#" class="flex items-center space-x-2 sm:space-x-2.5">
-                                    <svg class="fill-current text-muted" width="11" height="14" viewBox="0 0 11 14"
+                                    <svg class="fill-current text-secondary" width="11" height="14" viewBox="0 0 11 14"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M5.5 1.04306C3.01867 1.04306 1 3.16882 1 5.78065C1 9.10385 4.74933 12.3415 5.5 12.514C6.25067 12.3408 10 9.10316 10 5.78065C10 3.16882 7.98133 1.04306 5.5 1.04306ZM7.66733 5.73754C7.66733 4.49073 6.69533 3.47688 5.50067 3.47688C4.306 3.47688 3.334 4.49073 3.334 5.73754C3.334 6.98365 4.306 7.99681 5.50067 7.99681C6.69533 7.99681 7.66733 6.98365 7.66733 5.73754Z"
@@ -565,14 +502,101 @@
                                     </svg>
 
                                     <p
-                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-muted tracking-wide">
+                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-secondary tracking-wide">
                                         New york
                                     </p>
                                 </a>
                             </div>
                         </div>
 
-                        <div class="relative bg-primary shadow-40 rounded-[14px] overflow-hidden">
+                        <div class="relative bg-primary rounded-[14px] shadow-10 overflow-hidden">
+
+                            <!-- Card Image -->
+                            <div class="relative">
+                                <div class="aspect-w-4 aspect-h-4">
+                                    <img src="./assets/images/img-6.jpg" alt=""
+                                        class="w-full h-full object-cover object-top rounded-[14px]">
+                                </div>
+
+                                <!-- Top Avater with Stats -->
+                                <button
+                                    class="w-7 h-7 sm:w-10 sm:h-10 md:w-9 md:h-9 lg:w-11 lg:h-11 xl:w-[50px] xl:h-[50px] rounded-full absolute top-0 right-0 m-2.5 sm:m-3 md:m-4 lg:m-5">
+                                    <img src="./assets/images/avater-2.jpg" alt=""
+                                        class="w-full h-full object-cover rounded-full">
+                                    <div
+                                        class="absolute inset-0 rounded-full flex items-center justify-center bg-black/30 text-white text-xs sm:text-sm md:text-base lg:text-lg tracking-wide">
+                                        +5
+                                    </div>
+                                </button>
+
+                                <!-- Buttom Buttons -->
+                                <div
+                                    class="absolute inset-x-0 bottom-0 flex items-center justify-center translate-y-1/2 space-x-2.5 sm:space-x-3 lg:space-x-4">
+
+                                    <button
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 46 46" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="46" height="46" rx="23" fill="url(#paint0_linear_654_10019)" />
+                                            <path
+                                                d="M38.2258 15.5085C37.7293 14.4306 37.0134 13.4537 36.1181 12.6327C35.2222 11.8092 34.1659 11.1548 33.0067 10.7051C31.8046 10.2369 30.5153 9.99722 29.2137 10C27.3875 10 25.6058 10.4689 24.0575 11.3546C23.6871 11.5664 23.3352 11.7991 23.0018 12.0527C22.6685 11.7991 22.3166 11.5664 21.9462 11.3546C20.3978 10.4689 18.6161 10 16.79 10C15.475 10 14.2008 10.2362 12.997 10.7051C11.8339 11.1566 10.7856 11.8061 9.88552 12.6327C8.9891 13.4528 8.27303 14.4299 7.77787 15.5085C7.26299 16.6304 7 17.8217 7 19.0477C7 20.2043 7.25188 21.4095 7.75194 22.6355C8.1705 23.6601 8.77057 24.7229 9.53733 25.7961C10.7523 27.4945 12.4228 29.2659 14.4972 31.0615C17.9346 34.0381 21.3387 36.0942 21.4831 36.1775L22.361 36.7055C22.75 36.9382 23.25 36.9382 23.6389 36.7055L24.5168 36.1775C24.6613 36.0907 28.0617 34.0381 31.5028 31.0615C33.5771 29.2659 35.2477 27.4945 36.4626 25.7961C37.2294 24.7229 37.8332 23.6601 38.248 22.6355C38.7481 21.4095 39 20.2043 39 19.0477C39.0037 17.8217 38.7407 16.6304 38.2258 15.5085V15.5085Z"
+                                                fill="white" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_654_10019" x1="1.5" y1="2.5" x2="44.5"
+                                                    y2="50" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#FF0642" />
+                                                    <stop offset="1" stop-color="#EA1272" />
+                                                </linearGradient>
+                                            </defs>
+                                        </svg>
+                                    </button>
+
+                                    <button
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 34 34" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
+                                                fill="white" />
+                                        </svg>
+
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="p-2.5 sm:p-3 md:p-4 pt-7 sm:pt-8 md:pt-9 3k:pt-10 lg:pb-6 lg:px-8">
+                                <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
+                                    <h2 class="text-base sm:text-lg md:text-xl text-primary">Spacy, <span
+                                            class="font-medium font-poppins">22</span></h2>
+
+                                    <div class="flex h-2 md:h-3 w-2 md:w-3 relative items-center justify-center">
+                                        <span
+                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-online-green opacity-75"></span>
+                                        <span
+                                            class="relative inline-flex rounded-full w-1 sm:w-1.5 md:w-2 lg:w-2.5 h-1 sm:h-1.5 md:h-2 lg:h-2.5 bg-online-green"></span>
+                                    </div>
+                                </a>
+
+                                <a href="#" class="flex items-center space-x-2 sm:space-x-2.5">
+                                    <svg class="fill-current text-secondary" width="11" height="14" viewBox="0 0 11 14"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M5.5 1.04306C3.01867 1.04306 1 3.16882 1 5.78065C1 9.10385 4.74933 12.3415 5.5 12.514C6.25067 12.3408 10 9.10316 10 5.78065C10 3.16882 7.98133 1.04306 5.5 1.04306ZM7.66733 5.73754C7.66733 4.49073 6.69533 3.47688 5.50067 3.47688C4.306 3.47688 3.334 4.49073 3.334 5.73754C3.334 6.98365 4.306 7.99681 5.50067 7.99681C6.69533 7.99681 7.66733 6.98365 7.66733 5.73754Z"
+                                            fill="current" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M11 5.78065C11 2.59305 8.53267 0 5.5 0C2.46733 0 0 2.59305 0 5.78065C0 9.69909 4.304 13.5598 5.5 13.5598C6.696 13.5598 11 9.69909 11 5.78065ZM1 5.78065C1 3.16882 3.01867 1.04306 5.5 1.04306C7.98133 1.04306 10 3.16882 10 5.78065C10 9.10316 6.25067 12.3408 5.5 12.514C4.74933 12.3415 1 9.10385 1 5.78065Z"
+                                            fill="current" />
+                                    </svg>
+
+                                    <p
+                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-secondary tracking-wide">
+                                        New york
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="relative bg-primary rounded-[14px] shadow-10 overflow-hidden">
 
                             <!-- Card Image -->
                             <div class="relative">
@@ -594,21 +618,29 @@
 
                                 <!-- Buttom Buttons -->
                                 <div
-                                    class="absolute inset-x-0 bottom-0 mb-2.5 sm:mb-3 md:mb-4 ml-2.5 sm:ml-5 flex items-center space-x-1.5 sm:space-x-3 lg:space-x-4">
+                                    class="absolute inset-x-0 bottom-0 flex items-center justify-center translate-y-1/2 space-x-2.5 sm:space-x-3 lg:space-x-4">
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-4 sm:w-5 md:w-6" viewBox="0 0 32 27" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 46 46" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="46" height="46" rx="23" fill="url(#paint0_linear_654_10019)" />
                                             <path
-                                                d="M31.2258 5.50852C30.7293 4.43057 30.0134 3.45374 29.1181 2.63271C28.2222 1.80924 27.1659 1.15483 26.0067 0.705084C24.8046 0.236873 23.5153 -0.00278476 22.2137 2.44127e-05C20.3875 2.44127e-05 18.6058 0.468907 17.0575 1.35457C16.6871 1.56644 16.3352 1.79914 16.0018 2.05269C15.6685 1.79914 15.3166 1.56644 14.9462 1.35457C13.3978 0.468907 11.6161 2.44127e-05 9.79001 2.44127e-05C8.47504 2.44127e-05 7.20082 0.236202 5.99698 0.705084C4.83389 1.1566 3.78562 1.80609 2.88552 2.63271C1.9891 3.45281 1.27303 4.42987 0.777867 5.50852C0.262993 6.63037 0 7.82167 0 9.04771C0 10.2043 0.251881 11.4095 0.751938 12.6355C1.1705 13.6601 1.77057 14.7229 2.53733 15.7961C3.75228 17.4945 5.42284 19.2659 7.49715 21.0615C10.9346 24.0381 14.3387 26.0942 14.4831 26.1775L15.361 26.7055C15.75 26.9382 16.25 26.9382 16.6389 26.7055L17.5168 26.1775C17.6613 26.0907 21.0617 24.0381 24.5028 21.0615C26.5771 19.2659 28.2477 17.4945 29.4626 15.7961C30.2294 14.7229 30.8332 13.6601 31.248 12.6355C31.7481 11.4095 32 10.2043 32 9.04771C32.0037 7.82167 31.7407 6.63037 31.2258 5.50852V5.50852Z"
+                                                d="M38.2258 15.5085C37.7293 14.4306 37.0134 13.4537 36.1181 12.6327C35.2222 11.8092 34.1659 11.1548 33.0067 10.7051C31.8046 10.2369 30.5153 9.99722 29.2137 10C27.3875 10 25.6058 10.4689 24.0575 11.3546C23.6871 11.5664 23.3352 11.7991 23.0018 12.0527C22.6685 11.7991 22.3166 11.5664 21.9462 11.3546C20.3978 10.4689 18.6161 10 16.79 10C15.475 10 14.2008 10.2362 12.997 10.7051C11.8339 11.1566 10.7856 11.8061 9.88552 12.6327C8.9891 13.4528 8.27303 14.4299 7.77787 15.5085C7.26299 16.6304 7 17.8217 7 19.0477C7 20.2043 7.25188 21.4095 7.75194 22.6355C8.1705 23.6601 8.77057 24.7229 9.53733 25.7961C10.7523 27.4945 12.4228 29.2659 14.4972 31.0615C17.9346 34.0381 21.3387 36.0942 21.4831 36.1775L22.361 36.7055C22.75 36.9382 23.25 36.9382 23.6389 36.7055L24.5168 36.1775C24.6613 36.0907 28.0617 34.0381 31.5028 31.0615C33.5771 29.2659 35.2477 27.4945 36.4626 25.7961C37.2294 24.7229 37.8332 23.6601 38.248 22.6355C38.7481 21.4095 39 20.2043 39 19.0477C39.0037 17.8217 38.7407 16.6304 38.2258 15.5085V15.5085Z"
                                                 fill="white" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_654_10019" x1="1.5" y1="2.5" x2="44.5"
+                                                    y2="50" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#FF0642" />
+                                                    <stop offset="1" stop-color="#EA1272" />
+                                                </linearGradient>
+                                            </defs>
                                         </svg>
                                     </button>
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 34 34" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
@@ -619,21 +651,21 @@
                                 </div>
                             </div>
 
-                            <div class="p-2.5 sm:p-3 md:p-4 lg:pt-7 lg:pb-6 lg:px-8">
+                            <div class="p-2.5 sm:p-3 md:p-4 pt-7 sm:pt-8 md:pt-9 3k:pt-10 lg:pb-6 lg:px-8">
                                 <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
-                                    <h2 class="text-base sm:text-lg md:text-xl text-primary">Kitty, <span
+                                    <h2 class="text-base sm:text-lg md:text-xl text-primary">Spacy, <span
                                             class="font-medium font-poppins">22</span></h2>
 
                                     <div class="flex h-2 md:h-3 w-2 md:w-3 relative items-center justify-center">
                                         <span
-                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-ofline-red opacity-0"></span>
+                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-online-green opacity-75"></span>
                                         <span
-                                            class="relative inline-flex rounded-full w-1 sm:w-1.5 md:w-2 lg:w-2.5 h-1 sm:h-1.5 md:h-2 lg:h-2.5 bg-ofline-red"></span>
+                                            class="relative inline-flex rounded-full w-1 sm:w-1.5 md:w-2 lg:w-2.5 h-1 sm:h-1.5 md:h-2 lg:h-2.5 bg-online-green"></span>
                                     </div>
                                 </a>
 
                                 <a href="#" class="flex items-center space-x-2 sm:space-x-2.5">
-                                    <svg class="fill-current text-muted" width="11" height="14" viewBox="0 0 11 14"
+                                    <svg class="fill-current text-secondary" width="11" height="14" viewBox="0 0 11 14"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M5.5 1.04306C3.01867 1.04306 1 3.16882 1 5.78065C1 9.10385 4.74933 12.3415 5.5 12.514C6.25067 12.3408 10 9.10316 10 5.78065C10 3.16882 7.98133 1.04306 5.5 1.04306ZM7.66733 5.73754C7.66733 4.49073 6.69533 3.47688 5.50067 3.47688C4.306 3.47688 3.334 4.49073 3.334 5.73754C3.334 6.98365 4.306 7.99681 5.50067 7.99681C6.69533 7.99681 7.66733 6.98365 7.66733 5.73754Z"
@@ -644,14 +676,14 @@
                                     </svg>
 
                                     <p
-                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-muted tracking-wide">
+                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-secondary tracking-wide">
                                         New york
                                     </p>
                                 </a>
                             </div>
                         </div>
 
-                        <div class="relative bg-primary shadow-40 rounded-[14px] overflow-hidden">
+                        <div class="relative bg-primary rounded-[14px] shadow-10 overflow-hidden">
 
                             <!-- Card Image -->
                             <div class="relative">
@@ -663,7 +695,7 @@
                                 <!-- Top Avater with Stats -->
                                 <button
                                     class="w-7 h-7 sm:w-10 sm:h-10 md:w-9 md:h-9 lg:w-11 lg:h-11 xl:w-[50px] xl:h-[50px] rounded-full absolute top-0 right-0 m-2.5 sm:m-3 md:m-4 lg:m-5">
-                                    <img src="./assets/images/avater-3.jpg" alt=""
+                                    <img src="./assets/images/avater-2.jpg" alt=""
                                         class="w-full h-full object-cover rounded-full">
                                     <div
                                         class="absolute inset-0 rounded-full flex items-center justify-center bg-black/30 text-white text-xs sm:text-sm md:text-base lg:text-lg tracking-wide">
@@ -673,21 +705,29 @@
 
                                 <!-- Buttom Buttons -->
                                 <div
-                                    class="absolute inset-x-0 bottom-0 mb-2.5 sm:mb-3 md:mb-4 ml-2.5 sm:ml-5 flex items-center space-x-1.5 sm:space-x-3 lg:space-x-4">
+                                    class="absolute inset-x-0 bottom-0 flex items-center justify-center translate-y-1/2 space-x-2.5 sm:space-x-3 lg:space-x-4">
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-4 sm:w-5 md:w-6" viewBox="0 0 32 27" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 46 46" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="46" height="46" rx="23" fill="url(#paint0_linear_654_10019)" />
                                             <path
-                                                d="M31.2258 5.50852C30.7293 4.43057 30.0134 3.45374 29.1181 2.63271C28.2222 1.80924 27.1659 1.15483 26.0067 0.705084C24.8046 0.236873 23.5153 -0.00278476 22.2137 2.44127e-05C20.3875 2.44127e-05 18.6058 0.468907 17.0575 1.35457C16.6871 1.56644 16.3352 1.79914 16.0018 2.05269C15.6685 1.79914 15.3166 1.56644 14.9462 1.35457C13.3978 0.468907 11.6161 2.44127e-05 9.79001 2.44127e-05C8.47504 2.44127e-05 7.20082 0.236202 5.99698 0.705084C4.83389 1.1566 3.78562 1.80609 2.88552 2.63271C1.9891 3.45281 1.27303 4.42987 0.777867 5.50852C0.262993 6.63037 0 7.82167 0 9.04771C0 10.2043 0.251881 11.4095 0.751938 12.6355C1.1705 13.6601 1.77057 14.7229 2.53733 15.7961C3.75228 17.4945 5.42284 19.2659 7.49715 21.0615C10.9346 24.0381 14.3387 26.0942 14.4831 26.1775L15.361 26.7055C15.75 26.9382 16.25 26.9382 16.6389 26.7055L17.5168 26.1775C17.6613 26.0907 21.0617 24.0381 24.5028 21.0615C26.5771 19.2659 28.2477 17.4945 29.4626 15.7961C30.2294 14.7229 30.8332 13.6601 31.248 12.6355C31.7481 11.4095 32 10.2043 32 9.04771C32.0037 7.82167 31.7407 6.63037 31.2258 5.50852V5.50852Z"
+                                                d="M38.2258 15.5085C37.7293 14.4306 37.0134 13.4537 36.1181 12.6327C35.2222 11.8092 34.1659 11.1548 33.0067 10.7051C31.8046 10.2369 30.5153 9.99722 29.2137 10C27.3875 10 25.6058 10.4689 24.0575 11.3546C23.6871 11.5664 23.3352 11.7991 23.0018 12.0527C22.6685 11.7991 22.3166 11.5664 21.9462 11.3546C20.3978 10.4689 18.6161 10 16.79 10C15.475 10 14.2008 10.2362 12.997 10.7051C11.8339 11.1566 10.7856 11.8061 9.88552 12.6327C8.9891 13.4528 8.27303 14.4299 7.77787 15.5085C7.26299 16.6304 7 17.8217 7 19.0477C7 20.2043 7.25188 21.4095 7.75194 22.6355C8.1705 23.6601 8.77057 24.7229 9.53733 25.7961C10.7523 27.4945 12.4228 29.2659 14.4972 31.0615C17.9346 34.0381 21.3387 36.0942 21.4831 36.1775L22.361 36.7055C22.75 36.9382 23.25 36.9382 23.6389 36.7055L24.5168 36.1775C24.6613 36.0907 28.0617 34.0381 31.5028 31.0615C33.5771 29.2659 35.2477 27.4945 36.4626 25.7961C37.2294 24.7229 37.8332 23.6601 38.248 22.6355C38.7481 21.4095 39 20.2043 39 19.0477C39.0037 17.8217 38.7407 16.6304 38.2258 15.5085V15.5085Z"
                                                 fill="white" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_654_10019" x1="1.5" y1="2.5" x2="44.5"
+                                                    y2="50" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#FF0642" />
+                                                    <stop offset="1" stop-color="#EA1272" />
+                                                </linearGradient>
+                                            </defs>
                                         </svg>
                                     </button>
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 34 34" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
@@ -698,21 +738,21 @@
                                 </div>
                             </div>
 
-                            <div class="p-2.5 sm:p-3 md:p-4 lg:pt-7 lg:pb-6 lg:px-8">
+                            <div class="p-2.5 sm:p-3 md:p-4 pt-7 sm:pt-8 md:pt-9 3k:pt-10 lg:pb-6 lg:px-8">
                                 <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
-                                    <h2 class="text-base sm:text-lg md:text-xl text-primary">Kitty, <span
+                                    <h2 class="text-base sm:text-lg md:text-xl text-primary">Spacy, <span
                                             class="font-medium font-poppins">22</span></h2>
 
                                     <div class="flex h-2 md:h-3 w-2 md:w-3 relative items-center justify-center">
                                         <span
-                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-ofline-red opacity-0"></span>
+                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-online-green opacity-75"></span>
                                         <span
-                                            class="relative inline-flex rounded-full w-1 sm:w-1.5 md:w-2 lg:w-2.5 h-1 sm:h-1.5 md:h-2 lg:h-2.5 bg-ofline-red"></span>
+                                            class="relative inline-flex rounded-full w-1 sm:w-1.5 md:w-2 lg:w-2.5 h-1 sm:h-1.5 md:h-2 lg:h-2.5 bg-online-green"></span>
                                     </div>
                                 </a>
 
                                 <a href="#" class="flex items-center space-x-2 sm:space-x-2.5">
-                                    <svg class="fill-current text-muted" width="11" height="14" viewBox="0 0 11 14"
+                                    <svg class="fill-current text-secondary" width="11" height="14" viewBox="0 0 11 14"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M5.5 1.04306C3.01867 1.04306 1 3.16882 1 5.78065C1 9.10385 4.74933 12.3415 5.5 12.514C6.25067 12.3408 10 9.10316 10 5.78065C10 3.16882 7.98133 1.04306 5.5 1.04306ZM7.66733 5.73754C7.66733 4.49073 6.69533 3.47688 5.50067 3.47688C4.306 3.47688 3.334 4.49073 3.334 5.73754C3.334 6.98365 4.306 7.99681 5.50067 7.99681C6.69533 7.99681 7.66733 6.98365 7.66733 5.73754Z"
@@ -723,7 +763,7 @@
                                     </svg>
 
                                     <p
-                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-muted tracking-wide">
+                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-secondary tracking-wide">
                                         New york
                                     </p>
                                 </a>
@@ -739,7 +779,7 @@
 
 
             <!-- Popular members Start -->
-            <div class="px-5 sm:px-0 py-[30px] sm:py-12 md:py-16 lg:py-20 h-full" x-cloak x-show="openTab === 2">
+            <div class="px-5 sm:px-0 pt-[30px] sm:pt-12 md:pt-16 lg:pt-20 pb-32 h-full" x-cloak x-show="openTab === 2">
 
                 <div class="sm:max-w-[560px] sm:mx-auto mb-[30px] sm:mb-12 md:mb-16 lg:mb-20">
                     <div class="flex items-center justify-between mb-1.5 sm:mb-4 3k:mb-[30px]">
@@ -763,9 +803,9 @@
 
 
                             <div x-cloak x-show="boostModal"
-                                class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
+                                class="fixed inset-0 z-[60] bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
                                 <div
-                                    class="max-w-[712px] w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+                                    class="max-w-xl w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
                                     <button @click="boostModal = false"
                                         class="absolute right-0 top-0 m-4 hover:opacity-75">
                                         <svg class="w-6 sm:w-8 md:w-10 fill-current text-muted" viewBox="0 0 40 40"
@@ -776,38 +816,38 @@
                                         </svg>
                                     </button>
                                     <h1
-                                        class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold text-center capitalize mb-5">
+                                        class="text-2xl sm:text-3xl 3k:text-4xl text-primary font-bold text-center capitalize mb-5">
                                         Boost</h1>
                                     <p
-                                        class="text-sm sm:text-base md:text-lg text-center text-secondary mb-4 sm:mb-6 md:mb-10">
+                                        class="text-sm sm:text-base m3k:text-lg text-center text-secondary mb-4 sm:mb-6 3k:mb-10">
                                         Get more attention and higher reply rate from popular members in your area</p>
 
-                                    <div class="space-y-2.5 sm:space-y-5 md:space-y-8 lg:space-y-10">
+                                    <div class="space-y-2.5 sm:space-y-5 md:space-y-4 3k:space-y-10">
                                         <div
-                                            class="bg-2 rounded-2xl py-5 sm:py-6 md:py-8 px-4 sm:px-6 md:px-8 flex items-center justify-between">
+                                            class="bg-2 rounded-2xl py-5 sm:py-6 3k:py-8 px-4 sm:px-6 md:px-8 flex items-center justify-between">
                                             <div class="flex items-center space-x-2">
                                                 <h1
-                                                    class="text-2xl sm:text-3xl md:text-4xl text-invert font-semibold font-roboto">
+                                                    class="text-2xl sm:text-3xl 3k:text-4xl text-invert font-semibold font-roboto">
                                                     24</h1>
-                                                <p class="text-sm sm:text-base md:text-lg text-invert-alt">hours</p>
+                                                <p class="text-sm sm:text-base 3k:text-lg text-invert-alt">hours</p>
                                             </div>
                                             <h1
-                                                class="text-2xl sm:text-3xl md:text-4xl text-invert font-semibold font-roboto">
+                                                class="text-2xl sm:text-3xl 3k:text-4xl text-invert font-semibold font-roboto">
                                                 $2</h1>
                                         </div>
                                         <div
-                                            class="bg-5 rounded-2xl py-3 sm:py-4 md:py-5 px-4 sm:px-6 md:px-8 flex items-center justify-between">
+                                            class="bg-5 rounded-2xl py-3 sm:py-3 3k:py-5 px-4 sm:px-6 md:px-8 flex items-center justify-between">
                                             <div class="flex items-center space-x-2">
                                                 <h1
-                                                    class="text-2xl sm:text-3xl md:text-4xl text-invert font-semibold font-roboto">
+                                                    class="text-2xl sm:text-3xl 3k:text-4xl text-invert font-semibold font-roboto">
                                                     3</h1>
-                                                <p class="text-sm sm:text-base md:text-lg text-invert-alt">days</p>
+                                                <p class="text-sm sm:text-base 3k:text-lg text-invert-alt">days</p>
                                             </div>
                                             <div>
                                                 <h1
-                                                    class="text-2xl sm:text-3xl md:text-4xl text-invert font-semibold font-roboto">
+                                                    class="text-2xl sm:text-3xl 3k:text-4xl text-invert font-semibold font-roboto">
                                                     $0.99</h1>
-                                                <p class="text-sm sm:text-base md:text-lg text-right text-invert-alt">
+                                                <p class="text-sm sm:text-base 3k:text-lg text-right text-invert-alt">
                                                     per day</p>
                                             </div>
                                         </div>
@@ -842,21 +882,29 @@
 
                             <!-- Buttom Buttons -->
                             <div
-                                class="absolute inset-x-0 bottom-0 mb-2.5 sm:mb-3 md:mb-4 ml-2.5 sm:ml-5 flex items-center space-x-1.5 sm:space-x-3 lg:space-x-4">
+                                class="absolute inset-x-0 bottom-0 flex items-center justify-center translate-y-1/2 space-x-2.5 sm:space-x-3 lg:space-x-4">
 
                                 <button
-                                    class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                    class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                    <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 46 46" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M17.0473 5.00592C19.2734 3.59853 22.2305 3.20972 24.7852 4.02842C30.3421 5.8205 32.0671 11.8785 30.5242 16.699C28.1434 24.2698 17.9755 29.9171 17.5443 30.154C17.3909 30.2388 17.2212 30.2813 17.0514 30.2813C16.8816 30.2813 16.7133 30.2402 16.5599 30.1567C16.1314 29.9226 6.03742 24.3588 3.57724 16.7003L3.57587 16.699C2.03158 11.8772 3.75111 5.81776 9.3026 4.02842C11.9093 3.18508 14.75 3.55609 17.0473 5.00592ZM9.93236 5.98342C5.44051 7.43187 4.31242 12.2632 5.53224 16.0733C7.45164 22.0451 15.0348 26.8737 17.05 28.0689C19.0721 26.8614 26.71 21.9794 28.5678 16.0788C29.7877 12.2646 28.6555 7.43324 24.1568 5.98342C21.9772 5.28383 19.4349 5.70961 17.6798 7.0677C17.3129 7.34972 16.8036 7.3552 16.434 7.07591C14.5748 5.67812 12.1461 5.26877 9.93236 5.98342Z"
+                                        <rect width="46" height="46" rx="23" fill="url(#paint0_linear_654_10019)" />
+                                        <path
+                                            d="M38.2258 15.5085C37.7293 14.4306 37.0134 13.4537 36.1181 12.6327C35.2222 11.8092 34.1659 11.1548 33.0067 10.7051C31.8046 10.2369 30.5153 9.99722 29.2137 10C27.3875 10 25.6058 10.4689 24.0575 11.3546C23.6871 11.5664 23.3352 11.7991 23.0018 12.0527C22.6685 11.7991 22.3166 11.5664 21.9462 11.3546C20.3978 10.4689 18.6161 10 16.79 10C15.475 10 14.2008 10.2362 12.997 10.7051C11.8339 11.1566 10.7856 11.8061 9.88552 12.6327C8.9891 13.4528 8.27303 14.4299 7.77787 15.5085C7.26299 16.6304 7 17.8217 7 19.0477C7 20.2043 7.25188 21.4095 7.75194 22.6355C8.1705 23.6601 8.77057 24.7229 9.53733 25.7961C10.7523 27.4945 12.4228 29.2659 14.4972 31.0615C17.9346 34.0381 21.3387 36.0942 21.4831 36.1775L22.361 36.7055C22.75 36.9382 23.25 36.9382 23.6389 36.7055L24.5168 36.1775C24.6613 36.0907 28.0617 34.0381 31.5028 31.0615C33.5771 29.2659 35.2477 27.4945 36.4626 25.7961C37.2294 24.7229 37.8332 23.6601 38.248 22.6355C38.7481 21.4095 39 20.2043 39 19.0477C39.0037 17.8217 38.7407 16.6304 38.2258 15.5085V15.5085Z"
                                             fill="white" />
+                                        <defs>
+                                            <linearGradient id="paint0_linear_654_10019" x1="1.5" y1="2.5" x2="44.5"
+                                                y2="50" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#FF0642" />
+                                                <stop offset="1" stop-color="#EA1272" />
+                                            </linearGradient>
+                                        </defs>
                                     </svg>
                                 </button>
 
                                 <button
-                                    class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                    class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                    <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 34 34" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
@@ -867,7 +915,7 @@
                             </div>
                         </div>
 
-                        <div class="p-2.5 sm:p-3 md:p-4 lg:pt-7 lg:pb-6 lg:px-8">
+                        <div class="p-2.5 sm:p-3 md:p-4 pt-7 sm:pt-8 md:pt-9 3k:pt-10 lg:pb-6 lg:px-8">
                             <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
                                 <h2 class="text-base sm:text-lg md:text-xl text-primary">Spacy, <span
                                         class="font-medium font-poppins">22</span></h2>
@@ -943,21 +991,29 @@
 
                             <!-- Buttom Buttons -->
                             <div
-                                class="absolute inset-x-0 bottom-0 mb-2.5 sm:mb-3 md:mb-4 ml-2.5 sm:ml-5 flex items-center space-x-1.5 sm:space-x-3 lg:space-x-4">
+                                class="absolute inset-x-0 bottom-0 flex items-center justify-center translate-y-1/2 space-x-2.5 sm:space-x-3 lg:space-x-4">
 
                                 <button
-                                    class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                    class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                    <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 46 46" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M17.0473 5.00592C19.2734 3.59853 22.2305 3.20972 24.7852 4.02842C30.3421 5.8205 32.0671 11.8785 30.5242 16.699C28.1434 24.2698 17.9755 29.9171 17.5443 30.154C17.3909 30.2388 17.2212 30.2813 17.0514 30.2813C16.8816 30.2813 16.7133 30.2402 16.5599 30.1567C16.1314 29.9226 6.03742 24.3588 3.57724 16.7003L3.57587 16.699C2.03158 11.8772 3.75111 5.81776 9.3026 4.02842C11.9093 3.18508 14.75 3.55609 17.0473 5.00592ZM9.93236 5.98342C5.44051 7.43187 4.31242 12.2632 5.53224 16.0733C7.45164 22.0451 15.0348 26.8737 17.05 28.0689C19.0721 26.8614 26.71 21.9794 28.5678 16.0788C29.7877 12.2646 28.6555 7.43324 24.1568 5.98342C21.9772 5.28383 19.4349 5.70961 17.6798 7.0677C17.3129 7.34972 16.8036 7.3552 16.434 7.07591C14.5748 5.67812 12.1461 5.26877 9.93236 5.98342Z"
+                                        <rect width="46" height="46" rx="23" fill="url(#paint0_linear_654_10019)" />
+                                        <path
+                                            d="M38.2258 15.5085C37.7293 14.4306 37.0134 13.4537 36.1181 12.6327C35.2222 11.8092 34.1659 11.1548 33.0067 10.7051C31.8046 10.2369 30.5153 9.99722 29.2137 10C27.3875 10 25.6058 10.4689 24.0575 11.3546C23.6871 11.5664 23.3352 11.7991 23.0018 12.0527C22.6685 11.7991 22.3166 11.5664 21.9462 11.3546C20.3978 10.4689 18.6161 10 16.79 10C15.475 10 14.2008 10.2362 12.997 10.7051C11.8339 11.1566 10.7856 11.8061 9.88552 12.6327C8.9891 13.4528 8.27303 14.4299 7.77787 15.5085C7.26299 16.6304 7 17.8217 7 19.0477C7 20.2043 7.25188 21.4095 7.75194 22.6355C8.1705 23.6601 8.77057 24.7229 9.53733 25.7961C10.7523 27.4945 12.4228 29.2659 14.4972 31.0615C17.9346 34.0381 21.3387 36.0942 21.4831 36.1775L22.361 36.7055C22.75 36.9382 23.25 36.9382 23.6389 36.7055L24.5168 36.1775C24.6613 36.0907 28.0617 34.0381 31.5028 31.0615C33.5771 29.2659 35.2477 27.4945 36.4626 25.7961C37.2294 24.7229 37.8332 23.6601 38.248 22.6355C38.7481 21.4095 39 20.2043 39 19.0477C39.0037 17.8217 38.7407 16.6304 38.2258 15.5085V15.5085Z"
                                             fill="white" />
+                                        <defs>
+                                            <linearGradient id="paint0_linear_654_10019" x1="1.5" y1="2.5" x2="44.5"
+                                                y2="50" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#FF0642" />
+                                                <stop offset="1" stop-color="#EA1272" />
+                                            </linearGradient>
+                                        </defs>
                                     </svg>
                                 </button>
 
                                 <button
-                                    class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                    class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                    <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 34 34" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
@@ -968,7 +1024,7 @@
                             </div>
                         </div>
 
-                        <div class="p-2.5 sm:p-3 md:p-4 lg:pt-7 lg:pb-6 lg:px-8">
+                        <div class="p-2.5 sm:p-3 md:p-4 pt-7 sm:pt-8 md:pt-9 3k:pt-10 lg:pb-6 lg:px-8">
                             <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
                                 <h2 class="text-base sm:text-lg md:text-xl text-primary">Crazy Girl, <span
                                         class="font-medium font-poppins">22</span></h2>
@@ -1044,21 +1100,29 @@
 
                             <!-- Buttom Buttons -->
                             <div
-                                class="absolute inset-x-0 bottom-0 mb-2.5 sm:mb-3 md:mb-4 ml-2.5 sm:ml-5 flex items-center space-x-1.5 sm:space-x-3 lg:space-x-4">
+                                class="absolute inset-x-0 bottom-0 flex items-center justify-center translate-y-1/2 space-x-2.5 sm:space-x-3 lg:space-x-4">
 
                                 <button
-                                    class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                    class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                    <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 46 46" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M17.0473 5.00592C19.2734 3.59853 22.2305 3.20972 24.7852 4.02842C30.3421 5.8205 32.0671 11.8785 30.5242 16.699C28.1434 24.2698 17.9755 29.9171 17.5443 30.154C17.3909 30.2388 17.2212 30.2813 17.0514 30.2813C16.8816 30.2813 16.7133 30.2402 16.5599 30.1567C16.1314 29.9226 6.03742 24.3588 3.57724 16.7003L3.57587 16.699C2.03158 11.8772 3.75111 5.81776 9.3026 4.02842C11.9093 3.18508 14.75 3.55609 17.0473 5.00592ZM9.93236 5.98342C5.44051 7.43187 4.31242 12.2632 5.53224 16.0733C7.45164 22.0451 15.0348 26.8737 17.05 28.0689C19.0721 26.8614 26.71 21.9794 28.5678 16.0788C29.7877 12.2646 28.6555 7.43324 24.1568 5.98342C21.9772 5.28383 19.4349 5.70961 17.6798 7.0677C17.3129 7.34972 16.8036 7.3552 16.434 7.07591C14.5748 5.67812 12.1461 5.26877 9.93236 5.98342Z"
+                                        <rect width="46" height="46" rx="23" fill="url(#paint0_linear_654_10019)" />
+                                        <path
+                                            d="M38.2258 15.5085C37.7293 14.4306 37.0134 13.4537 36.1181 12.6327C35.2222 11.8092 34.1659 11.1548 33.0067 10.7051C31.8046 10.2369 30.5153 9.99722 29.2137 10C27.3875 10 25.6058 10.4689 24.0575 11.3546C23.6871 11.5664 23.3352 11.7991 23.0018 12.0527C22.6685 11.7991 22.3166 11.5664 21.9462 11.3546C20.3978 10.4689 18.6161 10 16.79 10C15.475 10 14.2008 10.2362 12.997 10.7051C11.8339 11.1566 10.7856 11.8061 9.88552 12.6327C8.9891 13.4528 8.27303 14.4299 7.77787 15.5085C7.26299 16.6304 7 17.8217 7 19.0477C7 20.2043 7.25188 21.4095 7.75194 22.6355C8.1705 23.6601 8.77057 24.7229 9.53733 25.7961C10.7523 27.4945 12.4228 29.2659 14.4972 31.0615C17.9346 34.0381 21.3387 36.0942 21.4831 36.1775L22.361 36.7055C22.75 36.9382 23.25 36.9382 23.6389 36.7055L24.5168 36.1775C24.6613 36.0907 28.0617 34.0381 31.5028 31.0615C33.5771 29.2659 35.2477 27.4945 36.4626 25.7961C37.2294 24.7229 37.8332 23.6601 38.248 22.6355C38.7481 21.4095 39 20.2043 39 19.0477C39.0037 17.8217 38.7407 16.6304 38.2258 15.5085V15.5085Z"
                                             fill="white" />
+                                        <defs>
+                                            <linearGradient id="paint0_linear_654_10019" x1="1.5" y1="2.5" x2="44.5"
+                                                y2="50" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#FF0642" />
+                                                <stop offset="1" stop-color="#EA1272" />
+                                            </linearGradient>
+                                        </defs>
                                     </svg>
                                 </button>
 
                                 <button
-                                    class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                    class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                    <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 34 34" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
@@ -1069,7 +1133,7 @@
                             </div>
                         </div>
 
-                        <div class="p-2.5 sm:p-3 md:p-4 lg:pt-7 lg:pb-6 lg:px-8">
+                        <div class="p-2.5 sm:p-3 md:p-4 pt-7 sm:pt-8 md:pt-9 3k:pt-10 lg:pb-6 lg:px-8">
                             <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
                                 <h2 class="text-base sm:text-lg md:text-xl text-primary">Spacy, <span
                                         class="font-medium font-poppins">22</span></h2>
@@ -1145,21 +1209,29 @@
 
                             <!-- Buttom Buttons -->
                             <div
-                                class="absolute inset-x-0 bottom-0 mb-2.5 sm:mb-3 md:mb-4 ml-2.5 sm:ml-5 flex items-center space-x-1.5 sm:space-x-3 lg:space-x-4">
+                                class="absolute inset-x-0 bottom-0 flex items-center justify-center translate-y-1/2 space-x-2.5 sm:space-x-3 lg:space-x-4">
 
                                 <button
-                                    class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                    class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                    <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 46 46" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M17.0473 5.00592C19.2734 3.59853 22.2305 3.20972 24.7852 4.02842C30.3421 5.8205 32.0671 11.8785 30.5242 16.699C28.1434 24.2698 17.9755 29.9171 17.5443 30.154C17.3909 30.2388 17.2212 30.2813 17.0514 30.2813C16.8816 30.2813 16.7133 30.2402 16.5599 30.1567C16.1314 29.9226 6.03742 24.3588 3.57724 16.7003L3.57587 16.699C2.03158 11.8772 3.75111 5.81776 9.3026 4.02842C11.9093 3.18508 14.75 3.55609 17.0473 5.00592ZM9.93236 5.98342C5.44051 7.43187 4.31242 12.2632 5.53224 16.0733C7.45164 22.0451 15.0348 26.8737 17.05 28.0689C19.0721 26.8614 26.71 21.9794 28.5678 16.0788C29.7877 12.2646 28.6555 7.43324 24.1568 5.98342C21.9772 5.28383 19.4349 5.70961 17.6798 7.0677C17.3129 7.34972 16.8036 7.3552 16.434 7.07591C14.5748 5.67812 12.1461 5.26877 9.93236 5.98342Z"
+                                        <rect width="46" height="46" rx="23" fill="url(#paint0_linear_654_10019)" />
+                                        <path
+                                            d="M38.2258 15.5085C37.7293 14.4306 37.0134 13.4537 36.1181 12.6327C35.2222 11.8092 34.1659 11.1548 33.0067 10.7051C31.8046 10.2369 30.5153 9.99722 29.2137 10C27.3875 10 25.6058 10.4689 24.0575 11.3546C23.6871 11.5664 23.3352 11.7991 23.0018 12.0527C22.6685 11.7991 22.3166 11.5664 21.9462 11.3546C20.3978 10.4689 18.6161 10 16.79 10C15.475 10 14.2008 10.2362 12.997 10.7051C11.8339 11.1566 10.7856 11.8061 9.88552 12.6327C8.9891 13.4528 8.27303 14.4299 7.77787 15.5085C7.26299 16.6304 7 17.8217 7 19.0477C7 20.2043 7.25188 21.4095 7.75194 22.6355C8.1705 23.6601 8.77057 24.7229 9.53733 25.7961C10.7523 27.4945 12.4228 29.2659 14.4972 31.0615C17.9346 34.0381 21.3387 36.0942 21.4831 36.1775L22.361 36.7055C22.75 36.9382 23.25 36.9382 23.6389 36.7055L24.5168 36.1775C24.6613 36.0907 28.0617 34.0381 31.5028 31.0615C33.5771 29.2659 35.2477 27.4945 36.4626 25.7961C37.2294 24.7229 37.8332 23.6601 38.248 22.6355C38.7481 21.4095 39 20.2043 39 19.0477C39.0037 17.8217 38.7407 16.6304 38.2258 15.5085V15.5085Z"
                                             fill="white" />
+                                        <defs>
+                                            <linearGradient id="paint0_linear_654_10019" x1="1.5" y1="2.5" x2="44.5"
+                                                y2="50" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#FF0642" />
+                                                <stop offset="1" stop-color="#EA1272" />
+                                            </linearGradient>
+                                        </defs>
                                     </svg>
                                 </button>
 
                                 <button
-                                    class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                    class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                    <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 34 34" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
@@ -1170,7 +1242,7 @@
                             </div>
                         </div>
 
-                        <div class="p-2.5 sm:p-3 md:p-4 lg:pt-7 lg:pb-6 lg:px-8">
+                        <div class="p-2.5 sm:p-3 md:p-4 pt-7 sm:pt-8 md:pt-9 3k:pt-10 lg:pb-6 lg:px-8">
                             <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
                                 <h2 class="text-base sm:text-lg md:text-xl text-primary">Kitty, <span
                                         class="font-medium font-poppins">22</span></h2>
@@ -1224,21 +1296,29 @@
 
                             <!-- Buttom Buttons -->
                             <div
-                                class="absolute inset-x-0 bottom-0 mb-2.5 sm:mb-3 md:mb-4 ml-2.5 sm:ml-5 flex items-center space-x-1.5 sm:space-x-3 lg:space-x-4">
+                                class="absolute inset-x-0 bottom-0 flex items-center justify-center translate-y-1/2 space-x-2.5 sm:space-x-3 lg:space-x-4">
 
                                 <button
-                                    class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                    class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                    <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 46 46" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M17.0473 5.00592C19.2734 3.59853 22.2305 3.20972 24.7852 4.02842C30.3421 5.8205 32.0671 11.8785 30.5242 16.699C28.1434 24.2698 17.9755 29.9171 17.5443 30.154C17.3909 30.2388 17.2212 30.2813 17.0514 30.2813C16.8816 30.2813 16.7133 30.2402 16.5599 30.1567C16.1314 29.9226 6.03742 24.3588 3.57724 16.7003L3.57587 16.699C2.03158 11.8772 3.75111 5.81776 9.3026 4.02842C11.9093 3.18508 14.75 3.55609 17.0473 5.00592ZM9.93236 5.98342C5.44051 7.43187 4.31242 12.2632 5.53224 16.0733C7.45164 22.0451 15.0348 26.8737 17.05 28.0689C19.0721 26.8614 26.71 21.9794 28.5678 16.0788C29.7877 12.2646 28.6555 7.43324 24.1568 5.98342C21.9772 5.28383 19.4349 5.70961 17.6798 7.0677C17.3129 7.34972 16.8036 7.3552 16.434 7.07591C14.5748 5.67812 12.1461 5.26877 9.93236 5.98342Z"
+                                        <rect width="46" height="46" rx="23" fill="url(#paint0_linear_654_10019)" />
+                                        <path
+                                            d="M38.2258 15.5085C37.7293 14.4306 37.0134 13.4537 36.1181 12.6327C35.2222 11.8092 34.1659 11.1548 33.0067 10.7051C31.8046 10.2369 30.5153 9.99722 29.2137 10C27.3875 10 25.6058 10.4689 24.0575 11.3546C23.6871 11.5664 23.3352 11.7991 23.0018 12.0527C22.6685 11.7991 22.3166 11.5664 21.9462 11.3546C20.3978 10.4689 18.6161 10 16.79 10C15.475 10 14.2008 10.2362 12.997 10.7051C11.8339 11.1566 10.7856 11.8061 9.88552 12.6327C8.9891 13.4528 8.27303 14.4299 7.77787 15.5085C7.26299 16.6304 7 17.8217 7 19.0477C7 20.2043 7.25188 21.4095 7.75194 22.6355C8.1705 23.6601 8.77057 24.7229 9.53733 25.7961C10.7523 27.4945 12.4228 29.2659 14.4972 31.0615C17.9346 34.0381 21.3387 36.0942 21.4831 36.1775L22.361 36.7055C22.75 36.9382 23.25 36.9382 23.6389 36.7055L24.5168 36.1775C24.6613 36.0907 28.0617 34.0381 31.5028 31.0615C33.5771 29.2659 35.2477 27.4945 36.4626 25.7961C37.2294 24.7229 37.8332 23.6601 38.248 22.6355C38.7481 21.4095 39 20.2043 39 19.0477C39.0037 17.8217 38.7407 16.6304 38.2258 15.5085V15.5085Z"
                                             fill="white" />
+                                        <defs>
+                                            <linearGradient id="paint0_linear_654_10019" x1="1.5" y1="2.5" x2="44.5"
+                                                y2="50" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#FF0642" />
+                                                <stop offset="1" stop-color="#EA1272" />
+                                            </linearGradient>
+                                        </defs>
                                     </svg>
                                 </button>
 
                                 <button
-                                    class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                    class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                    <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 34 34" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
@@ -1249,7 +1329,7 @@
                             </div>
                         </div>
 
-                        <div class="p-2.5 sm:p-3 md:p-4 lg:pt-7 lg:pb-6 lg:px-8">
+                        <div class="p-2.5 sm:p-3 md:p-4 pt-7 sm:pt-8 md:pt-9 3k:pt-10 lg:pb-6 lg:px-8">
                             <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
                                 <h2 class="text-base sm:text-lg md:text-xl text-primary">Kitty, <span
                                         class="font-medium font-poppins">22</span></h2>
@@ -1287,12 +1367,12 @@
 
 
             <!-- View Me Section Start -->
-            <div class="px-5 sm:px-0 h-full" x-cloak x-show="openTab === 3" x-data="{ViewPage: 1}">
+            <div class="px-5 sm:px-0 flex-1" x-cloak x-show="openTab === 3" x-data="{ViewPage: 1}">
 
                 <!-- View None Start -->
-                <div x-cloak x-show="ViewPage === 1" class="flex items-center justify-center mt-[15vh]">
-                    <div class="max-w-md text-center">
-                        <svg class="w-20 sm:w-28 md:w-32 mx-auto mb-6 sm:mb-8 md:mb-12 lg:mb-[60px]" viewBox="0 0 82 82"
+                <div x-cloak x-show="ViewPage === 1" class="h-full flex items-center">
+                    <div class="max-w-md mx-auto text-center pt-10 pb-20">
+                        <svg class="w-20 sm:w-24 md:w-28 mx-auto mb-6 sm:mb-7 md:mb-8 lg:mb-10" viewBox="0 0 82 82"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M33.6396 24.8736L35.55 20.4658H38.2781L39.7848 22.741L37.961 27.395L34.926 27.7182L33.6396 24.8736Z"
@@ -1399,18 +1479,17 @@
                         </svg>
 
 
-                        <h1
-                            class="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary font-bold mb-4 sm:mb-6 md:mb-[30px]">
+                        <h1 class="text-xl sm:text-2xl 4k:text-3xl text-primary font-bold mb-2 sm:mb-3 4k:mb-6">
                             No one has viewed
                             you yet</h1>
-                        <p class="text-base sm:text-lg text-muted max-w-sm mx-auto mb-6 sm:mb-8 md:mb-14">Let’s finish
+                        <p class="text-base text-muted max-w-sm mx-auto mb-6 sm:mb-6 4k:mb-10">Let’s finish
                             setting up your
                             profile or boost to increase your visibility and popularity.</p>
 
                         <button @click="ViewPage = 2"
-                            class="text-base sm:text-lg py-4 lg:py-[18px] 4k:py-6 font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out mb-2.5 sm:mb-5">boost</button>
+                            class="text-base 4k:text-lg py-3 lg:py-3.5 4k:py-6 font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out mb-2.5 sm:mb-5">boost</button>
                         <button
-                            class="text-base sm:text-lg py-4 lg:py-[18px] 4k:py-6 font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full inline-block text-center bg-muted hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out mb-2.5 sm:mb-5">finish
+                            class="text-base 4k:text-lg py-3 lg:py-3.5 4k:py-6 font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full inline-block text-center bg-muted hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out mb-2.5 sm:mb-5">finish
                             profile</button>
                     </div>
                 </div>
@@ -1421,7 +1500,7 @@
                 <div x-cloak x-show="ViewPage === 2" class="py-[30px] sm:py-14 md:py-20 lg:py-[100px]">
                     <div
                         class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-3 sm:gap-x-6 sm:gap-y-10 md:gap-x-4 md:gap-y-6 lg:gap-x-5 lg:gap-y-10 xl:gap-x-[30px] xl:gap-y-20">
-                        <div class="relative bg-primary shadow-40 rounded-[14px] overflow-hidden">
+                        <div class="relative bg-primary rounded-[14px] shadow-10 overflow-hidden">
 
                             <!-- Card Image -->
                             <div class="relative">
@@ -1443,21 +1522,29 @@
 
                                 <!-- Buttom Buttons -->
                                 <div
-                                    class="absolute inset-x-0 bottom-0 mb-2.5 sm:mb-3 md:mb-4 ml-2.5 sm:ml-5 flex items-center space-x-1.5 sm:space-x-3 lg:space-x-4">
+                                    class="absolute inset-x-0 bottom-0 flex items-center justify-center translate-y-1/2 space-x-2.5 sm:space-x-3 lg:space-x-4">
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-4 sm:w-5 md:w-6" viewBox="0 0 32 27" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 46 46" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="46" height="46" rx="23" fill="url(#paint0_linear_654_10019)" />
                                             <path
-                                                d="M31.2258 5.50852C30.7293 4.43057 30.0134 3.45374 29.1181 2.63271C28.2222 1.80924 27.1659 1.15483 26.0067 0.705084C24.8046 0.236873 23.5153 -0.00278476 22.2137 2.44127e-05C20.3875 2.44127e-05 18.6058 0.468907 17.0575 1.35457C16.6871 1.56644 16.3352 1.79914 16.0018 2.05269C15.6685 1.79914 15.3166 1.56644 14.9462 1.35457C13.3978 0.468907 11.6161 2.44127e-05 9.79001 2.44127e-05C8.47504 2.44127e-05 7.20082 0.236202 5.99698 0.705084C4.83389 1.1566 3.78562 1.80609 2.88552 2.63271C1.9891 3.45281 1.27303 4.42987 0.777867 5.50852C0.262993 6.63037 0 7.82167 0 9.04771C0 10.2043 0.251881 11.4095 0.751938 12.6355C1.1705 13.6601 1.77057 14.7229 2.53733 15.7961C3.75228 17.4945 5.42284 19.2659 7.49715 21.0615C10.9346 24.0381 14.3387 26.0942 14.4831 26.1775L15.361 26.7055C15.75 26.9382 16.25 26.9382 16.6389 26.7055L17.5168 26.1775C17.6613 26.0907 21.0617 24.0381 24.5028 21.0615C26.5771 19.2659 28.2477 17.4945 29.4626 15.7961C30.2294 14.7229 30.8332 13.6601 31.248 12.6355C31.7481 11.4095 32 10.2043 32 9.04771C32.0037 7.82167 31.7407 6.63037 31.2258 5.50852V5.50852Z"
+                                                d="M38.2258 15.5085C37.7293 14.4306 37.0134 13.4537 36.1181 12.6327C35.2222 11.8092 34.1659 11.1548 33.0067 10.7051C31.8046 10.2369 30.5153 9.99722 29.2137 10C27.3875 10 25.6058 10.4689 24.0575 11.3546C23.6871 11.5664 23.3352 11.7991 23.0018 12.0527C22.6685 11.7991 22.3166 11.5664 21.9462 11.3546C20.3978 10.4689 18.6161 10 16.79 10C15.475 10 14.2008 10.2362 12.997 10.7051C11.8339 11.1566 10.7856 11.8061 9.88552 12.6327C8.9891 13.4528 8.27303 14.4299 7.77787 15.5085C7.26299 16.6304 7 17.8217 7 19.0477C7 20.2043 7.25188 21.4095 7.75194 22.6355C8.1705 23.6601 8.77057 24.7229 9.53733 25.7961C10.7523 27.4945 12.4228 29.2659 14.4972 31.0615C17.9346 34.0381 21.3387 36.0942 21.4831 36.1775L22.361 36.7055C22.75 36.9382 23.25 36.9382 23.6389 36.7055L24.5168 36.1775C24.6613 36.0907 28.0617 34.0381 31.5028 31.0615C33.5771 29.2659 35.2477 27.4945 36.4626 25.7961C37.2294 24.7229 37.8332 23.6601 38.248 22.6355C38.7481 21.4095 39 20.2043 39 19.0477C39.0037 17.8217 38.7407 16.6304 38.2258 15.5085V15.5085Z"
                                                 fill="white" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_654_10019" x1="1.5" y1="2.5" x2="44.5"
+                                                    y2="50" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#FF0642" />
+                                                    <stop offset="1" stop-color="#EA1272" />
+                                                </linearGradient>
+                                            </defs>
                                         </svg>
                                     </button>
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 34 34" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
@@ -1468,7 +1555,7 @@
                                 </div>
                             </div>
 
-                            <div class="p-2.5 sm:p-3 md:p-4 lg:pt-7 lg:pb-6 lg:px-8">
+                            <div class="p-2.5 sm:p-3 md:p-4 pt-7 sm:pt-8 md:pt-9 3k:pt-10 lg:pb-6 lg:px-8">
                                 <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
                                     <h2 class="text-base sm:text-lg md:text-xl text-primary">Spacy, <span
                                             class="font-medium font-poppins">22</span></h2>
@@ -1482,7 +1569,7 @@
                                 </a>
 
                                 <a href="#" class="flex items-center space-x-2 sm:space-x-2.5">
-                                    <svg class="fill-current text-muted" width="11" height="14" viewBox="0 0 11 14"
+                                    <svg class="fill-current text-secondary" width="11" height="14" viewBox="0 0 11 14"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M5.5 1.04306C3.01867 1.04306 1 3.16882 1 5.78065C1 9.10385 4.74933 12.3415 5.5 12.514C6.25067 12.3408 10 9.10316 10 5.78065C10 3.16882 7.98133 1.04306 5.5 1.04306ZM7.66733 5.73754C7.66733 4.49073 6.69533 3.47688 5.50067 3.47688C4.306 3.47688 3.334 4.49073 3.334 5.73754C3.334 6.98365 4.306 7.99681 5.50067 7.99681C6.69533 7.99681 7.66733 6.98365 7.66733 5.73754Z"
@@ -1493,14 +1580,14 @@
                                     </svg>
 
                                     <p
-                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-muted tracking-wide">
+                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-secondary tracking-wide">
                                         New york
                                     </p>
                                 </a>
                             </div>
                         </div>
 
-                        <div class="relative bg-primary shadow-40 rounded-[14px] overflow-hidden">
+                        <div class="relative bg-primary rounded-[14px] shadow-10 overflow-hidden">
 
                             <!-- Card Image -->
                             <div class="relative">
@@ -1522,100 +1609,29 @@
 
                                 <!-- Buttom Buttons -->
                                 <div
-                                    class="absolute inset-x-0 bottom-0 mb-2.5 sm:mb-3 md:mb-4 ml-2.5 sm:ml-5 flex items-center space-x-1.5 sm:space-x-3 lg:space-x-4">
+                                    class="absolute inset-x-0 bottom-0 flex items-center justify-center translate-y-1/2 space-x-2.5 sm:space-x-3 lg:space-x-4">
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-4 sm:w-5 md:w-6" viewBox="0 0 32 27" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 46 46" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="46" height="46" rx="23" fill="url(#paint0_linear_654_10019)" />
                                             <path
-                                                d="M31.2258 5.50852C30.7293 4.43057 30.0134 3.45374 29.1181 2.63271C28.2222 1.80924 27.1659 1.15483 26.0067 0.705084C24.8046 0.236873 23.5153 -0.00278476 22.2137 2.44127e-05C20.3875 2.44127e-05 18.6058 0.468907 17.0575 1.35457C16.6871 1.56644 16.3352 1.79914 16.0018 2.05269C15.6685 1.79914 15.3166 1.56644 14.9462 1.35457C13.3978 0.468907 11.6161 2.44127e-05 9.79001 2.44127e-05C8.47504 2.44127e-05 7.20082 0.236202 5.99698 0.705084C4.83389 1.1566 3.78562 1.80609 2.88552 2.63271C1.9891 3.45281 1.27303 4.42987 0.777867 5.50852C0.262993 6.63037 0 7.82167 0 9.04771C0 10.2043 0.251881 11.4095 0.751938 12.6355C1.1705 13.6601 1.77057 14.7229 2.53733 15.7961C3.75228 17.4945 5.42284 19.2659 7.49715 21.0615C10.9346 24.0381 14.3387 26.0942 14.4831 26.1775L15.361 26.7055C15.75 26.9382 16.25 26.9382 16.6389 26.7055L17.5168 26.1775C17.6613 26.0907 21.0617 24.0381 24.5028 21.0615C26.5771 19.2659 28.2477 17.4945 29.4626 15.7961C30.2294 14.7229 30.8332 13.6601 31.248 12.6355C31.7481 11.4095 32 10.2043 32 9.04771C32.0037 7.82167 31.7407 6.63037 31.2258 5.50852V5.50852Z"
+                                                d="M38.2258 15.5085C37.7293 14.4306 37.0134 13.4537 36.1181 12.6327C35.2222 11.8092 34.1659 11.1548 33.0067 10.7051C31.8046 10.2369 30.5153 9.99722 29.2137 10C27.3875 10 25.6058 10.4689 24.0575 11.3546C23.6871 11.5664 23.3352 11.7991 23.0018 12.0527C22.6685 11.7991 22.3166 11.5664 21.9462 11.3546C20.3978 10.4689 18.6161 10 16.79 10C15.475 10 14.2008 10.2362 12.997 10.7051C11.8339 11.1566 10.7856 11.8061 9.88552 12.6327C8.9891 13.4528 8.27303 14.4299 7.77787 15.5085C7.26299 16.6304 7 17.8217 7 19.0477C7 20.2043 7.25188 21.4095 7.75194 22.6355C8.1705 23.6601 8.77057 24.7229 9.53733 25.7961C10.7523 27.4945 12.4228 29.2659 14.4972 31.0615C17.9346 34.0381 21.3387 36.0942 21.4831 36.1775L22.361 36.7055C22.75 36.9382 23.25 36.9382 23.6389 36.7055L24.5168 36.1775C24.6613 36.0907 28.0617 34.0381 31.5028 31.0615C33.5771 29.2659 35.2477 27.4945 36.4626 25.7961C37.2294 24.7229 37.8332 23.6601 38.248 22.6355C38.7481 21.4095 39 20.2043 39 19.0477C39.0037 17.8217 38.7407 16.6304 38.2258 15.5085V15.5085Z"
                                                 fill="white" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_654_10019" x1="1.5" y1="2.5" x2="44.5"
+                                                    y2="50" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#FF0642" />
+                                                    <stop offset="1" stop-color="#EA1272" />
+                                                </linearGradient>
+                                            </defs>
                                         </svg>
                                     </button>
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
-                                                fill="white" />
-                                        </svg>
-
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="p-2.5 sm:p-3 md:p-4 lg:pt-7 lg:pb-6 lg:px-8">
-                                <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
-                                    <h2 class="text-base sm:text-lg md:text-xl text-primary">Crazy Girl, <span
-                                            class="font-medium font-poppins">22</span></h2>
-
-                                    <div class="flex h-2 md:h-3 w-2 md:w-3 relative items-center justify-center">
-                                        <span
-                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-online-green opacity-75"></span>
-                                        <span
-                                            class="relative inline-flex rounded-full w-1 sm:w-1.5 md:w-2 lg:w-2.5 h-1 sm:h-1.5 md:h-2 lg:h-2.5 bg-online-green"></span>
-                                    </div>
-                                </a>
-
-                                <a href="#" class="flex items-center space-x-2 sm:space-x-2.5">
-                                    <svg class="fill-current text-muted" width="11" height="14" viewBox="0 0 11 14"
-                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M5.5 1.04306C3.01867 1.04306 1 3.16882 1 5.78065C1 9.10385 4.74933 12.3415 5.5 12.514C6.25067 12.3408 10 9.10316 10 5.78065C10 3.16882 7.98133 1.04306 5.5 1.04306ZM7.66733 5.73754C7.66733 4.49073 6.69533 3.47688 5.50067 3.47688C4.306 3.47688 3.334 4.49073 3.334 5.73754C3.334 6.98365 4.306 7.99681 5.50067 7.99681C6.69533 7.99681 7.66733 6.98365 7.66733 5.73754Z"
-                                            fill="current" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M11 5.78065C11 2.59305 8.53267 0 5.5 0C2.46733 0 0 2.59305 0 5.78065C0 9.69909 4.304 13.5598 5.5 13.5598C6.696 13.5598 11 9.69909 11 5.78065ZM1 5.78065C1 3.16882 3.01867 1.04306 5.5 1.04306C7.98133 1.04306 10 3.16882 10 5.78065C10 9.10316 6.25067 12.3408 5.5 12.514C4.74933 12.3415 1 9.10385 1 5.78065Z"
-                                            fill="current" />
-                                    </svg>
-
-                                    <p
-                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-muted tracking-wide">
-                                        New york
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="relative bg-primary shadow-40 rounded-[14px] overflow-hidden">
-
-                            <!-- Card Image -->
-                            <div class="relative">
-                                <div class="aspect-w-4 aspect-h-4">
-                                    <img src="./assets/images/img-6.jpg" alt=""
-                                        class="w-full h-full object-cover object-top rounded-[14px]">
-                                </div>
-
-                                <!-- Top Avater with Stats -->
-                                <button
-                                    class="w-7 h-7 sm:w-10 sm:h-10 md:w-9 md:h-9 lg:w-11 lg:h-11 xl:w-[50px] xl:h-[50px] rounded-full absolute top-0 right-0 m-2.5 sm:m-3 md:m-4 lg:m-5">
-                                    <img src="./assets/images/avater-4.jpg" alt=""
-                                        class="w-full h-full object-cover rounded-full">
-                                    <div
-                                        class="absolute inset-0 rounded-full flex items-center justify-center bg-black/30 text-white text-xs sm:text-sm md:text-base lg:text-lg tracking-wide">
-                                        +5
-                                    </div>
-                                </button>
-
-                                <!-- Buttom Buttons -->
-                                <div
-                                    class="absolute inset-x-0 bottom-0 mb-2.5 sm:mb-3 md:mb-4 ml-2.5 sm:ml-5 flex items-center space-x-1.5 sm:space-x-3 lg:space-x-4">
-
-                                    <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-4 sm:w-5 md:w-6" viewBox="0 0 32 27" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M31.2258 5.50852C30.7293 4.43057 30.0134 3.45374 29.1181 2.63271C28.2222 1.80924 27.1659 1.15483 26.0067 0.705084C24.8046 0.236873 23.5153 -0.00278476 22.2137 2.44127e-05C20.3875 2.44127e-05 18.6058 0.468907 17.0575 1.35457C16.6871 1.56644 16.3352 1.79914 16.0018 2.05269C15.6685 1.79914 15.3166 1.56644 14.9462 1.35457C13.3978 0.468907 11.6161 2.44127e-05 9.79001 2.44127e-05C8.47504 2.44127e-05 7.20082 0.236202 5.99698 0.705084C4.83389 1.1566 3.78562 1.80609 2.88552 2.63271C1.9891 3.45281 1.27303 4.42987 0.777867 5.50852C0.262993 6.63037 0 7.82167 0 9.04771C0 10.2043 0.251881 11.4095 0.751938 12.6355C1.1705 13.6601 1.77057 14.7229 2.53733 15.7961C3.75228 17.4945 5.42284 19.2659 7.49715 21.0615C10.9346 24.0381 14.3387 26.0942 14.4831 26.1775L15.361 26.7055C15.75 26.9382 16.25 26.9382 16.6389 26.7055L17.5168 26.1775C17.6613 26.0907 21.0617 24.0381 24.5028 21.0615C26.5771 19.2659 28.2477 17.4945 29.4626 15.7961C30.2294 14.7229 30.8332 13.6601 31.248 12.6355C31.7481 11.4095 32 10.2043 32 9.04771C32.0037 7.82167 31.7407 6.63037 31.2258 5.50852V5.50852Z"
-                                                fill="white" />
-                                        </svg>
-                                    </button>
-
-                                    <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 34 34" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
@@ -1626,7 +1642,7 @@
                                 </div>
                             </div>
 
-                            <div class="p-2.5 sm:p-3 md:p-4 lg:pt-7 lg:pb-6 lg:px-8">
+                            <div class="p-2.5 sm:p-3 md:p-4 pt-7 sm:pt-8 md:pt-9 3k:pt-10 lg:pb-6 lg:px-8">
                                 <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
                                     <h2 class="text-base sm:text-lg md:text-xl text-primary">Spacy, <span
                                             class="font-medium font-poppins">22</span></h2>
@@ -1640,7 +1656,7 @@
                                 </a>
 
                                 <a href="#" class="flex items-center space-x-2 sm:space-x-2.5">
-                                    <svg class="fill-current text-muted" width="11" height="14" viewBox="0 0 11 14"
+                                    <svg class="fill-current text-secondary" width="11" height="14" viewBox="0 0 11 14"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M5.5 1.04306C3.01867 1.04306 1 3.16882 1 5.78065C1 9.10385 4.74933 12.3415 5.5 12.514C6.25067 12.3408 10 9.10316 10 5.78065C10 3.16882 7.98133 1.04306 5.5 1.04306ZM7.66733 5.73754C7.66733 4.49073 6.69533 3.47688 5.50067 3.47688C4.306 3.47688 3.334 4.49073 3.334 5.73754C3.334 6.98365 4.306 7.99681 5.50067 7.99681C6.69533 7.99681 7.66733 6.98365 7.66733 5.73754Z"
@@ -1651,14 +1667,101 @@
                                     </svg>
 
                                     <p
-                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-muted tracking-wide">
+                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-secondary tracking-wide">
                                         New york
                                     </p>
                                 </a>
                             </div>
                         </div>
 
-                        <div class="relative bg-primary shadow-40 rounded-[14px] overflow-hidden">
+                        <div class="relative bg-primary rounded-[14px] shadow-10 overflow-hidden">
+
+                            <!-- Card Image -->
+                            <div class="relative">
+                                <div class="aspect-w-4 aspect-h-4">
+                                    <img src="./assets/images/img-6.jpg" alt=""
+                                        class="w-full h-full object-cover object-top rounded-[14px]">
+                                </div>
+
+                                <!-- Top Avater with Stats -->
+                                <button
+                                    class="w-7 h-7 sm:w-10 sm:h-10 md:w-9 md:h-9 lg:w-11 lg:h-11 xl:w-[50px] xl:h-[50px] rounded-full absolute top-0 right-0 m-2.5 sm:m-3 md:m-4 lg:m-5">
+                                    <img src="./assets/images/avater-2.jpg" alt=""
+                                        class="w-full h-full object-cover rounded-full">
+                                    <div
+                                        class="absolute inset-0 rounded-full flex items-center justify-center bg-black/30 text-white text-xs sm:text-sm md:text-base lg:text-lg tracking-wide">
+                                        +5
+                                    </div>
+                                </button>
+
+                                <!-- Buttom Buttons -->
+                                <div
+                                    class="absolute inset-x-0 bottom-0 flex items-center justify-center translate-y-1/2 space-x-2.5 sm:space-x-3 lg:space-x-4">
+
+                                    <button
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 46 46" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="46" height="46" rx="23" fill="url(#paint0_linear_654_10019)" />
+                                            <path
+                                                d="M38.2258 15.5085C37.7293 14.4306 37.0134 13.4537 36.1181 12.6327C35.2222 11.8092 34.1659 11.1548 33.0067 10.7051C31.8046 10.2369 30.5153 9.99722 29.2137 10C27.3875 10 25.6058 10.4689 24.0575 11.3546C23.6871 11.5664 23.3352 11.7991 23.0018 12.0527C22.6685 11.7991 22.3166 11.5664 21.9462 11.3546C20.3978 10.4689 18.6161 10 16.79 10C15.475 10 14.2008 10.2362 12.997 10.7051C11.8339 11.1566 10.7856 11.8061 9.88552 12.6327C8.9891 13.4528 8.27303 14.4299 7.77787 15.5085C7.26299 16.6304 7 17.8217 7 19.0477C7 20.2043 7.25188 21.4095 7.75194 22.6355C8.1705 23.6601 8.77057 24.7229 9.53733 25.7961C10.7523 27.4945 12.4228 29.2659 14.4972 31.0615C17.9346 34.0381 21.3387 36.0942 21.4831 36.1775L22.361 36.7055C22.75 36.9382 23.25 36.9382 23.6389 36.7055L24.5168 36.1775C24.6613 36.0907 28.0617 34.0381 31.5028 31.0615C33.5771 29.2659 35.2477 27.4945 36.4626 25.7961C37.2294 24.7229 37.8332 23.6601 38.248 22.6355C38.7481 21.4095 39 20.2043 39 19.0477C39.0037 17.8217 38.7407 16.6304 38.2258 15.5085V15.5085Z"
+                                                fill="white" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_654_10019" x1="1.5" y1="2.5" x2="44.5"
+                                                    y2="50" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#FF0642" />
+                                                    <stop offset="1" stop-color="#EA1272" />
+                                                </linearGradient>
+                                            </defs>
+                                        </svg>
+                                    </button>
+
+                                    <button
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 34 34" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
+                                                fill="white" />
+                                        </svg>
+
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="p-2.5 sm:p-3 md:p-4 pt-7 sm:pt-8 md:pt-9 3k:pt-10 lg:pb-6 lg:px-8">
+                                <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
+                                    <h2 class="text-base sm:text-lg md:text-xl text-primary">Spacy, <span
+                                            class="font-medium font-poppins">22</span></h2>
+
+                                    <div class="flex h-2 md:h-3 w-2 md:w-3 relative items-center justify-center">
+                                        <span
+                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-online-green opacity-75"></span>
+                                        <span
+                                            class="relative inline-flex rounded-full w-1 sm:w-1.5 md:w-2 lg:w-2.5 h-1 sm:h-1.5 md:h-2 lg:h-2.5 bg-online-green"></span>
+                                    </div>
+                                </a>
+
+                                <a href="#" class="flex items-center space-x-2 sm:space-x-2.5">
+                                    <svg class="fill-current text-secondary" width="11" height="14" viewBox="0 0 11 14"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M5.5 1.04306C3.01867 1.04306 1 3.16882 1 5.78065C1 9.10385 4.74933 12.3415 5.5 12.514C6.25067 12.3408 10 9.10316 10 5.78065C10 3.16882 7.98133 1.04306 5.5 1.04306ZM7.66733 5.73754C7.66733 4.49073 6.69533 3.47688 5.50067 3.47688C4.306 3.47688 3.334 4.49073 3.334 5.73754C3.334 6.98365 4.306 7.99681 5.50067 7.99681C6.69533 7.99681 7.66733 6.98365 7.66733 5.73754Z"
+                                            fill="current" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M11 5.78065C11 2.59305 8.53267 0 5.5 0C2.46733 0 0 2.59305 0 5.78065C0 9.69909 4.304 13.5598 5.5 13.5598C6.696 13.5598 11 9.69909 11 5.78065ZM1 5.78065C1 3.16882 3.01867 1.04306 5.5 1.04306C7.98133 1.04306 10 3.16882 10 5.78065C10 9.10316 6.25067 12.3408 5.5 12.514C4.74933 12.3415 1 9.10385 1 5.78065Z"
+                                            fill="current" />
+                                    </svg>
+
+                                    <p
+                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-secondary tracking-wide">
+                                        New york
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="relative bg-primary rounded-[14px] shadow-10 overflow-hidden">
 
                             <!-- Card Image -->
                             <div class="relative">
@@ -1680,21 +1783,29 @@
 
                                 <!-- Buttom Buttons -->
                                 <div
-                                    class="absolute inset-x-0 bottom-0 mb-2.5 sm:mb-3 md:mb-4 ml-2.5 sm:ml-5 flex items-center space-x-1.5 sm:space-x-3 lg:space-x-4">
+                                    class="absolute inset-x-0 bottom-0 flex items-center justify-center translate-y-1/2 space-x-2.5 sm:space-x-3 lg:space-x-4">
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-4 sm:w-5 md:w-6" viewBox="0 0 32 27" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 46 46" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="46" height="46" rx="23" fill="url(#paint0_linear_654_10019)" />
                                             <path
-                                                d="M31.2258 5.50852C30.7293 4.43057 30.0134 3.45374 29.1181 2.63271C28.2222 1.80924 27.1659 1.15483 26.0067 0.705084C24.8046 0.236873 23.5153 -0.00278476 22.2137 2.44127e-05C20.3875 2.44127e-05 18.6058 0.468907 17.0575 1.35457C16.6871 1.56644 16.3352 1.79914 16.0018 2.05269C15.6685 1.79914 15.3166 1.56644 14.9462 1.35457C13.3978 0.468907 11.6161 2.44127e-05 9.79001 2.44127e-05C8.47504 2.44127e-05 7.20082 0.236202 5.99698 0.705084C4.83389 1.1566 3.78562 1.80609 2.88552 2.63271C1.9891 3.45281 1.27303 4.42987 0.777867 5.50852C0.262993 6.63037 0 7.82167 0 9.04771C0 10.2043 0.251881 11.4095 0.751938 12.6355C1.1705 13.6601 1.77057 14.7229 2.53733 15.7961C3.75228 17.4945 5.42284 19.2659 7.49715 21.0615C10.9346 24.0381 14.3387 26.0942 14.4831 26.1775L15.361 26.7055C15.75 26.9382 16.25 26.9382 16.6389 26.7055L17.5168 26.1775C17.6613 26.0907 21.0617 24.0381 24.5028 21.0615C26.5771 19.2659 28.2477 17.4945 29.4626 15.7961C30.2294 14.7229 30.8332 13.6601 31.248 12.6355C31.7481 11.4095 32 10.2043 32 9.04771C32.0037 7.82167 31.7407 6.63037 31.2258 5.50852V5.50852Z"
+                                                d="M38.2258 15.5085C37.7293 14.4306 37.0134 13.4537 36.1181 12.6327C35.2222 11.8092 34.1659 11.1548 33.0067 10.7051C31.8046 10.2369 30.5153 9.99722 29.2137 10C27.3875 10 25.6058 10.4689 24.0575 11.3546C23.6871 11.5664 23.3352 11.7991 23.0018 12.0527C22.6685 11.7991 22.3166 11.5664 21.9462 11.3546C20.3978 10.4689 18.6161 10 16.79 10C15.475 10 14.2008 10.2362 12.997 10.7051C11.8339 11.1566 10.7856 11.8061 9.88552 12.6327C8.9891 13.4528 8.27303 14.4299 7.77787 15.5085C7.26299 16.6304 7 17.8217 7 19.0477C7 20.2043 7.25188 21.4095 7.75194 22.6355C8.1705 23.6601 8.77057 24.7229 9.53733 25.7961C10.7523 27.4945 12.4228 29.2659 14.4972 31.0615C17.9346 34.0381 21.3387 36.0942 21.4831 36.1775L22.361 36.7055C22.75 36.9382 23.25 36.9382 23.6389 36.7055L24.5168 36.1775C24.6613 36.0907 28.0617 34.0381 31.5028 31.0615C33.5771 29.2659 35.2477 27.4945 36.4626 25.7961C37.2294 24.7229 37.8332 23.6601 38.248 22.6355C38.7481 21.4095 39 20.2043 39 19.0477C39.0037 17.8217 38.7407 16.6304 38.2258 15.5085V15.5085Z"
                                                 fill="white" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_654_10019" x1="1.5" y1="2.5" x2="44.5"
+                                                    y2="50" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#FF0642" />
+                                                    <stop offset="1" stop-color="#EA1272" />
+                                                </linearGradient>
+                                            </defs>
                                         </svg>
                                     </button>
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 34 34" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
@@ -1705,21 +1816,21 @@
                                 </div>
                             </div>
 
-                            <div class="p-2.5 sm:p-3 md:p-4 lg:pt-7 lg:pb-6 lg:px-8">
+                            <div class="p-2.5 sm:p-3 md:p-4 pt-7 sm:pt-8 md:pt-9 3k:pt-10 lg:pb-6 lg:px-8">
                                 <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
-                                    <h2 class="text-base sm:text-lg md:text-xl text-primary">Kitty, <span
+                                    <h2 class="text-base sm:text-lg md:text-xl text-primary">Spacy, <span
                                             class="font-medium font-poppins">22</span></h2>
 
                                     <div class="flex h-2 md:h-3 w-2 md:w-3 relative items-center justify-center">
                                         <span
-                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-ofline-red opacity-0"></span>
+                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-online-green opacity-75"></span>
                                         <span
-                                            class="relative inline-flex rounded-full w-1 sm:w-1.5 md:w-2 lg:w-2.5 h-1 sm:h-1.5 md:h-2 lg:h-2.5 bg-ofline-red"></span>
+                                            class="relative inline-flex rounded-full w-1 sm:w-1.5 md:w-2 lg:w-2.5 h-1 sm:h-1.5 md:h-2 lg:h-2.5 bg-online-green"></span>
                                     </div>
                                 </a>
 
                                 <a href="#" class="flex items-center space-x-2 sm:space-x-2.5">
-                                    <svg class="fill-current text-muted" width="11" height="14" viewBox="0 0 11 14"
+                                    <svg class="fill-current text-secondary" width="11" height="14" viewBox="0 0 11 14"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M5.5 1.04306C3.01867 1.04306 1 3.16882 1 5.78065C1 9.10385 4.74933 12.3415 5.5 12.514C6.25067 12.3408 10 9.10316 10 5.78065C10 3.16882 7.98133 1.04306 5.5 1.04306ZM7.66733 5.73754C7.66733 4.49073 6.69533 3.47688 5.50067 3.47688C4.306 3.47688 3.334 4.49073 3.334 5.73754C3.334 6.98365 4.306 7.99681 5.50067 7.99681C6.69533 7.99681 7.66733 6.98365 7.66733 5.73754Z"
@@ -1730,14 +1841,14 @@
                                     </svg>
 
                                     <p
-                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-muted tracking-wide">
+                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-secondary tracking-wide">
                                         New york
                                     </p>
                                 </a>
                             </div>
                         </div>
 
-                        <div class="relative bg-primary shadow-40 rounded-[14px] overflow-hidden">
+                        <div class="relative bg-primary rounded-[14px] shadow-10 overflow-hidden">
 
                             <!-- Card Image -->
                             <div class="relative">
@@ -1749,7 +1860,7 @@
                                 <!-- Top Avater with Stats -->
                                 <button
                                     class="w-7 h-7 sm:w-10 sm:h-10 md:w-9 md:h-9 lg:w-11 lg:h-11 xl:w-[50px] xl:h-[50px] rounded-full absolute top-0 right-0 m-2.5 sm:m-3 md:m-4 lg:m-5">
-                                    <img src="./assets/images/avater-3.jpg" alt=""
+                                    <img src="./assets/images/avater-2.jpg" alt=""
                                         class="w-full h-full object-cover rounded-full">
                                     <div
                                         class="absolute inset-0 rounded-full flex items-center justify-center bg-black/30 text-white text-xs sm:text-sm md:text-base lg:text-lg tracking-wide">
@@ -1759,21 +1870,29 @@
 
                                 <!-- Buttom Buttons -->
                                 <div
-                                    class="absolute inset-x-0 bottom-0 mb-2.5 sm:mb-3 md:mb-4 ml-2.5 sm:ml-5 flex items-center space-x-1.5 sm:space-x-3 lg:space-x-4">
+                                    class="absolute inset-x-0 bottom-0 flex items-center justify-center translate-y-1/2 space-x-2.5 sm:space-x-3 lg:space-x-4">
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-4 sm:w-5 md:w-6" viewBox="0 0 32 27" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 46 46" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="46" height="46" rx="23" fill="url(#paint0_linear_654_10019)" />
                                             <path
-                                                d="M31.2258 5.50852C30.7293 4.43057 30.0134 3.45374 29.1181 2.63271C28.2222 1.80924 27.1659 1.15483 26.0067 0.705084C24.8046 0.236873 23.5153 -0.00278476 22.2137 2.44127e-05C20.3875 2.44127e-05 18.6058 0.468907 17.0575 1.35457C16.6871 1.56644 16.3352 1.79914 16.0018 2.05269C15.6685 1.79914 15.3166 1.56644 14.9462 1.35457C13.3978 0.468907 11.6161 2.44127e-05 9.79001 2.44127e-05C8.47504 2.44127e-05 7.20082 0.236202 5.99698 0.705084C4.83389 1.1566 3.78562 1.80609 2.88552 2.63271C1.9891 3.45281 1.27303 4.42987 0.777867 5.50852C0.262993 6.63037 0 7.82167 0 9.04771C0 10.2043 0.251881 11.4095 0.751938 12.6355C1.1705 13.6601 1.77057 14.7229 2.53733 15.7961C3.75228 17.4945 5.42284 19.2659 7.49715 21.0615C10.9346 24.0381 14.3387 26.0942 14.4831 26.1775L15.361 26.7055C15.75 26.9382 16.25 26.9382 16.6389 26.7055L17.5168 26.1775C17.6613 26.0907 21.0617 24.0381 24.5028 21.0615C26.5771 19.2659 28.2477 17.4945 29.4626 15.7961C30.2294 14.7229 30.8332 13.6601 31.248 12.6355C31.7481 11.4095 32 10.2043 32 9.04771C32.0037 7.82167 31.7407 6.63037 31.2258 5.50852V5.50852Z"
+                                                d="M38.2258 15.5085C37.7293 14.4306 37.0134 13.4537 36.1181 12.6327C35.2222 11.8092 34.1659 11.1548 33.0067 10.7051C31.8046 10.2369 30.5153 9.99722 29.2137 10C27.3875 10 25.6058 10.4689 24.0575 11.3546C23.6871 11.5664 23.3352 11.7991 23.0018 12.0527C22.6685 11.7991 22.3166 11.5664 21.9462 11.3546C20.3978 10.4689 18.6161 10 16.79 10C15.475 10 14.2008 10.2362 12.997 10.7051C11.8339 11.1566 10.7856 11.8061 9.88552 12.6327C8.9891 13.4528 8.27303 14.4299 7.77787 15.5085C7.26299 16.6304 7 17.8217 7 19.0477C7 20.2043 7.25188 21.4095 7.75194 22.6355C8.1705 23.6601 8.77057 24.7229 9.53733 25.7961C10.7523 27.4945 12.4228 29.2659 14.4972 31.0615C17.9346 34.0381 21.3387 36.0942 21.4831 36.1775L22.361 36.7055C22.75 36.9382 23.25 36.9382 23.6389 36.7055L24.5168 36.1775C24.6613 36.0907 28.0617 34.0381 31.5028 31.0615C33.5771 29.2659 35.2477 27.4945 36.4626 25.7961C37.2294 24.7229 37.8332 23.6601 38.248 22.6355C38.7481 21.4095 39 20.2043 39 19.0477C39.0037 17.8217 38.7407 16.6304 38.2258 15.5085V15.5085Z"
                                                 fill="white" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_654_10019" x1="1.5" y1="2.5" x2="44.5"
+                                                    y2="50" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#FF0642" />
+                                                    <stop offset="1" stop-color="#EA1272" />
+                                                </linearGradient>
+                                            </defs>
                                         </svg>
                                     </button>
 
                                     <button
-                                        class="bg-2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center">
-                                        <svg class="w-5 sm:w-6 md:w-7" viewBox="0 0 34 34" fill="none"
+                                        class="bg-2 w-10 h-10 md:w-12 md:h-12 3k:w-16 3k:h-16 rounded-full flex items-center justify-center">
+                                        <svg class="w-7 md:w-9 3k:w-12" viewBox="0 0 34 34" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M23.8453 3.30951H10.1548C6.37624 3.30951 3.30957 6.36249 3.30957 10.1274V18.3143V19.6833C3.30957 23.4482 6.37624 26.5012 10.1548 26.5012H12.2084C12.578 26.5012 13.0709 26.7476 13.3036 27.0488L15.3572 29.7732C16.2608 30.978 17.7393 30.978 18.6429 29.7732L20.6965 27.0488C20.9566 26.7065 21.3673 26.5012 21.7917 26.5012H23.8453C27.6239 26.5012 30.6905 23.4482 30.6905 19.6833V10.1274C30.6905 6.36249 27.6239 3.30951 23.8453 3.30951ZM11.5239 17C10.7572 17 10.1548 16.3839 10.1548 15.6309C10.1548 14.878 10.7709 14.2619 11.5239 14.2619C12.2768 14.2619 12.8929 14.878 12.8929 15.6309C12.8929 16.3839 12.2905 17 11.5239 17ZM17 17C16.2334 17 15.631 16.3839 15.631 15.6309C15.631 14.878 16.2471 14.2619 17 14.2619C17.753 14.2619 18.3691 14.878 18.3691 15.6309C18.3691 16.3839 17.7667 17 17 17ZM22.4762 17C21.7096 17 21.1072 16.3839 21.1072 15.6309C21.1072 14.878 21.7233 14.2619 22.4762 14.2619C23.2292 14.2619 23.8453 14.878 23.8453 15.6309C23.8453 16.3839 23.2429 17 22.4762 17Z"
@@ -1784,21 +1903,21 @@
                                 </div>
                             </div>
 
-                            <div class="p-2.5 sm:p-3 md:p-4 lg:pt-7 lg:pb-6 lg:px-8">
+                            <div class="p-2.5 sm:p-3 md:p-4 pt-7 sm:pt-8 md:pt-9 3k:pt-10 lg:pb-6 lg:px-8">
                                 <a href="#" class="flex space-x-1 sm:space-x-2 md:space-x-2.5 mb-1 sm:mb-2">
-                                    <h2 class="text-base sm:text-lg md:text-xl text-primary">Kitty, <span
+                                    <h2 class="text-base sm:text-lg md:text-xl text-primary">Spacy, <span
                                             class="font-medium font-poppins">22</span></h2>
 
                                     <div class="flex h-2 md:h-3 w-2 md:w-3 relative items-center justify-center">
                                         <span
-                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-ofline-red opacity-0"></span>
+                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-online-green opacity-75"></span>
                                         <span
-                                            class="relative inline-flex rounded-full w-1 sm:w-1.5 md:w-2 lg:w-2.5 h-1 sm:h-1.5 md:h-2 lg:h-2.5 bg-ofline-red"></span>
+                                            class="relative inline-flex rounded-full w-1 sm:w-1.5 md:w-2 lg:w-2.5 h-1 sm:h-1.5 md:h-2 lg:h-2.5 bg-online-green"></span>
                                     </div>
                                 </a>
 
                                 <a href="#" class="flex items-center space-x-2 sm:space-x-2.5">
-                                    <svg class="fill-current text-muted" width="11" height="14" viewBox="0 0 11 14"
+                                    <svg class="fill-current text-secondary" width="11" height="14" viewBox="0 0 11 14"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M5.5 1.04306C3.01867 1.04306 1 3.16882 1 5.78065C1 9.10385 4.74933 12.3415 5.5 12.514C6.25067 12.3408 10 9.10316 10 5.78065C10 3.16882 7.98133 1.04306 5.5 1.04306ZM7.66733 5.73754C7.66733 4.49073 6.69533 3.47688 5.50067 3.47688C4.306 3.47688 3.334 4.49073 3.334 5.73754C3.334 6.98365 4.306 7.99681 5.50067 7.99681C6.69533 7.99681 7.66733 6.98365 7.66733 5.73754Z"
@@ -1809,7 +1928,7 @@
                                     </svg>
 
                                     <p
-                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-muted tracking-wide">
+                                        class="text-xs sm:text-sm md:text-base font-lato font-medium text-secondary tracking-wide">
                                         New york
                                     </p>
                                 </a>
@@ -1889,19 +2008,6 @@
         </footer>
         <!-- Footer Section End -->
 
-        <!-- Float Notification Button -->
-        <div
-            class="fixed right-0 bottom-32 z-10 bg-2 rounded-l-full py-1 md:py-2 px-2 md:px-3 inline-flex items-center space-x-2">
-            <svg class="w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M15.0996 20.1113C15.0996 21.2054 14.5064 22.0427 13.543 22.5901C12.5798 23.1371 11.393 23.1371 10.4317 22.5901C9.46794 22.0427 8.875 21.2054 8.875 20.1113"
-                    fill="white" />
-                <path
-                    d="M11.9864 1.0083C12.8353 1.0083 13.5191 1.52291 13.5191 2.31428C13.5191 2.81238 13.5368 3.18405 13.8551 3.27925C16.5623 4.08299 18.2982 5.96695 18.2982 8.41355V12.5257C18.2982 14.4097 19.0821 14.7911 20.0686 15.5117C21.4973 16.5536 21.1712 18.7231 19.5318 18.7217H4.44158C2.80217 18.7231 2.47602 16.5536 3.9047 15.5117C4.89003 14.7911 5.67512 14.4097 5.67512 12.5257V8.41355C5.67512 5.96695 7.41106 4.08299 10.1182 3.27925C10.4357 3.18405 10.4543 2.81238 10.4543 2.31428C10.4546 1.52291 11.1386 1.0083 11.9864 1.0083Z"
-                    fill="white" />
-            </svg>
-            <span class="text-invert-alt">99+</span>
-        </div>
     </div>
 
     <script>
@@ -1921,15 +2027,6 @@
                         this.$el.classList.add('hide-scrollbar');
                         this.$el.classList.remove('show-scrollbar');
                     }, 3000);
-                },
-                hasScrolled: false,
-                languageBarOpen: true,
-                reactOnScroll() {
-                    if (this.$el.getBoundingClientRect().top < 80 && this.$el.scrollTop > 80) {
-                        this.hasScrolled = true;
-                    } else {
-                        this.hasScrolled = false;
-                    }
                 },
                 showHideScroll() {
                     this.$el.classList.add('show-scrollbar');
