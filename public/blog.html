@@ -21,11 +21,10 @@
 
 <body>
     <div class="bg-primary relative h-screen overflow-y-auto show-scrollbar flex flex-col" x-data="modal()"
-        x-on:scroll="showHideScroll(); reactOnScroll();" x-init="reactOnScroll()">
+        x-on:scroll="showHideScroll();">
 
         <!-- Header Section Start -->
-        <header class="bg-primary/50 backdrop-blur-lg fixed top-0 inset-x-0 z-50"
-            :class="hasScrolled ? 'shadow-1' : ''">
+        <header class="bg-primary/50 backdrop-blur-lg fixed top-0 inset-x-0 z-50">
             <div class="container">
                 <nav class="flex items-center justify-between py-4 sm:py-6 md:py-8 3k:py-10">
                     <a href="#" class="">
@@ -445,536 +444,26 @@
         </footer>
         <!-- Footer Section End -->
 
-        <!-- Registration Modal Start -->
-        <div x-cloak x-show="registerModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-y-auto show-scrollbar py-24">
-            <div class="max-w-[712px] w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative"
-                x-data="{step : 1}">
-                <button @click="registerModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
-                    <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
-                            fill="#979797" />
-                    </svg>
-                </button>
-
-                <h1
-                    class="text-2xl sm:text-3xl md:text-4xl text-primary-alt font-bold text-center mb-5 sm:mb-8 md:mb-14 lg:mb-[60px]">
-                    Start looking for
-                    now</h1>
-
-                <div class="max-w-md mx-auto">
-
-                    <!-- Steps Number -->
-                    <div class="flex items-center mb-5 sm:mb-10 md:mb-12 lg:mb-[60px]">
-                        <!-- 1 -->
-                        <div class="relative w-1/5">
-                            <div class="w-1/2 h-1 absolute top-1/2 right-0 -translate-y-1/2 z-0 "
-                                x-bind:class="step === 1 ? 'bg-info' : 'bg-info'">
-                            </div>
-                            <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 1 ? 'bg-1 drop-shadow-20' : ''">
-                                <div
-                                    class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg text-invert font-bold bg-1 drop-shadow-20">
-                                    <span x-show="step === 1">1</span>
-                                    <svg x-show="step != 1" width="28" height="28" viewBox="0 0 28 28" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M20.066 7.808a1.026 1.026 0 0 1 1.468 0 1.06 1.06 0 0 1 .014 1.473l-8.29 9.8a1.028 1.028 0 0 1-1.494.028L6.72 13.997a1.061 1.061 0 0 1 .335-1.714 1.029 1.029 0 0 1 1.133.228l4.279 4.336 7.57-9.008a.337.337 0 0 1 .029-.03Z"
-                                            fill="#fff" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 2 -->
-                        <div class="relative w-1/5">
-                            <div class="w-full h-1 absolute top-1/2 -translate-y-1/2 z-0"
-                                x-bind:class="step === 2 ? 'bg-info' : 'bg-info'">
-                            </div>
-                            <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 2 ? 'bg-1 drop-shadow-20' : ''">
-                                <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
-                                    x-bind:class="step >= 2 ? 'bg-1 text-invert' : 'bg-info text-invert'">
-                                    <span x-show="step <= 2">2</span>
-                                    <svg x-show="step > 2" width="28" height="28" viewBox="0 0 28 28" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M20.066 7.808a1.026 1.026 0 0 1 1.468 0 1.06 1.06 0 0 1 .014 1.473l-8.29 9.8a1.028 1.028 0 0 1-1.494.028L6.72 13.997a1.061 1.061 0 0 1 .335-1.714 1.029 1.029 0 0 1 1.133.228l4.279 4.336 7.57-9.008a.337.337 0 0 1 .029-.03Z"
-                                            fill="#fff" />
-                                    </svg>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 3 -->
-                        <div class="relative w-1/5">
-                            <div class="w-full h-1 absolute top-1/2 -translate-y-1/2 z-0"
-                                x-bind:class="step === 3 ? 'bg-info' : 'bg-info'">
-                            </div>
-                            <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 3 ? 'bg-1 drop-shadow-20' : ''">
-                                <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
-                                    x-bind:class="step >= 3 ? 'bg-1 text-invert' : 'bg-info text-invert'">
-                                    <span x-show="step <= 3">3</span>
-                                    <svg x-show="step > 3" width="28" height="28" viewBox="0 0 28 28" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M20.066 7.808a1.026 1.026 0 0 1 1.468 0 1.06 1.06 0 0 1 .014 1.473l-8.29 9.8a1.028 1.028 0 0 1-1.494.028L6.72 13.997a1.061 1.061 0 0 1 .335-1.714 1.029 1.029 0 0 1 1.133.228l4.279 4.336 7.57-9.008a.337.337 0 0 1 .029-.03Z"
-                                            fill="#fff" />
-                                    </svg>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 4 -->
-                        <div class="relative w-1/5">
-                            <div class="w-full h-1 absolute top-1/2 -translate-y-1/2 z-0"
-                                x-bind:class="step === 4 ? 'bg-info' : 'bg-info'">
-                            </div>
-                            <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 4 ? 'bg-1 drop-shadow-20' : ''">
-                                <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
-                                    x-bind:class="step >= 4 ? 'bg-1 text-invert' : 'bg-info text-invert'">
-                                    <span x-show="step <= 4">4</span>
-                                    <svg x-show="step > 4" width="28" height="28" viewBox="0 0 28 28" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M20.066 7.808a1.026 1.026 0 0 1 1.468 0 1.06 1.06 0 0 1 .014 1.473l-8.29 9.8a1.028 1.028 0 0 1-1.494.028L6.72 13.997a1.061 1.061 0 0 1 .335-1.714 1.029 1.029 0 0 1 1.133.228l4.279 4.336 7.57-9.008a.337.337 0 0 1 .029-.03Z"
-                                            fill="#fff" />
-                                    </svg>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 5 -->
-                        <div class="relative w-1/5">
-                            <div class="w-1/2 h-1 absolute top-1/2 -translate-y-1/2 z-0 "
-                                x-bind:class="step === 5 ? 'bg-info' : 'bg-info'">
-                            </div>
-                            <div class="w-[30px] sm:w-9 md:w-11 h-[30px] sm:w-h-9 md:h-11 rounded-full flex items-center justify-center relative z-10 mx-auto"
-                                x-bind:class="step === 5 ? 'bg-1 drop-shadow-20' : ''">
-                                <div class="w-6 sm:w-7 md:w-9 h-6 sm:h-7 md:h-9 rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold  drop-shadow-20"
-                                    x-bind:class="step >= 5 ? 'bg-1 text-invert' : 'bg-info text-invert'">
-                                    <span x-show="step <= 5">5</span>
-                                    <svg x-show="step > 5" width="28" height="28" viewBox="0 0 28 28" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M20.066 7.808a1.026 1.026 0 0 1 1.468 0 1.06 1.06 0 0 1 .014 1.473l-8.29 9.8a1.028 1.028 0 0 1-1.494.028L6.72 13.997a1.061 1.061 0 0 1 .335-1.714 1.029 1.029 0 0 1 1.133.228l4.279 4.336 7.57-9.008a.337.337 0 0 1 .029-.03Z"
-                                            fill="#fff" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step-1 -->
-                    <div class="" x-show="step === 1">
-
-                        <div class="grid grid-cols-2 gap-2 sm:gap-8 md:gap-[60px] mb-5 sm:mb-12 md:mb-[70px]">
-                            <div>
-                                <label for=""
-                                    class="text-sm sm:text-base md:text-lg text-secondary block mb-1.5 sm:mb-2.5 md:mb-4">I
-                                    am</label>
-                                <select
-                                    class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] focus:ring-0 focus-within:border-info active:border-info w-full bg-primary">
-                                    <option value="">Man</option>
-                                    <option value="">Woman</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for=""
-                                    class="text-sm sm:text-base md:text-lg text-secondary block mb-1.5 sm:mb-2.5 md:mb-4">Looking
-                                    for</label>
-                                <select
-                                    class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] focus:ring-0 focus-within:border-info active:border-info w-full bg-primary">
-                                    <option value="">Woman</option>
-                                    <option value="">Man</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
-                            <button @click="step = 2"
-                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2 col-start-2">
-                                <span>Next</span>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M5 12.999h11.86l-3.63 4.36a1.002 1.002 0 0 0 1.54 1.28l5-6c.034-.048.064-.098.09-.15 0-.05 0-.08.07-.13a1 1 0 0 0 .07-.36 1 1 0 0 0-.07-.36c0-.05 0-.08-.07-.13a1.206 1.206 0 0 0-.09-.15l-5-6a1 1 0 0 0-1.54 1.28l3.63 4.36H5a1 1 0 0 0 0 2Z"
-                                        fill="#fff" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Step-2 -->
-                    <div class="" x-show="step === 2">
-
-                        <div class="mb-5 sm:mb-12 md:mb-[70px]">
-                            <label for=""
-                                class="text-sm sm:text-base md:text-lg text-secondary block mb-1.5 sm:mb-2.5 md:mb-4">Location</label>
-                            <div class="flex items-center space-x-2 sm:space-x-3 md:space-x-5">
-                                <select
-                                    class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] bg-primary focus:ring-0 focus-within:border-info active:border-info w-5/12">
-                                    <option value="">UK</option>
-                                    <option value="">US</option>
-                                    <option value="">FR</option>
-                                </select>
-                                <select
-                                    class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] bg-primary focus:ring-0 focus-within:border-info active:border-info w-7/12">
-                                    <option value="">London</option>
-                                    <option value="">London1</option>
-                                    <option value="">London2</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
-                            <button @click="step = 1"
-                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-muted hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19 12.999H7.14l3.63 4.36a1.002 1.002 0 0 1-1.54 1.28l-5-6a1.184 1.184 0 0 1-.09-.15c0-.05 0-.08-.07-.13a1 1 0 0 1-.07-.36 1 1 0 0 1 .07-.36c0-.05 0-.08.07-.13.026-.052.056-.103.09-.15l5-6a1 1 0 0 1 1.41-.13.999.999 0 0 1 .13 1.41l-3.63 4.36H19a1 1 0 0 1 0 2Z"
-                                        fill="#fff" />
-                                </svg>
-                                <span>back</span>
-                            </button>
-                            <button @click="step = 3"
-                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
-                                <span>Next</span>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M5 12.999h11.86l-3.63 4.36a1.002 1.002 0 0 0 1.54 1.28l5-6c.034-.048.064-.098.09-.15 0-.05 0-.08.07-.13a1 1 0 0 0 .07-.36 1 1 0 0 0-.07-.36c0-.05 0-.08-.07-.13a1.206 1.206 0 0 0-.09-.15l-5-6a1 1 0 0 0-1.54 1.28l3.63 4.36H5a1 1 0 0 0 0 2Z"
-                                        fill="#fff" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-
-
-                    <!-- Step-3 -->
-                    <div class="" x-show="step === 3">
-
-                        <div class="mb-5 sm:mb-12 md:mb-[70px]">
-                            <label for=""
-                                class="text-sm sm:text-base md:text-lg text-secondary block mb-1.5 sm:mb-2.5 md:mb-4">Age</label>
-                            <input type="number" placeholder="Age"
-                                class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] bg-primary focus:ring-0 focus-within:border-info active:border-info w-full">
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
-                            <button @click="step = 2"
-                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-muted hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19 12.999H7.14l3.63 4.36a1.002 1.002 0 0 1-1.54 1.28l-5-6a1.184 1.184 0 0 1-.09-.15c0-.05 0-.08-.07-.13a1 1 0 0 1-.07-.36 1 1 0 0 1 .07-.36c0-.05 0-.08.07-.13.026-.052.056-.103.09-.15l5-6a1 1 0 0 1 1.41-.13.999.999 0 0 1 .13 1.41l-3.63 4.36H19a1 1 0 0 1 0 2Z"
-                                        fill="#fff" />
-                                </svg>
-                                <span>back</span>
-                            </button>
-                            <button @click="step = 4"
-                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
-                                <span>Next</span>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M5 12.999h11.86l-3.63 4.36a1.002 1.002 0 0 0 1.54 1.28l5-6c.034-.048.064-.098.09-.15 0-.05 0-.08.07-.13a1 1 0 0 0 .07-.36 1 1 0 0 0-.07-.36c0-.05 0-.08-.07-.13a1.206 1.206 0 0 0-.09-.15l-5-6a1 1 0 0 0-1.54 1.28l3.63 4.36H5a1 1 0 0 0 0 2Z"
-                                        fill="#fff" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Step-4 -->
-                    <div class="" x-show="step === 4">
-
-                        <div class="mb-5 sm:mb-12 md:mb-[70px]">
-                            <label for=""
-                                class="text-sm sm:text-base md:text-lg text-secondary block mb-1.5 sm:mb-2.5 md:mb-4">Nickname</label>
-                            <input type="text" placeholder="Nickname"
-                                class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] bg-primary focus:ring-0 focus-within:border-info active:border-info w-full">
-
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
-                            <button @click="step = 3"
-                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-muted hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19 12.999H7.14l3.63 4.36a1.002 1.002 0 0 1-1.54 1.28l-5-6a1.184 1.184 0 0 1-.09-.15c0-.05 0-.08-.07-.13a1 1 0 0 1-.07-.36 1 1 0 0 1 .07-.36c0-.05 0-.08.07-.13.026-.052.056-.103.09-.15l5-6a1 1 0 0 1 1.41-.13.999.999 0 0 1 .13 1.41l-3.63 4.36H19a1 1 0 0 1 0 2Z"
-                                        fill="#fff" />
-                                </svg>
-                                <span>back</span>
-                            </button>
-                            <button @click="step = 5"
-                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
-                                <span>Next</span>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M5 12.999h11.86l-3.63 4.36a1.002 1.002 0 0 0 1.54 1.28l5-6c.034-.048.064-.098.09-.15 0-.05 0-.08.07-.13a1 1 0 0 0 .07-.36 1 1 0 0 0-.07-.36c0-.05 0-.08-.07-.13a1.206 1.206 0 0 0-.09-.15l-5-6a1 1 0 0 0-1.54 1.28l3.63 4.36H5a1 1 0 0 0 0 2Z"
-                                        fill="#fff" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Step-5 -->
-                    <div class="" x-show="step === 5">
-
-                        <div class="space-y-2.5 md:space-y-3.5 mb-5 sm:mb-8 md:mb-11">
-                            <a href="#"
-                                class="border border-primary w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-secondary uppercase">
-                                <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M22.305 10.041H21.5V10h-9v4h5.651A5.998 5.998 0 0 1 6.5 12a6 6 0 0 1 6-6c1.53 0 2.921.577 3.98 1.52L19.31 4.69A9.954 9.954 0 0 0 12.5 2c-5.522 0-10 4.478-10 10 0 5.523 4.478 10 10 10 5.523 0 10-4.477 10-10 0-.67-.069-1.325-.195-1.959Z"
-                                        fill="#FFC107" />
-                                    <path
-                                        d="m3.653 7.346 3.285 2.409A5.997 5.997 0 0 1 12.5 6c1.53 0 2.92.577 3.98 1.52L19.31 4.69A9.954 9.954 0 0 0 12.499 2a9.994 9.994 0 0 0-8.846 5.346Z"
-                                        fill="#FF3D00" />
-                                    <path
-                                        d="M12.5 22c2.583 0 4.93-.989 6.705-2.596l-3.095-2.62A5.956 5.956 0 0 1 12.5 18a5.997 5.997 0 0 1-5.641-3.973l-3.261 2.512C5.253 19.778 8.614 22 12.5 22Z"
-                                        fill="#4CAF50" />
-                                    <path
-                                        d="M22.305 10.041H21.5V10h-9v4h5.651a6.02 6.02 0 0 1-2.043 2.785h.002l3.095 2.619C18.985 19.602 22.5 17 22.5 12c0-.67-.069-1.325-.195-1.959Z"
-                                        fill="#1976D2" />
-                                </svg>
-                                <span>Sign Up with google</span>
-                            </a>
-                            <a href="#"
-                                class="bg-yahoo w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M10.675 7.453 8.418 13.03 6.24 7.457a.426.426 0 0 0-.397-.27H2.826a.426.426 0 0 0-.394.586l4.073 9.997-1.04 2.577a.426.426 0 0 0 .394.585h2.924c.173 0 .33-.105.395-.266l5.214-12.894a.426.426 0 0 0-.395-.585H11.07a.427.427 0 0 0-.395.266ZM17.851 3.335a.426.426 0 0 1 .395-.267h2.928c.302 0 .508.306.395.586l-3.094 7.619a.426.426 0 0 1-.394.266h-2.924a.426.426 0 0 1-.395-.585l3.09-7.62ZM15.39 17.57a2.365 2.365 0 1 0 0-4.73 2.365 2.365 0 0 0 0 4.73Z"
-                                        fill="#fff" />
-                                </svg>
-                                <span>Sign up with yahoo</span>
-                            </a>
-                            <a href="#"
-                                class="bg-outlook w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
-                                <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1128_332)">
-                                        <path
-                                            d="M23.75 5.25049H13.25C12.836 5.25049 12.5 5.58649 12.5 6.00049C12.5 6.41449 12.836 6.75049 13.25 6.75049H21.5645L16.9565 10.334L13.652 8.23249L12.848 9.49849L16.598 11.8835C16.7195 11.9615 16.8605 12.0005 17 12.0005C17.162 12.0005 17.3255 11.948 17.4605 11.843L23 7.53349V17.2505H13.25C12.836 17.2505 12.5 17.5865 12.5 18.0005C12.5 18.4145 12.836 18.7505 13.25 18.7505H23.75C24.164 18.7505 24.5 18.4145 24.5 18.0005V6.00049C24.5 5.58649 24.164 5.25049 23.75 5.25049Z"
-                                            fill="white" />
-                                        <path
-                                            d="M13.7285 0.923022C13.5575 0.780522 13.328 0.719022 13.112 0.764022L1.112 3.01402C0.7565 3.08002 0.5 3.38902 0.5 3.75052V20.2505C0.5 20.6105 0.7565 20.921 1.112 20.987L13.112 23.237C13.157 23.246 13.2035 23.2505 13.25 23.2505C13.424 23.2505 13.5935 23.1905 13.7285 23.078C13.901 22.9355 14 22.7225 14 22.5005V1.50052C14 1.27702 13.901 1.06552 13.7285 0.923022Z"
-                                            fill="white" />
-                                        <path
-                                            d="M7.25 17.2505C5.183 17.2505 3.5 15.2315 3.5 12.7505C3.5 10.2695 5.183 8.25049 7.25 8.25049C9.317 8.25049 11 10.2695 11 12.7505C11 15.2315 9.317 17.2505 7.25 17.2505ZM7.25 9.75049C6.0095 9.75049 5 11.096 5 12.7505C5 14.405 6.0095 15.7505 7.25 15.7505C8.4905 15.7505 9.5 14.405 9.5 12.7505C9.5 11.096 8.4905 9.75049 7.25 9.75049Z"
-                                            fill="#006DBC" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1128_332">
-                                            <rect width="24" height="24" fill="white" transform="translate(0.5)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                                <span>Sign up with outlook</span>
-                            </a>
-                        </div>
-
-                        <div class="flex items-center justify-center space-x-3.5 mb-5 sm:mb-8 md:mb-11">
-                            <div class="w-full h-px bg-light"></div>
-                            <p class="text-sm md:text-base text-secondary uppercase">or</p>
-                            <div class="w-full h-px bg-light"></div>
-                        </div>
-
-                        <div class="mb-5 sm:mb-12 md:mb-[70px]">
-                            <label for=""
-                                class="text-sm sm:text-base md:text-lg text-secondary block mb-1.5 sm:mb-2.5 md:mb-4">Email</label>
-                            <input type="text" placeholder="It will not be shared. 100% Privacy."
-                                class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] bg-primary focus:ring-0 focus-within:border-info active:border-info w-full">
-
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
-                            <button @click="step = 4"
-                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-muted hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19 12.999H7.14l3.63 4.36a1.002 1.002 0 0 1-1.54 1.28l-5-6a1.184 1.184 0 0 1-.09-.15c0-.05 0-.08-.07-.13a1 1 0 0 1-.07-.36 1 1 0 0 1 .07-.36c0-.05 0-.08.07-.13.026-.052.056-.103.09-.15l5-6a1 1 0 0 1 1.41-.13.999.999 0 0 1 .13 1.41l-3.63 4.36H19a1 1 0 0 1 0 2Z"
-                                        fill="#fff" />
-                                </svg>
-                                <span>back</span>
-                            </button>
-                            <button @click="registerModal = false; activeModal = true"
-                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-4 rounded-full text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
-                                done
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Registration Modal End -->
-
-
-        <!-- Activation Modal Start -->
-        <div x-cloak x-show="activeModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full flex overflow-y-auto show-scrollbar py-24">
-            <div
-                class="max-w-[712px] w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
-                <button @click="activeModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
-                    <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
-                            fill="#979797" />
-                    </svg>
-                </button>
-
-                <!-- Active input -->
-                <div class="px-4 sm:px-8 md:px-10 pb-5 sm:pb-6 md:pb-[30px] border-b border-primary">
-                    <h1 class="text-xl sm:text-3xl md:text-4xl text-primary font-bold text-center mb-2 sm:mb-4 md:mb-5">
-                        Active your account now</h1>
-                    <p
-                        class="text-sm sm:text-base md:text-lg max-w-[400px] mx-auto sm:text-center text-secondary mb-4 sm:mb-6 md:mb-[30px]">
-                        We sent you an
-                        email with link to activate your account valid for nest 12 hours to:</p>
-
-                    <div class="max-w-[448px] mx-auto relative flex items-center mb-5 sm:mb-8 md:mb-10">
-                        <svg class="w-4 md:w-6 absolute left-3" viewBox="0 0 24 25" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M17.6 6.785a.949.949 0 0 1 1.355 0c.37.374.375.978.013 1.359l-7.653 9.046a.947.947 0 0 1-1.378.026L5.28 12.497a.98.98 0 0 1 .31-1.582.95.95 0 0 1 1.045.21l3.95 4.003 6.989-8.315a.311.311 0 0 1 .026-.028Z"
-                                fill="#117C15" />
-                        </svg>
-                        <input type="text" placeholder="bill.sanders@example.com" disabled
-                            class="w-full bg-light/60 py-2.5 md:py-4 px-9 md:px-12 rounded-md border-0 focus-within:ring-primary text-primary placeholder-primary text-sm sm:text-base md:text-lg">
-                    </div>
-
-                    <div class="text-center">
-                        <button
-                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">Activate</button>
-                    </div>
-                </div>
-
-                <!-- Resend Email -->
-                <div class="max-w-[495px] mx-auto px-4 pt-5 sm:pt-6 md:pt-[30px]">
-                    <p class="text-sm sm:text-base md:text-lg sm:text-center text-secondary mb-4 sm:mb-6 md:mb-10">
-                        If you have not received it in your inbox or spam or you want to modify the email address, click
-                        on the button below.</p>
-                    <div class="max-w-[430px] mx-auto mb-5 sm:mb-8 md:mb-11">
-                        <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-secondary mb-2 sm:mb-3 md:mb-4">
-                            <span>Email</span>
-                            <svg class="w-3 sm:w-3.5 md:w-4" viewBox="0 0 16 16" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M8.00065 1.3335C4.32454 1.3335 1.33398 4.32405 1.33398 8.00016C1.33398 11.6763 4.32454 14.6668 8.00065 14.6668C11.6768 14.6668 14.6673 11.6763 14.6673 8.00016C14.6673 4.32405 11.6768 1.3335 8.00065 1.3335ZM8.00065 11.8891C7.69398 11.8891 7.4451 11.6402 7.4451 11.3335C7.4451 11.0268 7.69398 10.7779 8.00065 10.7779C8.30732 10.7779 8.55621 11.0268 8.55621 11.3335C8.55621 11.6402 8.30732 11.8891 8.00065 11.8891ZM8.8801 8.35683C8.68343 8.44739 8.55621 8.64572 8.55621 8.86183V9.11127C8.55621 9.41794 8.30787 9.66683 8.00065 9.66683C7.69343 9.66683 7.4451 9.41794 7.4451 9.11127V8.86183C7.4451 8.2135 7.82621 7.61905 8.41454 7.34738C8.98065 7.08683 9.38954 6.39516 9.38954 6.05572C9.38954 5.29016 8.76676 4.66683 8.00065 4.66683C7.23454 4.66683 6.61176 5.29016 6.61176 6.05572C6.61176 6.36239 6.36343 6.61127 6.05621 6.61127C5.74898 6.61127 5.50065 6.36239 5.50065 6.05572C5.50065 4.67739 6.62232 3.55572 8.00065 3.55572C9.37898 3.55572 10.5007 4.67739 10.5007 6.05572C10.5007 6.80627 9.84954 7.90961 8.8801 8.35683Z"
-                                    fill="#5C5C5C" />
-                            </svg>
-                        </label>
-                        <input type="text" placeholder="jackson.graham@example.com"
-                            class="border border-primary rounded-md text-base sm:text-lg md:text-xl text-primary px-3 py-[14px] bg-primary focus:ring-0 focus-within:border-info active:border-info w-full mb-5 sm:mb-7 md:mb-9">
-                        <div class="text-center">
-                            <button
-                                class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-primary px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-primary border border-info hover:opacity-80 uppercase transition-all duration-100 ease-in-out">resend</button>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center justify-center space-x-3.5 mb-5 sm:mb-8 md:mb-11">
-                        <div class="w-full h-px bg-light"></div>
-                        <p class="text-sm md:text-base text-secondary uppercase">or</p>
-                        <div class="w-full h-px bg-light"></div>
-                    </div>
-
-                    <div class="space-y-2.5 md:space-y-3.5">
-                        <a href="#"
-                            class="border border-primary w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-secondary uppercase">
-                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M22.305 10.041H21.5V10h-9v4h5.651A5.998 5.998 0 0 1 6.5 12a6 6 0 0 1 6-6c1.53 0 2.921.577 3.98 1.52L19.31 4.69A9.954 9.954 0 0 0 12.5 2c-5.522 0-10 4.478-10 10 0 5.523 4.478 10 10 10 5.523 0 10-4.477 10-10 0-.67-.069-1.325-.195-1.959Z"
-                                    fill="#FFC107" />
-                                <path
-                                    d="m3.653 7.346 3.285 2.409A5.997 5.997 0 0 1 12.5 6c1.53 0 2.92.577 3.98 1.52L19.31 4.69A9.954 9.954 0 0 0 12.499 2a9.994 9.994 0 0 0-8.846 5.346Z"
-                                    fill="#FF3D00" />
-                                <path
-                                    d="M12.5 22c2.583 0 4.93-.989 6.705-2.596l-3.095-2.62A5.956 5.956 0 0 1 12.5 18a5.997 5.997 0 0 1-5.641-3.973l-3.261 2.512C5.253 19.778 8.614 22 12.5 22Z"
-                                    fill="#4CAF50" />
-                                <path
-                                    d="M22.305 10.041H21.5V10h-9v4h5.651a6.02 6.02 0 0 1-2.043 2.785h.002l3.095 2.619C18.985 19.602 22.5 17 22.5 12c0-.67-.069-1.325-.195-1.959Z"
-                                    fill="#1976D2" />
-                            </svg>
-                            <span>Sign Up with google</span>
-                        </a>
-                        <a href="#"
-                            class="bg-yahoo w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M10.675 7.453 8.418 13.03 6.24 7.457a.426.426 0 0 0-.397-.27H2.826a.426.426 0 0 0-.394.586l4.073 9.997-1.04 2.577a.426.426 0 0 0 .394.585h2.924c.173 0 .33-.105.395-.266l5.214-12.894a.426.426 0 0 0-.395-.585H11.07a.427.427 0 0 0-.395.266ZM17.851 3.335a.426.426 0 0 1 .395-.267h2.928c.302 0 .508.306.395.586l-3.094 7.619a.426.426 0 0 1-.394.266h-2.924a.426.426 0 0 1-.395-.585l3.09-7.62ZM15.39 17.57a2.365 2.365 0 1 0 0-4.73 2.365 2.365 0 0 0 0 4.73Z"
-                                    fill="#fff" />
-                            </svg>
-                            <span>Sign up with yahoo</span>
-                        </a>
-                        <a href="#"
-                            class="bg-outlook w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
-                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_1128_332)">
-                                    <path
-                                        d="M23.75 5.25049H13.25C12.836 5.25049 12.5 5.58649 12.5 6.00049C12.5 6.41449 12.836 6.75049 13.25 6.75049H21.5645L16.9565 10.334L13.652 8.23249L12.848 9.49849L16.598 11.8835C16.7195 11.9615 16.8605 12.0005 17 12.0005C17.162 12.0005 17.3255 11.948 17.4605 11.843L23 7.53349V17.2505H13.25C12.836 17.2505 12.5 17.5865 12.5 18.0005C12.5 18.4145 12.836 18.7505 13.25 18.7505H23.75C24.164 18.7505 24.5 18.4145 24.5 18.0005V6.00049C24.5 5.58649 24.164 5.25049 23.75 5.25049Z"
-                                        fill="white" />
-                                    <path
-                                        d="M13.7285 0.923022C13.5575 0.780522 13.328 0.719022 13.112 0.764022L1.112 3.01402C0.7565 3.08002 0.5 3.38902 0.5 3.75052V20.2505C0.5 20.6105 0.7565 20.921 1.112 20.987L13.112 23.237C13.157 23.246 13.2035 23.2505 13.25 23.2505C13.424 23.2505 13.5935 23.1905 13.7285 23.078C13.901 22.9355 14 22.7225 14 22.5005V1.50052C14 1.27702 13.901 1.06552 13.7285 0.923022Z"
-                                        fill="white" />
-                                    <path
-                                        d="M7.25 17.2505C5.183 17.2505 3.5 15.2315 3.5 12.7505C3.5 10.2695 5.183 8.25049 7.25 8.25049C9.317 8.25049 11 10.2695 11 12.7505C11 15.2315 9.317 17.2505 7.25 17.2505ZM7.25 9.75049C6.0095 9.75049 5 11.096 5 12.7505C5 14.405 6.0095 15.7505 7.25 15.7505C8.4905 15.7505 9.5 14.405 9.5 12.7505C9.5 11.096 8.4905 9.75049 7.25 9.75049Z"
-                                        fill="#006DBC" />
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_1128_332">
-                                        <rect width="24" height="24" fill="white" transform="translate(0.5)" />
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                            <span>Sign up with outlook</span>
-                        </a>
-                    </div>
-
-
-                </div>
-
-            </div>
-        </div>
-        <!-- Activation Modal End -->
-
         <!-- Login Modal Start -->
         <div x-cloak x-show="loginModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5">
             <div
-                class="max-w-[712px] w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+                class="max-w-xl w-full m-auto bg-primary shadow-20 rounded-[20px] py-6 px-4 sm:px-8 sm:py-6 md:py-8 md:px-10 relative">
                 <button @click="loginModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
-                    <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-6 sm:w-7 md:w-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
                             fill="#979797" />
                     </svg>
                 </button>
-                <h1
-                    class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
+                <h1 class="text-xl sm:text-2xl md:text-3xl text-primary font-bold sm:text-center mb-5 sm:mb-6 md:mb-8">
                     Welcome back</h1>
 
-                <div class="max-w-[448px] mx-auto relative">
-                    <div class="space-y-2.5 md:space-y-3.5 mb-5 sm:mb-8 md:mb-11">
+                <div class="max-w-[448px] mx-auto relative overflow-hidden">
+                    <div class="space-y-2.5 md:space-y-3.5 mb-3 sm:mb-4 md:mb-5">
                         <a href="#"
-                            class="border border-primary w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-secondary uppercase">
-                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+                            class="border border-primary w-full rounded-full py-2.5 md:py-3 flex items-center justify-center space-x-2.5 text-sm font-semibold text-secondary uppercase">
+                            <svg class="w-5 shrink-0" viewBox="0 0 25 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M22.305 10.041H21.5V10h-9v4h5.651A5.998 5.998 0 0 1 6.5 12a6 6 0 0 1 6-6c1.53 0 2.921.577 3.98 1.52L19.31 4.69A9.954 9.954 0 0 0 12.5 2c-5.522 0-10 4.478-10 10 0 5.523 4.478 10 10 10 5.523 0 10-4.477 10-10 0-.67-.069-1.325-.195-1.959Z"
@@ -992,8 +481,8 @@
                             <span>Sign Up with google</span>
                         </a>
                         <a href="#"
-                            class="bg-yahoo w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            class="bg-yahoo w-full rounded-full py-2.5 md:py-3. flex items-center justify-center space-x-2.5 text-sm  font-semibold text-invert uppercase">
+                            <svg class="w-5 shrink-0" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M10.675 7.453 8.418 13.03 6.24 7.457a.426.426 0 0 0-.397-.27H2.826a.426.426 0 0 0-.394.586l4.073 9.997-1.04 2.577a.426.426 0 0 0 .394.585h2.924c.173 0 .33-.105.395-.266l5.214-12.894a.426.426 0 0 0-.395-.585H11.07a.427.427 0 0 0-.395.266ZM17.851 3.335a.426.426 0 0 1 .395-.267h2.928c.302 0 .508.306.395.586l-3.094 7.619a.426.426 0 0 1-.394.266h-2.924a.426.426 0 0 1-.395-.585l3.09-7.62ZM15.39 17.57a2.365 2.365 0 1 0 0-4.73 2.365 2.365 0 0 0 0 4.73Z"
@@ -1002,8 +491,8 @@
                             <span>Sign up with yahoo</span>
                         </a>
                         <a href="#"
-                            class="bg-outlook w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
-                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+                            class="bg-outlook w-full rounded-full py-2.5 md:py-3 flex items-center justify-center space-x-2.5 text-sm font-semibold text-invert uppercase">
+                            <svg class="w-5 shrink-0" viewBox="0 0 25 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_1128_332)">
                                     <path
@@ -1026,32 +515,30 @@
                         </a>
                     </div>
 
-                    <div class="flex items-center justify-center space-x-3.5 mb-5 sm:mb-8 md:mb-11">
+                    <div class="flex items-center justify-center space-x-3.5 mb-2 sm:mb-3 md:mb-4">
                         <div class="w-full h-px bg-light"></div>
                         <p class="text-sm md:text-base text-secondary uppercase">or</p>
                         <div class="w-full h-px bg-light"></div>
                     </div>
-                    <div class="mb-5 sm:mb-7 md:mb-10">
-                        <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-secondary mb-2 sm:mb-3 md:mb-4">
+                    <div class="mb-4 sm:mb-5 md:mb-6">
+                        <label for="" class="flex items-center space-x-2 text-sm sm:text-base text-secondary mb-1">
                             Email
                         </label>
                         <input type="text" placeholder="jackson.graham@example.com"
-                            class="w-full bg-transparent py-2.5 md:py-3.5 px-3 md:px-4 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base md:text-lg">
+                            class="w-full bg-transparent py-2.5 md:py-3 px-3 md:px-4 rounded-md border border-primary focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base">
                     </div>
 
-                    <div class="mb-5">
-                        <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-secondary mb-2 sm:mb-3 md:mb-4">
+                    <div class="mb-2.5">
+                        <label for="" class="flex items-center space-x-2 text-sm sm:text-base text-secondary mb-1">
                             Password
                         </label>
 
                         <div class="flex items-center relative" x-data="{show : false}">
                             <input :type="show? 'text' : 'password'" placeholder="Password"
-                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base md:text-lg">
+                                class="w-full bg-transparent py-2.5 md:py-3 pl-3 md:pl-4 pr-12 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base">
 
                             <div class="absolute right-0 mr-4 cursor-pointer" @click="show = !show">
-                                <svg class="w-6 md:w-7" x-show="!show" viewBox="0 0 20 21" fill="none"
+                                <svg class="w-5 lg:w-6" x-show="!show" viewBox="0 0 20 21" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M15.9751 3.47922C16.2191 3.2413 16.6012 3.2413 16.837 3.47922C17.081 3.71715 17.081 4.11095 16.837 4.34887L15.3572 5.84204C16.5362 6.925 17.5363 8.38536 18.2844 10.1411C18.3494 10.2969 18.3494 10.4774 18.2844 10.6251C16.5443 14.7108 13.4463 17.1557 9.99874 17.1557H9.99061C8.4213 17.1557 6.91703 16.6388 5.59166 15.6953L4.01421 17.287C3.89224 17.41 3.73775 17.4674 3.58326 17.4674C3.42877 17.4674 3.26615 17.41 3.15231 17.287C2.94903 17.0819 2.91651 16.7537 3.07913 16.5158L3.10352 16.4829L15.1295 4.34887C15.1458 4.33246 15.162 4.31606 15.1702 4.29965C15.1864 4.28324 15.2027 4.26683 15.2108 4.25042L15.9751 3.47922ZM10.0009 3.6219C11.1637 3.6219 12.2939 3.90084 13.3347 4.42591L10.6189 7.16613C10.4238 7.13331 10.2123 7.1087 10.0009 7.1087C8.20395 7.1087 6.74847 8.57725 6.74847 10.3904C6.74847 10.6037 6.77287 10.817 6.80539 11.0139L3.79687 14.0495C2.98375 13.0978 2.27634 11.9492 1.71529 10.6283C1.65024 10.4806 1.65024 10.3001 1.71529 10.1443C3.45536 6.05855 6.55333 3.6219 9.9928 3.6219H10.0009ZM12.682 8.54124L11.7957 9.4355C11.9421 9.71444 12.0234 10.0426 12.0234 10.3872C12.0234 11.5112 11.1127 12.43 9.99874 12.43C9.65723 12.43 9.33198 12.348 9.05553 12.2003L8.16923 13.0946C8.68962 13.4474 9.32385 13.6607 9.99874 13.6607C11.7876 13.6607 13.2431 12.1921 13.2431 10.3872C13.2431 9.70624 13.0317 9.06631 12.682 8.54124Z"
@@ -1084,15 +571,15 @@
                         </div>
                     </div>
 
-                    <div class="text-right mb-5 sm:mb-12 md:mb-20">
+                    <div class="text-right mb-5 sm:mb-8 md:mb-12">
                         <button @click="forgetModal = true; loginModal= false"
-                            class="text-sm sm:text-base font-semibold text-accent uppercase">Forgot
+                            class="text-sm font-semibold text-accent uppercase">Forgot
                             password?</button>
                     </div>
 
                     <div class="text-center">
                         <button
-                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">login</button>
+                            class="text-base py-3 font-semibold text-invert px-4 rounded-full max-w-[300px] w-full inline-block text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">login</button>
                     </div>
                 </div>
 
@@ -1101,50 +588,385 @@
         <!-- Login Modal End -->
 
 
-        <!-- Forget Modal Start -->
-        <div x-cloak x-show="forgetModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
-            <div
-                class="max-w-[712px] w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
-                <button @click="forgetModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
-                    <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Registration Modal Start -->
+        <div x-cloak x-show="registerModal" x-on:scroll="scrollbar()"
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-y-auto show-scrollbar">
+            <div class="max-w-xl w-full m-auto bg-primary shadow-20 rounded-[20px] py-6 px-4 sm:px-8 sm:py-6 md:py-8 md:px-10 relative"
+                x-data="{step : 1}">
+                <button @click="registerModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
+                    <svg class="w-6 sm:w-7 md:w-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
                             fill="#979797" />
                     </svg>
                 </button>
-                <h1
-                    class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
-                    Password reminder</h1>
 
-                <div class="max-w-[448px] mx-auto relative mb-5 sm:mb-8 md:mb-10">
-                    <div class="mb-5 sm:mb-12 md:mb-20">
-                        <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-secondary mb-2 sm:mb-3 md:mb-4">
-                            Email
-                        </label>
-                        <input type="text" placeholder="Your email address"
-                            class="w-full bg-transparent py-2.5 md:py-3.5 px-3 md:px-4 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base md:text-lg">
+                <h1
+                    class="text-xl sm:text-2xl md:text-3xl text-primary-alt font-bold text-center mb-5 sm:mb-6 md:mb-8 lg:mb-10">
+                    Start looking for
+                    now</h1>
+
+                <div class="max-w-md mx-auto">
+
+                    <!-- Steps Number -->
+                    <div class="flex items-center mb-5 sm:mb-6 md:mb-8 lg:mb-10">
+                        <!-- 1 -->
+                        <div class="relative w-1/5">
+                            <div class="w-1/2 h-1 absolute top-1/2 right-0 -translate-y-1/2 z-0 "
+                                x-bind:class="step === 1 ? 'bg-info' : 'bg-info'">
+                            </div>
+                            <div class="w-7 sm:w-8 md:w-10 h-7 sm:h-8 md:h-10 rounded-full flex items-center justify-center relative z-10 mx-auto"
+                                x-bind:class="step === 1 ? 'bg-1 drop-shadow-20' : ''">
+                                <div
+                                    class="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8 rounded-full flex items-center justify-center text-sm md:text-base text-invert font-bold bg-1 drop-shadow-20">
+                                    <span x-show="step === 1">1</span>
+                                    <svg x-show="step != 1" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.066 7.808a1.026 1.026 0 0 1 1.468 0 1.06 1.06 0 0 1 .014 1.473l-8.29 9.8a1.028 1.028 0 0 1-1.494.028L6.72 13.997a1.061 1.061 0 0 1 .335-1.714 1.029 1.029 0 0 1 1.133.228l4.279 4.336 7.57-9.008a.337.337 0 0 1 .029-.03Z"
+                                            fill="#fff" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2 -->
+                        <div class="relative w-1/5">
+                            <div class="w-full h-1 absolute top-1/2 -translate-y-1/2 z-0"
+                                x-bind:class="step === 2 ? 'bg-info' : 'bg-info'">
+                            </div>
+                            <div class="w-7 sm:w-8 md:w-10 h-7 sm:h-8 md:h-10 rounded-full flex items-center justify-center relative z-10 mx-auto"
+                                x-bind:class="step === 2 ? 'bg-1 drop-shadow-20' : ''">
+                                <div class="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8 rounded-full flex items-center justify-center text-sm md:text-base font-bold  drop-shadow-20"
+                                    x-bind:class="step >= 2 ? 'bg-1 text-invert' : 'bg-info text-invert'">
+                                    <span x-show="step <= 2">2</span>
+                                    <svg x-show="step > 2" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.066 7.808a1.026 1.026 0 0 1 1.468 0 1.06 1.06 0 0 1 .014 1.473l-8.29 9.8a1.028 1.028 0 0 1-1.494.028L6.72 13.997a1.061 1.061 0 0 1 .335-1.714 1.029 1.029 0 0 1 1.133.228l4.279 4.336 7.57-9.008a.337.337 0 0 1 .029-.03Z"
+                                            fill="#fff" />
+                                    </svg>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3 -->
+                        <div class="relative w-1/5">
+                            <div class="w-full h-1 absolute top-1/2 -translate-y-1/2 z-0"
+                                x-bind:class="step === 3 ? 'bg-info' : 'bg-info'">
+                            </div>
+                            <div class="w-7 sm:w-8 md:w-10 h-7 sm:h-8 md:h-10 rounded-full flex items-center justify-center relative z-10 mx-auto"
+                                x-bind:class="step === 3 ? 'bg-1 drop-shadow-20' : ''">
+                                <div class="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8 rounded-full flex items-center justify-center text-sm md:text-base font-bold  drop-shadow-20"
+                                    x-bind:class="step >= 3 ? 'bg-1 text-invert' : 'bg-info text-invert'">
+                                    <span x-show="step <= 3">3</span>
+                                    <svg x-show="step > 3" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.066 7.808a1.026 1.026 0 0 1 1.468 0 1.06 1.06 0 0 1 .014 1.473l-8.29 9.8a1.028 1.028 0 0 1-1.494.028L6.72 13.997a1.061 1.061 0 0 1 .335-1.714 1.029 1.029 0 0 1 1.133.228l4.279 4.336 7.57-9.008a.337.337 0 0 1 .029-.03Z"
+                                            fill="#fff" />
+                                    </svg>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4 -->
+                        <div class="relative w-1/5">
+                            <div class="w-full h-1 absolute top-1/2 -translate-y-1/2 z-0"
+                                x-bind:class="step === 4 ? 'bg-info' : 'bg-info'">
+                            </div>
+                            <div class="w-7 sm:w-8 md:w-10 h-7 sm:h-8 md:h-10 rounded-full flex items-center justify-center relative z-10 mx-auto"
+                                x-bind:class="step === 4 ? 'bg-1 drop-shadow-20' : ''">
+                                <div class="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8 rounded-full flex items-center justify-center text-sm md:text-base font-bold  drop-shadow-20"
+                                    x-bind:class="step >= 4 ? 'bg-1 text-invert' : 'bg-info text-invert'">
+                                    <span x-show="step <= 4">4</span>
+                                    <svg x-show="step > 4" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.066 7.808a1.026 1.026 0 0 1 1.468 0 1.06 1.06 0 0 1 .014 1.473l-8.29 9.8a1.028 1.028 0 0 1-1.494.028L6.72 13.997a1.061 1.061 0 0 1 .335-1.714 1.029 1.029 0 0 1 1.133.228l4.279 4.336 7.57-9.008a.337.337 0 0 1 .029-.03Z"
+                                            fill="#fff" />
+                                    </svg>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5 -->
+                        <div class="relative w-1/5">
+                            <div class="w-1/2 h-1 absolute top-1/2 -translate-y-1/2 z-0 "
+                                x-bind:class="step === 5 ? 'bg-info' : 'bg-info'">
+                            </div>
+                            <div class="w-7 sm:w-8 md:w-10 h-7 sm:h-8 md:h-10 rounded-full flex items-center justify-center relative z-10 mx-auto"
+                                x-bind:class="step === 5 ? 'bg-1 drop-shadow-20' : ''">
+                                <div class="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8 rounded-full flex items-center justify-center text-sm md:text-base font-bold  drop-shadow-20"
+                                    x-bind:class="step >= 5 ? 'bg-1 text-invert' : 'bg-info text-invert'">
+                                    <span x-show="step <= 5">5</span>
+                                    <svg x-show="step > 5" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.066 7.808a1.026 1.026 0 0 1 1.468 0 1.06 1.06 0 0 1 .014 1.473l-8.29 9.8a1.028 1.028 0 0 1-1.494.028L6.72 13.997a1.061 1.061 0 0 1 .335-1.714 1.029 1.029 0 0 1 1.133.228l4.279 4.336 7.57-9.008a.337.337 0 0 1 .029-.03Z"
+                                            fill="#fff" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="text-center">
-                        <button @click="checkMailModal = true; forgetModal = false"
-                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">confirm</button>
+                    <!-- Step-1 -->
+                    <div class="" x-show="step === 1">
+
+                        <div class="grid grid-cols-2 gap-2 sm:gap-8 md:gap-[60px] mb-5 sm:mb-12 md:mb-14">
+                            <div>
+                                <label for="" class="text-sm sm:text-base text-secondary block mb-1">I
+                                    am</label>
+                                <select
+                                    class="border border-primary rounded-md text-sm sm:text-base text-primary px-3 py-3 focus:ring-0 focus-within:border-info active:border-info w-full bg-primary">
+                                    <option value="">Man</option>
+                                    <option value="">Woman</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="" class="text-sm sm:text-base text-secondary block mb-1">Looking
+                                    for</label>
+                                <select
+                                    class="border border-primary rounded-md text-sm sm:text-base text-primary px-3 py-3 focus:ring-0 focus-within:border-info active:border-info w-full bg-primary">
+                                    <option value="">Woman</option>
+                                    <option value="">Man</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
+                            <button @click="step = 2"
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 rounded-full text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2 col-start-2">
+                                <span>Next</span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M5 12.999h11.86l-3.63 4.36a1.002 1.002 0 0 0 1.54 1.28l5-6c.034-.048.064-.098.09-.15 0-.05 0-.08.07-.13a1 1 0 0 0 .07-.36 1 1 0 0 0-.07-.36c0-.05 0-.08-.07-.13a1.206 1.206 0 0 0-.09-.15l-5-6a1 1 0 0 0-1.54 1.28l3.63 4.36H5a1 1 0 0 0 0 2Z"
+                                        fill="#fff" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step-2 -->
+                    <div class="" x-show="step === 2">
+
+                        <div class="mb-5 sm:mb-12 md:mb-14">
+                            <label for="" class="text-sm sm:text-base text-secondary block mb-1">Location</label>
+                            <div class="flex items-center space-x-2 sm:space-x-3 md:space-x-5">
+                                <select
+                                    class="border border-primary rounded-md text-sm sm:text-base text-primary px-3 py-3 bg-primary focus:ring-0 focus-within:border-info active:border-info w-5/12">
+                                    <option value="">UK</option>
+                                    <option value="">US</option>
+                                    <option value="">FR</option>
+                                </select>
+                                <select
+                                    class="border border-primary rounded-md text-sm sm:text-base text-primary px-3 py-3 bg-primary focus:ring-0 focus-within:border-info active:border-info w-7/12">
+                                    <option value="">London</option>
+                                    <option value="">London1</option>
+                                    <option value="">London2</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
+                            <button @click="step = 1"
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-3 rounded-full text-center bg-muted hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M19 12.999H7.14l3.63 4.36a1.002 1.002 0 0 1-1.54 1.28l-5-6a1.184 1.184 0 0 1-.09-.15c0-.05 0-.08-.07-.13a1 1 0 0 1-.07-.36 1 1 0 0 1 .07-.36c0-.05 0-.08.07-.13.026-.052.056-.103.09-.15l5-6a1 1 0 0 1 1.41-.13.999.999 0 0 1 .13 1.41l-3.63 4.36H19a1 1 0 0 1 0 2Z"
+                                        fill="#fff" />
+                                </svg>
+                                <span>back</span>
+                            </button>
+                            <button @click="step = 3"
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-3 rounded-full text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                <span>Next</span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M5 12.999h11.86l-3.63 4.36a1.002 1.002 0 0 0 1.54 1.28l5-6c.034-.048.064-.098.09-.15 0-.05 0-.08.07-.13a1 1 0 0 0 .07-.36 1 1 0 0 0-.07-.36c0-.05 0-.08-.07-.13a1.206 1.206 0 0 0-.09-.15l-5-6a1 1 0 0 0-1.54 1.28l3.63 4.36H5a1 1 0 0 0 0 2Z"
+                                        fill="#fff" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <!-- Step-3 -->
+                    <div class="" x-show="step === 3">
+
+                        <div class="mb-5 sm:mb-12 md:mb-14">
+                            <label for="" class="text-sm sm:text-base text-secondary block mb-1">Age</label>
+                            <input type="number" placeholder="Age"
+                                class="border border-primary rounded-md text-sm sm:text-base text-primary px-3 py-3 bg-primary focus:ring-0 focus-within:border-info active:border-info w-full">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
+                            <button @click="step = 2"
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-3 rounded-full text-center bg-muted hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M19 12.999H7.14l3.63 4.36a1.002 1.002 0 0 1-1.54 1.28l-5-6a1.184 1.184 0 0 1-.09-.15c0-.05 0-.08-.07-.13a1 1 0 0 1-.07-.36 1 1 0 0 1 .07-.36c0-.05 0-.08.07-.13.026-.052.056-.103.09-.15l5-6a1 1 0 0 1 1.41-.13.999.999 0 0 1 .13 1.41l-3.63 4.36H19a1 1 0 0 1 0 2Z"
+                                        fill="#fff" />
+                                </svg>
+                                <span>back</span>
+                            </button>
+                            <button @click="step = 4"
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 md:py-3 rounded-full text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                <span>Next</span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M5 12.999h11.86l-3.63 4.36a1.002 1.002 0 0 0 1.54 1.28l5-6c.034-.048.064-.098.09-.15 0-.05 0-.08.07-.13a1 1 0 0 0 .07-.36 1 1 0 0 0-.07-.36c0-.05 0-.08-.07-.13a1.206 1.206 0 0 0-.09-.15l-5-6a1 1 0 0 0-1.54 1.28l3.63 4.36H5a1 1 0 0 0 0 2Z"
+                                        fill="#fff" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step-4 -->
+                    <div class="" x-show="step === 4">
+
+                        <div class="mb-5 sm:mb-12 md:mb-14">
+                            <label for="" class="text-sm sm:text-base text-secondary block mb-1">Nickname</label>
+                            <input type="text" placeholder="Nickname"
+                                class="border border-primary rounded-md text-sm sm:text-base text-primary px-3 py-3 bg-primary focus:ring-0 focus-within:border-info active:border-info w-full">
+
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
+                            <button @click="step = 3"
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 rounded-full text-center bg-muted hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M19 12.999H7.14l3.63 4.36a1.002 1.002 0 0 1-1.54 1.28l-5-6a1.184 1.184 0 0 1-.09-.15c0-.05 0-.08-.07-.13a1 1 0 0 1-.07-.36 1 1 0 0 1 .07-.36c0-.05 0-.08.07-.13.026-.052.056-.103.09-.15l5-6a1 1 0 0 1 1.41-.13.999.999 0 0 1 .13 1.41l-3.63 4.36H19a1 1 0 0 1 0 2Z"
+                                        fill="#fff" />
+                                </svg>
+                                <span>back</span>
+                            </button>
+                            <button @click="step = 5"
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 rounded-full text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                <span>Next</span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M5 12.999h11.86l-3.63 4.36a1.002 1.002 0 0 0 1.54 1.28l5-6c.034-.048.064-.098.09-.15 0-.05 0-.08.07-.13a1 1 0 0 0 .07-.36 1 1 0 0 0-.07-.36c0-.05 0-.08-.07-.13a1.206 1.206 0 0 0-.09-.15l-5-6a1 1 0 0 0-1.54 1.28l3.63 4.36H5a1 1 0 0 0 0 2Z"
+                                        fill="#fff" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step-5 -->
+                    <div class="" x-show="step === 5">
+
+                        <div class="space-y-2.5 md:space-y-3.5 mb-3 sm:mb-4 md:mb-5">
+                            <a href="#"
+                                class="border border-primary w-full rounded-full py-2.5 md:py-3 flex items-center justify-center space-x-2.5 text-sm font-semibold text-secondary uppercase">
+                                <svg class="w-5 shrink-0" viewBox="0 0 25 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M22.305 10.041H21.5V10h-9v4h5.651A5.998 5.998 0 0 1 6.5 12a6 6 0 0 1 6-6c1.53 0 2.921.577 3.98 1.52L19.31 4.69A9.954 9.954 0 0 0 12.5 2c-5.522 0-10 4.478-10 10 0 5.523 4.478 10 10 10 5.523 0 10-4.477 10-10 0-.67-.069-1.325-.195-1.959Z"
+                                        fill="#FFC107" />
+                                    <path
+                                        d="m3.653 7.346 3.285 2.409A5.997 5.997 0 0 1 12.5 6c1.53 0 2.92.577 3.98 1.52L19.31 4.69A9.954 9.954 0 0 0 12.499 2a9.994 9.994 0 0 0-8.846 5.346Z"
+                                        fill="#FF3D00" />
+                                    <path
+                                        d="M12.5 22c2.583 0 4.93-.989 6.705-2.596l-3.095-2.62A5.956 5.956 0 0 1 12.5 18a5.997 5.997 0 0 1-5.641-3.973l-3.261 2.512C5.253 19.778 8.614 22 12.5 22Z"
+                                        fill="#4CAF50" />
+                                    <path
+                                        d="M22.305 10.041H21.5V10h-9v4h5.651a6.02 6.02 0 0 1-2.043 2.785h.002l3.095 2.619C18.985 19.602 22.5 17 22.5 12c0-.67-.069-1.325-.195-1.959Z"
+                                        fill="#1976D2" />
+                                </svg>
+                                <span>Sign Up with google</span>
+                            </a>
+                            <a href="#"
+                                class="bg-yahoo w-full rounded-full py-2.5 md:py-3. flex items-center justify-center space-x-2.5 text-sm  font-semibold text-invert uppercase">
+                                <svg class="w-5 shrink-0" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10.675 7.453 8.418 13.03 6.24 7.457a.426.426 0 0 0-.397-.27H2.826a.426.426 0 0 0-.394.586l4.073 9.997-1.04 2.577a.426.426 0 0 0 .394.585h2.924c.173 0 .33-.105.395-.266l5.214-12.894a.426.426 0 0 0-.395-.585H11.07a.427.427 0 0 0-.395.266ZM17.851 3.335a.426.426 0 0 1 .395-.267h2.928c.302 0 .508.306.395.586l-3.094 7.619a.426.426 0 0 1-.394.266h-2.924a.426.426 0 0 1-.395-.585l3.09-7.62ZM15.39 17.57a2.365 2.365 0 1 0 0-4.73 2.365 2.365 0 0 0 0 4.73Z"
+                                        fill="#fff" />
+                                </svg>
+                                <span>Sign up with yahoo</span>
+                            </a>
+                            <a href="#"
+                                class="bg-outlook w-full rounded-full py-2.5 md:py-3 flex items-center justify-center space-x-2.5 text-sm font-semibold text-invert uppercase">
+                                <svg class="w-5 shrink-0" viewBox="0 0 25 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_1128_332)">
+                                        <path
+                                            d="M23.75 5.25049H13.25C12.836 5.25049 12.5 5.58649 12.5 6.00049C12.5 6.41449 12.836 6.75049 13.25 6.75049H21.5645L16.9565 10.334L13.652 8.23249L12.848 9.49849L16.598 11.8835C16.7195 11.9615 16.8605 12.0005 17 12.0005C17.162 12.0005 17.3255 11.948 17.4605 11.843L23 7.53349V17.2505H13.25C12.836 17.2505 12.5 17.5865 12.5 18.0005C12.5 18.4145 12.836 18.7505 13.25 18.7505H23.75C24.164 18.7505 24.5 18.4145 24.5 18.0005V6.00049C24.5 5.58649 24.164 5.25049 23.75 5.25049Z"
+                                            fill="white" />
+                                        <path
+                                            d="M13.7285 0.923022C13.5575 0.780522 13.328 0.719022 13.112 0.764022L1.112 3.01402C0.7565 3.08002 0.5 3.38902 0.5 3.75052V20.2505C0.5 20.6105 0.7565 20.921 1.112 20.987L13.112 23.237C13.157 23.246 13.2035 23.2505 13.25 23.2505C13.424 23.2505 13.5935 23.1905 13.7285 23.078C13.901 22.9355 14 22.7225 14 22.5005V1.50052C14 1.27702 13.901 1.06552 13.7285 0.923022Z"
+                                            fill="white" />
+                                        <path
+                                            d="M7.25 17.2505C5.183 17.2505 3.5 15.2315 3.5 12.7505C3.5 10.2695 5.183 8.25049 7.25 8.25049C9.317 8.25049 11 10.2695 11 12.7505C11 15.2315 9.317 17.2505 7.25 17.2505ZM7.25 9.75049C6.0095 9.75049 5 11.096 5 12.7505C5 14.405 6.0095 15.7505 7.25 15.7505C8.4905 15.7505 9.5 14.405 9.5 12.7505C9.5 11.096 8.4905 9.75049 7.25 9.75049Z"
+                                            fill="#006DBC" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1128_332">
+                                            <rect width="24" height="24" fill="white" transform="translate(0.5)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <span>Sign up with outlook</span>
+                            </a>
+                        </div>
+
+                        <div class="flex items-center justify-center space-x-3.5 mb-5">
+                            <div class="w-full h-px bg-light"></div>
+                            <p class="text-sm md:text-base text-secondary uppercase">or</p>
+                            <div class="w-full h-px bg-light"></div>
+                        </div>
+
+                        <div class="mb-5 sm:mb-8 md:mb-10">
+                            <label for="" class="text-sm sm:text-base text-secondary block mb-1">Email</label>
+                            <input type="text" placeholder="It will not be shared. 100% Privacy."
+                                class="border border-primary rounded-md text-sm sm:text-base text-primary px-3 py-3 bg-primary focus:ring-0 focus-within:border-info active:border-info w-full">
+
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 sm:gap-6 md:gap-10">
+                            <button @click="step = 4"
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 rounded-full text-center bg-muted hover:opacity-80 uppercase shadow-40 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M19 12.999H7.14l3.63 4.36a1.002 1.002 0 0 1-1.54 1.28l-5-6a1.184 1.184 0 0 1-.09-.15c0-.05 0-.08-.07-.13a1 1 0 0 1-.07-.36 1 1 0 0 1 .07-.36c0-.05 0-.08.07-.13.026-.052.056-.103.09-.15l5-6a1 1 0 0 1 1.41-.13.999.999 0 0 1 .13 1.41l-3.63 4.36H19a1 1 0 0 1 0 2Z"
+                                        fill="#fff" />
+                                </svg>
+                                <span>back</span>
+                            </button>
+                            <button @click="registerModal = false; activeModal = true"
+                                class="text-sm sm:text-base font-semibold text-invert px-4 py-3 rounded-full text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out flex items-center justify-center space-x-2">
+                                done
+                            </button>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
-        <!-- Forget Modal End -->
+        <!-- Registration Modal End -->
 
 
-        <!-- CheckMail Modal Start -->
-        <div x-cloak x-show="checkMailModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
+        <!-- Activation Modal Start -->
+        <div x-cloak x-show="activeModal" x-on:scroll="scrollbar()"
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full flex overflow-y-auto show-scrollbar">
             <div
-                class="max-w-[712px] w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] sm:py-10 md:py-14 relative">
-                <button @click="checkMailModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
-                    <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                class="max-w-xl w-full m-auto bg-primary shadow-20 rounded-[20px] py-6 px-4 sm:px-8 sm:py-6 md:py-8 md:px-10 relative">
+                <button @click="activeModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
+                    <svg class="w-6 sm:w-7 md:w-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
                             fill="#979797" />
@@ -1152,38 +974,62 @@
                 </button>
 
                 <!-- Active input -->
-                <div class="px-4 sm:px-8 md:px-10 pb-5 sm:pb-6 md:pb-[30px] border-b border-primary">
-                    <h1 class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold sm:text-center mb-4 md:mb-5">
-                        Check your email</h1>
-                    <p
-                        class="text-sm sm:text-base md:text-lg max-w-[400px] mx-auto sm:text-center text-secondary mb-4 sm:mb-6 md:mb-[30px]">
-                        A password reset link has been successfully sent! Please, check your email for furthur
-                        instructions. </p>
+                <div class="px-4 sm:px-8 md:px-10 pb-4 sm:pb-5  border-b border-primary">
+                    <h1 class="text-xl sm:text-2xl text-primary font-bold text-center mb-2 sm:mb-3 md:mb-3">
+                        Active your account now</h1>
+                    <p class="text-sm sm:text-sm max-w-[400px] mx-auto sm:text-center text-secondary mb-4 sm:mb-4">
+                        We sent you an
+                        email with link to activate your account valid for nest 12 hours to:</p>
+
+                    <div class="max-w-[448px] mx-auto relative flex items-center mb-5 sm:mb-6">
+                        <svg class="w-4 md:w-5 absolute left-3" viewBox="0 0 24 25" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M17.6 6.785a.949.949 0 0 1 1.355 0c.37.374.375.978.013 1.359l-7.653 9.046a.947.947 0 0 1-1.378.026L5.28 12.497a.98.98 0 0 1 .31-1.582.95.95 0 0 1 1.045.21l3.95 4.003 6.989-8.315a.311.311 0 0 1 .026-.028Z"
+                                fill="#117C15" />
+                        </svg>
+                        <input type="text" placeholder="bill.sanders@example.com" disabled
+                            class="w-full bg-light/60 py-2.5 md:py-3 px-9 md:px-12 rounded-md border-0 focus-within:ring-primary text-primary placeholder-primary text-sm sm:text-base">
+                    </div>
+
+                    <div class="text-center">
+                        <button
+                            class="text-base py-3 font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-1 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">Activate</button>
+                    </div>
                 </div>
 
                 <!-- Resend Email -->
-                <div class="max-w-[448px] mx-auto px-4 sm:px-8 md:px-10 pt-5 sm:pt-6 md:pt-[30px]">
-                    <div class="sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
-                        <a href="#"
-                            class="text-sm sm:text-base md:text-lg max-w-[495px] mx-auto sm:text-center text-secondary mb-4 sm:mb-6 md:mb-10">Didn’t
-                            receive a link?</a>
+                <div class="max-w-[495px] mx-auto px-4 pt-4 sm:pt-5">
+                    <p class="text-sm sm:text-sm sm:text-center text-secondary mb-4 sm:mb-4">
+                        If you have not received it in your inbox or spam or you want to modify the email address, click
+                        on the button below.</p>
+                    <div class="max-w-[430px] mx-auto mb-3">
+                        <label for="" class="flex items-center space-x-2 text-sm sm:text-base text-secondary mb-1">
+                            <span>Email</span>
+                            <svg class="w-3 sm:w-3.5" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M8.00065 1.3335C4.32454 1.3335 1.33398 4.32405 1.33398 8.00016C1.33398 11.6763 4.32454 14.6668 8.00065 14.6668C11.6768 14.6668 14.6673 11.6763 14.6673 8.00016C14.6673 4.32405 11.6768 1.3335 8.00065 1.3335ZM8.00065 11.8891C7.69398 11.8891 7.4451 11.6402 7.4451 11.3335C7.4451 11.0268 7.69398 10.7779 8.00065 10.7779C8.30732 10.7779 8.55621 11.0268 8.55621 11.3335C8.55621 11.6402 8.30732 11.8891 8.00065 11.8891ZM8.8801 8.35683C8.68343 8.44739 8.55621 8.64572 8.55621 8.86183V9.11127C8.55621 9.41794 8.30787 9.66683 8.00065 9.66683C7.69343 9.66683 7.4451 9.41794 7.4451 9.11127V8.86183C7.4451 8.2135 7.82621 7.61905 8.41454 7.34738C8.98065 7.08683 9.38954 6.39516 9.38954 6.05572C9.38954 5.29016 8.76676 4.66683 8.00065 4.66683C7.23454 4.66683 6.61176 5.29016 6.61176 6.05572C6.61176 6.36239 6.36343 6.61127 6.05621 6.61127C5.74898 6.61127 5.50065 6.36239 5.50065 6.05572C5.50065 4.67739 6.62232 3.55572 8.00065 3.55572C9.37898 3.55572 10.5007 4.67739 10.5007 6.05572C10.5007 6.80627 9.84954 7.90961 8.8801 8.35683Z"
+                                    fill="#5C5C5C" />
+                            </svg>
+                        </label>
+                        <input type="text" placeholder="jackson.graham@example.com"
+                            class="border border-primary rounded-md text-base text-primary px-3 py-3 bg-primary focus:ring-0 focus-within:border-info active:border-info w-full mb-5">
+                        <div class="text-center">
+                            <button
+                                class="text-base py-3 font-semibold text-primary px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-primary border border-info hover:opacity-80 uppercase transition-all duration-100 ease-in-out">resend</button>
+                        </div>
                     </div>
 
-                    <div class="text-center mb-5 sm:mb-7 md:mb-10">
-                        <button @click="forgetModal = true; checkMailModal= false"
-                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">use
-                            a different email</button>
-                    </div>
-                    <div class="flex items-center justify-center space-x-3.5 mb-5 sm:mb-8 md:mb-11">
+                    <div class="flex items-center justify-center space-x-3.5 mb-3">
                         <div class="w-full h-px bg-light"></div>
-                        <p class="text-sm md:text-base text-secondary uppercase">or</p>
+                        <p class="text-sm md:text-sm text-secondary uppercase">or</p>
                         <div class="w-full h-px bg-light"></div>
                     </div>
-
                     <div class="space-y-2.5 md:space-y-3.5">
                         <a href="#"
-                            class="border border-primary w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-secondary uppercase">
-                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+                            class="border border-primary w-full rounded-full py-2.5 md:py-3 flex items-center justify-center space-x-2.5 text-sm font-semibold text-secondary uppercase">
+                            <svg class="w-5 shrink-0" viewBox="0 0 25 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M22.305 10.041H21.5V10h-9v4h5.651A5.998 5.998 0 0 1 6.5 12a6 6 0 0 1 6-6c1.53 0 2.921.577 3.98 1.52L19.31 4.69A9.954 9.954 0 0 0 12.5 2c-5.522 0-10 4.478-10 10 0 5.523 4.478 10 10 10 5.523 0 10-4.477 10-10 0-.67-.069-1.325-.195-1.959Z"
@@ -1201,8 +1047,8 @@
                             <span>Sign Up with google</span>
                         </a>
                         <a href="#"
-                            class="bg-yahoo w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            class="bg-yahoo w-full rounded-full py-2.5 md:py-3. flex items-center justify-center space-x-2.5 text-sm  font-semibold text-invert uppercase">
+                            <svg class="w-5 shrink-0" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M10.675 7.453 8.418 13.03 6.24 7.457a.426.426 0 0 0-.397-.27H2.826a.426.426 0 0 0-.394.586l4.073 9.997-1.04 2.577a.426.426 0 0 0 .394.585h2.924c.173 0 .33-.105.395-.266l5.214-12.894a.426.426 0 0 0-.395-.585H11.07a.427.427 0 0 0-.395.266ZM17.851 3.335a.426.426 0 0 1 .395-.267h2.928c.302 0 .508.306.395.586l-3.094 7.619a.426.426 0 0 1-.394.266h-2.924a.426.426 0 0 1-.395-.585l3.09-7.62ZM15.39 17.57a2.365 2.365 0 1 0 0-4.73 2.365 2.365 0 0 0 0 4.73Z"
@@ -1211,8 +1057,8 @@
                             <span>Sign up with yahoo</span>
                         </a>
                         <a href="#"
-                            class="bg-outlook w-full rounded-full py-2.5 md:py-4 flex items-center justify-center space-x-2.5 text-sm md:text-base font-semibold text-invert uppercase">
-                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+                            class="bg-outlook w-full rounded-full py-2.5 md:py-3 flex items-center justify-center space-x-2.5 text-sm font-semibold text-invert uppercase">
+                            <svg class="w-5 shrink-0" viewBox="0 0 25 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_1128_332)">
                                     <path
@@ -1240,37 +1086,174 @@
 
             </div>
         </div>
-        <!-- CheckMail Modal End -->
+        <!-- Activation Modal End -->
 
-        <!-- Reset Password Modal Start -->
-        <div x-cloak x-show="resetPassModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
+
+        <!-- Forget Modal Start -->
+        <div x-cloak x-show="forgetModal" x-on:scroll="scrollbar()"
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5">
             <div
-                class="max-w-[712px] w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
-                <button @click="resetPassModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
-                    <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                class="max-w-xl w-full m-auto bg-primary shadow-20 rounded-[20px] py-6 px-4 sm:px-8 sm:py-6 md:py-8 md:px-10 relative">
+                <button @click="forgetModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
+                    <svg class="w-6 sm:w-7 md:w-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
                             fill="#979797" />
                     </svg>
                 </button>
-                <h1
-                    class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
+                <h1 class="text-2xl sm:text-3xl text-primary font-bold sm:text-center mb-5 sm:mb-8 md:mb-[50px]">
+                    Password reminder</h1>
+
+                <div class="max-w-[448px] mx-auto relative mb-5 sm:mb-8 md:mb-10">
+                    <div class="mb-5 sm:mb-12 md:mb-20">
+                        <label for="" class="flex items-center space-x-2 text-sm sm:text-base text-secondary mb-1">
+                            Email
+                        </label>
+                        <input type="text" placeholder="Your email address"
+                            class="w-full bg-transparent py-2.5 md:py-3.5 px-3 md:px-4 rounded-md border border-primary focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base">
+                    </div>
+
+                    <div class="text-center">
+                        <button @click="checkMailModal = true; forgetModal = false"
+                            class="text-base py-3 lg:py-3.5 font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">confirm</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Forget Modal End -->
+
+
+        <!-- CheckMail Modal Start -->
+        <div x-cloak x-show="checkMailModal" x-on:scroll="scrollbar()"
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5">
+            <div
+                class="max-w-xl w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] sm:py-10 md:py-14 relative">
+                <button @click="checkMailModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
+                    <svg class="w-6 sm:w-7 md:w-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
+                            fill="#979797" />
+                    </svg>
+                </button>
+
+                <!-- Active input -->
+                <div class="px-4 sm:px-8 md:px-10 pb-4 sm:pb-5 md:pb-6 border-b border-primary">
+                    <h1 class="text-2xl sm:text-3xl text-primary font-bold sm:text-center mb-4 md:mb-5">
+                        Check your email</h1>
+                    <p class="text-sm sm:text-base max-w-[400px] mx-auto sm:text-center text-secondary">
+                        A password reset link has been successfully sent! Please, check your email for furthur
+                        instructions. </p>
+                </div>
+
+                <!-- Resend Email -->
+                <div class="max-w-[448px] mx-auto px-4 sm:px-8 md:px-10 pt-5 sm:pt-6 md:pt-[30px]">
+                    <div class="sm:text-center mb-5 sm:mb-8 md:mb-10">
+                        <a href="#"
+                            class="text-sm sm:text-base md:text-lg max-w-[495px] mx-auto sm:text-center text-secondary">Didn’t
+                            receive a link?</a>
+                    </div>
+
+                    <div class="text-center mb-5 sm:mb-6">
+                        <button @click="forgetModal = true; checkMailModal= false"
+                            class="text-base py-3 lg:py-3 font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">use
+                            a different email</button>
+                    </div>
+                    <div class="flex items-center justify-center space-x-3.5 mb-5 sm:mb-6">
+                        <div class="w-full h-px bg-light"></div>
+                        <p class="text-sm md:text-base text-secondary uppercase">or</p>
+                        <div class="w-full h-px bg-light"></div>
+                    </div>
+
+                    <div class="space-y-2.5 md:space-y-3.5">
+                        <a href="#"
+                            class="border border-primary w-full rounded-full py-2.5 md:py-3 flex items-center justify-center space-x-2.5 text-sm font-semibold text-secondary uppercase">
+                            <svg class="w-5 shrink-0" viewBox="0 0 25 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M22.305 10.041H21.5V10h-9v4h5.651A5.998 5.998 0 0 1 6.5 12a6 6 0 0 1 6-6c1.53 0 2.921.577 3.98 1.52L19.31 4.69A9.954 9.954 0 0 0 12.5 2c-5.522 0-10 4.478-10 10 0 5.523 4.478 10 10 10 5.523 0 10-4.477 10-10 0-.67-.069-1.325-.195-1.959Z"
+                                    fill="#FFC107" />
+                                <path
+                                    d="m3.653 7.346 3.285 2.409A5.997 5.997 0 0 1 12.5 6c1.53 0 2.92.577 3.98 1.52L19.31 4.69A9.954 9.954 0 0 0 12.499 2a9.994 9.994 0 0 0-8.846 5.346Z"
+                                    fill="#FF3D00" />
+                                <path
+                                    d="M12.5 22c2.583 0 4.93-.989 6.705-2.596l-3.095-2.62A5.956 5.956 0 0 1 12.5 18a5.997 5.997 0 0 1-5.641-3.973l-3.261 2.512C5.253 19.778 8.614 22 12.5 22Z"
+                                    fill="#4CAF50" />
+                                <path
+                                    d="M22.305 10.041H21.5V10h-9v4h5.651a6.02 6.02 0 0 1-2.043 2.785h.002l3.095 2.619C18.985 19.602 22.5 17 22.5 12c0-.67-.069-1.325-.195-1.959Z"
+                                    fill="#1976D2" />
+                            </svg>
+                            <span>Sign Up with google</span>
+                        </a>
+                        <a href="#"
+                            class="bg-yahoo w-full rounded-full py-2.5 md:py-3. flex items-center justify-center space-x-2.5 text-sm  font-semibold text-invert uppercase">
+                            <svg class="w-5 shrink-0" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10.675 7.453 8.418 13.03 6.24 7.457a.426.426 0 0 0-.397-.27H2.826a.426.426 0 0 0-.394.586l4.073 9.997-1.04 2.577a.426.426 0 0 0 .394.585h2.924c.173 0 .33-.105.395-.266l5.214-12.894a.426.426 0 0 0-.395-.585H11.07a.427.427 0 0 0-.395.266ZM17.851 3.335a.426.426 0 0 1 .395-.267h2.928c.302 0 .508.306.395.586l-3.094 7.619a.426.426 0 0 1-.394.266h-2.924a.426.426 0 0 1-.395-.585l3.09-7.62ZM15.39 17.57a2.365 2.365 0 1 0 0-4.73 2.365 2.365 0 0 0 0 4.73Z"
+                                    fill="#fff" />
+                            </svg>
+                            <span>Sign up with yahoo</span>
+                        </a>
+                        <a href="#"
+                            class="bg-outlook w-full rounded-full py-2.5 md:py-3 flex items-center justify-center space-x-2.5 text-sm font-semibold text-invert uppercase">
+                            <svg class="w-5 shrink-0" viewBox="0 0 25 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_1128_332)">
+                                    <path
+                                        d="M23.75 5.25049H13.25C12.836 5.25049 12.5 5.58649 12.5 6.00049C12.5 6.41449 12.836 6.75049 13.25 6.75049H21.5645L16.9565 10.334L13.652 8.23249L12.848 9.49849L16.598 11.8835C16.7195 11.9615 16.8605 12.0005 17 12.0005C17.162 12.0005 17.3255 11.948 17.4605 11.843L23 7.53349V17.2505H13.25C12.836 17.2505 12.5 17.5865 12.5 18.0005C12.5 18.4145 12.836 18.7505 13.25 18.7505H23.75C24.164 18.7505 24.5 18.4145 24.5 18.0005V6.00049C24.5 5.58649 24.164 5.25049 23.75 5.25049Z"
+                                        fill="white" />
+                                    <path
+                                        d="M13.7285 0.923022C13.5575 0.780522 13.328 0.719022 13.112 0.764022L1.112 3.01402C0.7565 3.08002 0.5 3.38902 0.5 3.75052V20.2505C0.5 20.6105 0.7565 20.921 1.112 20.987L13.112 23.237C13.157 23.246 13.2035 23.2505 13.25 23.2505C13.424 23.2505 13.5935 23.1905 13.7285 23.078C13.901 22.9355 14 22.7225 14 22.5005V1.50052C14 1.27702 13.901 1.06552 13.7285 0.923022Z"
+                                        fill="white" />
+                                    <path
+                                        d="M7.25 17.2505C5.183 17.2505 3.5 15.2315 3.5 12.7505C3.5 10.2695 5.183 8.25049 7.25 8.25049C9.317 8.25049 11 10.2695 11 12.7505C11 15.2315 9.317 17.2505 7.25 17.2505ZM7.25 9.75049C6.0095 9.75049 5 11.096 5 12.7505C5 14.405 6.0095 15.7505 7.25 15.7505C8.4905 15.7505 9.5 14.405 9.5 12.7505C9.5 11.096 8.4905 9.75049 7.25 9.75049Z"
+                                        fill="#006DBC" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_1128_332">
+                                        <rect width="24" height="24" fill="white" transform="translate(0.5)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <span>Sign up with outlook</span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- CheckMail Modal End -->
+
+        <!-- Reset Password Modal Start -->
+        <div x-cloak x-show="resetPassModal" x-on:scroll="scrollbar()"
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5">
+            <div
+                class="max-w-xl w-full m-auto bg-primary shadow-20 rounded-[20px] py-6 px-4 sm:px-8 sm:py-6 md:py-8 md:px-10 relative">
+                <button @click="resetPassModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
+                    <svg class="w-6 sm:w-7 md:w-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
+                            fill="#979797" />
+                    </svg>
+                </button>
+                <h1 class="text-2xl sm:text-3xl text-primary font-bold sm:text-center mb-5 sm:mb-8 md:mb-10">
                     Reset password</h1>
 
                 <div class="max-w-[448px] mx-auto relative mb-5 sm:mb-8 md:mb-10">
-                    <div class="mb-4 sm:mb-8 md:mb-10">
-                        <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-secondary mb-2 sm:mb-3 md:mb-4">
+                    <div class="mb-4 sm:mb-5 md:mb-6">
+                        <label for="" class="flex items-center space-x-2 text-sm sm:text-base text-secondary mb-1">
                             Password
                         </label>
 
                         <div class="flex items-center relative" x-data="{show : false}">
                             <input :type="show? 'text' : 'password'" placeholder="Password"
-                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base md:text-lg">
+                                class="w-full bg-transparent py-3 md:py-3 pl-3 md:pl-4 pr-12 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base">
 
                             <div class="absolute right-0 mr-4 cursor-pointer" @click="show = !show">
-                                <svg class="w-5 md:w-6" x-show="!show" viewBox="0 0 23 18" fill="none"
+
+                                <svg class="w-4 md:w-5" x-show="!show" viewBox="0 0 23 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M19.337.227a.818.818 0 0 1 1.13 0c.32.302.32.802 0 1.105l-1.94 1.897c1.546 1.376 2.857 3.231 3.838 5.462a.771.771 0 0 1 0 .615c-2.281 5.192-6.344 8.298-10.866 8.298h-.01c-2.058 0-4.031-.657-5.77-1.856l-2.068 2.023a.8.8 0 0 1-.565.229.783.783 0 0 1-.565-.23.761.761 0 0 1-.096-.98l.032-.04L18.228 1.331c.021-.021.043-.042.053-.063a.277.277 0 0 0 .054-.062l1.002-.98Zm-7.835.181c1.525 0 3.007.354 4.372 1.022l-3.561 3.48a5.087 5.087 0 0 0-.81-.073c-2.357 0-4.266 1.866-4.266 4.17 0 .271.032.542.075.792l-3.946 3.857C2.3 12.448 1.372 10.99.636 9.31a.77.77 0 0 1 0-.615C2.918 3.504 6.981.408 11.492.408h.01Zm3.516 6.25-1.162 1.137c.192.354.299.771.299 1.209 0 1.428-1.195 2.596-2.656 2.596a2.7 2.7 0 0 1-1.237-.292L9.1 12.444a4.38 4.38 0 0 0 2.4.72c2.345 0 4.254-1.867 4.254-4.16 0-.865-.277-1.678-.736-2.346Z"
@@ -1283,7 +1266,7 @@
                                         </linearGradient>
                                     </defs>
                                 </svg>
-                                <svg class="w-5 md:w-6" x-show="show" viewBox="0 0 24 24" fill="none"
+                                <svg class="w-4 md:w-5" x-show="show" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" fill="url(#a)" />
                                     <path
@@ -1302,18 +1285,17 @@
                         </div>
                     </div>
 
-                    <div class="mb-5 sm:mb-12 md:mb-[60px]">
-                        <label for=""
-                            class="flex items-center space-x-2 text-sm sm:text-base md:text-lg text-secondary mb-2 sm:mb-3 md:mb-4">
+                    <div class="mb-5 sm:mb-8 md:mb-10">
+                        <label for="" class="flex items-center space-x-2 text-sm sm:text-base text-secondary mb-1">
                             Confirm Password
                         </label>
 
                         <div class="flex items-center relative" x-data="{show : false}">
                             <input :type="show? 'text' : 'password'" placeholder="Confirm Password"
-                                class="w-full bg-transparent py-2.5 md:py-3.5 pl-3 md:pl-4 pr-12 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base md:text-lg">
+                                class="w-full bg-transparent py-2.5 md:py-3 pl-3 md:pl-4 pr-12 rounded-md border border-primary  focus-within:border-info focus-within:ring-0 text-primary placeholder-primary text-sm sm:text-base">
 
                             <div class="absolute right-0 mr-4 cursor-pointer" @click="show = !show">
-                                <svg class="w-5 md:w-6" x-show="!show" viewBox="0 0 23 18" fill="none"
+                                <svg class="w-4 md:w-5" x-show="!show" viewBox="0 0 23 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M19.337.227a.818.818 0 0 1 1.13 0c.32.302.32.802 0 1.105l-1.94 1.897c1.546 1.376 2.857 3.231 3.838 5.462a.771.771 0 0 1 0 .615c-2.281 5.192-6.344 8.298-10.866 8.298h-.01c-2.058 0-4.031-.657-5.77-1.856l-2.068 2.023a.8.8 0 0 1-.565.229.783.783 0 0 1-.565-.23.761.761 0 0 1-.096-.98l.032-.04L18.228 1.331c.021-.021.043-.042.053-.063a.277.277 0 0 0 .054-.062l1.002-.98Zm-7.835.181c1.525 0 3.007.354 4.372 1.022l-3.561 3.48a5.087 5.087 0 0 0-.81-.073c-2.357 0-4.266 1.866-4.266 4.17 0 .271.032.542.075.792l-3.946 3.857C2.3 12.448 1.372 10.99.636 9.31a.77.77 0 0 1 0-.615C2.918 3.504 6.981.408 11.492.408h.01Zm3.516 6.25-1.162 1.137c.192.354.299.771.299 1.209 0 1.428-1.195 2.596-2.656 2.596a2.7 2.7 0 0 1-1.237-.292L9.1 12.444a4.38 4.38 0 0 0 2.4.72c2.345 0 4.254-1.867 4.254-4.16 0-.865-.277-1.678-.736-2.346Z"
@@ -1326,7 +1308,7 @@
                                         </linearGradient>
                                     </defs>
                                 </svg>
-                                <svg class="w-5 md:w-6" x-show="show" viewBox="0 0 24 24" fill="none"
+                                <svg class="w-4 md:w-5" x-show="show" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" fill="url(#a)" />
                                     <path
@@ -1347,7 +1329,7 @@
 
                     <div class="text-center">
                         <button @click="thankyouModal = true; resetPassModal = false"
-                            class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">Reset
+                            class="text-base py-3 lg:py-3.5 font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">Reset
                             Password</button>
                     </div>
                 </div>
@@ -1359,18 +1341,18 @@
 
         <!-- Thankyou Modal Start -->
         <div x-cloak x-show="thankyouModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5">
             <div
-                class="max-w-[712px] w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+                class="max-w-xl w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] py-6 px-4 sm:px-8 sm:py-6 md:py-8 md:px-10 relative">
                 <button @click="thankyouModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
-                    <svg class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-6 sm:w-7 md:w-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
                             fill="#979797" />
                     </svg>
                 </button>
 
-                <svg class="w-[72px] sm:w-20 md:w-24 mx-auto mb-3 sm:mb-7 md:mb-10" viewBox="0 0 94 94" fill="none"
+                <svg class="w-[72px] sm:w-20 md:w-24 mx-auto mb-3 sm:mb-6 md:mb-8" viewBox="0 0 94 94" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M47.694 90.901c14.262 0 27.08-9.11 31.353-22.717.904-2.878 1.455-5.934 1.455-9.106 0-17.747-14.53-32.068-14.53-32.068s1 5.797.378 10.732c-.623 4.935-2.918 7.964-2.918 7.964s1.676-7.748-.55-12.943c-2.563-5.98-7.344-8.753-9.18-14.137-2.114-6.196 1.053-13.402 1.053-13.402S44.34 9.249 36.811 19.636c-8.537 11.78-2.784 26.957-2.784 26.957s-.796-4.192-5.11-7.588c-4.315-3.397-2.567-8.664-2.567-8.664S14.687 43.41 14.687 59.078c0 4.253 1.219 8.543 2.993 12.535 5.246 11.804 17.096 19.288 30.014 19.288Z"
@@ -1392,15 +1374,15 @@
                         fill="#E90039" />
                 </svg>
 
-                <h1 class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold text-center capitalize mb-5">
+                <h1 class="text-2xl sm:text-3xl text-primary font-bold text-center capitalize mb-3">
                     thank you!</h1>
-                <p class="text-sm sm:text-base md:text-lg text-center text-secondary mb-6 sm:mb-12 md:mb-20">Your
+                <p class="text-sm sm:text-base text-center text-secondary mb-6 sm:mb-12 md:mb-14">Your
                     password
                     has been changed!</p>
 
                 <div class="text-center">
                     <button @click="thankyouModal = false"
-                        class="text-base sm:text-lg py-4 lg:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">ok</button>
+                        class="text-base py-3 lg:py-3.5 font-semibold text-invert px-4 rounded-full max-w-[336px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">ok</button>
                 </div>
             </div>
         </div>
@@ -1462,15 +1444,6 @@
                         this.$el.classList.add('hide-scrollbar');
                         this.$el.classList.remove('show-scrollbar');
                     }, 3000);
-                },
-                hasScrolled: false,
-                languageBarOpen: true,
-                reactOnScroll() {
-                    if (this.$el.getBoundingClientRect().top < 80 && this.$el.scrollTop > 80) {
-                        this.hasScrolled = true;
-                    } else {
-                        this.hasScrolled = false;
-                    }
                 },
                 showHideScroll() {
                     this.$el.classList.add('show-scrollbar');

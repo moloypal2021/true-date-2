@@ -21,10 +21,9 @@
 
 <body>
     <div class="bg-primary relative h-screen overflow-y-auto show-scrollbar flex flex-col" x-data="modal()"
-        x-on:scroll="showHideScroll(); reactOnScroll();" x-init="reactOnScroll()">
+        x-on:scroll="showHideScroll()">
         <!-- Header Section Start -->
-        <header class="bg-primary/50 backdrop-blur-lg fixed top-0 inset-x-0 z-50"
-            :class="hasScrolled ? 'shadow-1' : ''">
+        <header class="bg-primary/50 backdrop-blur-lg fixed top-0 inset-x-0 z-50">
             <div class="container">
                 <nav class="flex items-center justify-between py-4 sm:py-6 md:py-8 3k:py-10">
                     <a href="#" class="">
