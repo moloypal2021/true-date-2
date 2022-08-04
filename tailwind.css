@@ -124,6 +124,7 @@ md:before:peer-checked:translate-x-[26px];
 @media (max-width: 639px) {
   .homeapge-carousel-1 .img-card {
     opacity: 0.9;
+    transition: all 0.1s ease-in;
   }
 }
 
@@ -178,7 +179,8 @@ md:before:peer-checked:translate-x-[26px];
 }
 
 .userpage-carousel .flickity-button {
-  background: linear-gradient(91.26deg, #ff0642 2.85%, #ea1272 100%);
+  /* background: linear-gradient(91.26deg, #ff0642 2.85%, #ea1272 100%); */
+  background-color: transparent;
   opacity: 0.4;
 }
 .userpage-carousel .flickity-button:hover {

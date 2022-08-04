@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Home</title>
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+    <!-- Flickity CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="./assets/css/tailwind.css">
+
+    <!--  Flickity JavaScript -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.9.3/dist/cdn.min.js"></script>
+
+    <!-- Custom js -->
+    <script src="./assets/js/custom.js"></script>
+</head>
+
+<body>
+
+    <div class="bg-primary w-full h-screen overflow-y-auto show-scrollbar flex flex-col">
+        <!-- Header Section Start -->
+        <header class="bg-primary/50 backdrop-blur-lg fixed top-0 inset-x-0 z-[70] sm:z-50">
+            <nav class="container flex items-center justify-between py-4 sm:py-6 md:py-8 3k:py-10">
+                <a href="#" class="">
+                    <img src="./assets/images/logo-dark.svg" alt=""
+                        class="w-32 sm:w-48 md:w-64 3k:w-[320px] inline-block">
+                </a>
+
+                <!-- Notification -->
+                <div class="relative inline-block" x-data="{open : false}" @click.away="open = false">
+                    <button class="relative" @click="open = !open">
+                        <div
+                            class="absolute top-0.5 left-0.5 z-10 w-3.5 h-3.5 sm:w-[18px] sm:h-[18px] bg-2 flex items-center justify-center rounded-full text-[9px] sm:text-xs font-bold text-invert animate__animated animate__tada animate__infinite	infinite">
+                            2
+                        </div>
+
+                        <svg class="w-6 sm:w-8 text-muted-alt fill-current" viewBox="0 0 448 512" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#a)">
+                                <path
+                                    d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64Zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71Z"
+                                    fill="current" />
+                            </g>
+                            <defs>
+                                <clipPath id="a">
+                                    <path fill="#fff" d="M0 0h448v512H0z" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
+
+                    <div class="fixed inset-0 z-50 w-full h-screen bg-popup-overlay/30 backdrop-blur-xl sm:hidden"
+                        x-show="open" @click="open = false" x-cloak></div>
+                    <div class="origin-top-right fixed sm:absolute right-0 top-0 bottom-0 sm:top-auto sm:bottom-auto z-50 inline sm:mt-16 w-80 md:w-96  rounded-l-3xl rounded-r-none sm:rounded-[20px] sm:shadow-50 bg-primary focus:outline-none sm:max-h-[80vh] h-screen sm:h-auto overflow-y-auto show-scrollbar duration-300 transition ease-in-out"
+                        x-cloak
+                        :class="open ? 'translate-x-0 sm:opacity-100 sm:scale-100' : 'translate-x-full sm:translate-x-0 sm:opacity-0 sm:scale-90 sm:hidden'">
+                        <div class="pt-8 sm:pt-4 pb-3" role="none">
+
+                            <!-- Mobile Header with logo Start -->
+                            <div class="flex items-center justify-between px-4 mb-6">
+                                <a href="#" class="sm:hidden">
+                                    <img src="./assets/images/logo.svg" alt=""
+                                        class="w-[176px] sm:w-48 md:w-64 lg:w-[320px] inline-block" />
+                                </a>
+                                <h3 class="text-2xl font-bold text-primary hidden sm:block">Notifications</h3>
+                                <div class="flex items-center space-x-3">
+                                    <div class="flex items-center space-x-1">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M19.5492 10.9966C19.0942 9.97256 18.4328 9.05339 17.6063 8.29665L16.9242 7.67086C16.9011 7.6502 16.8732 7.63553 16.843 7.62816C16.8129 7.62078 16.7814 7.62091 16.7513 7.62855C16.7212 7.63619 16.6935 7.65109 16.6705 7.67195C16.6475 7.69282 16.63 7.719 16.6195 7.74821L16.3148 8.62243C16.125 9.17086 15.7758 9.73102 15.2812 10.2818C15.2484 10.317 15.2109 10.3263 15.1852 10.3287C15.1594 10.331 15.1195 10.3263 15.0844 10.2935C15.0516 10.2654 15.0352 10.2232 15.0375 10.181C15.1242 8.77008 14.7023 7.17868 13.7789 5.44665C13.0148 4.00759 11.9531 2.88493 10.6266 2.10212L9.65859 1.53259C9.53203 1.45759 9.37031 1.55603 9.37734 1.70368L9.42891 2.82868C9.46406 3.59743 9.375 4.27712 9.16406 4.84196C8.90625 5.53337 8.53594 6.17555 8.0625 6.75212C7.73302 7.15281 7.35959 7.51524 6.94922 7.83258C5.96087 8.59235 5.15722 9.56586 4.59844 10.6802C4.04103 11.8043 3.75068 13.0419 3.75 14.2966C3.75 15.4029 3.96797 16.474 4.39922 17.4841C4.81562 18.4567 5.41654 19.3394 6.16875 20.0834C6.92813 20.8334 7.80938 21.424 8.79141 21.8341C9.80859 22.2607 10.8867 22.4763 12 22.4763C13.1133 22.4763 14.1914 22.2607 15.2086 21.8365C16.1882 21.4287 17.079 20.8341 17.8312 20.0857C18.5906 19.3357 19.1859 18.4591 19.6008 17.4865C20.0314 16.4791 20.2523 15.3945 20.25 14.299C20.25 13.1552 20.0156 12.0443 19.5492 10.9966V10.9966Z"
+                                                fill="url(#paint0_linear_464_685)" />
+
+                                            <defs>
+                                                <linearGradient id="paint0_linear_464_685" x1="2.03571" y1="8.03846"
+                                                    x2="77.4591" y2="9.69834" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#FF0642" />
+                                                    <stop offset="1" stop-color="#EA1272" />
+                                                </linearGradient>
+                                            </defs>
+                                        </svg>
+
+                                        <span class="text-base font-medium text-primary">0</span>
+                                    </div>
+
+                                    <button>
+                                        <svg class="w-6" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M12 1C5.925 1 1 5.925 1 12C1 18.075 5.925 23 12 23C18.075 23 23 18.075 23 12C23 5.925 18.075 1 12 1ZM13 16C13 16.2652 12.8946 16.5196 12.7071 16.7071C12.5196 16.8946 12.2652 17 12 17C11.7348 17 11.4804 16.8946 11.2929 16.7071C11.1054 16.5196 11 16.2652 11 16V13H8C7.73478 13 7.48043 12.8946 7.29289 12.7071C7.10536 12.5196 7 12.2652 7 12C7 11.7348 7.10536 11.4804 7.29289 11.2929C7.48043 11.1054 7.73478 11 8 11H11V8C11 7.73478 11.1054 7.48043 11.2929 7.29289C11.4804 7.10536 11.7348 7 12 7C12.2652 7 12.5196 7.10536 12.7071 7.29289C12.8946 7.48043 13 7.73478 13 8V11H16C16.2652 11 16.5196 11.1054 16.7071 11.2929C16.8946 11.4804 17 11.7348 17 12C17 12.2652 16.8946 12.5196 16.7071 12.7071C16.5196 12.8946 16.2652 13 16 13H13V16Z"
+                                                fill="url(#paint0_linear_464_685)" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_464_685" x1="2.03571" y1="8.03846"
+                                                    x2="77.4591" y2="9.69834" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#FF0642" />
+                                                    <stop offset="1" stop-color="#EA1272" />
+                                                </linearGradient>
+                                            </defs>
+                                        </svg>
+
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Header with logo End -->
+
+                            <!-- Notification Title -->
+
+                            <h3 class="text-2xl font-bold text-primary px-4 mb-3 sm:hidden">Notifications</h3>
+
+                            <div class="space-y-1">
+                                <a href="#"
+                                    class="text-primary px-4 py-2 bg-light hover:bg-muted/30 flex items-center space-x-4">
+                                    <img src="./assets/images/img-5.jpg" alt=""
+                                        class="min-w-[48px] w-12 3k:w-16 h-12 3k:h-16 rounded-full object-cover">
+
+                                    <div>
+                                        <p class="text-sm 3k:text-base text-secondary"> <span
+                                                class="font-bold uppercase">bABYDOLL</span> accept your request.</p>
+                                        <div class="flex items-center space-x-2">
+                                            <svg class="w-3 stroke-current text-primary" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                                    stroke="current" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M15 16L12.586 13.586C12.2109 13.211 12.0001 12.7024 12 12.172V6"
+                                                    stroke="current" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+
+                                            <span class="text-sm text-secondary">1h ago</span>
+
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="#"
+                                    class="text-white px-4 py-2 bg-light hover:bg-muted/30 flex items-center space-x-4">
+                                    <img src="./assets/images/img-6.jpg" alt=""
+                                        class="min-w-[48px] w-12 3k:w-16 h-12 3k:h-16 rounded-full object-cover">
+
+                                    <div>
+                                        <p class="text-sm 3k:text-base text-secondary"> <span
+                                                class="font-bold uppercase">bABYDOLL</span> added 6 new photos.</p>
+                                        <div class="flex items-center space-x-2">
+                                            <svg class="w-3 stroke-current text-primary" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                                    stroke="current" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M15 16L12.586 13.586C12.2109 13.211 12.0001 12.7024 12 12.172V6"
+                                                    stroke="current" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+
+                                            <span class="text-sm text-secondary">2h ago</span>
+
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="#"
+                                    class="text-primary px-4 py-2 hover:bg-muted/30 flex items-center space-x-4">
+                                    <img src="./assets/images/img-7.jpg" alt=""
+                                        class="min-w-[48px] w-12 3k:w-16 h-12 3k:h-16 rounded-full object-cover">
+
+                                    <div>
+                                        <p class="text-sm 3k:text-base text-secondary"> <span
+                                                class="font-bold uppercase">bABYDOLL</span> added 6 new photos.</p>
+                                        <div class="flex items-center space-x-2">
+                                            <svg class="w-3 stroke-current text-primary" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                                    stroke="current" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M15 16L12.586 13.586C12.2109 13.211 12.0001 12.7024 12 12.172V6"
+                                                    stroke="current" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+
+                                            <span class="text-sm text-secondary">2h ago</span>
+
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Header Section End -->
+
+
+        <!-- Content Start -->
+        <section class="lg:pt-32 3k:pt-40 pt-6 flex-1 flex flex-col">
+
+            <!-- Buy Credits Start -->
+            <div
+                class="container flex items-center justify-between border-b lg:border-b-0 border-primary/50 pb-5 sm:pb-6 lg:pb-0 ">
+                <button class="" @click="page > 1 ? page = page-1 : ''">
+                    <svg class="w-6 md:w-8 4k:w-11 fill-current text-primary" viewBox="0 0 44 44" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M14.6668 21.9997C14.666 21.5713 14.8152 21.1562 15.0885 20.8264L24.2551 9.82636C24.5663 9.45196 25.0135 9.21652 25.4983 9.17182C25.9831 9.12712 26.4657 9.27684 26.8401 9.58802C27.2145 9.89921 27.45 10.3464 27.4947 10.8312C27.5394 11.3159 27.3897 11.7986 27.0785 12.173L18.8651 21.9997L26.7851 31.8264C26.9374 32.0139 27.0512 32.2297 27.1198 32.4613C27.1884 32.6929 27.2106 32.9358 27.185 33.176C27.1595 33.4162 27.0867 33.649 26.9709 33.861C26.8551 34.073 26.6985 34.2601 26.5101 34.4114C26.3216 34.5793 26.1005 34.7064 25.8606 34.7849C25.6206 34.8633 25.3671 34.8914 25.1158 34.8673C24.8645 34.8432 24.6209 34.7675 24.4003 34.6448C24.1796 34.5222 23.9866 34.3553 23.8335 34.1547L14.9785 23.1547C14.7484 22.8154 14.6386 22.4087 14.6668 21.9997Z"
+                            fill="current" />
+                    </svg>
+                </button>
+
+                <div class="w-full">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold text-center">Premium Member</h1>
+                </div>
+            </div>
+            <!-- Buy Credits End -->
+
+
+            <div class="container py-20 flex-1 flex items-center justify-center">
+                <div class="max-w-xl flex flex-col items-center">
+                    <svg class="w-20 sm:w-24 md:w-28 lg:w-32 mb-6 md:mb-8 2xl:mb-10" viewBox="0 0 82 82" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M81.9529 24.1555V74.7058C81.9529 78.6889 78.7373 81.9043 74.7544 81.9043H7.24737C3.26397 81.9043 0.0488281 78.6887 0.0488281 74.7058V24.1555L7.48745 19.3564H73.1228L81.9529 24.1555Z"
+                            fill="#EEEEEE" />
+                        <path
+                            d="M81.9521 24.1555V74.7058C81.9521 78.6889 78.7365 81.9043 74.7536 81.9043H41V19.3564H73.1216L81.9521 24.1555Z"
+                            fill="#ECECEC" />
+                        <path
+                            d="M26.6031 48.1508H17.0049C15.6787 48.1508 14.6055 47.0775 14.6055 45.7513V36.1531C14.6055 34.8269 15.6787 33.7537 17.0049 33.7537H26.6031C27.9293 33.7537 29.0026 34.8269 29.0026 36.1531V45.7513C29.0027 47.0775 27.9293 48.1508 26.6031 48.1508Z"
+                            fill="#C7C7C7" />
+                        <path
+                            d="M26.6031 67.5069H17.0049C15.6787 67.5069 14.6055 66.4337 14.6055 65.1075V55.5093C14.6055 54.1831 15.6787 53.1099 17.0049 53.1099H26.6031C27.9293 53.1099 29.0026 54.1831 29.0026 55.5093V65.1075C29.0027 66.4337 27.9293 67.5069 26.6031 67.5069Z"
+                            fill="#C7C7C7" />
+                        <path
+                            d="M45.8002 33.7534H36.042C34.6982 33.7534 33.6426 34.809 33.6426 36.1529V45.751C33.6426 47.0946 34.6982 48.1505 36.042 48.1505H45.8002C47.1441 48.1505 48.3597 47.0946 48.3597 45.751V36.1529C48.3597 34.8092 47.1441 33.7534 45.8002 33.7534Z"
+                            fill="#C7C7C7" />
+                        <path
+                            d="M45.8002 53.1099H36.042C34.6982 53.1099 33.6426 54.1655 33.6426 55.5093V65.1075C33.6426 66.451 34.6982 67.507 36.042 67.507H45.8002C47.1441 67.507 48.3597 66.451 48.3597 65.1075V55.5093C48.3597 54.1655 47.1441 53.1099 45.8002 53.1099Z"
+                            fill="#C7C7C7" />
+                        <path
+                            d="M65.314 48.1508H55.7159C54.3896 48.1508 53.3164 47.0775 53.3164 45.7513V36.1531C53.3164 34.8269 54.3896 33.7537 55.7159 33.7537H65.314C66.6403 33.7537 67.7135 34.8269 67.7135 36.1531V45.7513C67.7136 47.0775 66.6404 48.1508 65.314 48.1508Z"
+                            fill="#B7B7B7" />
+                        <path
+                            d="M81.9527 57.9089H60.2608C58.9169 57.9089 57.8613 58.9645 57.8613 60.3084V82.0001L81.9527 57.9089Z"
+                            fill="#B7B7B7" />
+                        <path
+                            d="M48.3581 36.153V45.7512C48.3581 47.0948 47.1426 48.1507 45.7987 48.1507H41.0957V33.7534H45.7987C47.1426 33.7534 48.3581 34.8092 48.3581 36.153Z"
+                            fill="#B7B7B7" />
+                        <path
+                            d="M48.3581 55.5095V65.1076C48.3581 66.4512 47.1426 67.5071 45.7987 67.5071H41.0957V53.1099H45.7987C47.1426 53.1099 48.3581 54.1655 48.3581 55.5095Z"
+                            fill="#B7B7B7" />
+                        <path
+                            d="M74.7542 4.95898H7.24737C3.26397 4.95898 0.0488281 8.17428 0.0488281 12.1575V24.1552H81.9531V12.1575C81.9529 8.17412 78.7373 4.95898 74.7542 4.95898Z"
+                            fill="url(#paint0_linear_1011_36164)" />
+                        <path
+                            d="M81.9521 12.1575V24.1552H41V4.95898H74.7534C78.7365 4.95898 81.9521 8.17412 81.9521 12.1575Z"
+                            fill="url(#paint1_linear_1011_36164)" />
+                        <path
+                            d="M12.3663 14.5572C11.04 14.5572 9.9668 13.484 9.9668 12.1578V2.39946C9.9668 1.07321 11.04 0 12.3663 0C13.6925 0 14.7657 1.07321 14.7657 2.39946V12.1576C14.7659 13.484 13.6925 14.5572 12.3663 14.5572Z"
+                            fill="#68544F" />
+                        <path
+                            d="M31.5635 14.5572C30.2373 14.5572 29.1641 13.484 29.1641 12.1578V2.39946C29.1639 1.07321 30.2373 0 31.5635 0C32.8898 0 33.963 1.07321 33.963 2.39946V12.1576C33.963 13.484 32.8898 14.5572 31.5635 14.5572Z"
+                            fill="#68544F" />
+                        <path
+                            d="M51.0772 14.5572C49.7509 14.5572 48.6777 13.484 48.6777 12.1578V2.39946C48.6777 1.07321 49.7509 0 51.0772 0C52.4034 0 53.4767 1.07321 53.4767 2.39946V12.1576C53.4768 13.484 52.4036 14.5572 51.0772 14.5572Z"
+                            fill="#53433F" />
+                        <path
+                            d="M70.2745 14.5572C68.9482 14.5572 67.875 13.484 67.875 12.1578V2.39946C67.875 1.07321 68.9482 0 70.2745 0C71.6007 0 72.6739 1.07321 72.6739 2.39946V12.1576C72.6741 13.484 71.6007 14.5572 70.2745 14.5572Z"
+                            fill="#53433F" />
+                        <defs>
+                            <linearGradient id="paint0_linear_1011_36164" x1="2.24269" y1="6.98935" x2="82.8542"
+                                y2="14.5587" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF0642" />
+                                <stop offset="1" stop-color="#EA1272" />
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_1011_36164" x1="42.0969" y1="6.98935" x2="82.6686"
+                                y2="8.89417" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF0642" />
+                                <stop offset="1" stop-color="#EA1272" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <p class="text-base text-center text-secondary mb-6 md:mb-8 2xl:mb-10 max-w-xs">Your 3 months
+                        premium plan
+                        will expire on <span class="font-semibold">September 26, 2022</span></p>
+
+                    <button x-data="{}" @click.stop="$dispatch('open-modal')"
+                        class="text-base 3k:text-lg py-3.5 3k:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out">CANCEL
+                        SUBSCRIPTION</button>
+                </div>
+
+                <!-- Canel Subscription Modal -->
+                <div x-cloak x-data="{cancelSuscriptionModel: false}" @open-modal.window="cancelSuscriptionModel=true"
+                    x-show="cancelSuscriptionModel" x-on:scroll="scrollbar()"
+                    class="fixed inset-0 z-[70] bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5 py-24">
+                    <div
+                        class="max-w-xl 3k:max-w-[712px] w-full m-auto bg-primary rounded-[20px] py-[30px] px-4 sm:px-8 sm:py-10 md:py-14 md:px-10 relative">
+
+                        <button @click="cancelSuscriptionModel = false"
+                            class="absolute right-0 top-0 m-4 hover:opacity-75">
+                            <svg class="w-6 sm:w-8 md:w-10 text-muted" viewBox="0 0 40 40" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="m22.35 20 7.167-7.15a1.674 1.674 0 0 0-2.367-2.367L20 17.65l-7.15-7.167a1.674 1.674 0 0 0-2.367 2.367L17.65 20l-7.167 7.15a1.666 1.666 0 0 0 0 2.367 1.666 1.666 0 0 0 2.367 0L20 22.35l7.15 7.167a1.665 1.665 0 0 0 2.367 0 1.666 1.666 0 0 0 0-2.367L22.35 20Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </button>
+
+                        <h1
+                            class="text-xl sm:text-2xl md:text-3xl 3k:text-4xl text-primary font-bold text-center mb-4 sm:mb-6 3k:mb-[30px]">
+                            Are you sure?</h1>
+                        <p
+                            class="text-base sm:text-lg text-secondary max-w-sm mx-auto text-center mb-6 sm:mb-8 3k:mb-14">
+                            Premium
+                            members exclusive feautures:</p>
+
+                        <ul class="space-y-5 md:space-y-6 max-w-sm mx-auto mb-5 md:mb-8 xl:mb-10">
+                            <li class="flex items-center space-x-3.5 md:space-x-5">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_1205_3881)">
+                                        <path
+                                            d="M22.5937 4.36377C22.5937 5.59982 21.5882 6.60539 20.3521 6.60539H14.8979C13.711 6.60539 12.6564 7.18261 12 8.07099C11.3436 7.18266 10.289 6.60539 9.10213 6.60539H3.64787C2.41182 6.60543 1.40626 5.59982 1.40626 4.36377H0V13.7453C0 16.9936 2.64268 19.6363 5.89099 19.6363H8.15328C9.03707 19.6363 9.88677 19.3121 10.546 18.7234C11.3422 17.9878 12.6622 17.9878 13.4582 18.7234C14.1174 19.3121 14.9672 19.6363 15.851 19.6363H18.1091C21.3574 19.6363 24 16.9936 24 13.7453V4.36377H22.5937ZM9.60243 15.3134H7.05148C5.31054 15.3134 3.8942 13.8971 3.8942 12.1562V10.9753H6.44515C8.18609 10.9753 9.60243 12.3917 9.60243 14.1326V15.3134ZM20.1101 12.1561C20.1101 13.897 18.6937 15.3133 16.9528 15.3133H14.4018V14.1325C14.4018 12.3916 15.8182 10.9752 17.5591 10.9752H20.1101V12.1561Z"
+                                            fill="url(#paint0_linear_1205_3881)" />
+                                    </g>
+                                    <defs>
+                                        <linearGradient id="paint0_linear_1205_3881" x1="0.642858" y1="5.97913"
+                                            x2="24.4439" y2="6.80226" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#FF0642" />
+                                            <stop offset="1" stop-color="#EA1272" />
+                                        </linearGradient>
+                                        <clipPath id="clip0_1205_3881">
+                                            <rect width="24" height="24" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <p class="text-base md:text-lg xl:text-xl text-primary font-medium font-gilroy">Get more
+                                    attention</p>
+                            </li>
+                            <li class="flex items-center space-x-3.5 md:space-x-5">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 6C8.17879 6 4.71351 8.09062 2.15649 11.4863C1.94784 11.7645 1.94784 12.1532 2.15649 12.4314C4.71351 15.8312 8.17879 17.9219 12 17.9219C15.8212 17.9219 19.2865 15.8312 21.8435 12.4355C22.0522 12.1573 22.0522 11.7686 21.8435 11.4904C19.2865 8.09062 15.8212 6 12 6ZM12.2741 16.1585C9.73755 16.3181 7.64284 14.2275 7.80239 11.6868C7.93331 9.5921 9.63118 7.89424 11.7259 7.76332C14.2625 7.60376 16.3572 9.69438 16.1976 12.235C16.0626 14.3257 14.3647 16.0235 12.2741 16.1585ZM12.1473 14.2193C10.7808 14.3052 9.65163 13.1801 9.74164 11.8136C9.81119 10.6845 10.7276 9.77212 11.8568 9.69847C13.2233 9.61256 14.3525 10.7376 14.2625 12.1041C14.1888 13.2374 13.2724 14.1497 12.1473 14.2193Z"
+                                        fill="url(#paint0_linear_1205_4084)" />
+                                    <defs>
+                                        <linearGradient id="paint0_linear_1205_4084" x1="2.53571" y1="7.26096"
+                                            x2="22.3666" y2="7.99311" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#FF0642" />
+                                            <stop offset="1" stop-color="#EA1272" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+
+                                <p class="text-base md:text-lg xl:text-xl text-primary font-medium font-gilroy">80%
+                                    increased visability</p>
+                            </li>
+                            <li class="flex items-center space-x-3.5 md:space-x-5">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_1205_3896)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M2.82353 16.9406C2.82353 17.4854 3.4145 17.8248 3.88508 17.5503L7.95554 15.1759H15.8792C17.4406 15.1759 18.7059 13.913 18.7059 12.3523V4.58777C18.7059 3.02778 17.441 1.76416 15.8794 1.76416H2.82649C1.26524 1.76416 0 3.02707 0 4.58777V12.3523C0 13.9117 1.26386 15.1756 2.82353 15.1759V16.9406ZM6.59629 6.11816L6.47228 6.24217C5.6462 7.06825 5.64671 8.40852 6.47271 9.23448L9.00488 11.7666C9.28054 12.0423 9.72749 12.0423 10.0032 11.7666L12.5353 9.23448C13.3613 8.40852 13.3618 7.06825 12.5358 6.24217L12.4117 6.11816C11.6151 5.32157 10.3343 5.29393 9.50403 6.03844C8.67367 5.29393 7.39288 5.32157 6.59629 6.11816ZM7.47095 8.2362C7.19611 7.96137 7.19592 7.51504 7.47051 7.24045L7.59453 7.11643C7.86771 6.84325 8.31635 6.8429 8.59032 7.11683L9.00484 7.53134C9.2805 7.807 9.72745 7.807 10.0031 7.53134L10.4176 7.11683C10.6916 6.8429 11.1402 6.84321 11.4134 7.11643L11.5374 7.24045C11.812 7.51504 11.8118 7.96137 11.537 8.2362L9.50395 10.2692L7.47095 8.2362ZM20.1176 8.82299H21.1752C22.7355 8.82299 24 10.0884 24 11.6496V16.9375C24 18.4983 22.7363 19.7638 21.1765 19.7642V21.5289C21.1765 22.1 20.5336 22.4347 20.0658 22.1072L16.7187 19.7642H11.2921C9.79025 19.7642 8.56186 18.5882 8.47544 17.108L9.36731 16.5877H15.8822C18.2207 16.5877 20.1176 14.6912 20.1176 12.3544V8.82299Z"
+                                            fill="url(#paint0_linear_1205_3896)" />
+                                    </g>
+                                    <defs>
+                                        <linearGradient id="paint0_linear_1205_3896" x1="0.642857" y1="3.92945"
+                                            x2="24.4565" y2="4.54385" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#FF0642" />
+                                            <stop offset="1" stop-color="#EA1272" />
+                                        </linearGradient>
+                                        <clipPath id="clip0_1205_3896">
+                                            <rect width="24" height="24" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+
+                                <p class="text-base md:text-lg xl:text-xl text-primary font-medium font-gilroy">More
+                                    replies and messages</p>
+                            </li>
+                            <li class="flex items-center space-x-3.5 md:space-x-5">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M21.75 3.75H2.25C1.83516 3.75 1.5 4.08516 1.5 4.5V19.5C1.5 19.9148 1.83516 20.25 2.25 20.25H21.75C22.1648 20.25 22.5 19.9148 22.5 19.5V4.5C22.5 4.08516 22.1648 3.75 21.75 3.75ZM7.92188 7.125C8.74922 7.125 9.42188 7.79766 9.42188 8.625C9.42188 9.45234 8.74922 10.125 7.92188 10.125C7.09453 10.125 6.42188 9.45234 6.42188 8.625C6.42188 7.79766 7.09453 7.125 7.92188 7.125ZM19.9664 17.3695C19.9323 17.3982 19.8891 17.414 19.8445 17.4141H4.15312C4.05 17.4141 3.96562 17.3297 3.96562 17.2266C3.96562 17.182 3.98203 17.1398 4.01016 17.1047L8.00156 12.3703C8.06719 12.2906 8.18672 12.2812 8.26641 12.3469C8.27344 12.3539 8.28281 12.3609 8.28984 12.3703L10.6195 15.1359L14.325 10.7414C14.3906 10.6617 14.5102 10.6523 14.5898 10.718C14.5969 10.725 14.6062 10.732 14.6133 10.7414L19.9945 17.107C20.0555 17.1844 20.0461 17.3039 19.9664 17.3695Z"
+                                        fill="url(#paint0_linear_1205_3911)" />
+                                    <defs>
+                                        <linearGradient id="paint0_linear_1205_3911" x1="2.0625" y1="5.49519"
+                                            x2="22.8969" y2="6.07875" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#FF0642" />
+                                            <stop offset="1" stop-color="#EA1272" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+
+                                <p class="text-base md:text-lg xl:text-xl text-primary font-medium font-gilroy">
+                                    Exclusive access to private photos</p>
+                            </li>
+                        </ul>
+
+
+
+                        <div class="text-center">
+                            <button @click="cancelSuscriptionModel = false"
+                                class="text-base sm:text-lg py-4 3k:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full inline-block text-center bg-2 hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out mb-2.5 sm:mb-5">NO,
+                                DON’T CANCEL</button>
+                            <button
+                                class="text-base sm:text-lg py-4 3k:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full inline-block text-center bg-muted hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out mb-2.5 sm:mb-5">CANCEL</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Content End -->
+
+
+        <!-- Footer Section Start -->
+        <footer
+            class="fixed inset-x-0 bottom-0 z-50 mx-5 mb-2 lg:m-0 bg-primary shadow-2 py-2.5 rounded-3xl lg:rounded-b-none">
+            <div class="container">
+                <div class="flex items-center justify-between max-w-lg mx-auto">
+                    <button
+                        class="text-xs sm:text-base font-semibold text-invert px-3 sm:px-10 py-1.5 sm:py-2.5 rounded-full text-center bg-2 uppercase shadow-10 hover:opacity-80 transition duration-100 flex items-center space-x-1 sm:space-x-3">
+                        <svg class="w-5 sm:w-8 lg:w-9 fill-current stroke-current text-invert" viewBox="0 0 50 50"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M24.9997 32.1124C29.5069 32.1124 33.6026 32.4806 36.5556 33.5265C38.0288 34.0482 39.1826 34.7267 39.9646 35.5801C40.7363 36.4223 41.1663 37.456 41.1663 38.7479C41.1663 40.0394 40.7339 41.0695 39.9592 41.907C39.1738 42.7561 38.0156 43.4287 36.5389 43.9444C33.5791 44.9782 29.4828 45.3334 24.9997 45.3334C20.4935 45.3334 16.3978 44.9652 13.4445 43.9194C11.9712 43.3976 10.8171 42.7191 10.035 41.8657C9.26319 41.0235 8.83301 39.9898 8.83301 38.6979C8.83301 37.4065 9.26548 36.3763 10.0402 35.5388C10.8255 34.6898 11.9837 34.0171 13.4604 33.5014C16.4203 32.4677 20.5165 32.1124 24.9997 32.1124ZM24.9997 4.66675C30.8469 4.66675 35.5288 9.34734 35.5288 15.1898C35.5288 21.0323 30.8468 25.7149 24.9997 25.7149C19.1546 25.7149 14.4705 21.0323 14.4705 15.1898C14.4705 9.3474 19.1545 4.66675 24.9997 4.66675Z"
+                                fill="current" stroke="current" />
+                        </svg>
+                        <span class="">Profile</span>
+                    </button>
+
+
+                    <button class="">
+                        <svg class="w-6 sm:w-7 fill-current stroke-current text-secondary-alt" viewBox="0 0 201 201"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M78.722 162.882a81.352 81.352 0 0 0 50.886-15.639c.365.48.763.934 1.192 1.358l48.124 48.124a12.605 12.605 0 0 0 17.822-.007 12.6 12.6 0 0 0-.006-17.822l-48.125-48.124-.001-.001c-.441-.43-.894-.814-1.368-1.174a80.989 80.989 0 0 0 15.686-48.03 81.345 81.345 0 0 0-62.461-79.11 81.35 81.35 0 1 0-21.75 160.425Zm2.79-106.468.071.071.07-.071c10.348-10.403 28.472-6.508 34.946 5.852 3.233 6.173 3.563 14.47-1.462 24.165-5.022 9.689-15.393 20.773-33.554 32.517-18.161-11.744-28.532-22.827-33.553-32.515-5.026-9.695-4.696-17.99-1.463-24.162 6.474-12.359 24.598-16.254 34.945-5.857Z"
+                                fill="current" stroke="current" stroke-width=".2" />
+                        </svg>
+                        <span class="hidden">Search</span>
+                    </button>
+
+                    <button class="relative bell">
+                        <div
+                            class="absolute -top-0.5 -right-0.5 w-[18px] h-[18px] bg-gradient-to-r from-pink-10 to-pink-20 flex items-center justify-center rounded-full text-xs font-bold text-white animate__animated animate__tada animate__infinite	infinite">
+                            4
+                        </div>
+
+
+                        <svg class="w-6 sm:w-8 md:w-8 fill-current stroke-current text-secondary-alt"
+                            viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M25.728 1.711c.185-.354-.06-.805-.459-.805H9.524C4.267.906 0 5.156 0 10.396v13.302c0 5.24 4.267 9.49 9.524 9.49h2.857c.514 0 1.2.343 1.524.763l2.857 3.792c1.257 1.677 3.314 1.677 4.571 0l2.858-3.792a1.93 1.93 0 0 1 1.523-.763h2.857c5.258 0 9.524-4.25 9.524-9.49v-9.96c0-.4-.45-.643-.805-.458a8.53 8.53 0 0 1-3.957.966c-4.733 0-8.571-3.84-8.571-8.576 0-1.428.349-2.774.966-3.959ZM9.524 18.057c0 1.048.838 1.906 1.905 1.906a1.899 1.899 0 0 0 1.904-1.906 1.91 1.91 0 0 0-1.904-1.905 1.91 1.91 0 0 0-1.905 1.905Zm7.619 0c0 1.048.838 1.906 1.905 1.906a1.899 1.899 0 0 0 1.904-1.906 1.91 1.91 0 0 0-1.904-1.905 1.91 1.91 0 0 0-1.905 1.905Zm7.619 0c0 1.048.838 1.906 1.905 1.906a1.899 1.899 0 0 0 1.904-1.906 1.91 1.91 0 0 0-1.904-1.905 1.91 1.91 0 0 0-1.905 1.905Z"
+                                fill="current" />
+                        </svg>
+
+                    </button>
+
+
+                    <!-- Fav Button -->
+
+                    <button class="">
+                        <svg class="w-6 sm:w-8 lg:w-10 fill-current stroke-current text-secondary-alt"
+                            viewBox="0 0 28 28" fill="none">
+                            <path
+                                d="M9.85697 3.50017C10.5533 3.52135 11.2275 3.64292 11.8807 3.86508H11.9459C11.9901 3.88608 12.0233 3.90929 12.0454 3.93029C12.2896 4.00876 12.5206 4.09718 12.7417 4.21876L13.1617 4.40665C13.3274 4.49507 13.5264 4.65975 13.6369 4.72717C13.7474 4.79238 13.869 4.8598 13.9685 4.93606C15.1964 3.99771 16.6874 3.48929 18.2237 3.50017C18.9211 3.50017 19.6174 3.59871 20.2794 3.82087C24.3589 5.14716 25.8289 9.6234 24.6009 13.536C23.9046 15.5354 22.7662 17.3601 21.2753 18.8511C19.141 20.9179 16.799 22.7526 14.278 24.3331L14.0016 24.5L13.7143 24.3221C11.1844 22.7526 8.82909 20.9179 6.67497 18.84C5.19394 17.3491 4.05444 15.5354 3.34708 13.536C2.09815 9.6234 3.56813 5.14716 7.6918 3.79766C8.01232 3.68713 8.34279 3.60977 8.67436 3.56666H8.80699C9.11756 3.52135 9.42593 3.50017 9.7354 3.50017H9.85697ZM19.7047 6.99292C19.2516 6.83708 18.7542 7.08134 18.5884 7.54554C18.4337 8.00975 18.6768 8.51816 19.141 8.68284C19.8495 8.9481 20.3236 9.64551 20.3236 10.4181V10.4523C20.3026 10.7054 20.3789 10.9497 20.5336 11.1376C20.6884 11.3255 20.9205 11.4349 21.1636 11.4581C21.6168 11.446 22.0036 11.0823 22.0368 10.617V10.4855C22.0699 8.93705 21.1316 7.53449 19.7047 6.99292Z"
+                                fill="current" />
+                            <path
+                                d="M19.7047 6.99292C19.2516 6.83708 18.7542 7.08134 18.5884 7.54554C18.4337 8.00975 18.6768 8.51816 19.141 8.68284C19.8495 8.9481 20.3236 9.64551 20.3236 10.4181V10.4523C20.3026 10.7054 20.3789 10.9497 20.5336 11.1376C20.6884 11.3255 20.9205 11.4349 21.1636 11.4581C21.6168 11.446 22.0036 11.0823 22.0368 10.617V10.4855C22.0699 8.93705 21.1316 7.53449 19.7047 6.99292Z"
+                                fill="current" />
+                        </svg>
+
+                    </button>
+
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Section End -->
+
+    </div>
+</body>
+
+</html>

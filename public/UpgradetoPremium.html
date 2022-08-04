@@ -26,7 +26,7 @@
 
     <div class="bg-primary w-full h-screen overflow-y-auto show-scrollbar flex flex-col">
         <!-- Header Section Start -->
-        <header class="bg-primary/50 backdrop-blur-lg fixed top-0 inset-x-0 z-[70] sm:z-50">
+        <header class="bg-primary/50 backdrop-blur-lg fixed top-0 inset-x-0 z-[70] sm:z-50 lg:block hidden">
             <nav class="container flex items-center justify-between py-4 sm:py-6 md:py-8 3k:py-10">
                 <a href="#" class="">
                     <img src="./assets/images/logo-dark.svg" alt=""
@@ -209,10 +209,9 @@
         <section class="lg:pt-36 3k:pt-40 pt-6" x-data="pageCredit()">
 
             <!-- Buy Credits Start -->
-            <div
-                class="container flex items-center justify-between border-b lg:border-b-0 border-gray-50/50 pb-5 sm:pb-6 lg:pb-0 ">
+            <div class="container flex items-center justify-between pb-5 sm:pb-6 lg:pb-0 ">
                 <button class="" @click="page > 1 ? page = page-1 : ''">
-                    <svg class="w-6 md:w-8 4k:w-11 text-muted fill-current" viewBox="0 0 44 44" fill="none"
+                    <svg class="w-7 md:w-8 4k:w-11 text-muted fill-current" viewBox="0 0 44 44" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M14.6668 21.9997C14.666 21.5713 14.8152 21.1562 15.0885 20.8264L24.2551 9.82636C24.5663 9.45196 25.0135 9.21652 25.4983 9.17182C25.9831 9.12712 26.4657 9.27684 26.8401 9.58802C27.2145 9.89921 27.45 10.3464 27.4947 10.8312C27.5394 11.3159 27.3897 11.7986 27.0785 12.173L18.8651 21.9997L26.7851 31.8264C26.9374 32.0139 27.0512 32.2297 27.1198 32.4613C27.1884 32.6929 27.2106 32.9358 27.185 33.176C27.1595 33.4162 27.0867 33.649 26.9709 33.861C26.8551 34.073 26.6985 34.2601 26.5101 34.4114C26.3216 34.5793 26.1005 34.7064 25.8606 34.7849C25.6206 34.8633 25.3671 34.8914 25.1158 34.8673C24.8645 34.8432 24.6209 34.7675 24.4003 34.6448C24.1796 34.5222 23.9866 34.3553 23.8335 34.1547L14.9785 23.1547C14.7484 22.8154 14.6386 22.4087 14.6668 21.9997Z"
@@ -221,7 +220,8 @@
                 </button>
 
                 <div class="w-full">
-                    <h1 class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold text-center">Buy Credits</h1>
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl text-primary font-bold text-center">Upgrade to Premium
+                    </h1>
                 </div>
             </div>
             <!-- Buy Credits End -->

@@ -30,7 +30,7 @@
     <div class="bg-primary relative w-full h-screen overflow-y-auto show-scrollbar flex flex-col"
         x-data="{photoName: null, photoPreview: './assets/images/avater-7.png'}">
         <!-- Header Section Start -->
-        <header class="container bg-primary/50 backdrop-blur-lg fixed top-0 inset-x-0 z-[70] sm:z-50">
+        <header class="container bg-primary/50 backdrop-blur-lg fixed top-0 inset-x-0 z-[70] sm:z-50 lg:block hidden">
             <nav class="flex items-center justify-between py-4 sm:py-6 md:py-8 3k:py-10">
                 <a href="#" class="">
                     <img src="./assets/images/logo-dark.svg" alt=""
@@ -738,11 +738,11 @@
             <!-- Preferences Start -->
             <div class="bg-light/60 px-5 py-3 sm:mt-[18px] mb-4 sm:mb-[18px] relative" x-data="{open: false}">
                 <button class="absolute right-0 top-0 mx-5 mt-4" @click="open = !open">
-                    <svg class="transfrom transition duration-150" :class="open ? '-rotate-180' : ''" width="24"
-                        height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="transfrom transition duration-150 text-secondary" :class="open ? '-rotate-180' : ''"
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M12 15.9993C11.7663 15.9998 11.5399 15.9184 11.36 15.7693L5.36 10.7693C5.15578 10.5996 5.02736 10.3556 5.00298 10.0912C4.9786 9.8268 5.06026 9.56352 5.23 9.3593C5.39974 9.15508 5.64365 9.02666 5.90808 9.00228C6.1725 8.9779 6.43578 9.05956 6.64 9.2293L12 13.7093L17.36 9.3893C17.4623 9.30623 17.58 9.2442 17.7063 9.20677C17.8327 9.16934 17.9652 9.15724 18.0962 9.17118C18.2272 9.18512 18.3542 9.22482 18.4698 9.28799C18.5855 9.35117 18.6875 9.43657 18.77 9.5393C18.8616 9.64212 18.9309 9.76275 18.9737 9.89362C19.0165 10.0245 19.0318 10.1628 19.0187 10.2999C19.0055 10.4369 18.9642 10.5698 18.8974 10.6902C18.8305 10.8105 18.7395 10.9158 18.63 10.9993L12.63 15.8293C12.4449 15.9548 12.2231 16.0147 12 15.9993Z"
-                            fill="white" />
+                            fill="currentColor" />
                     </svg>
                 </button>
                 <div class="cursor-pointer" @click="open = true">
@@ -874,11 +874,11 @@
             <!-- Character Start -->
             <div class="bg-light/60 px-5 py-3 sm:mt-[18px] mb-4 sm:mb-[18px] relative" x-data="{open: false}">
                 <button class="absolute right-0 top-0 mx-5 mt-4" @click="open = !open">
-                    <svg class="transfrom transition duration-150" :class="open ? '-rotate-180' : ''" width="24"
-                        height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="transfrom transition duration-150 text-secondary" :class="open ? '-rotate-180' : ''"
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M12 15.9993C11.7663 15.9998 11.5399 15.9184 11.36 15.7693L5.36 10.7693C5.15578 10.5996 5.02736 10.3556 5.00298 10.0912C4.9786 9.8268 5.06026 9.56352 5.23 9.3593C5.39974 9.15508 5.64365 9.02666 5.90808 9.00228C6.1725 8.9779 6.43578 9.05956 6.64 9.2293L12 13.7093L17.36 9.3893C17.4623 9.30623 17.58 9.2442 17.7063 9.20677C17.8327 9.16934 17.9652 9.15724 18.0962 9.17118C18.2272 9.18512 18.3542 9.22482 18.4698 9.28799C18.5855 9.35117 18.6875 9.43657 18.77 9.5393C18.8616 9.64212 18.9309 9.76275 18.9737 9.89362C19.0165 10.0245 19.0318 10.1628 19.0187 10.2999C19.0055 10.4369 18.9642 10.5698 18.8974 10.6902C18.8305 10.8105 18.7395 10.9158 18.63 10.9993L12.63 15.8293C12.4449 15.9548 12.2231 16.0147 12 15.9993Z"
-                            fill="white" />
+                            fill="currentColor" />
                     </svg>
                 </button>
                 <div class="cursor-pointer" @click="open = true">
@@ -1048,14 +1048,14 @@
             <div class="container">
                 <div class="flex items-center justify-between max-w-lg mx-auto">
                     <button
-                        class="text-sm sm:text-base font-semibold text-invert px-2.5 sm:px-10 py-1 sm:py-2.5 rounded-full text-center lg:bg-2 uppercase lg:shadow-10 hover:opacity-80 transition duration-100 flex items-center space-x-2 sm:space-x-3">
-                        <svg class="w-6 sm:w-8 lg:w-9 fill-current stroke-current text-accent lg:text-invert"
-                            viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        class="text-xs sm:text-base font-semibold text-invert px-3 sm:px-10 py-1.5 sm:py-2.5 rounded-full text-center bg-2 uppercase shadow-10 hover:opacity-80 transition duration-100 flex items-center space-x-1 sm:space-x-3">
+                        <svg class="w-5 sm:w-8 lg:w-9 fill-current stroke-current text-invert" viewBox="0 0 50 50"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M24.9997 32.1124C29.5069 32.1124 33.6026 32.4806 36.5556 33.5265C38.0288 34.0482 39.1826 34.7267 39.9646 35.5801C40.7363 36.4223 41.1663 37.456 41.1663 38.7479C41.1663 40.0394 40.7339 41.0695 39.9592 41.907C39.1738 42.7561 38.0156 43.4287 36.5389 43.9444C33.5791 44.9782 29.4828 45.3334 24.9997 45.3334C20.4935 45.3334 16.3978 44.9652 13.4445 43.9194C11.9712 43.3976 10.8171 42.7191 10.035 41.8657C9.26319 41.0235 8.83301 39.9898 8.83301 38.6979C8.83301 37.4065 9.26548 36.3763 10.0402 35.5388C10.8255 34.6898 11.9837 34.0171 13.4604 33.5014C16.4203 32.4677 20.5165 32.1124 24.9997 32.1124ZM24.9997 4.66675C30.8469 4.66675 35.5288 9.34734 35.5288 15.1898C35.5288 21.0323 30.8468 25.7149 24.9997 25.7149C19.1546 25.7149 14.4705 21.0323 14.4705 15.1898C14.4705 9.3474 19.1545 4.66675 24.9997 4.66675Z"
                                 fill="current" stroke="current" />
                         </svg>
-                        <span class="lg:block hidden">Profile</span>
+                        <span class="">Profile</span>
                     </button>
 
 
