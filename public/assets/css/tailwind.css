@@ -2520,14 +2520,14 @@ body{
   background-color: rgb(0 0 0 / 0.3);
 }
 
-.bg-ofline-red{
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-bg-ofline-red) / var(--tw-bg-opacity));
-}
-
 .bg-gray-50{
   --tw-bg-opacity: 1;
   background-color: rgb(62 62 62 / var(--tw-bg-opacity));
+}
+
+.bg-ofline-red{
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-bg-ofline-red) / var(--tw-bg-opacity));
 }
 
 .bg-popup-overlay{
@@ -2587,12 +2587,12 @@ body{
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }
 
-.bg-gradient-to-r{
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
-}
-
 .bg-5{
   background-image: var(--gradient-bg-5);
+}
+
+.bg-gradient-to-r{
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 
 .bg-home{
@@ -2717,6 +2717,10 @@ body{
 
 .p-2{
   padding: 0.5rem;
+}
+
+.p-0\.5{
+  padding: 0.125rem;
 }
 
 .p-3{
@@ -2967,6 +2971,10 @@ body{
   padding-bottom: 76px;
 }
 
+.pb-36{
+  padding-bottom: 9rem;
+}
+
 .pl-5{
   padding-left: 1.25rem;
 }
@@ -3001,10 +3009,6 @@ body{
 
 .pt-3{
   padding-top: 0.75rem;
-}
-
-.pb-36{
-  padding-bottom: 9rem;
 }
 
 .text-left{
@@ -6088,6 +6092,10 @@ select:focus > option:checked {
 
   .xl\:h-\[430px\]{
     height: 430px;
+  }
+
+  .xl\:w-12{
+    width: 3rem;
   }
 
   .xl\:w-\[50px\]{
