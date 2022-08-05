@@ -3003,6 +3003,10 @@ body{
   padding-top: 0.75rem;
 }
 
+.pb-36{
+  padding-bottom: 9rem;
+}
+
 .text-left{
   text-align: left;
 }
