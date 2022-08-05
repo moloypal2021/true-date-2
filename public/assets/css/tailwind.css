@@ -1587,6 +1587,10 @@ body{
   min-height: 36px;
 }
 
+.min-h-screen{
+  min-height: 100vh;
+}
+
 .w-32{
   width: 8rem;
 }
