@@ -3964,6 +3964,11 @@ select:focus > option:checked {
   color: transparent;
 }
 
+.checked\:text-invert:checked{
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-text-invert) / var(--tw-text-opacity));
+}
+
 .invalid\:border-info:invalid{
   --tw-border-opacity: 1;
   border-color: rgb(var(--color-border-info) / var(--tw-border-opacity));
@@ -3979,6 +3984,11 @@ select:focus > option:checked {
   border-color: rgb(var(--color-border-primary) / var(--tw-border-opacity));
 }
 
+.focus-within\:outline-none:focus-within{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 .focus-within\:ring-0:focus-within{
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
@@ -3988,6 +3998,11 @@ select:focus > option:checked {
 .focus-within\:ring-primary:focus-within{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(var(--color-ring-primary) / var(--tw-ring-opacity));
+}
+
+.focus-within\:ring-info:focus-within{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(var(--color-ring-info) / var(--tw-ring-opacity));
 }
 
 .hover\:bg-light:hover{
@@ -4076,6 +4091,11 @@ select:focus > option:checked {
   border-radius: 14px;
 }
 
+.checked\:hover\:border-info:hover:checked{
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--color-border-info) / var(--tw-border-opacity));
+}
+
 .focus\:border-info:focus{
   --tw-border-opacity: 1;
   border-color: rgb(var(--color-border-info) / var(--tw-border-opacity));
@@ -4092,10 +4112,39 @@ select:focus > option:checked {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
+.focus\:ring-info:focus{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(var(--color-ring-info) / var(--tw-ring-opacity));
+}
+
+.focus\:ring-offset-info:focus{
+  --tw-ring-offset-color: rgb(var(--color-ring-info) / 1);
+}
+
+.checked\:focus\:border-info:focus:checked{
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--color-border-info) / var(--tw-border-opacity));
+}
+
+.checked\:focus\:ring-info:focus:checked{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(var(--color-ring-info) / var(--tw-ring-opacity));
+}
+
+.focus-visible\:border-info:focus-visible{
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--color-border-info) / var(--tw-border-opacity));
+}
+
 .focus-visible\:ring-0:focus-visible{
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.focus-visible\:ring-info:focus-visible{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(var(--color-ring-info) / var(--tw-ring-opacity));
 }
 
 .active\:border-info:active{
@@ -4107,6 +4156,15 @@ select:focus > option:checked {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.active\:ring-info:active{
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(var(--color-ring-info) / var(--tw-ring-opacity));
+}
+
+.active\:ring-offset-info:active{
+  --tw-ring-offset-color: rgb(var(--color-ring-info) / 1);
 }
 
 .group:hover .group-hover\:border-2{
@@ -6094,8 +6152,8 @@ select:focus > option:checked {
     height: 430px;
   }
 
-  .xl\:w-12{
-    width: 3rem;
+  .xl\:w-14{
+    width: 3.5rem;
   }
 
   .xl\:w-\[50px\]{

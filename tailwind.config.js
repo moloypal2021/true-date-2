@@ -37,6 +37,10 @@ module.exports = {
       },
       ringColor: {
         primary: "rgb(var(--color-ring-primary) / <alpha-value>)",
+        info: "rgb(var(--color-ring-info) / <alpha-value>)",
+      },
+      ringOffsetColor: {
+        info: "rgb(var(--color-ring-info) / <alpha-value>)",
       },
       divideColor: {
         primary: "rgb(var(--color-border-primary) / <alpha-value>)",

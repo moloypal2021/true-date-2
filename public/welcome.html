@@ -3277,7 +3277,7 @@
 
         <!-- Search Filter Modal Start -->
         <div class="fixed inset-0 z-50 bg-primary sm:bg-popup-overlay/80 overflow-y-auto scrollbar-hidden h-screen sm:py-20 sm:flex sm:items-center"
-            x-show="modal">
+            x-show="modal" x-cloak>
             <div class="max-w-[640px] m-auto w-full sm:rounded-[20px] bg-primary shadow-1 mt-16 sm:mt-0 pb-[50px]">
                 <button @click="modal=false" class="float-right mb-2.5 mt-5 md:mt-3 mr-4 sm:mr-6"><svg
                         class="w-6 sm:w-8 md:w-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3958,7 +3958,7 @@
         <!-- Search Filter Modal En -->
 
         <!-- Welcome Modal Start -->
-        <div x-cloak x-show="welcomeModal" x-on:scroll="scrollbar()"
+        <div x-show="welcomeModal" x-on:scroll="scrollbar()"
             class="fixed inset-0 z-[100] bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5">
             <div
                 class="max-w-xl w-full m-auto bg-primary shadow-20 rounded-[20px] py-6 px-4 sm:px-8 sm:py-6 md:py-8 md:px-10 relative">
@@ -3972,7 +3972,7 @@
 
                 <div x-data="pageView()">
                     <!-- Add Photos -->
-                    <div class="max-w-md mx-auto text-center" x-cloak x-show="viewPage === 1">
+                    <div class="max-w-md mx-auto text-center" x-show="viewPage === 1">
                         <svg class="w-[72px] sm:w-20 md:w-24 mx-auto mb-3 sm:mb-5 md:mb-8" viewBox="0 0 140 138"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_516_1967)">
@@ -4083,7 +4083,7 @@
 
 
                         <button @click="photoModal = true"
-                            class="text-base sm:text-lg y-3 sm:py-3.5 3k:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full text-center bg-muted hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out mb-2.5 sm:mb-5 hidden lg:inline-block">later</button>
+                            class="text-base sm:text-lg py-3 sm:py-3.5 3k:py-[18px] font-semibold text-invert px-4 rounded-full max-w-[336px] 4k:max-w-[500px] w-full text-center bg-muted hover:opacity-80 uppercase shadow-10 transition-all duration-100 ease-in-out mb-2.5 sm:mb-5 inline-block">later</button>
 
 
                         <!-- PopUp Window Start -->
@@ -4264,8 +4264,6 @@
             </div>
         </div>
         <!-- Welcome Modal Start -->
-
-
 
     </div>
 
