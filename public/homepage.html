@@ -451,7 +451,7 @@
 
         <!-- Login Modal Start -->
         <div x-cloak x-show="loginModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5">
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-y-auto show-scrollbar px-5">
             <div
                 class="max-w-xl w-full m-auto bg-primary shadow-20 rounded-[20px] py-6 px-4 sm:px-8 sm:py-6 md:py-8 md:px-10 relative">
                 <button @click="loginModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
@@ -595,7 +595,7 @@
 
         <!-- Registration Modal Start -->
         <div x-cloak x-show="registerModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-y-auto show-scrollbar">
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-y-auto show-scrollbar px-5">
             <div class="max-w-xl w-full m-auto bg-primary shadow-20 rounded-[20px] py-6 px-4 sm:px-8 sm:py-6 md:py-8 md:px-10 relative"
                 x-data="{step : 1}">
                 <button @click="registerModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
@@ -967,7 +967,7 @@
 
         <!-- Activation Modal Start -->
         <div x-cloak x-show="activeModal" x-on:scroll="scrollbar()"
-            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full flex overflow-y-auto show-scrollbar">
+            class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full flex overflow-y-auto show-scrollbar px-5">
             <div
                 class="max-w-xl w-full m-auto bg-primary shadow-20 rounded-[20px] py-6 px-4 sm:px-8 sm:py-6 md:py-8 md:px-10 relative">
                 <button @click="activeModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
@@ -1348,7 +1348,7 @@
         <div x-cloak x-show="thankyouModal" x-on:scroll="scrollbar()"
             class="fixed inset-0 z-50 bg-popup-overlay/40 backdrop-blur-md w-full h-screen flex overflow-auto show-scrollbar px-5">
             <div
-                class="max-w-xl w-full m-auto bg-primary shadow-20 rounded-[20px] py-[30px] py-6 px-4 sm:px-8 sm:py-6 md:py-8 md:px-10 relative">
+                class="max-w-xl w-full m-auto bg-primary shadow-20 rounded-[20px] py-6 px-4 sm:px-8 sm:py-6 md:py-8 md:px-10 relative">
                 <button @click="thankyouModal = false" class="absolute right-0 top-0 m-4 hover:opacity-75">
                     <svg class="w-6 sm:w-7 md:w-8" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
