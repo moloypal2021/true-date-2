@@ -1354,6 +1354,10 @@ body{
   margin-bottom: 0.375rem;
 }
 
+.mt-1{
+  margin-top: 0.25rem;
+}
+
 .mb-\[14px\]{
   margin-bottom: 14px;
 }
@@ -1410,10 +1414,6 @@ body{
   margin-left: 1rem;
 }
 
-.mt-1{
-  margin-top: 0.25rem;
-}
-
 .-mr-10{
   margin-right: -2.5rem;
 }
@@ -1432,6 +1432,10 @@ body{
 
 .mb-28{
   margin-bottom: 7rem;
+}
+
+.mb-px{
+  margin-bottom: 1px;
 }
 
 .block{
@@ -1564,6 +1568,14 @@ body{
 
 .h-24{
   height: 6rem;
+}
+
+.h-20{
+  height: 5rem;
+}
+
+.h-16{
+  height: 4rem;
 }
 
 .max-h-screen{
@@ -4112,26 +4124,7 @@ select:focus > option:checked {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-.focus\:ring-info:focus{
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(var(--color-ring-info) / var(--tw-ring-opacity));
-}
-
-.focus\:ring-offset-info:focus{
-  --tw-ring-offset-color: rgb(var(--color-ring-info) / 1);
-}
-
 .checked\:focus\:border-info:focus:checked{
-  --tw-border-opacity: 1;
-  border-color: rgb(var(--color-border-info) / var(--tw-border-opacity));
-}
-
-.checked\:focus\:ring-info:focus:checked{
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(var(--color-ring-info) / var(--tw-ring-opacity));
-}
-
-.focus-visible\:border-info:focus-visible{
   --tw-border-opacity: 1;
   border-color: rgb(var(--color-border-info) / var(--tw-border-opacity));
 }
@@ -4140,11 +4133,6 @@ select:focus > option:checked {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}
-
-.focus-visible\:ring-info:focus-visible{
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(var(--color-ring-info) / var(--tw-ring-opacity));
 }
 
 .active\:border-info:active{
@@ -4156,15 +4144,6 @@ select:focus > option:checked {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}
-
-.active\:ring-info:active{
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(var(--color-ring-info) / var(--tw-ring-opacity));
-}
-
-.active\:ring-offset-info:active{
-  --tw-ring-offset-color: rgb(var(--color-ring-info) / 1);
 }
 
 .group:hover .group-hover\:border-2{
@@ -5147,6 +5126,10 @@ select:focus > option:checked {
     height: 5rem;
   }
 
+  .md\:h-24{
+    height: 6rem;
+  }
+
   .md\:max-h-\[calc\(100vh-180px\)\]{
     max-height: calc(100vh - 180px);
   }
@@ -5838,6 +5821,10 @@ select:focus > option:checked {
     width: 12rem;
   }
 
+  .lg\:w-16{
+    width: 4rem;
+  }
+
   .lg\:min-w-\[400px\]{
     min-width: 400px;
   }
@@ -6109,15 +6096,15 @@ select:focus > option:checked {
     color: rgb(var(--color-text-invert) / var(--tw-text-opacity));
   }
 
-  .lg\:shadow-10{
-    --tw-shadow: 3px 10px 30px rgba(159, 2, 45, 0.15);
-    --tw-shadow-colored: 3px 10px 30px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  }
-
   .lg\:shadow-none{
     --tw-shadow: 0 0 #0000;
     --tw-shadow-colored: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .lg\:shadow-10{
+    --tw-shadow: 3px 10px 30px rgba(159, 2, 45, 0.15);
+    --tw-shadow-colored: 3px 10px 30px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
@@ -6166,6 +6153,10 @@ select:focus > option:checked {
 
   .xl\:w-16{
     width: 4rem;
+  }
+
+  .xl\:w-20{
+    width: 5rem;
   }
 
   .xl\:grid-cols-4{
@@ -6276,6 +6267,10 @@ select:focus > option:checked {
 
   .\32xl\:w-5{
     width: 1.25rem;
+  }
+
+  .\32xl\:w-24{
+    width: 6rem;
   }
 
   .\32xl\:max-w-2xl{
