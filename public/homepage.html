@@ -1432,10 +1432,10 @@
                 screenFixed(value) {
                     if (value) {
                         setTimeout(() => {
-                            document.body.classList.add('h-screen', 'overflow-hidden', 'lg:mr-1.5');
+                            document.body.classList.add('max-h-screen', 'overflow-hidden', 'lg:mr-1.5');
                         }, 1);
                     } else {
-                        document.body.classList.remove('h-screen', 'overflow-hidden', 'lg:mr-1.5');
+                        document.body.classList.remove('max-h-screen', 'overflow-hidden', 'lg:mr-1.5');
                     }
                 },
                 scrollbar() {
