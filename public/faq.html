@@ -20,7 +20,8 @@
 </head>
 
 <body>
-    <div class="bg-primary relative min-h-screen flex flex-col" x-data="modal()">
+    <div class="bg-primary relative min-h-screen flex flex-col" x-data="modal()"
+        @scroll.window.throttle="showHideScroll();">
         <!-- Header Section Start -->
         <header class="bg-primary/50 backdrop-blur-lg fixed top-0 inset-x-0 z-50">
             <div class="container">
@@ -1274,34 +1275,18 @@
                     }, 3000);
                 },
                 showHideScroll() {
-                    this.$el.classList.add('show-scrollbar');
-                    this.$el.classList.remove('hide-scrollbar');
+                    document.body.classList.add('show-scrollbar');
+                    document.body.classList.remove('hide-scrollbar');
 
                     setTimeout(() => {
-                        this.$el.classList.add('hide-scrollbar');
-                        this.$el.classList.remove('show-scrollbar');
+                        document.body.classList.add('hide-scrollbar');
+                        document.body.classList.remove('show-scrollbar');
                     }, 3000);
                 }
 
             }
         }
 
-
-        window.addEventListener('scroll', function () {
-            scrollBar();
-        });
-
-
-
-        function scrollBar() {
-            document.body.classList.add('show-scrollbar');
-            document.body.classList.remove('hide-scrollbar');
-
-            setTimeout(() => {
-                document.body.classList.add('hide-scrollbar');
-                document.body.classList.remove('show-scrollbar');
-            }, 3000);
-        }
 
 
 
