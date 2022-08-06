@@ -1430,12 +1430,17 @@
                     this.scrollbar();
                 },
                 screenFixed(value) {
+                    const htmlTag = document.querySelector('html');
                     if (value) {
                         setTimeout(() => {
                             document.body.classList.add('max-h-screen', 'overflow-hidden', 'lg:mr-1.5');
+                            htmlTag.style.overflow = 'hidden';
+                            htmlTag.style.maxHeight = '100vh';
                         }, 1);
                     } else {
                         document.body.classList.remove('max-h-screen', 'overflow-hidden', 'lg:mr-1.5');
+                        htmlTag.style.overflow = 'visible';
+                        htmlTag.style.maxHeight = 'auto';
                     }
                 },
                 scrollbar() {
