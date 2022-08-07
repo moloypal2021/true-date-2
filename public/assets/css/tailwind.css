@@ -1007,6 +1007,10 @@ body{
   pointer-events: none;
 }
 
+.visible{
+  visibility: visible;
+}
+
 .fixed{
   position: fixed;
 }
@@ -1418,6 +1422,10 @@ body{
   margin-right: -2.5rem;
 }
 
+.mb-px{
+  margin-bottom: 1px;
+}
+
 .mt-1\.5{
   margin-top: 0.375rem;
 }
@@ -1432,10 +1440,6 @@ body{
 
 .mb-28{
   margin-bottom: 7rem;
-}
-
-.mb-px{
-  margin-bottom: 1px;
 }
 
 .block{
@@ -1562,20 +1566,12 @@ body{
   height: 46px;
 }
 
-.h-14{
-  height: 3.5rem;
+.h-16{
+  height: 4rem;
 }
 
 .h-24{
   height: 6rem;
-}
-
-.h-20{
-  height: 5rem;
-}
-
-.h-16{
-  height: 4rem;
 }
 
 .max-h-screen{
@@ -1746,16 +1742,16 @@ body{
   width: 73%;
 }
 
-.w-11{
-  width: 2.75rem;
-}
-
 .w-\[156px\]{
   width: 156px;
 }
 
 .w-24{
   width: 6rem;
+}
+
+.w-11{
+  width: 2.75rem;
 }
 
 .w-10\/12{
@@ -1768,10 +1764,6 @@ body{
 
 .w-\[46px\]{
   width: 46px;
-}
-
-.w-14{
-  width: 3.5rem;
 }
 
 .min-w-\[48px\]{
@@ -3124,6 +3116,14 @@ body{
 
 .leading-5{
   line-height: 1.25rem;
+}
+
+.leading-4{
+  line-height: 1rem;
+}
+
+.leading-3{
+  line-height: .75rem;
 }
 
 .tracking-wide{
@@ -4935,6 +4935,10 @@ select:focus > option:checked {
     line-height: 2.5rem;
   }
 
+  .sm\:leading-4{
+    line-height: 1rem;
+  }
+
   .sm\:opacity-100{
     opacity: 1;
   }
@@ -5124,10 +5128,6 @@ select:focus > option:checked {
 
   .md\:h-20{
     height: 5rem;
-  }
-
-  .md\:h-24{
-    height: 6rem;
   }
 
   .md\:max-h-\[calc\(100vh-180px\)\]{
@@ -5713,10 +5713,6 @@ select:focus > option:checked {
     display: block;
   }
 
-  .lg\:inline-block{
-    display: inline-block;
-  }
-
   .lg\:inline{
     display: inline;
   }
@@ -5805,10 +5801,6 @@ select:focus > option:checked {
     width: 1.75rem;
   }
 
-  .lg\:w-12{
-    width: 3rem;
-  }
-
   .lg\:w-32{
     width: 8rem;
   }
@@ -5819,10 +5811,6 @@ select:focus > option:checked {
 
   .lg\:w-48{
     width: 12rem;
-  }
-
-  .lg\:w-16{
-    width: 4rem;
   }
 
   .lg\:min-w-\[400px\]{
@@ -6091,6 +6079,14 @@ select:focus > option:checked {
     line-height: 2.25rem;
   }
 
+  .lg\:leading-5{
+    line-height: 1.25rem;
+  }
+
+  .lg\:leading-6{
+    line-height: 1.5rem;
+  }
+
   .lg\:text-invert{
     --tw-text-opacity: 1;
     color: rgb(var(--color-text-invert) / var(--tw-text-opacity));
@@ -6149,14 +6145,6 @@ select:focus > option:checked {
 
   .xl\:w-\[500px\]{
     width: 500px;
-  }
-
-  .xl\:w-16{
-    width: 4rem;
-  }
-
-  .xl\:w-20{
-    width: 5rem;
   }
 
   .xl\:grid-cols-4{
@@ -6261,16 +6249,12 @@ select:focus > option:checked {
     width: 3.5rem;
   }
 
-  .\32xl\:w-20{
-    width: 5rem;
+  .\32xl\:w-24{
+    width: 6rem;
   }
 
   .\32xl\:w-5{
     width: 1.25rem;
-  }
-
-  .\32xl\:w-24{
-    width: 6rem;
   }
 
   .\32xl\:max-w-2xl{
