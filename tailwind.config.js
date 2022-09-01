@@ -47,6 +47,9 @@ module.exports = {
       },
       gradientColorStops: {
         primary: "rgb(var(--color-bg-primary) / <alpha-value>)",
+        light: "rgb(var(--color-bg-light) / <alpha-value>)",
+        muted: "rgb(var(--color-bg-muted) / <alpha-value>)",
+        info: "rgb(var(--color-bg-info) / <alpha-value>)",
       },
       colors: {
         green: {
