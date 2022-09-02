@@ -2571,6 +2571,14 @@ body{
   background-color: rgb(var(--color-bg-light) / 0.8);
 }
 
+.bg-popup-overlay\/50{
+  background-color: rgb(var(--color-bg-popup-overlay) / 0.5);
+}
+
+.bg-popup-overlay\/20{
+  background-color: rgb(var(--color-bg-popup-overlay) / 0.2);
+}
+
 .bg-2{
   background-image: var(--gradient-bg-2);
 }
