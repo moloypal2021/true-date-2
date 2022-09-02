@@ -964,15 +964,15 @@
 
                     <!-- Unblock Modal Start -->
                     <div x-show="unblockModal" x-data="{blockPage: 1}" class="">
-                        <div class="fixed bottom-0 inset-x-0 mx-auto max-w-md w-full bg-light shadow-20 rounded-[20px] px-4 py-[30px] md:py-10 mt-auto text-center"
+                        <div class="absolute bottom-0 inset-x-0 mx-auto max-w-md w-full bg-light shadow-20 rounded-[20px] px-4 py-[30px] md:py-10 mt-auto text-center"
                             x-show="blockPage === 1">
                             <h3 class="text-2xl text-primary mb-5">You've blocked <span
                                     class="font-bold">Babiedoll</span></h3>
-                            <button class="text-lg text-white py-2.5 px-6 bg-1 rounded-full shadow"
+                            <button class="text-xl text-white py-3 px-8 bg-1 rounded-full shadow font-semibold"
                                 @click="blockPage = 2">Unblock</button>
                         </div>
 
-                        <div class="fixed bottom-0 inset-x-0 mx-auto max-w-md w-full bg-light shadow-20 rounded-[20px] px-4 py-[30px] md:py-10 mt-auto text-center"
+                        <div class="absolute bottom-0 inset-x-0 mx-auto max-w-md w-full bg-light shadow-20 rounded-[20px] px-4 py-[30px] md:py-10 mt-auto text-center"
                             x-show="blockPage === 2">
                             <h3 class="text-2xl text-primary mb-3">Unblock <span class="font-bold">Babiedoll</span>?
                             </h3>
@@ -980,9 +980,10 @@
                                     class="font-bold">Babiedoll</span>, she may be able to contact you and you
                                 may send her message again.</p>
                             <div class="flex items-center justify-center space-x-3">
-                                <button class="text-lg text-accent py-2.5 px-6 bg-primary rounded-full shadow"
+                                <button
+                                    class="text-xl text-accent py-3 px-8 bg-primary rounded-full shadow font-semibold"
                                     @click="unblockModal = false">Cancel</button>
-                                <button class="text-lg text-white py-2.5 px-6 bg-1 rounded-full shadow"
+                                <button class="text-xl text-white py-3 px-8 bg-1 rounded-full shadow font-semibold"
                                     @click="unblockModal = false">Unblock</button>
                             </div>
                         </div>
