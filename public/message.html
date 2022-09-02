@@ -563,9 +563,8 @@
 
 
                             <!-- Block Modal Start -->
-                            <div x-cloak
-                                class="fixed inset-0 z-50 bg-popup-overlay/70 backdrop-blur-[10px] flex items-center justify-center px-4"
-                                x-show="block">
+                            <div x-cloak x-show="block"
+                                class="fixed inset-0 z-50 bg-popup-overlay/70 backdrop-blur-[10px] flex items-center justify-center px-4">
                                 <div
                                     class="sm:max-w-sm md:max-w-lg 2xl:max-w-2xl w-full bg-primary shadow rounded-[20px] px-4 py-[30px] md:py-10 relative">
                                     <button @click="block = false, menu = true"
@@ -586,7 +585,7 @@
                                             class="text-sm sm:text-base md:text-lg text-muted mb-6 sm:mb-7 md:mb-8 lg:mb-12">
                                             Are you sure you want to block hotasiansweet?</p>
 
-                                        <button
+                                        <button @click="unblockModal = true; block = false"
                                             class="text-invert bg-2 w-full text-center p-3 sm:py-3 xl:py-4 rounded-full font-semibold text-sm lg:text-base shadow-40 uppercase mb-2.5 md:mb-4 lg:mb-5 hover:opacity-80">block</button>
                                         <button @click="block = false"
                                             class="text-invert bg-muted w-full text-center p-3 sm:py-3 xl:py-4 rounded-full font-semibold text-sm lg:text-base shadow-40 uppercase hover:opacity-80">cancel</button>
@@ -595,6 +594,32 @@
                             </div>
                             <!-- Block Modal End -->
 
+                            <!-- Unblock Modal Start -->
+                            <div x-show="unblockModal" x-data="{blockPage: 1}">
+                                <div class="fixed bottom-0 inset-x-0 mx-auto max-w-md w-full bg-light shadow-20 rounded-[20px] px-4 py-[30px] md:py-10 mt-auto text-center"
+                                    x-show="blockPage === 1">
+                                    <h3 class="text-2xl text-primary mb-5">You've blocked <span
+                                            class="font-bold">Babiedoll</span></h3>
+                                    <button class="text-lg text-white py-3 px-6 bg-info"
+                                        @click="blockPage = 2">Unblock</button>
+                                </div>
+
+                                <div class="fixed bottom-0 inset-x-0 mx-auto max-w-md w-full bg-light shadow-20 rounded-[20px] px-4 py-[30px] md:py-10 mt-auto text-center"
+                                    x-show="blockPage === 2">
+                                    <h3 class="text-2xl text-primary mb-3">Unblock <span
+                                            class="font-bold">Babiedoll</span>?</h3>
+                                    <p class="text-lg text-primary text-left mb-3">If you unblock <span
+                                            class="font-bold">Babiedoll</span>, she may be able to contact you and you
+                                        may send her message again.</p>
+                                    <div class="flex items-center justify-center space-x-3">
+                                        <button class="text-lg text-accent py-3 px-6 bg-primary"
+                                            @click="unblockModal = false">Cancel</button>
+                                        <button class="text-lg text-white py-3 px-6 bg-info"
+                                            @click="unblockModal = false">Unblock</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Unblock Modal End -->
 
 
                             <!-- Report Modal Start -->
@@ -978,6 +1003,7 @@
                 confirmDelete: false,
                 menu: false,
                 block: false,
+                unblockModal: false,
                 report: false,
                 selectList: [],
                 selectAll: false,
