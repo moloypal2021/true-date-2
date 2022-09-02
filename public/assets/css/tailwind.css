@@ -2897,6 +2897,11 @@ body{
   padding-right: 0.25rem;
 }
 
+.px-12{
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
 .pt-20{
   padding-top: 5rem;
 }
