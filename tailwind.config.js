@@ -124,6 +124,7 @@ module.exports = {
         3: "var(--gradient-bg-3)",
         4: "var(--gradient-bg-4)",
         5: "var(--gradient-bg-5)",
+        6: "var(--gradient-bg-6)",
         home: "var(--gradient-bg-home-login)",
       },
       boxShadow: {
