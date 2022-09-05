@@ -213,11 +213,20 @@
         <!-- Content Start -->
         <section
             class="container px-0 sm:px-5 pb-5 lg:pt-36 3k:pt-40 pt-20 sm:pt-28 md:pt-32 w-full flex flex-col h-full">
-            <div class="m-auto w-full">
+            <div class="m-auto w-full" x-data="{ circumference: 2 * 22 / 7 * 120, percent: 0, totalPercentage: 60, animate: false, incress(){
+                for (let index = 0; index < this.totalPercentage; index++) {
+                    setTimeout(() => {
+                        this.percent = index +1;
+                        if(this.totalPercentage === index +1) this.animate = true;
+                    }, index * 15);
+                    setTimeout(() => {
+                        if(this.totalPercentage === index +1) this.animate = false;
+                    }, index * 20);
+                }
+            } }" x-init="incress()">
 
                 <!-- Profile Pic And Details Start -->
-                <div class="max-w-[130px] lg:max-w-[150px] mx-auto relative flex items-center justify-center mb-3"
-                    x-data="{ circumference: 2 * 22 / 7 * 120, percent: 60 }">
+                <div class="max-w-[130px] lg:max-w-[150px] mx-auto relative flex items-center justify-center mb-3">
 
                     <svg class="transform rotate-90 w-full h-full" viewBox="0 0 288 288">
                         <circle cx="145" cy="145" r="120" stroke="currentColor" stroke-width="10" fill="transparent"
@@ -251,9 +260,10 @@
                         </g>
                     </svg>
 
-                    <div
-                        class="px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-2 text-invert text-sm sm:text-sm font-medium absolute bottom-0 sm:-translate-y-2">
-                        65% complete</div>
+                    <div class="px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-2 text-invert text-sm sm:text-sm font-medium absolute bottom-0 sm:-translate-y-2 transition-all duration-300 transform"
+                        :class="animate ? 'scale-125' : 'scale-100'">
+                        <span x-text="percent"></span>% complete
+                    </div>
                 </div>
 
                 <div class="flex items-start justify-center space-x-4 ml-10">
@@ -262,8 +272,8 @@
                             27
                         </h1>
 
-                        <p
-                            class="text-sm sm:text-base leading-3 sm:leading-4 text-muted font-medium flex justify-center items-end space-x-2">
+                        <p class="text-sm sm:text-base leading-3 sm:leading-4 text-muted font-medium flex justify-center items-end space-x-2 transition-all duration-300 transform"
+                            :class="animate ? 'scale-110' : 'scale-100'">
                             <svg class="w-3 mb-0.5" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M5.5 1.04845C3.01867 1.04845 1 3.1852 1 5.81052C1 9.15089 4.74933 12.4053 5.5 12.5786C6.25067 12.4046 10 9.15019 10 5.81052C10 3.1852 7.98133 1.04845 5.5 1.04845ZM7.66733 5.76719C7.66733 4.51394 6.69533 3.49484 5.50067 3.49484C4.306 3.49484 3.334 4.51394 3.334 5.76719C3.334 7.01974 4.306 8.03814 5.50067 8.03814C6.69533 8.03814 7.66733 7.01974 7.66733 5.76719Z"
@@ -627,6 +637,7 @@
         <!-- Footer Section End -->
 
     </div>
+
 </body>
 
 </html>
