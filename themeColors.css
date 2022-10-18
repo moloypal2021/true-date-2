@@ -58,7 +58,7 @@
     );
 
     --gradient-bg-5: linear-gradient(90deg, #ffb906 100%, #ea9412 100%);
-    --gradient-bg-6: linear-gradient(90deg, #ff0642 50%, #eeeeee 50%);
+    --gradient-bg-6: linear-gradient(90deg, #dc0a5e 50%, #eeeeee 50%);
 
     --gradient-bg-home-login: linear-gradient(
       0deg,

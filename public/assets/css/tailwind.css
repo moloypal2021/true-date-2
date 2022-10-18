@@ -677,7 +677,7 @@ select{
       #dc0a5e 100%
     );
   --gradient-bg-5: linear-gradient(90deg, #ffb906 100%, #ea9412 100%);
-  --gradient-bg-6: linear-gradient(90deg, #ff0642 50%, #eeeeee 50%);
+  --gradient-bg-6: linear-gradient(90deg, #dc0a5e 50%, #eeeeee 50%);
   --gradient-bg-home-login: linear-gradient(
       0deg,
       #eeeeee 0.72%,
@@ -2018,12 +2018,6 @@ body{
 .scale-125{
   --tw-scale-x: 1.25;
   --tw-scale-y: 1.25;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.scale-110{
-  --tw-scale-x: 1.1;
-  --tw-scale-y: 1.1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
