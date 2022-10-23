@@ -1439,6 +1439,10 @@ body{
   margin-bottom: 7rem;
 }
 
+.mb-10{
+  margin-bottom: 2.5rem;
+}
+
 .block{
   display: block;
 }
@@ -4330,6 +4334,10 @@ select:focus > option:checked {
     margin-top: 1rem;
   }
 
+  .sm\:mt-2{
+    margin-top: 0.5rem;
+  }
+
   .sm\:block{
     display: block;
   }
@@ -4500,6 +4508,10 @@ select:focus > option:checked {
 
   .sm\:w-\[100px\]{
     width: 100px;
+  }
+
+  .sm\:w-12{
+    width: 3rem;
   }
 
   .sm\:min-w-\[36px\]{
@@ -6403,6 +6415,10 @@ select:focus > option:checked {
 
   .\33k\:w-64{
     width: 16rem;
+  }
+
+  .\33k\:w-24{
+    width: 6rem;
   }
 
   .\33k\:max-w-2xl{
