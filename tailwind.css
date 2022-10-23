@@ -12,6 +12,9 @@
   body {
     @apply font-gilroy;
   }
+  :root {
+    --vh: 100vh;
+  }
 }
 
 @layer components {

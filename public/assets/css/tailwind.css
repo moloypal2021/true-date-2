@@ -691,6 +691,10 @@ body{
   font-family: Gilroy, sans-serif;
 }
 
+:root {
+  --vh: 100vh;
+}
+
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -1423,6 +1427,10 @@ body{
   margin-right: -2.5rem;
 }
 
+.mb-10{
+  margin-bottom: 2.5rem;
+}
+
 .mt-1\.5{
   margin-top: 0.375rem;
 }
@@ -1437,10 +1445,6 @@ body{
 
 .mb-28{
   margin-bottom: 7rem;
-}
-
-.mb-10{
-  margin-bottom: 2.5rem;
 }
 
 .block{
@@ -1751,16 +1755,16 @@ body{
   width: 6rem;
 }
 
+.w-16{
+  width: 4rem;
+}
+
 .w-11{
   width: 2.75rem;
 }
 
 .w-10\/12{
   width: 83.333333%;
-}
-
-.w-16{
-  width: 4rem;
 }
 
 .w-\[46px\]{
@@ -3040,12 +3044,12 @@ body{
   padding-right: 2.75rem;
 }
 
-.pr-8{
-  padding-right: 2rem;
-}
-
 .pt-3{
   padding-top: 0.75rem;
+}
+
+.pr-8{
+  padding-right: 2rem;
 }
 
 .text-left{
@@ -4330,12 +4334,12 @@ select:focus > option:checked {
     margin-right: 0px;
   }
 
-  .sm\:mt-4{
-    margin-top: 1rem;
-  }
-
   .sm\:mt-2{
     margin-top: 0.5rem;
+  }
+
+  .sm\:mt-4{
+    margin-top: 1rem;
   }
 
   .sm\:block{
@@ -4498,6 +4502,10 @@ select:focus > option:checked {
     width: 100%;
   }
 
+  .sm\:w-12{
+    width: 3rem;
+  }
+
   .sm\:w-16{
     width: 4rem;
   }
@@ -4508,10 +4516,6 @@ select:focus > option:checked {
 
   .sm\:w-\[100px\]{
     width: 100px;
-  }
-
-  .sm\:w-12{
-    width: 3rem;
   }
 
   .sm\:min-w-\[36px\]{
