@@ -457,7 +457,7 @@
                 <div class=" relative h-screen flex flex-col">
                     <!-- Header Start -->
                     <div
-                        class="fixed lg:absolute inset-x-0 top-0 flex justify-between items-center lg:bg-primary shadow-1 px-5 md:px-12 py-2 md:py-2.5 z-20">
+                        class="fixed lg:absolute inset-x-0 top-0 flex justify-between items-center bg-primary shadow-1 px-5 md:px-12 py-2 md:py-2.5 z-30">
                         <div class="flex items-center">
                             <button @click="showMessageList = true" class="lg:hidden mr-6"><svg
                                     class="fill-current stroke-current text-muted" width="24" height="24"
@@ -1040,6 +1040,18 @@
                 }
             }
         }
+
+
+
+        // Ios Safari Browser Height
+        const appHeight = () => {
+            const doc = document.documentElement
+            doc.style.setProperty('--vh', `${window.innerHeight}px`);
+        }
+        window.addEventListener('resize', appHeight)
+        setTimeout(() => {
+            appHeight();
+        }, 100);
     </script>
 </body>
 

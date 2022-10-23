@@ -3492,10 +3492,15 @@ body{
       writing-mode: vertical-lr;
 }
 
+:root {
+  --vh: 100vh;
+}
+
 .h-screen {
   height: 100vh;
   /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100);
+  height: var(--vh);
+  /* height: calc(var(--vh, 1vh) * 100); */
 }
 
 .custom-number-input::-webkit-inner-spin-button {
