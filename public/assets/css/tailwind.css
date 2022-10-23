@@ -6425,6 +6425,10 @@ select:focus > option:checked {
     width: 6rem;
   }
 
+  .\33k\:w-14{
+    width: 3.5rem;
+  }
+
   .\33k\:max-w-2xl{
     max-width: 42rem;
   }
