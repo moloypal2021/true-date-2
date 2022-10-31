@@ -1423,12 +1423,12 @@ body{
   margin-left: 1rem;
 }
 
-.-mr-10{
-  margin-right: -2.5rem;
-}
-
 .mb-10{
   margin-bottom: 2.5rem;
+}
+
+.-mr-10{
+  margin-right: -2.5rem;
 }
 
 .mt-1\.5{
@@ -1747,16 +1747,16 @@ body{
   width: 73%;
 }
 
+.w-16{
+  width: 4rem;
+}
+
 .w-\[156px\]{
   width: 156px;
 }
 
 .w-24{
   width: 6rem;
-}
-
-.w-16{
-  width: 4rem;
 }
 
 .w-11{
@@ -1915,12 +1915,12 @@ body{
   max-width: 130px;
 }
 
-.max-w-\[348px\]{
-  max-width: 348px;
-}
-
 .max-w-\[494px\]{
   max-width: 494px;
+}
+
+.max-w-\[348px\]{
+  max-width: 348px;
 }
 
 .max-w-\[296px\]{
@@ -3050,10 +3050,6 @@ body{
 
 .pr-8{
   padding-right: 2rem;
-}
-
-.pt-24{
-  padding-top: 6rem;
 }
 
 .text-left{
@@ -4326,6 +4322,10 @@ select:focus > option:checked {
     margin-bottom: 5rem;
   }
 
+  .sm\:mt-2{
+    margin-top: 0.5rem;
+  }
+
   .sm\:mt-\[18px\]{
     margin-top: 18px;
   }
@@ -4336,10 +4336,6 @@ select:focus > option:checked {
 
   .sm\:mr-0{
     margin-right: 0px;
-  }
-
-  .sm\:mt-2{
-    margin-top: 0.5rem;
   }
 
   .sm\:mt-4{
@@ -4502,12 +4498,12 @@ select:focus > option:checked {
     width: 1.5rem;
   }
 
-  .sm\:w-full{
-    width: 100%;
-  }
-
   .sm\:w-12{
     width: 3rem;
+  }
+
+  .sm\:w-full{
+    width: 100%;
   }
 
   .sm\:w-16{
@@ -6270,14 +6266,6 @@ select:focus > option:checked {
     width: 66.666667%;
   }
 
-  .\32xl\:w-14{
-    width: 3.5rem;
-  }
-
-  .\32xl\:w-24{
-    width: 6rem;
-  }
-
   .\32xl\:w-5{
     width: 1.25rem;
   }
@@ -6425,12 +6413,12 @@ select:focus > option:checked {
     width: 16rem;
   }
 
-  .\33k\:w-24{
-    width: 6rem;
-  }
-
   .\33k\:w-14{
     width: 3.5rem;
+  }
+
+  .\33k\:w-24{
+    width: 6rem;
   }
 
   .\33k\:max-w-2xl{
